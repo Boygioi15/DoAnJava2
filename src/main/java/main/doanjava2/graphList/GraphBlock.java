@@ -39,7 +39,7 @@ public class GraphBlock extends HBox {
 		initUIBinding();
 		initEvent();
 		initUI_ModelBinding();
-		model.setLineType(LineType.Chopped);
+		updateUI();
 		configPopOver.animatedProperty().set(false);
 	}
 
@@ -126,12 +126,7 @@ public class GraphBlock extends HBox {
 	}
 	private void initUI_ModelBinding() {
 		model.addListener(Object ->{
-			colorAndActive.setFill(model.getGraphColor());
-			opacitySlider.setValue(model.getOpacity());
-			widthSlider.setValue(model.getLineWidth());
-			typeComboBox.setValue(model.getLineType().toString());
-			colorPicker.setValue(model.getGraphColor());
-			expressionTextField.setText(model.getExpressionString());
+			updateUI();
 		});
 		opacitySlider.valueProperty().addListener(Object -> {
 			model.setOpacity(opacitySlider.getValue());
@@ -150,6 +145,14 @@ public class GraphBlock extends HBox {
 		});
 
 	}
+	private void updateUI(){
+		colorAndActive.setFill(model.getGraphColor());
+		opacitySlider.setValue(model.getOpacity());
+		widthSlider.setValue(model.getLineWidth());
+		typeComboBox.setValue(model.getLineType().toString());
+		colorPicker.setValue(model.getGraphColor());
+		expressionTextField.setText(model.getExpressionString());
+	}
 	private void toggleConfig() {
 		if (configPopOver.isShowing()) {
 			configPopOver.hide();
@@ -164,8 +167,13 @@ public class GraphBlock extends HBox {
 
 	public void setDataSource(GraphData dataSource) {
 		this.dataSource = dataSource;
+		System.out.println(dataSource.getGraphColor());
 		listenToDataSourceChange();
 		updateDataSourceListener();
+		model.setWhole(dataSource);
+
+		System.out.println(model.getGraphColor());
+
 	}
 	private void updateDataSourceListener() {
 		this.model.addListener(Object ->{

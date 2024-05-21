@@ -5,6 +5,9 @@ import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBException;
 import jakarta.xml.bind.Marshaller;
 import jakarta.xml.bind.Unmarshaller;
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
+import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.collections.FXCollections;
 
@@ -22,6 +25,7 @@ import main.doanjava2.inputKeyboard.InputKeyboard;
 import main.doanjava2.topNavBar.SaveObject;
 import main.doanjava2.topNavBar.TopNavBar;
 import main.doanjava2.ultilities.PopDialog;
+import org.apache.commons.io.FilenameUtils;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -36,6 +40,7 @@ import static main.doanjava2.Main.CreateNewWindow;
 
 public class MainController implements Initializable {
     public File currentFile = null;
+    public final BooleanProperty isChanged = new SimpleBooleanProperty(false);
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -54,6 +59,9 @@ public class MainController implements Initializable {
     }
     private void initData(){
         graphData = FXCollections.observableArrayList();
+        graphData.addListener((ListChangeListener<? super GraphData>) ob -> {
+            isChanged.setValue(true);
+        });
     }
     private void init2(){
         graphCanvas.init();
@@ -96,7 +104,7 @@ public class MainController implements Initializable {
                     FileChooser fileChooser = new FileChooser();
                     fileChooser.setTitle("Save File");
 
-                    FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Graph files (.graph)", ".graph");
+                    FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Graph files (*.graph)");
                     fileChooser.getExtensionFilters().add(extFilter);
                     File file = fileChooser.showSaveDialog(null);
                     if(file==null){
@@ -104,6 +112,9 @@ public class MainController implements Initializable {
                     }
                     marshaller.marshal(saveObject, file);
                     currentFile = file;
+
+                    topNavbar.UpdateFileName(FilenameUtils.getBaseName(currentFile.getName()));
+                    isChanged.setValue(false);
                     //PopDialog.popSuccessDialog("Save file successfully");
                 }
                 return;
@@ -113,7 +124,7 @@ public class MainController implements Initializable {
                 FileChooser fileChooser = new FileChooser();
                 fileChooser.setTitle("Save File");
 
-                FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Graph files (.graph)", ".graph");
+                FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Graph files ","*.graph");
                 fileChooser.getExtensionFilters().add(extFilter);
                 File file = fileChooser.showSaveDialog(null);
                 if(file==null){
@@ -121,11 +132,14 @@ public class MainController implements Initializable {
                 }
                 marshaller.marshal(saveObject, file);
                 currentFile = file;
+
+                topNavbar.UpdateFileName(FilenameUtils.getBaseName(currentFile.getName()));
                 //PopDialog.popSuccessDialog("Save file successfully");
             }
             else{
                 marshaller.marshal(saveObject, currentFile);
             }
+            isChanged.setValue(false);
             AppendNewFileLocationToRecentFiles(currentFile.getAbsolutePath());
         }
         catch(JAXBException e){
@@ -145,7 +159,7 @@ public class MainController implements Initializable {
             FileChooser fileChooser = new FileChooser();
             fileChooser.setTitle("Save File");
 
-            FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Graph files (.graph)", ".graph");
+            FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Graph files", "*.graph");
             fileChooser.getExtensionFilters().add(extFilter);
             File file = fileChooser.showSaveDialog(null);
             if(file==null){
@@ -153,6 +167,9 @@ public class MainController implements Initializable {
             }
             marshaller.marshal(saveObject, file);
             currentFile = file;
+
+            topNavbar.UpdateFileName(FilenameUtils.getBaseName(currentFile.getName()));
+            isChanged.setValue(false);
             AppendNewFileLocationToRecentFiles(currentFile.getAbsolutePath());
         }
         catch (JAXBException e){
@@ -163,6 +180,8 @@ public class MainController implements Initializable {
     public void Open(){
         //open fileChooser
         FileChooser fileChooser = new FileChooser();
+        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Graph files", "*.graph");
+        fileChooser.getExtensionFilters().add(extFilter);
         fileChooser.setTitle("Open File");
         File file = fileChooser.showOpenDialog(null);
 
@@ -171,8 +190,7 @@ public class MainController implements Initializable {
                 MainController controller = CreateNewWindow();
                 controller.PrimitiveLoad(file);
             } catch (JAXBException | IOException e) {
-                e.printStackTrace();
-                //PopDialog.popErrorDialog("Unable to load file",e.toString());
+                PopDialog.popErrorDialog("Unable to load data","");
             }
         }
     }
@@ -193,6 +211,9 @@ public class MainController implements Initializable {
                 //System.out.println(graphData.size());
                 graphCanvas.setSetting(saveObject.getSetting());
                 currentFile = file;
+
+                topNavbar.UpdateFileName(FilenameUtils.removeExtension(currentFile.getName()));
+                isChanged.setValue(false);
             }
         }
     }

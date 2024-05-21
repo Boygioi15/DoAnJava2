@@ -174,6 +174,7 @@ public class GraphImage {
 		
 		while(currentX<endX) {				
 			gc.setLineWidth(dataRef.getLineWidth());
+			gc.setGlobalAlpha(dataRef.getOpacity());
 			gc.setStroke(dataRef.getGraphColor());
 			
 			curPointInfo = new PointInfo(currentX,expression);	

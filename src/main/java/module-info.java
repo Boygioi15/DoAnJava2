@@ -8,6 +8,7 @@ module main.doanjava2 {
     requires java.xml;
     requires ch.obermuhlner.math.big;
     requires jakarta.xml.bind;
+    requires org.apache.commons.io;
 
     opens main.doanjava2;
     opens main.doanjava2.topNavBar to javafx.fxml, jakarta.xml.bind;

@@ -50,7 +50,7 @@ public class GraphData {
         return graphColor;
     }
     public void setGraphColor(Color newGraphColor) {
-        if(newGraphColor!=graphColor) {
+        if(!newGraphColor.equals(graphColor)) {
             this.graphColor = newGraphColor;
             notifyChange();
         }
@@ -59,7 +59,7 @@ public class GraphData {
         return lineType;
     }
     public void setLineType(LineType newLineType) {
-        if(newLineType!=lineType) {
+        if(!newLineType.equals(lineType)) {
             this.lineType = newLineType;
             notifyChange();
         }

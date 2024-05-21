@@ -44,22 +44,11 @@ public class GraphList extends VBox {
 			@Override
 			public void onChanged(Change<? extends GraphData> c) {
 				while(c.next()) {
-					 if (c.wasPermutated()) {
-	                     for (int i = c.getFrom(); i < c.getTo(); ++i) {
-	                    	 int start = c.getFrom() ;
-	                         int end = c.getTo() ;
-	                         for (int j = start ; j < end ; i++) {
-	                         }
-	                     }
-	                 } 
-					 else if (c.wasUpdated()) {
-	                          //update item
-	                 } 
-					 else if(c.wasAdded()) {
+                    if(c.wasAdded()) {
 						 int index = c.getFrom();
 						 addGraphBlock(index, mnr.graphData.get(index));
 					 }
-					 else {
+					 else if(c.wasRemoved()){
 						 int index = c.getFrom();
 						 removeGraphBlock(index);
 	                 }

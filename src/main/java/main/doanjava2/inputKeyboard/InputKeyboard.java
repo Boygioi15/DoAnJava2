@@ -204,7 +204,7 @@ public class InputKeyboard extends AnchorPane {
 	        } else {
 	            try {
 	                // Load nội dung từ file FXML
-	                FXMLLoader loader = new FXMLLoader(getClass().getResource("functionUI.fxml"));
+	                FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/InputKeyboard/functionUI.fxml"));
 	                loader.setController(this);
 	                Parent root = loader.load();
 

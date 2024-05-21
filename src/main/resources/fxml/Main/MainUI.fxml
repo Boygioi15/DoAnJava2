@@ -13,7 +13,7 @@
             prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="main.doanjava2.MainController" fx:id="mainUIScreen">
    <children>
-      <BorderPane maxHeight="Infinity" maxWidth="Infinity" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <BorderPane maxHeight="Infinity" maxWidth="Infinity" minWidth="0" minHeight="0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
          	<TopNavBar fx:id="topNavbar"/>
          </top>
