@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<?import main.doanjava2.graphCanvas.GraphCanvas?>
+<?import main.doanjava2.graphList.GraphList?>
+<?import main.doanjava2.inputKeyboard.InputKeyboard?>
+<?import main.doanjava2.topNavBar.TopNavBar?>
+
+<?import main.doanjava2.filePanel.FilePanel?>
+<AnchorPane maxHeight="Infinity" maxWidth="Infinity" minHeight="-Infinity"
+            prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="main.doanjava2.MainController" fx:id="mainUIScreen">
+   <children>
+      <BorderPane maxHeight="Infinity" maxWidth="Infinity" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+         	<TopNavBar fx:id="topNavbar"/>
+         </top>
+         <center>
+            <GraphCanvas fx:id="graphCanvas"/>
+         </center>
+		<left>
+			<GraphList fx:id="graphList"/>
+		</left>
+      </BorderPane>
+       <FilePanel fx:id="filePanel" AnchorPane.leftAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="50.0"/>
+       <InputKeyboard fx:id="inputKeyboard" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.bottomAnchor="0.0"/>
+   </children>
+</AnchorPane>
