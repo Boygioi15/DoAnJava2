@@ -1,3 +1,4 @@
-.background{
-	-fx-background-color: #EEEEEE
+.input-keyboard-panel {
+	-fx-background-color: #ffffff;
+	-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0, 0, -1);
 }

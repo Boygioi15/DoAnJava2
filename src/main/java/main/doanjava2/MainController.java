@@ -1,6 +1,5 @@
 package main.doanjava2;
 
-
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBException;
 import jakarta.xml.bind.Marshaller;
@@ -297,13 +296,7 @@ public class MainController implements Initializable {
     }
 
     public void ToggleFilePanel(){
-        if(filePanel.isVisible()){
-            filePanel.setVisible(false);
-        }
-        else{
-            filePanel.setVisible(true);
-            inputKeyboard.close();
-        }
+        filePanel.ToggleFilePanel(inputKeyboard);
     }
 
 

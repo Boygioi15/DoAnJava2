@@ -1,12 +1,7 @@
 package main.doanjava2.topNavBar;
 
-import java.io.File;
 import java.io.IOException;
 
-import jakarta.xml.bind.JAXBContext;
-import jakarta.xml.bind.JAXBException;
-import jakarta.xml.bind.Marshaller;
-import jakarta.xml.bind.Unmarshaller;
 import javafx.scene.text.Text;
 import main.doanjava2.MainController;
 import org.controlsfx.control.PopOver;
@@ -17,7 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
-import javafx.stage.FileChooser;
+import javafx.scene.image.Image;
 
 
 public class TopNavBar extends AnchorPane {
@@ -56,6 +51,14 @@ public class TopNavBar extends AnchorPane {
 		} catch (IOException exception) {
 			throw new RuntimeException(exception);
 		}
+
+		Image logo = new Image("/Logo.png");
+		logoImage.setImage(logo);
+
+		logoImage.setFitWidth(50);
+		logoImage.setFitHeight(50);
+		logoImage.setPreserveRatio(true);
+
 	}
 	public void UpdateFileName(String fileName){
 		fileNameText.setText(fileName);

@@ -7,29 +7,39 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
 <fx:root id="root" minHeight="50.0" minWidth="600.0" prefHeight="50.0" prefWidth="1003.0" stylesheets="@../../css/TopNavBar/TopNavBar.css" type="AnchorPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
 	<children>
       <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <center>
-            <HBox alignment="CENTER" BorderPane.alignment="CENTER" />
-         </center>
+          <center>
+              <HBox alignment="CENTER" BorderPane.alignment="CENTER">
+                  <children>
+                      <ImageView fx:id="logoImage" />
+                      <Label text="Do an Java" />
+                  </children>
+              </HBox>
+          </center>
          <left>
-            <HBox alignment="CENTER_LEFT" BorderPane.alignment="CENTER">
-               <children>
-                  <Button fx:id="openFilePanelButton" mnemonicParsing="false" text="Button" />
-						<Text fx:id="fileNameText" strokeType="OUTSIDE" strokeWidth="0.0" text="Untitled Graph">
-							<font>
-								<Font size="19.0" />
-							</font>
-						</Text>
-               </children>
-            </HBox>
+             <HBox alignment="CENTER_LEFT" spacing="10.0" BorderPane.alignment="CENTER" AnchorPane.leftAnchor="10.0">
+                 <children>
+                     <Button fx:id="openFilePanelButton" mnemonicParsing="false">
+                         <graphic>
+                             <FontIcon iconLiteral="fa-bars" iconSize="20" />
+                         </graphic>
+                     </Button>
+                     <Text fx:id="fileNameText" strokeType="OUTSIDE" strokeWidth="0.0" text="Untitled Graph">
+                         <font>
+                             <Font size="19.0" />
+                         </font>
+                     </Text>
+                 </children>
+             </HBox>
          </left>
          <right>
             <HBox alignment="CENTER_LEFT" BorderPane.alignment="CENTER" />
          </right>
       </BorderPane>
-
-
 	</children>
 </fx:root>

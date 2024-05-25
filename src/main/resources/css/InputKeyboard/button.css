@@ -1,6 +1,5 @@
 .normal-button{
 	-fx-pref-height: 45;
-	-fx-pref-height: 45;
 	-fx-border-radius: 5;
 }
 .function-button{
@@ -13,10 +12,14 @@
 .function-button:hover{
 	-fx-background-color: #888888;
 }
+
 .important-button{
 	-fx-background-color: #28a3f4;
 	-fx-font-weight: bold;
 	-fx-text-fill: #FFFFFF
+}
+.important-button:hover{
+	-fx-background-color: #a4d7ff;
 }
 .number-button{
 	-fx-pref-width: 80;
@@ -57,4 +60,12 @@
 }
 .math-button:hover{
 	-fx-background-color: #BBBBBB;
+}
+
+#closeButton {
+	-fx-background-color: transparent;
+}
+
+#closeButton:hover {
+	-fx-background-color: rgba(172, 172, 172, 0.15);
 }

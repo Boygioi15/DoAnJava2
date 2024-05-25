@@ -3,8 +3,6 @@
 <?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -12,16 +10,12 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<fx:root prefHeight="250" prefWidth="1040.0" style="-fx-background-color: #EEEEEE" stylesheets="@../../css/InputKeyboard/button.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+<fx:root prefHeight="250" prefWidth="1040.0" styleClass="input-keyboard-panel" stylesheets="@../../css/InputKeyboard/button.css, @../../css/InputKeyboard/background.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
 	<children>
-
 		<Button fx:id="closeButton" mnemonicParsing="false" onAction="#toggleOnOff" prefHeight="27.0" prefWidth="63.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
 			<graphic>
-				<ImageView fitHeight="39.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
-					<image>
-						<Image url="@../../../../../Downloads/keyboard.png" />
-					</image>
-				</ImageView>
+				<FontIcon iconLiteral="fa-keyboard-o" iconSize="30" />
 			</graphic>
 		</Button>
 
@@ -77,7 +71,7 @@
 										<String fx:value="number-button" />
 									</styleClass>
 								</Button>
-								<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" style="-fx-line-spacing: 5; -fx-line-spacing: 10;" text="&gt;">
+								<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" style="-fx-line-spacing: 10;" text="&gt;">
 									<styleClass>
 										<String fx:value="normal-button" />
 										<String fx:value="number-button" />
