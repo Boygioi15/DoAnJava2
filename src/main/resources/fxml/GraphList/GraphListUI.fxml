@@ -7,13 +7,14 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
 
-<fx:root minWidth="-Infinity" 
-	type="javafx.scene.layout.VBox" onMousePressed = "#doSomething" 
-	xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
-	
-	<GridPane fx:id="graphListPane" minWidth="-Infinity" style="-fx-background-color: transparent;">
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+<fx:root minWidth="-Infinity"
+         type="javafx.scene.layout.VBox" onMousePressed = "#doSomething"
+         xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+         stylesheets="@../../css/GraphList/GraphList.css">
+
+	<GridPane fx:id="graphListPane" minWidth="-Infinity" VBox.vgrow="ALWAYS" >
     <columnConstraints>
     	<ColumnConstraints hgrow="SOMETIMES" maxWidth="320.0" minWidth="0" prefWidth="320.0" />
     	<ColumnConstraints hgrow="SOMETIMES" maxWidth="0" minWidth="0" prefWidth="0" />
@@ -22,43 +23,47 @@
     <rowConstraints>
     	<RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
          <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
-    	<RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+    	<RowConstraints minHeight="10.0" vgrow="ALWAYS" />
     </rowConstraints>
 
     <children>
-    	<VBox fx:id="graphListBox" prefWidth="320" spacing="10" GridPane.rowIndex="2" />
-
-        <Button fx:id="openButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#openGraphList" style="-fx-background-color: #0000;" text="&gt;&gt;" visible="false" GridPane.columnIndex="1">
-        	<font>
-            	<Font name="System Bold" size="24.0" />
-            </font>
+        <VBox fx:id="graphListBox" prefWidth="300" spacing="10" GridPane.rowIndex="2" alignment="TOP_CENTER" >
             <padding>
-            	<Insets bottom="-4.0" top="-4.0" />
+                <Insets top="4" right="8" bottom="4" left="8" />
+            </padding>
+        </VBox>
+
+        <Button fx:id="openButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#openGraphList" style="-fx-background-color: #0000;" visible="false" GridPane.columnIndex="1">
+            <graphic>
+                <FontIcon iconLiteral="fa-angle-double-right" iconSize="24" />
+            </graphic>
+            <padding>
+                <Insets bottom="-4.0" top="-4.0" />
             </padding>
         </Button>
 
         <AnchorPane>
-        <children>
-        	<Button contentDisplay="CENTER" graphicTextGap="0.0" onAction="#closeGraphList" style="-fx-background-color: #0000;" text="&lt;&lt;" textAlignment="CENTER" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="2.0">
-                  <font>
-                     <Font name="System Bold" size="24.0" />
-                  </font>
-                  <padding>
-                     <Insets bottom="-4.0" top="-4.0" />
-                  </padding>
-        	</Button>
+            <children>
+                <Button contentDisplay="CENTER" styleClass="transparent-button" graphicTextGap="0.0" onAction="#closeGraphList" textAlignment="CENTER" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="10.0">
+                    <graphic>
+                        <FontIcon iconLiteral="fa-angle-double-left" iconSize="24" />
+                    </graphic>
+                    <padding>
+                        <Insets bottom="4.0" top="4.0" right="8.0" left="8.0"/>
+                    </padding>
+                </Button>
 
-            <Button contentDisplay="CENTER" graphicTextGap="0.0" layoutX="8.0" onAction="#requestAddingGraphData" style="-fx-background-color: #0000;" text="+" textAlignment="CENTER" AnchorPane.leftAnchor="4.0" AnchorPane.topAnchor="2.0">
-            	<font>
-                	<Font name="System Bold" size="24.0" />
-                </font>
-                <padding>
-                	<Insets bottom="-4.0" left="6.0" right="6.0" top="-4.0" />
-                </padding>
-            </Button>
-        </children>
+                <Button contentDisplay="CENTER" styleClass="transparent-button" graphicTextGap="0.0" layoutX="8.0" onAction="#requestAddingGraphData" textAlignment="CENTER" AnchorPane.leftAnchor="4.0" AnchorPane.topAnchor="10.0">
+                    <graphic>
+                        <FontIcon iconLiteral="fa-plus" iconSize="18" />
+                    </graphic>
+                    <padding>
+                        <Insets bottom="8.0" top="8.0" right="8.0" left="8.0"/>
+                    </padding>
+                </Button>
+            </children>
         </AnchorPane>
 
       </children>
-   </GridPane>	
+   </GridPane>
 </fx:root>

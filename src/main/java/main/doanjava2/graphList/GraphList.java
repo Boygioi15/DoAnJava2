@@ -14,6 +14,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import main.doanjava2.GraphData;
 import main.doanjava2.MainController;
+import javafx.animation.TranslateTransition;
+import javafx.util.Duration;
 
 public class GraphList extends VBox {
 	TextField currentlySelectedTextField = null;
@@ -111,26 +113,34 @@ public class GraphList extends VBox {
 
     @FXML
     public void closeGraphList() {
-    	graphListPane.setPrefWidth(0);
-        for (var node : graphListPane.getChildren()) {
-            node.setVisible(false);
-        }
-        openButton.setVisible(true);
+        TranslateTransition tt = new TranslateTransition(Duration.seconds(0.2), graphListPane);
+        tt.setToX(-graphListPane.getWidth());
+        tt.play();
+
+        tt.setOnFinished(e -> {
+            for (var node : graphListPane.getChildren()) {
+                node.setVisible(false);
+            }
+            openButton.setVisible(true);
+            this.setManaged(false);
+        });
     }
 
     @FXML
     public void openGraphList() {
-    	graphListPane.setPrefWidth(320);
         for (var node : graphListPane.getChildren()) {
             node.setVisible(true);
         }
         openButton.setVisible(false);
+        this.setManaged(true);
+
+        TranslateTransition tt = new TranslateTransition(Duration.seconds(0.2), graphListPane);
+        tt.setToX(0);
+        tt.play();
     }
 
     @FXML
     private VBox graphListBox;
-
-
 
     private void updateLabels() {
         for (int i = 0; i < graphListBox.getChildren().size(); i++) {

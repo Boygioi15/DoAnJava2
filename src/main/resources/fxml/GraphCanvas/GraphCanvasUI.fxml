@@ -11,8 +11,6 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -22,9 +20,10 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
+<?import org.kordamp.ikonli.javafx.FontIcon?>
 <fx:root fx:id="mainUIScreen" maxHeight="Infinity" maxWidth="Infinity" minHeight="-Infinity" minWidth="0.0" onMouseDragged="#translateCanvas" onMousePressed="#notifyMousePressed" onScroll="#zoomCanvas" prefWidth="600.0" type="AnchorPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
 
-	<GridPane fx:id="debugUI" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+	<GridPane fx:id="debugUI" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" >
 	   <columnConstraints>
 	      <ColumnConstraints minWidth="10.0" prefWidth="170.0" />
 	      <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
@@ -63,52 +62,33 @@
 	        
 	   </children>
 	</GridPane>
-
-
-
 		<VBox fx:id="buttonsUI" stylesheets="@../../css/GraphCanvas/configButton.css" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
 		   <children>
 		      <Button minHeight="40.0" minWidth="-Infinity" mnemonicParsing="false" onAction="#toggleSettingUI" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 5; -fx-border-radius: 5;">
-		         <graphic>
-		            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-		               <image>
-		                  <Image url="@../../../Material/gear.png" />
-		               </image>
-		            </ImageView>
-		         </graphic>
+				  <graphic>
+					  <FontIcon iconLiteral="fa-cog" iconSize="24" />
+				  </graphic>
 		         <VBox.margin>
 		            <Insets bottom="7.0" />
 		         </VBox.margin>
 		      </Button>
 		      <Button minWidth="-Infinity" mnemonicParsing="false" onAction="#zoomInCanvas_AtMiddle" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 5; -fx-border-radius: 5;">
-		         <graphic>
-		            <ImageView fitHeight="30.0" fitWidth="30.0" onMouseClicked="#zoomOutCanvas_AtMiddle" pickOnBounds="true" preserveRatio="true">
-		               <image>
-		                  <Image url="@../../../Material/plus.png" />
-		               </image>
-		            </ImageView>
-		         </graphic>
+				  <graphic>
+					  <FontIcon iconLiteral="fa-search-plus" iconSize="24" />
+				  </graphic>
 		      </Button>
 		      <Button minWidth="-Infinity" mnemonicParsing="false" onAction="#zoomOutCanvas_AtMiddle" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 5; -fx-border-radius: 5;">
-		         <graphic>
-		            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-		               <image>
-		                  <Image url="@../../../Material/subtract.png" />
-		               </image>
-		            </ImageView>
-		         </graphic>
+				  <graphic>
+					  <FontIcon iconLiteral="fa-search-minus" iconSize="24" />
+				  </graphic>
 		         <VBox.margin>
-		            <Insets top="2.0" />
+		            <Insets top="7.0" />
 		         </VBox.margin>
 		      </Button>
 		      <Button minWidth="-Infinity" mnemonicParsing="false" onAction="#goHome" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 5; -fx-border-radius: 5;">
-		         <graphic>
-		            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-		               <image>
-		                  <Image url="@../../../Material/home.png" />
-		               </image>
-		            </ImageView>
-		         </graphic>
+				  <graphic>
+					  <FontIcon iconLiteral="fa-home" iconSize="24" />
+				  </graphic>
 		         <VBox.margin>
 		            <Insets top="7.0" />
 		         </VBox.margin>

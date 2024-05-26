@@ -14,7 +14,10 @@ import main.doanjava2.GraphData;
 import main.doanjava2.MainController;
 import main.doanjava2.graphList.ControlCode;
 import main.doanjava2.graphList.GraphBlock;
+import main.doanjava2.inputKeyboard.InputKeyboard;
 import main.doanjava2.ultilities.PopDialog;
+import javafx.animation.TranslateTransition;
+import javafx.util.Duration;
 
 import java.io.IOException;
 
@@ -22,6 +25,9 @@ import static main.doanjava2.Main.CreateNewWindow;
 
 public class FilePanel extends VBox {
     MainController mnr;
+
+    private TranslateTransition slideIn;
+    private TranslateTransition slideOut;
 
     @FXML Button newButton;
     @FXML Button openButton;
@@ -54,6 +60,15 @@ public class FilePanel extends VBox {
                 PopDialog.popErrorDialog("Unable to create new window","");
             }
         });
+
+        slideIn = new TranslateTransition(Duration.seconds(0.3), this);
+        slideIn.setFromX(-300); // Assuming the width of the panel when fully expanded is 300
+        slideIn.setToX(0);
+
+        slideOut = new TranslateTransition(Duration.seconds(0.3), this);
+        slideOut.setFromX(0);
+        slideOut.setToX(-300);
+
         openButton.setOnAction(ob -> mnr.Open());
         saveButton.setOnAction(ob -> {
             mnr.Save();
@@ -63,5 +78,14 @@ public class FilePanel extends VBox {
         });
     }
 
-    
+    public void ToggleFilePanel(InputKeyboard inputKeyboard) {
+        if (this.isVisible()) {
+            slideOut.play();
+            slideOut.setOnFinished(e -> this.setVisible(false));
+        } else {
+            this.setVisible(true);
+            slideIn.play();
+            inputKeyboard.close();
+        }
+    }
 }

@@ -6,11 +6,11 @@
     -fx-text-fill: white;
 }
 
-.dialog-pane:header .header-panel {
+.dialog-pane .header-panel {
     -fx-background-color: black;
 }
 
-.dialog-pane:header .header-panel .label {
+.dialog-pane .header-panel .label {
     -fx-font-style: italic;
     -fx-font-size: 2em;
 }
