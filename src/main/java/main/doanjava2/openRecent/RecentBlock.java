@@ -6,23 +6,25 @@ import java.io.IOException;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.event.EventHandler;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Region;
 import javafx.scene.text.Text;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.HBox;
 
-public class RecentBlock extends HBox {
+public class RecentBlock extends AnchorPane {
 
     @FXML Text fileNameText;
     @FXML Text fileLocationText;
 
-    public HBox getRecentBlock() {
+    public Region getRecentBlock() {
         return recentBlock;
     }
 
     @FXML
-    private HBox recentBlock;
+    private Region recentBlock;
 
     public void setFileLocationString(String fileLocationString) {
         this.fileLocationString.set(fileLocationString);

@@ -14,10 +14,7 @@
     import java.io.File;
     import java.io.IOException;
     import java.net.URL;
-    import java.util.ArrayList;
-    import java.util.List;
-    import java.util.ResourceBundle;
-    import java.util.Scanner;
+    import java.util.*;
 
     import static main.doanjava2.Main.CreateNewWindow;
     import static main.doanjava2.Main.RecentFilesPath;
@@ -29,7 +26,9 @@
         @FXML
         private HBox openFromFileSystemButton;
         @FXML
-        private VBox recentBlocksContainer;
+        private VBox pinnedContainer;
+        @FXML
+        private VBox otherContainer;
         @FXML private TextField searchTextField;
 
         @Override
@@ -47,7 +46,7 @@
                 }
             });
             openFromFileSystemButton.setOnMouseClicked(mouseEvent -> {
-                Open();
+                MainController.Open();
             });
             searchTextField.textProperty().addListener((observable, oldValue, newValue) -> {
                searchRecent(newValue);
@@ -57,7 +56,7 @@
         }
 
         private void searchRecent(String key) {
-            recentBlocksContainer.getChildren().clear();
+            pinnedContainer.getChildren().clear();
 
             for (File file : recentFiles) {
                 if (file.getName().toLowerCase().contains(key.toLowerCase())) {
@@ -66,13 +65,24 @@
             }
         }
         private void loadRecentBlocks() {
+            Map<String,Boolean> recentFileMap = MainController.ReadRecentFiles();
+            //sort lai map
+            //sua lai pinned tuong ung, nho them time
+            for(Map.Entry<String,Boolean> entry : recentFileMap.entrySet()){
+                //them phan tu vao
+            }
             try {
                 Scanner scanner = new Scanner(new File(RecentFilesPath));
                 while (scanner.hasNextLine()) {
-                    String filePath = scanner.nextLine();
+                    String fileMap = scanner.nextLine();
+                    Boolean pinned;
+
+                    /*
                     File file = new File(filePath);
                     recentFiles.add(file);
                     addRecentBlock(file);
+
+                     */
                 }
                 scanner.close();
             } catch (IOException e) {
@@ -85,8 +95,8 @@
             recentBlock.setFileNameString(file.getName());
             recentBlock.setFileLocationString(file.getAbsolutePath());
 
-            HBox hbox = recentBlock.getRecentBlock(); // Get the HBox from RecentBlock
-            hbox.setOnMouseClicked(event -> {
+            Region tempBlock = recentBlock.getRecentBlock(); // Get the HBox from RecentBlock
+            tempBlock.setOnMouseClicked(event -> {
                 try {
                     MainController controller = CreateNewWindow();
                     controller.PrimitiveLoad(file);
@@ -95,8 +105,9 @@
                 }
             });
 
-            recentBlocksContainer.getChildren().add(hbox);
+            pinnedContainer.getChildren().add(tempBlock);
         }
+        /*
         public void Open() {
             //open fileChooser
             FileChooser fileChooser = new FileChooser();
@@ -114,4 +125,6 @@
                 }
             }
         }
+
+         */
     }

@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Accordion?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -19,19 +21,36 @@
                     <children>
                         <Label text="Ease graphing calculator" />
                         <Label text="Open recent" />
-                        <AnchorPane>
-                            <children>
-                                <TextField fx:id="searchTextField" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="0.0" />
-                                <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="0.0" />
-                            </children>
-                        </AnchorPane>
-                  <ScrollPane prefHeight="308.0" prefWidth="336.0">
+                  <HBox>
+                     <children>
+                                <TextField fx:id="searchTextField" prefWidth="250.0" />
+                                <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+                  </HBox>
+                  <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS">
                      <content>
-                        <VBox fx:id="recentBlocksContainer" prefHeight="300.0" prefWidth="332.0" spacing="10.0">
-                           <padding>
-                              <Insets top="10.0" />
-                           </padding>
-                        </VBox>
+                        <Accordion>
+                          <panes>
+                            <TitledPane text="Pinned">
+                                 <content>
+                                    <VBox fx:id="pinnedContainer" minHeight="10.0" spacing="10.0">
+                                       <padding>
+                                          <Insets top="10.0" />
+                                       </padding>
+                                    </VBox>
+                                 </content>
+                            </TitledPane>
+                            <TitledPane animated="false" text="Others">
+                                 <content>
+                                    <VBox fx:id="otherContainer" minHeight="10.0" spacing="10.0">
+                                       <padding>
+                                          <Insets top="10.0" />
+                                       </padding>
+                                    </VBox>
+                                 </content>
+                            </TitledPane>
+                          </panes>
+                        </Accordion>
                      </content>
                   </ScrollPane>
                     </children>

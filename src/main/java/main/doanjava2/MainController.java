@@ -139,7 +139,7 @@ public class MainController implements Initializable {
                 marshaller.marshal(saveObject, currentFile);
             }
             isChanged.setValue(false);
-            AppendNewFileLocationToRecentFiles(currentFile.getAbsolutePath());
+            AddNewFileLocationToRecentFiles(currentFile.getAbsolutePath());
         }
         catch(JAXBException e){
             PopDialog.popErrorDialog("Save file failed",e.getMessage());
@@ -169,14 +169,14 @@ public class MainController implements Initializable {
 
             topNavbar.UpdateFileName(FilenameUtils.getBaseName(currentFile.getName()));
             isChanged.setValue(false);
-            AppendNewFileLocationToRecentFiles(currentFile.getAbsolutePath());
+            AddNewFileLocationToRecentFiles(currentFile.getAbsolutePath());
         }
         catch (JAXBException e){
             PopDialog.popErrorDialog("Save file failed",e.getMessage());
         }
     }
 
-    public void Open(){
+    public static void Open(){
         //open fileChooser
         FileChooser fileChooser = new FileChooser();
         FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Graph files", "*.graph");
@@ -217,18 +217,27 @@ public class MainController implements Initializable {
         }
     }
 
-    public Set<String> ReadRecentFiles(){
+    static public Map<String,Boolean> ReadRecentFiles(){
         File file = new File(Main.RecentFilesPath);
 
-        Set<String> fileLocations = null;
+        Map<String,Boolean> fileMap = null;
         if (file.exists()) {
             try {
                 List<String> lines = Files.readAllLines(Paths.get(Main.RecentFilesPath));
-                fileLocations = new HashSet<>(lines);
+                fileMap = new HashMap<>();
 
-                System.out.println("File content:");
-                for (String line : fileLocations) {
-                    System.out.println(line);
+                //System.out.println("File content:");
+                for (String line : lines) {
+                    Integer first = line.indexOf(0);
+                    Boolean pinned;
+                    if(first.equals(0)){
+                        pinned = false;
+                    }else{
+                        pinned = true;
+                    }
+
+                    String fileLocation = line.substring(2);
+                    fileMap.put(fileLocation,pinned);
                 }
             } catch (IOException e) {
                 PopDialog.popErrorDialog("Can't read recent files","");
@@ -241,58 +250,63 @@ public class MainController implements Initializable {
                 PopDialog.popErrorDialog("Can't create recent files","");
             }
         }
-        return fileLocations;
+        return fileMap;
     }
-    public void AppendNewFileLocationToRecentFiles(String newPath){
-        Set<String> fileLocations = ReadRecentFiles();
-        fileLocations.add(newPath);
+    static public void AddNewFileLocationToRecentFiles(String newPath){
+        Map<String, Boolean> fileMap = ReadRecentFiles();
+        fileMap.put(newPath,false);
 
         clearRecentFilesContent();
         try (FileWriter fw = new FileWriter(Main.RecentFilesPath, true);
              PrintWriter pw = new PrintWriter(fw)){
-            for(String fileLocation: fileLocations){
-                pw.println(fileLocation);
+            for(Map.Entry<String,Boolean> entry: fileMap.entrySet()){
+                String line = "";
+                if(entry.getValue()) {
+                    line = line.concat("1");
+                }
+                else{
+                    line = line.concat("0");
+                }
+                line = line.concat(" ");
+                line = line.concat(entry.getKey());
+                pw.println(line);
             }
         }
         catch (IOException e) {
             PopDialog.popErrorDialog("Can't add recent files","");
         }
     }
-    public void RemoveFileLocationFromRecentFiles(String path){
-        Set<String> fileLocations = ReadRecentFiles();
-        fileLocations.remove(path);
+    static public void RemoveFileLocationFromRecentFiles(String path){
+        Map<String, Boolean> fileMap = ReadRecentFiles();
+        fileMap.remove(path);
 
         clearRecentFilesContent();
         try (FileWriter fw = new FileWriter(Main.RecentFilesPath, true);
              PrintWriter pw = new PrintWriter(fw)){
-            for(String fileLocation: fileLocations){
-                pw.println(fileLocation);
+            for(Map.Entry<String,Boolean> entry: fileMap.entrySet()){
+                String line = "";
+                if(entry.getValue()) {
+                    line = line.concat("1");
+                }
+                else{
+                    line = line.concat("0");
+                }
+                line = line.concat(" ");
+                line = line.concat(entry.getKey());
+                pw.println(line);
             }
         }
         catch (IOException e) {
             PopDialog.popErrorDialog("Can't add recent files","");
         }
     }
-    private void clearRecentFilesContent(){
+
+    static private void clearRecentFilesContent(){
         try (FileWriter fw = new FileWriter(Main.RecentFilesPath)) {
             // Opening the file in write mode without append will clear the file
         } catch (IOException e) {
             PopDialog.popErrorDialog("Small error appear!","");
         }
-    }
-    public void CreateNewSave(File file) throws JAXBException{
-        saveObject.getCurrentProps();
-        //set up jaxb
-        JAXBContext context = JAXBContext.newInstance(SaveObject.class);
-        Marshaller marshaller = context.createMarshaller();
-        marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-
-        if(file==null){
-            PopDialog.popErrorDialog("Save file failed", "file is null");
-            return;
-        }
-        marshaller.marshal(saveObject, file);
-        PopDialog.popSuccessDialog("Save file successfully");
     }
 
     public void ToggleFilePanel(){
