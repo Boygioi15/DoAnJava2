@@ -80,24 +80,18 @@ public class Main extends Application {
     }
     @Override
     public void start(Stage primaryStage) throws Exception{
-        CreateNewWindow();
-        /*
         FXMLLoader loader = new FXMLLoader(
-                getClass().getResource("/fxml/Main/MainUI.fxml")
+                getClass().getResource("/fxml/OpenRecent/OpenRecentUI.fxml")
         );
 
         Scene myScene = new Scene(loader.load());
-        Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
         //set Stage boundaries to visible bounds of the main screen
-        primaryStage.setX(primaryScreenBounds.getMinX());
-        primaryStage.setY(primaryScreenBounds.getMinY());
-        primaryStage.setWidth(primaryScreenBounds.getWidth());
-        primaryStage.setHeight(primaryScreenBounds.getHeight());
         primaryStage.setScene(myScene);
         primaryStage.setTitle("Graph drawer");
         primaryStage.show();
-        System.out.println("Screen width/height: " + primaryScreenBounds.getWidth()+","+primaryScreenBounds.getHeight());
-        */
+        OpenController openController = loader.getController();
+        openController.initManager();
+        /*CreateNewWindow();*/
     }
 
 
