@@ -17,6 +17,20 @@ public class RecentBlock extends HBox {
     @FXML Text fileNameText;
     @FXML Text fileLocationText;
 
+    public HBox getRecentBlock() {
+        return recentBlock;
+    }
+
+    @FXML
+    private HBox recentBlock;
+
+    public void setFileLocationString(String fileLocationString) {
+        this.fileLocationString.set(fileLocationString);
+    }
+
+    public void setFileNameString(String fileNameString) {
+        this.fileNameString.set(fileNameString);
+    }
 
     StringProperty fileLocationString = new SimpleStringProperty("");
     StringProperty fileNameString= new SimpleStringProperty("");
@@ -27,7 +41,7 @@ public class RecentBlock extends HBox {
     }
     private void loadFXML() {
         try {
-            FXMLLoader mainLoader = new FXMLLoader(getClass().getResource("/fxml/OpenRecent/OpenRecentUI.fxml"));
+            FXMLLoader mainLoader = new FXMLLoader(getClass().getResource("/fxml/OpenRecent/RecentBlockUI.fxml"));
             mainLoader.setRoot(this);
             mainLoader.setController(this);
             mainLoader.load();

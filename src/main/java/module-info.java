@@ -16,6 +16,8 @@ module main.doanjava2 {
     opens main.doanjava2.graphList to javafx.fxml;
     opens main.doanjava2.inputKeyboard to javafx.fxml;
     opens main.doanjava2.filePanel to javafx.fxml;
+    opens main.doanjava2.openRecent to javafx.fxml;
+
 
     exports  main.doanjava2.graphCanvas;
     exports  main.doanjava2.graphList;
