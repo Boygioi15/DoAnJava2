@@ -71,7 +71,7 @@ public class MainController implements Initializable {
 
     public void setUIReponsiveness() {
         mainUIScreen.widthProperty().addListener(ob -> graphCanvas.setWidth(mainUIScreen.getWidth()*0.75));
-        mainUIScreen.heightProperty().addListener(ob -> graphCanvas.setHeight(mainUIScreen.getHeight()));
+        mainUIScreen.heightProperty().addListener(ob -> graphCanvas.setHeight(mainUIScreen.getHeight()-topNavbar.getHeight()));
     }
 
     public void forwardInputRequest(String content) {

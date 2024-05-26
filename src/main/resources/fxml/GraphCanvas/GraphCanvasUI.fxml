@@ -21,326 +21,330 @@
 <?import javafx.scene.text.Text?>
 
 <?import org.kordamp.ikonli.javafx.FontIcon?>
-<fx:root fx:id="mainUIScreen" maxHeight="Infinity" maxWidth="Infinity" minHeight="-Infinity" minWidth="0.0" onMouseDragged="#translateCanvas" onMousePressed="#notifyMousePressed" onScroll="#zoomCanvas" prefWidth="600.0" type="AnchorPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root
+		fx:id="mainUIScreen"
+		maxHeight="Infinity" maxWidth="Infinity" minHeight="-Infinity"
+		minWidth="0.0" onMouseDragged="#translateCanvas" onMousePressed="#notifyMousePressed" onScroll="#zoomCanvas"
+		prefWidth="600.0" type="AnchorPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
 
 	<GridPane fx:id="debugUI" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" >
-	   <columnConstraints>
-	      <ColumnConstraints minWidth="10.0" prefWidth="170.0" />
-	      <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
-	      <ColumnConstraints minWidth="10.0" prefWidth="110.0" />
-	   </columnConstraints>
-	   <rowConstraints>
-	      <RowConstraints minHeight="10.0" prefHeight="30.0" />
-	      <RowConstraints minHeight="10.0" prefHeight="30.0" />
-	      <RowConstraints minHeight="10.0" prefHeight="30.0" />
-	      <RowConstraints minHeight="10.0" prefHeight="30.0" />
-	      <RowConstraints minHeight="10.0" prefHeight="30.0" />
-         <RowConstraints />
-	   </rowConstraints>
-	   <children>
-	      <Button mnemonicParsing="false" onAction="#add0" prefWidth="150.0" text="Add pos" />
-	      <Button mnemonicParsing="false" onAction="#update0" prefWidth="150.0" text="Edit pos" GridPane.rowIndex="1" />
-	      <Button mnemonicParsing="false" onAction="#remove0" prefWidth="150.0" text="Remove pos" GridPane.rowIndex="2" />
-	      <Button mnemonicParsing="false" onAction="#deri0" prefWidth="150.0" text="Angle threshold" GridPane.rowIndex="3" />
-	      <Button mnemonicParsing="false" onAction="#recur0" prefWidth="150.0" text="Max recursion" GridPane.rowIndex="4" />
-	      <Button mnemonicParsing="false" onAction="#plotting0" prefWidth="150.0" text="Plotting space" GridPane.rowIndex="5" />
-	      <TextField fx:id="add_tf" GridPane.columnIndex="1" />
-	      <TextField fx:id="update1_tf" GridPane.columnIndex="1" GridPane.rowIndex="1">
-	         <GridPane.margin>
-	            <Insets />
-	         </GridPane.margin>
-	      </TextField>
-	      <TextField fx:id="remove_tf" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-	      <TextField fx:id="deri_tf" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-	      <TextField fx:id="recur_tf" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-	      <TextField fx:id="update2_tf" GridPane.columnIndex="2" GridPane.rowIndex="1">
-	       <GridPane.margin>
-	            <Insets left="10.0" />
-	         </GridPane.margin>
-	      </TextField>
-	      <TextField fx:id="plottingSpace_tf" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-	        
-	   </children>
+		<columnConstraints>
+			<ColumnConstraints minWidth="10.0" prefWidth="170.0" />
+			<ColumnConstraints minWidth="10.0" prefWidth="100.0" />
+			<ColumnConstraints minWidth="10.0" prefWidth="110.0" />
+		</columnConstraints>
+		<rowConstraints>
+			<RowConstraints minHeight="10.0" prefHeight="30.0" />
+			<RowConstraints minHeight="10.0" prefHeight="30.0" />
+			<RowConstraints minHeight="10.0" prefHeight="30.0" />
+			<RowConstraints minHeight="10.0" prefHeight="30.0" />
+			<RowConstraints minHeight="10.0" prefHeight="30.0" />
+			<RowConstraints />
+		</rowConstraints>
+		<children>
+			<Button mnemonicParsing="false" onAction="#add0" prefWidth="150.0" text="Add pos" />
+			<Button mnemonicParsing="false" onAction="#update0" prefWidth="150.0" text="Edit pos" GridPane.rowIndex="1" />
+			<Button mnemonicParsing="false" onAction="#remove0" prefWidth="150.0" text="Remove pos" GridPane.rowIndex="2" />
+			<Button mnemonicParsing="false" onAction="#deri0" prefWidth="150.0" text="Angle threshold" GridPane.rowIndex="3" />
+			<Button mnemonicParsing="false" onAction="#recur0" prefWidth="150.0" text="Max recursion" GridPane.rowIndex="4" />
+			<Button mnemonicParsing="false" onAction="#plotting0" prefWidth="150.0" text="Plotting space" GridPane.rowIndex="5" />
+			<TextField fx:id="add_tf" GridPane.columnIndex="1" />
+			<TextField fx:id="update1_tf" GridPane.columnIndex="1" GridPane.rowIndex="1">
+				<GridPane.margin>
+					<Insets />
+				</GridPane.margin>
+			</TextField>
+			<TextField fx:id="remove_tf" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+			<TextField fx:id="deri_tf" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+			<TextField fx:id="recur_tf" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+			<TextField fx:id="update2_tf" GridPane.columnIndex="2" GridPane.rowIndex="1">
+				<GridPane.margin>
+					<Insets left="10.0" />
+				</GridPane.margin>
+			</TextField>
+			<TextField fx:id="plottingSpace_tf" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+
+		</children>
 	</GridPane>
-		<VBox fx:id="buttonsUI" stylesheets="@../../css/GraphCanvas/configButton.css" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
-		   <children>
-		      <Button minHeight="40.0" minWidth="-Infinity" mnemonicParsing="false" onAction="#toggleSettingUI" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 5; -fx-border-radius: 5;">
-				  <graphic>
-					  <FontIcon iconLiteral="fa-cog" iconSize="24" />
-				  </graphic>
-		         <VBox.margin>
-		            <Insets bottom="7.0" />
-		         </VBox.margin>
-		      </Button>
-		      <Button minWidth="-Infinity" mnemonicParsing="false" onAction="#zoomInCanvas_AtMiddle" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 5; -fx-border-radius: 5;">
-				  <graphic>
-					  <FontIcon iconLiteral="fa-search-plus" iconSize="24" />
-				  </graphic>
-		      </Button>
-		      <Button minWidth="-Infinity" mnemonicParsing="false" onAction="#zoomOutCanvas_AtMiddle" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 5; -fx-border-radius: 5;">
-				  <graphic>
-					  <FontIcon iconLiteral="fa-search-minus" iconSize="24" />
-				  </graphic>
-		         <VBox.margin>
-		            <Insets top="7.0" />
-		         </VBox.margin>
-		      </Button>
-		      <Button minWidth="-Infinity" mnemonicParsing="false" onAction="#goHome" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 5; -fx-border-radius: 5;">
-				  <graphic>
-					  <FontIcon iconLiteral="fa-home" iconSize="24" />
-				  </graphic>
-		         <VBox.margin>
-		            <Insets top="7.0" />
-		         </VBox.margin>
-		         
-		      </Button>
-		   </children>
-		</VBox>
-		
-		<TabPane fx:id="settingUI" tabClosingPolicy="UNAVAILABLE" AnchorPane.rightAnchor="52.0" AnchorPane.topAnchor="5.0">
-		   <tabs>
-		      <Tab text="Basic">
-		         <content>
-		            <AnchorPane minHeight="0.0" minWidth="0.0">
-		               <children>
-		                  <VBox spacing="15.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-		                     <children>
-		                        <VBox spacing="5.0" styleClass="radio-button">
-		                           <children>
-		                              <Text fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="Theme">
-		                                 <VBox.margin>
-		                                    <Insets />
-		                                 </VBox.margin>
-		                                 <font>
-		                                    <Font name="Arial" size="18.0" />
-		                                 </font>
-		                              </Text>
-		                              <RadioButton contentDisplay="TEXT_ONLY" lineSpacing="5.0" mnemonicParsing="false" selected="true" styleClass="check-box" text="Light">
-		                                 <VBox.margin>
-		                                    <Insets left="15.0" />
-		                                 </VBox.margin>
-		                                 <font>
-		                                    <Font name="Arial" size="14.0" />
-		                                 </font>
-		                                 <toggleGroup>
-		                                    <ToggleGroup fx:id="radioGroup" />
-		                                 </toggleGroup>
-		                              </RadioButton>
-		                              <RadioButton lineSpacing="5.0" mnemonicParsing="false" text="Dark" toggleGroup="$radioGroup">
-		                                 <font>
-		                                    <Font name="Arial" size="14.0" />
-		                                 </font>
-		                                 <VBox.margin>
-		                                    <Insets />
-		                                 </VBox.margin>
-		                                 <padding>
-		                                    <Insets left="15.0" />
-		                                 </padding>
-		                              </RadioButton>
-		                              <RadioButton lineSpacing="5.0" mnemonicParsing="false" text="Custom" toggleGroup="$radioGroup">
-		                                 <font>
-		                                    <Font name="Arial" size="14.0" />
-		                                 </font>
-		                                 <VBox.margin>
-		                                    <Insets left="15.0" />
-		                                 </VBox.margin>
-		                              </RadioButton>
-		                           </children>
-		                           <VBox.margin>
-		                              <Insets />
-		                           </VBox.margin>
-		                        </VBox>
-		                        <VBox spacing="5.0">
-		                           <children>
-		                              <Text fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="GridLine">
-		                                 <font>
-		                                    <Font name="Arial" size="18.0" />
-		                                 </font>
-		                                 <VBox.margin>
-		                                    <Insets />
-		                                 </VBox.margin>
-		                              </Text>
-		                              <CheckBox fx:id="majorGridline_cb" mnemonicParsing="false" text="Major gridline">
-		                                 <font>
-		                                    <Font name="Arial" size="14.0" />
-		                                 </font>
-		                                 <VBox.margin>
-		                                    <Insets left="15.0" />
-		                                 </VBox.margin>
-		                              </CheckBox>
-		                              <CheckBox fx:id="minorGridline_cb" mnemonicParsing="false" text="Minor gridline">
-		                                 <font>
-		                                    <Font name="Arial" size="14.0" />
-		                                 </font>
-		                                 <VBox.margin>
-		                                    <Insets left="15.0" />
-		                                 </VBox.margin>
-		                              </CheckBox>
-		                           </children>
-		                        </VBox>
-		                     </children>
-		                     <padding>
-		                        <Insets bottom="15.0" left="15.0" right="50.0" top="10.0" />
-		                     </padding>
-		                  </VBox>
-		               </children>
-		            </AnchorPane>
-		         </content>
-		      </Tab>
-		      <Tab text="xAxis">
-		         <content>
-		            <AnchorPane minHeight="0.0" minWidth="0.0">
-		               <children>
-		                  <VBox spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-		                     <children>
-		                        <HBox alignment="CENTER_LEFT" spacing="5.0">
-		                           <children>
-		                              <Label alignment="CENTER" text="Boundary:" textAlignment="CENTER">
-		                                 <font>
-		                                    <Font name="Arial" size="14.0" />
-		                                 </font>
-		                              </Label>
-		                              <TextField fx:id="leftBoundary_tf" prefWidth="60.0" styleClass="number-text-field" />
-		                              <Label alignment="CENTER" text="&lt;x&lt;" textAlignment="CENTER">
-		                               	<font>
-		                                    <Font name="Arial" size="16.0" />
-		                                </font>
-		                              </Label>
-		                              <TextField fx:id="rightBoundary_tf" prefWidth="60.0" styleClass="number-text-field" />
-		                           </children>
-		                        </HBox>
-		                        <HBox alignment="CENTER_LEFT" spacing="5.0">
-		                           <children>
-		                              <Label alignment="CENTER" text="Range:" textAlignment="CENTER">
-		                                 <font>
-		                                    <Font name="Arial" size="14.0" />
-		                                 </font>
-		                              </Label>
-		                              <TextField prefWidth="40.0" styleClass="number-text-field" fx:id="xBaseRange_tf" />
-		                           </children>
-		                        </HBox>
-		                        <HBox alignment="CENTER_LEFT" spacing="5.0">
-		                           <children>
-		                              <Label alignment="CENTER" text="Label:" textAlignment="CENTER">
-		                                 <font>
-		                                    <Font name="Arial" size="14.0" />
-		                                 </font>
-		                              </Label>
-		                              <TextField prefWidth="50.0" styleClass="label-text-field" fx:id="xLabel_tf">
-		                                 <font>
-		                                    <Font name="Arial" size="14.0" />
-		                                 </font>
-		                              </TextField>
-		                           </children>
-		                        </HBox>
-		                        <CheckBox fx:id="showXAxis_cb" mnemonicParsing="false" text="Show axis">
-		                           <font>
-		                              <Font name="Arial" size="14.0" />
-		                           </font>
-		                           <VBox.margin>
-		                              <Insets top="10.0" />
-		                           </VBox.margin>
-		                        </CheckBox>
-		                        <CheckBox fx:id="showXNumber_cb" mnemonicParsing="false" text="Show number on axis">
-		                           <font>
-		                              <Font name="Arial" size="14.0" />
-		                           </font>
-		                           <VBox.margin>
-		                              <Insets />
-		                           </VBox.margin>
-		                        </CheckBox>
-		                     </children>
-		                     <padding>
-		                        <Insets bottom="15.0" left="15.0" right="15.0" top="10.0" />
-		                     </padding>
-		                  </VBox>
-		               </children>
-		            </AnchorPane>
-		         </content>
-		      </Tab>
-		      <Tab text="yAxis">
-		         <content>
-		            <AnchorPane minHeight="0.0" minWidth="0.0">
-		               <children>
-		                  <VBox spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-		                     <children>
-		                        <HBox alignment="CENTER_LEFT" spacing="5.0">
-		                           <children>
-		                              <Label alignment="CENTER" text="Boundary:" textAlignment="CENTER">
-		                                 <font>
-		                                    <Font name="Arial" size="14.0" />
-		                                 </font>
-		                              </Label>
-		                              <TextField fx:id="botBoundary_tf" prefWidth="60.0" styleClass="number-text-field" />
-		                              <Label alignment="CENTER" text="&lt;y&lt;" textAlignment="CENTER">
-		                                 <font>
-		                                    <Font name="Arial" size="16.0" />
-		                                 </font>
-		                              </Label>
-		                              <TextField fx:id="topBoundary_tf" prefWidth="60.0" styleClass="number-text-field" />
-		                           </children>
-		                        </HBox>
-		                        <HBox alignment="CENTER_LEFT" spacing="5.0">
-		                           <children>
-		                              <Label alignment="CENTER" text="Range:" textAlignment="CENTER">
-		                                 <font>
-		                                    <Font name="Arial" size="14.0" />
-		                                 </font>
-		                              </Label>
-		                              <TextField fx:id="yBaseRange_tf" prefWidth="40.0" styleClass="number-text-field" />
-		                           </children>
-		                        </HBox>
-		                        <HBox alignment="CENTER_LEFT" spacing="5.0">
-		                           <children>
-		                              <Label alignment="CENTER" text="Label:" textAlignment="CENTER">
-		                                 <font>
-		                                    <Font name="Arial" size="14.0" />
-		                                 </font>
-		                              </Label>
-		                              <TextField fx:id="yLabel_tf" prefWidth="50.0" styleClass="label-text-field">
-		                                 <font>
-		                                    <Font name="Arial" size="14.0" />
-		                                 </font>
-		                              </TextField>
-		                           </children>
-		                        </HBox>
-		                        <CheckBox fx:id="showYAxis_cb" mnemonicParsing="false" text="Show axis">
-		                           <font>
-		                              <Font name="Arial" size="14.0" />
-		                           </font>
-		                           <VBox.margin>
-		                              <Insets top="10.0" />
-		                           </VBox.margin>
-		                        </CheckBox>
-		                        <CheckBox fx:id="showYNumber_cb" mnemonicParsing="false" text="Show number on axis">
-		                           <font>
-		                              <Font name="Arial" size="14.0" />
-		                           </font>
-		                           <VBox.margin>
-		                              <Insets />
-		                           </VBox.margin>
-		                        </CheckBox>
-		                     </children>
-		                     <padding>
-		                        <Insets bottom="15.0" left="15.0" right="15.0" top="10.0" />
-		                     </padding>
-		                  </VBox>
-		               </children>
-		            </AnchorPane>
-		         </content>
-		      </Tab>
-		   </tabs>
-		   <effect>
-		      <DropShadow height="1.0" radius="0.0" spread="1.0" width="1.0" />
-		   </effect>
-		   <padding>
-		      <Insets right="15.0" />
-		   </padding>
-      <stylesheets>
-         <URL value="@../../css/GraphCanvas/tab_pane.css" />
-         <URL value="@../../css/GraphCanvas/check_box.css" />
-         <URL value="@../../css/GraphCanvas/radio_button.css" />
-         <URL value="@../../css/GraphCanvas/text_field.css" />
-      </stylesheets>
-		</TabPane>
+	<VBox fx:id="buttonsUI" stylesheets="@../../css/GraphCanvas/configButton.css" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+		<children>
+			<Button minHeight="40.0" minWidth="-Infinity" mnemonicParsing="false" onAction="#toggleSettingUI" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 5; -fx-border-radius: 5;">
+				<graphic>
+					<FontIcon iconLiteral="fa-cog" iconSize="24" />
+				</graphic>
+				<VBox.margin>
+					<Insets bottom="7.0" />
+				</VBox.margin>
+			</Button>
+			<Button minWidth="-Infinity" mnemonicParsing="false" onAction="#zoomInCanvas_AtMiddle" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 5; -fx-border-radius: 5;">
+				<graphic>
+					<FontIcon iconLiteral="fa-search-plus" iconSize="24" />
+				</graphic>
+			</Button>
+			<Button minWidth="-Infinity" mnemonicParsing="false" onAction="#zoomOutCanvas_AtMiddle" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 5; -fx-border-radius: 5;">
+				<graphic>
+					<FontIcon iconLiteral="fa-search-minus" iconSize="24" />
+				</graphic>
+				<VBox.margin>
+					<Insets top="7.0" />
+				</VBox.margin>
+			</Button>
+			<Button minWidth="-Infinity" mnemonicParsing="false" onAction="#goHome" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 5; -fx-border-radius: 5;">
+				<graphic>
+					<FontIcon iconLiteral="fa-home" iconSize="24" />
+				</graphic>
+				<VBox.margin>
+					<Insets top="7.0" />
+				</VBox.margin>
+
+			</Button>
+		</children>
+	</VBox>
+
+	<TabPane fx:id="settingUI" tabClosingPolicy="UNAVAILABLE" AnchorPane.rightAnchor="52.0" AnchorPane.topAnchor="5.0">
+		<tabs>
+			<Tab text="Basic">
+				<content>
+					<AnchorPane minHeight="0.0" minWidth="0.0">
+						<children>
+							<VBox spacing="15.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+								<children>
+									<VBox spacing="5.0" styleClass="radio-button">
+										<children>
+											<Text fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="Theme">
+												<VBox.margin>
+													<Insets />
+												</VBox.margin>
+												<font>
+													<Font name="Arial" size="18.0" />
+												</font>
+											</Text>
+											<RadioButton contentDisplay="TEXT_ONLY" lineSpacing="5.0" mnemonicParsing="false" selected="true" styleClass="check-box" text="Light">
+												<VBox.margin>
+													<Insets left="15.0" />
+												</VBox.margin>
+												<font>
+													<Font name="Arial" size="14.0" />
+												</font>
+												<toggleGroup>
+													<ToggleGroup fx:id="radioGroup" />
+												</toggleGroup>
+											</RadioButton>
+											<RadioButton lineSpacing="5.0" mnemonicParsing="false" text="Dark" toggleGroup="$radioGroup">
+												<font>
+													<Font name="Arial" size="14.0" />
+												</font>
+												<VBox.margin>
+													<Insets />
+												</VBox.margin>
+												<padding>
+													<Insets left="15.0" />
+												</padding>
+											</RadioButton>
+											<RadioButton lineSpacing="5.0" mnemonicParsing="false" text="Custom" toggleGroup="$radioGroup">
+												<font>
+													<Font name="Arial" size="14.0" />
+												</font>
+												<VBox.margin>
+													<Insets left="15.0" />
+												</VBox.margin>
+											</RadioButton>
+										</children>
+										<VBox.margin>
+											<Insets />
+										</VBox.margin>
+									</VBox>
+									<VBox spacing="5.0">
+										<children>
+											<Text fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="GridLine">
+												<font>
+													<Font name="Arial" size="18.0" />
+												</font>
+												<VBox.margin>
+													<Insets />
+												</VBox.margin>
+											</Text>
+											<CheckBox fx:id="majorGridline_cb" mnemonicParsing="false" text="Major gridline">
+												<font>
+													<Font name="Arial" size="14.0" />
+												</font>
+												<VBox.margin>
+													<Insets left="15.0" />
+												</VBox.margin>
+											</CheckBox>
+											<CheckBox fx:id="minorGridline_cb" mnemonicParsing="false" text="Minor gridline">
+												<font>
+													<Font name="Arial" size="14.0" />
+												</font>
+												<VBox.margin>
+													<Insets left="15.0" />
+												</VBox.margin>
+											</CheckBox>
+										</children>
+									</VBox>
+								</children>
+								<padding>
+									<Insets bottom="15.0" left="15.0" right="50.0" top="10.0" />
+								</padding>
+							</VBox>
+						</children>
+					</AnchorPane>
+				</content>
+			</Tab>
+			<Tab text="xAxis">
+				<content>
+					<AnchorPane minHeight="0.0" minWidth="0.0">
+						<children>
+							<VBox spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+								<children>
+									<HBox alignment="CENTER_LEFT" spacing="5.0">
+										<children>
+											<Label alignment="CENTER" text="Boundary:" textAlignment="CENTER">
+												<font>
+													<Font name="Arial" size="14.0" />
+												</font>
+											</Label>
+											<TextField fx:id="leftBoundary_tf" prefWidth="60.0" styleClass="number-text-field" />
+											<Label alignment="CENTER" text="&lt;x&lt;" textAlignment="CENTER">
+												<font>
+													<Font name="Arial" size="16.0" />
+												</font>
+											</Label>
+											<TextField fx:id="rightBoundary_tf" prefWidth="60.0" styleClass="number-text-field" />
+										</children>
+									</HBox>
+									<HBox alignment="CENTER_LEFT" spacing="5.0">
+										<children>
+											<Label alignment="CENTER" text="Range:" textAlignment="CENTER">
+												<font>
+													<Font name="Arial" size="14.0" />
+												</font>
+											</Label>
+											<TextField prefWidth="40.0" styleClass="number-text-field" fx:id="xBaseRange_tf" />
+										</children>
+									</HBox>
+									<HBox alignment="CENTER_LEFT" spacing="5.0">
+										<children>
+											<Label alignment="CENTER" text="Label:" textAlignment="CENTER">
+												<font>
+													<Font name="Arial" size="14.0" />
+												</font>
+											</Label>
+											<TextField prefWidth="50.0" styleClass="label-text-field" fx:id="xLabel_tf">
+												<font>
+													<Font name="Arial" size="14.0" />
+												</font>
+											</TextField>
+										</children>
+									</HBox>
+									<CheckBox fx:id="showXAxis_cb" mnemonicParsing="false" text="Show axis">
+										<font>
+											<Font name="Arial" size="14.0" />
+										</font>
+										<VBox.margin>
+											<Insets top="10.0" />
+										</VBox.margin>
+									</CheckBox>
+									<CheckBox fx:id="showXNumber_cb" mnemonicParsing="false" text="Show number on axis">
+										<font>
+											<Font name="Arial" size="14.0" />
+										</font>
+										<VBox.margin>
+											<Insets />
+										</VBox.margin>
+									</CheckBox>
+								</children>
+								<padding>
+									<Insets bottom="15.0" left="15.0" right="15.0" top="10.0" />
+								</padding>
+							</VBox>
+						</children>
+					</AnchorPane>
+				</content>
+			</Tab>
+			<Tab text="yAxis">
+				<content>
+					<AnchorPane minHeight="0.0" minWidth="0.0">
+						<children>
+							<VBox spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+								<children>
+									<HBox alignment="CENTER_LEFT" spacing="5.0">
+										<children>
+											<Label alignment="CENTER" text="Boundary:" textAlignment="CENTER">
+												<font>
+													<Font name="Arial" size="14.0" />
+												</font>
+											</Label>
+											<TextField fx:id="botBoundary_tf" prefWidth="60.0" styleClass="number-text-field" />
+											<Label alignment="CENTER" text="&lt;y&lt;" textAlignment="CENTER">
+												<font>
+													<Font name="Arial" size="16.0" />
+												</font>
+											</Label>
+											<TextField fx:id="topBoundary_tf" prefWidth="60.0" styleClass="number-text-field" />
+										</children>
+									</HBox>
+									<HBox alignment="CENTER_LEFT" spacing="5.0">
+										<children>
+											<Label alignment="CENTER" text="Range:" textAlignment="CENTER">
+												<font>
+													<Font name="Arial" size="14.0" />
+												</font>
+											</Label>
+											<TextField fx:id="yBaseRange_tf" prefWidth="40.0" styleClass="number-text-field" />
+										</children>
+									</HBox>
+									<HBox alignment="CENTER_LEFT" spacing="5.0">
+										<children>
+											<Label alignment="CENTER" text="Label:" textAlignment="CENTER">
+												<font>
+													<Font name="Arial" size="14.0" />
+												</font>
+											</Label>
+											<TextField fx:id="yLabel_tf" prefWidth="50.0" styleClass="label-text-field">
+												<font>
+													<Font name="Arial" size="14.0" />
+												</font>
+											</TextField>
+										</children>
+									</HBox>
+									<CheckBox fx:id="showYAxis_cb" mnemonicParsing="false" text="Show axis">
+										<font>
+											<Font name="Arial" size="14.0" />
+										</font>
+										<VBox.margin>
+											<Insets top="10.0" />
+										</VBox.margin>
+									</CheckBox>
+									<CheckBox fx:id="showYNumber_cb" mnemonicParsing="false" text="Show number on axis">
+										<font>
+											<Font name="Arial" size="14.0" />
+										</font>
+										<VBox.margin>
+											<Insets />
+										</VBox.margin>
+									</CheckBox>
+								</children>
+								<padding>
+									<Insets bottom="15.0" left="15.0" right="15.0" top="10.0" />
+								</padding>
+							</VBox>
+						</children>
+					</AnchorPane>
+				</content>
+			</Tab>
+		</tabs>
+		<effect>
+			<DropShadow height="1.0" radius="0.0" spread="1.0" width="1.0" />
+		</effect>
+		<padding>
+			<Insets right="15.0" />
+		</padding>
+		<stylesheets>
+			<URL value="@../../css/GraphCanvas/tab_pane.css" />
+			<URL value="@../../css/GraphCanvas/check_box.css" />
+			<URL value="@../../css/GraphCanvas/radio_button.css" />
+			<URL value="@../../css/GraphCanvas/text_field.css" />
+		</stylesheets>
+	</TabPane>
 </fx:root>

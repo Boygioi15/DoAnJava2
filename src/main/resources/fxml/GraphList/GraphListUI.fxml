@@ -7,14 +7,10 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import org.kordamp.ikonli.javafx.FontIcon ?>
+<fx:root onMousePressed="#doSomething" prefWidth="280.0" stylesheets="@../../css/GraphList/GraphList.css" type="javafx.scene.layout.VBox" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
 
-<?import org.kordamp.ikonli.javafx.FontIcon?>
-<fx:root minWidth="-Infinity"
-         type="javafx.scene.layout.VBox" onMousePressed = "#doSomething"
-         xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
-         stylesheets="@../../css/GraphList/GraphList.css">
-
-	<GridPane fx:id="graphListPane" minWidth="-Infinity" VBox.vgrow="ALWAYS" >
+	<GridPane fx:id="graphListPane" VBox.vgrow="ALWAYS">
     <columnConstraints>
     	<ColumnConstraints hgrow="SOMETIMES" maxWidth="320.0" minWidth="0" prefWidth="320.0" />
     	<ColumnConstraints hgrow="SOMETIMES" maxWidth="0" minWidth="0" prefWidth="0" />
@@ -27,13 +23,13 @@
     </rowConstraints>
 
     <children>
-        <VBox fx:id="graphListBox" prefWidth="300" spacing="10" GridPane.rowIndex="2" alignment="TOP_CENTER" >
+        <VBox fx:id="graphListBox" alignment="TOP_CENTER" spacing="10" GridPane.rowIndex="2">
             <padding>
-                <Insets top="4" right="8" bottom="4" left="8" />
+                <Insets bottom="4" left="8" right="8" top="4" />
             </padding>
         </VBox>
 
-        <Button fx:id="openButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#openGraphList" style="-fx-background-color: #0000;" visible="false" GridPane.columnIndex="1">
+        <Button fx:id="openButton" onAction="#openGraphList" style="-fx-background-color: #0000;" visible="false" GridPane.columnIndex="1">
             <graphic>
                 <FontIcon iconLiteral="fa-angle-double-right" iconSize="24" />
             </graphic>
@@ -44,21 +40,21 @@
 
         <AnchorPane>
             <children>
-                <Button contentDisplay="CENTER" styleClass="transparent-button" graphicTextGap="0.0" onAction="#closeGraphList" textAlignment="CENTER" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="10.0">
+                <Button contentDisplay="CENTER" graphicTextGap="0.0" onAction="#closeGraphList" styleClass="transparent-button" textAlignment="CENTER" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="10.0">
                     <graphic>
                         <FontIcon iconLiteral="fa-angle-double-left" iconSize="24" />
                     </graphic>
                     <padding>
-                        <Insets bottom="4.0" top="4.0" right="8.0" left="8.0"/>
+                        <Insets bottom="4.0" left="8.0" right="8.0" top="4.0" />
                     </padding>
                 </Button>
 
-                <Button contentDisplay="CENTER" styleClass="transparent-button" graphicTextGap="0.0" layoutX="8.0" onAction="#requestAddingGraphData" textAlignment="CENTER" AnchorPane.leftAnchor="4.0" AnchorPane.topAnchor="10.0">
+                <Button contentDisplay="CENTER" graphicTextGap="0.0" layoutX="8.0" onAction="#requestAddingGraphData" styleClass="transparent-button" textAlignment="CENTER" AnchorPane.leftAnchor="4.0" AnchorPane.topAnchor="10.0">
                     <graphic>
                         <FontIcon iconLiteral="fa-plus" iconSize="18" />
                     </graphic>
                     <padding>
-                        <Insets bottom="8.0" top="8.0" right="8.0" left="8.0"/>
+                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
                     </padding>
                 </Button>
             </children>

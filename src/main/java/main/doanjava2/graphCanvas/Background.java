@@ -32,7 +32,7 @@ class BackgroundParams {
 
     static double multiplierMinGap = 65;
     static Color darkTheme = Color.DARKBLUE;
-    static Color lightTheme = Color.rgb(255, 255, 255);
+    static Color lightTheme = Color.rgb(253, 253, 253);
 }
 
 public class Background {

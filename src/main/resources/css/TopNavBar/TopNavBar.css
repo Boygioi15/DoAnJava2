@@ -3,21 +3,16 @@
 	-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.1), 10, 0, 0, 5);
 }
 
-.button{
-	-fx-background-color:  #2f72dc;
-}
-
-#openFilePanelButton {
+.icon-button{
 	-fx-background-color: transparent;
-	-fx-margin: 10px;
-	-fx-background-radius: 5px;
-	-fx-border-radius: 5px;
+    	-fx-margin: 10px;
+    	-fx-background-radius: 5px;
+    	-fx-border-radius: 5px;
 }
-
-#openFilePanelButton:hover {
+.icon-button:hover {
 	-fx-background-color: #f0f0f0;
 }
 
-#openFilePanelButton:pressed {
+.icon-button:pressed {
 	-fx-background-color: #d0d0d0;
 }

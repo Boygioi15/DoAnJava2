@@ -1,45 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <?import org.kordamp.ikonli.javafx.FontIcon?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.image.ImageView?>
-<fx:root id="root" minHeight="50.0" minWidth="600.0" prefHeight="50.0" prefWidth="1003.0" stylesheets="@../../css/TopNavBar/TopNavBar.css" type="AnchorPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
-	<children>
-      <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-          <center>
-              <HBox alignment="CENTER" BorderPane.alignment="CENTER">
-                  <children>
-                      <ImageView fx:id="logoImage" />
-                      <Label text="Do an Java" />
-                  </children>
-              </HBox>
-          </center>
-         <left>
-             <HBox alignment="CENTER_LEFT" spacing="10.0" BorderPane.alignment="CENTER" AnchorPane.leftAnchor="10.0">
-                 <children>
-                     <Button fx:id="openFilePanelButton" mnemonicParsing="false">
-                         <graphic>
-                             <FontIcon iconLiteral="fa-bars" iconSize="20" />
-                         </graphic>
-                     </Button>
-                     <Text fx:id="fileNameText" strokeType="OUTSIDE" strokeWidth="0.0" text="Untitled Graph">
-                         <font>
-                             <Font size="19.0" />
-                         </font>
-                     </Text>
-                 </children>
-             </HBox>
-         </left>
-         <right>
-            <HBox alignment="CENTER_LEFT" BorderPane.alignment="CENTER" />
-         </right>
-      </BorderPane>
-	</children>
+<?import java.lang.String?>
+<fx:root
+        id="root"
+        minHeight="50.0" minWidth="600.0"
+        stylesheets="@../../css/TopNavBar/TopNavBar.css"
+        type="BorderPane" xmlns="http://javafx.com/javafx/21"
+        xmlns:fx="http://javafx.com/fxml/1"
+>
+	<center>
+        <HBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="5" BorderPane.alignment="CENTER">
+            <children>
+                <ImageView fx:id="logoImage" fitHeight="48.0" fitWidth="48.0" preserveRatio="true">
+                    <image>
+                        <Image url="@../../Logo.png" />
+                    </image></ImageView>
+                <Label text="Do an Java">
+               <font>
+                  <Font size="19.0" />
+               </font></Label>
+            </children>
+        </HBox>
+    </center>
+    <left>
+        <HBox alignment="CENTER_LEFT" spacing="5" BorderPane.alignment="CENTER">
+            <children>
+                <Button fx:id="openFilePanelButton" mnemonicParsing="false">
+                    <graphic>
+                        <FontIcon iconLiteral="anto-bars" iconSize="32"/>
+                    </graphic>
+                    <styleClass>
+                        <String fx:value="icon-button" />
+                    </styleClass>
+                </Button>
+                <Text fx:id="fileNameText" strokeType="OUTSIDE" strokeWidth="0.0" text="Untitled Graph">
+                    <font>
+                        <Font name="Arial" size="24.0" />
+                    </font>
+                </Text>
+            </children>
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+        </HBox>
+    </left>
+   <right>
+      <HBox alignment="CENTER_RIGHT" spacing="5.0" BorderPane.alignment="CENTER">
+         <padding>
+            <Insets right="10.0" />
+         </padding>
+         <children>
+             <Button fx:id="openLanguageButton" mnemonicParsing="false">
+                 <graphic>
+                     <FontIcon iconLiteral="anto-question-circle" iconSize="32"/>
+                 </graphic>
+                 <styleClass>
+                     <String fx:value="icon-button" />
+                 </styleClass>
+             </Button>
+             <Button fx:id="openCoopButton" mnemonicParsing="false">
+                 <graphic>
+                     <FontIcon iconLiteral="bi-code-slash" iconSize="32"/>
+                 </graphic>
+                 <styleClass>
+                     <String fx:value="icon-button" />
+                 </styleClass>
+             </Button>
+         </children>
+      </HBox>
+   </right>
+    <padding>
+        <Insets topRightBottomLeft="10.0" />
+    </padding>
 </fx:root>

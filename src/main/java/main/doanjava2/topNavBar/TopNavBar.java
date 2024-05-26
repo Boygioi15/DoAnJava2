@@ -2,6 +2,7 @@ package main.doanjava2.topNavBar;
 
 import java.io.IOException;
 
+import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
 import main.doanjava2.MainController;
 import org.controlsfx.control.PopOver;
@@ -15,7 +16,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.image.Image;
 
 
-public class TopNavBar extends AnchorPane {
+public class TopNavBar extends BorderPane {
 	MainController mnr;
 
 	@FXML private ImageView logoImage;
@@ -52,12 +53,6 @@ public class TopNavBar extends AnchorPane {
 			throw new RuntimeException(exception);
 		}
 
-		Image logo = new Image("/Logo.png");
-		logoImage.setImage(logo);
-
-		logoImage.setFitWidth(50);
-		logoImage.setFitHeight(50);
-		logoImage.setPreserveRatio(true);
 
 	}
 	public void UpdateFileName(String fileName){
