@@ -84,4 +84,10 @@ public class RecentBlock extends AnchorPane {
             pinBtn.setText("Pin");
         }
     }
+    public void appearPinBtn(){
+        pinBtn.setManaged(true);
+    }
+    public void hidePinBtn(){
+        pinBtn.setManaged(false);
+    }
 }

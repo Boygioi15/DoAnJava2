@@ -80,18 +80,15 @@ public class Main extends Application {
     }
     @Override
     public void start(Stage primaryStage) throws Exception{
-        FXMLLoader loader = new FXMLLoader(
-                getClass().getResource("/fxml/OpenRecent/OpenRecentUI.fxml")
-        );
-
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/OpenRecent/OpenRecentUI.fxml"));
         Scene myScene = new Scene(loader.load());
-        //set Stage boundaries to visible bounds of the main screen
         primaryStage.setScene(myScene);
         primaryStage.setTitle("Graph drawer");
         primaryStage.show();
+
         OpenController openController = loader.getController();
+        openController.setPrimaryStage(primaryStage); // Inject primaryStage into OpenController
         openController.initManager();
-        /*CreateNewWindow();*/
     }
 
 

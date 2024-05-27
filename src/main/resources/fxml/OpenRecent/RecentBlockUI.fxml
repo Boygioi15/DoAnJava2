@@ -32,7 +32,7 @@
                         <HBox alignment="CENTER_LEFT" spacing="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <Text fx:id="lastOpenedTimeLabel" fill="#c4c4c4" strokeType="OUTSIDE" strokeWidth="0.0" text="Time" />
-                              <Button fx:id="pinBtn" mnemonicParsing="false" prefHeight="25.0" prefWidth="67.0" text="Pin" />
+                              <Button fx:id="pinBtn" mnemonicParsing="false" prefHeight="25.0" prefWidth="67.0" text="Pin" managed="false"/>
                            </children>
                         </HBox>
                      </children>

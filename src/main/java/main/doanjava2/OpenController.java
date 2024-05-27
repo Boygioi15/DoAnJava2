@@ -12,6 +12,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import main.doanjava2.openRecent.RecentBlock;
 import main.doanjava2.ultilities.PopDialog;
 
@@ -43,7 +44,11 @@ public class OpenController implements Initializable {
     private TitledPane titledPaneOther;
     @FXML
     private TitledPane titledPanePinned;
+    private Stage primaryStage;
 
+    public void setPrimaryStage(Stage stage) {
+        this.primaryStage = stage;
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadRecentBlocks();
@@ -53,12 +58,14 @@ public class OpenController implements Initializable {
         createNewButton.setOnMouseClicked(mouseEvent -> {
             try {
                 CreateNewWindow();
+                primaryStage.close();
             } catch (IOException e) {
                 PopDialog.popErrorDialog("Unable to create new window", "");
             }
         });
         openFromFileSystemButton.setOnMouseClicked(mouseEvent -> {
             MainController.Open();
+            primaryStage.close();
         });
         searchTextField.textProperty().addListener((observable, oldValue, newValue) -> {
             searchRecent(newValue);
@@ -106,9 +113,10 @@ public class OpenController implements Initializable {
         recentBlock.setFileNameString(file.getName());
         recentBlock.setFileLocationString(file.getAbsolutePath());
         recentBlock.setPinButtonAction(event -> {
-            MainController.editPinned(file.getAbsolutePath(), pinned);
-            refreshRecentBlocks();
-        },pinned);
+                    MainController.editPinned(file.getAbsolutePath(), pinned);
+                    refreshRecentBlocks();
+                },
+                pinned);
 
         // Lấy thời gian sửa đổi lần cuối của tệp
         long lastModified = file.lastModified();
@@ -124,6 +132,10 @@ public class OpenController implements Initializable {
         // Các bước còn lại
         Region tempBlock = recentBlock.getRecentBlock(); // Get the HBox from RecentBlock
         setupRecentBlockUI(file, tempBlock);
+        tempBlock.setOnMouseEntered(mouseEvent ->
+                recentBlock.appearPinBtn());
+        tempBlock.setOnMouseExited(mouseEvent ->
+                recentBlock.hidePinBtn());
         if (pinned) {
             pinnedContainer.getChildren().add(tempBlock);
         } else {
@@ -162,6 +174,7 @@ public class OpenController implements Initializable {
                 try {
                     MainController controller = CreateNewWindow();
                     controller.PrimitiveLoad(file);
+                    primaryStage.close();
                 } catch (JAXBException | IOException e) {
                     PopDialog.popErrorDialog("Unable to load data", e.getMessage());
                 }

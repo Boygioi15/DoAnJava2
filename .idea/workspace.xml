@@ -4,14 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c0c8e8f-6c6a-46f7-8269-c472333fba20" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ic_graph.png" afterDir="false" />
+    <list default="true" id="7c0c8e8f-6c6a-46f7-8269-c472333fba20" name="Changes" comment="finish welcome-screen">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/recentFiles.txt" beforeDir="false" afterPath="$PROJECT_DIR$/recentFiles.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/doanjava2/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/doanjava2/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/doanjava2/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/doanjava2/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/main/doanjava2/OpenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/doanjava2/OpenController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/main/doanjava2/openRecent/RecentBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/doanjava2/openRecent/RecentBlock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/OpenRecent/OpenRecentUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/OpenRecent/OpenRecentUI.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/OpenRecent/RecentBlockUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/OpenRecent/RecentBlockUI.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -29,6 +27,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -59,16 +62,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/thinh/OneDrive/Máy tính/DoAnJava2/src/main/resources&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.HelloApplication.executor": "Run",
+    "Application.Main.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "welcome-screen2",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/thinh/OneDrive/Máy tính/DoAnJava2/src/main/resources"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\thinh\OneDrive\Máy tính\DoAnJava2\src\main\resources" />
@@ -114,6 +117,15 @@
       <option name="presentableId" value="Default" />
       <updated>1715851590364</updated>
     </task>
+    <task id="LOCAL-00001" summary="finish welcome-screen">
+      <option name="closed" value="true" />
+      <created>1716820874835</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1716820874835</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -126,5 +138,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="finish welcome-screen" />
+    <option name="LAST_COMMIT_MESSAGE" value="finish welcome-screen" />
   </component>
 </project>

@@ -1,2 +1,4 @@
-0 C:\Users\thinh\OneDrive\Máy tính\text1.graph
+1 C:\Users\thinh\OneDrive\Máy tính\text1.graph
+1 C:\Users\thinh\AppData\Roaming\Microsoft\Windows\Network Shortcuts\text3.graph
 1 C:\Users\thinh\AppData\Roaming\Microsoft\Windows\Network Shortcuts\test2.graph
+0 C:\Users\thinh\AppData\Roaming\Microsoft\Windows\Network Shortcuts\text4.graph
