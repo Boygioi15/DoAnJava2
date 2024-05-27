@@ -1,8 +1,2 @@
-C:\Users\thinh\OneDrive\Máy tính\test1.graph
-C:\Users\thinh\OneDrive\Máy tính\test.graph
-recentFiles.txt
-C:\Users\boygioi15\Downloads\hello.graph
-C:\Users\boygioi15\Downloads\test1.graph
-C:\Users\boygioi15\Downloads\graph.graph
-C:\Users\boygioi15\Desktop\hi.graph
-C:\Users\boygioi15\Downloads\heel.graph
+0 C:\Users\thinh\OneDrive\Máy tính\text1.graph
+1 C:\Users\thinh\AppData\Roaming\Microsoft\Windows\Network Shortcuts\test2.graph

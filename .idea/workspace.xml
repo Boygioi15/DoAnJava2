@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7c0c8e8f-6c6a-46f7-8269-c472333fba20" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/ic_graph.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recentFiles.txt" beforeDir="false" afterPath="$PROJECT_DIR$/recentFiles.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/main/doanjava2/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/doanjava2/MainController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/main/doanjava2/OpenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/doanjava2/OpenController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/main/doanjava2/openRecent/RecentBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/doanjava2/openRecent/RecentBlock.java" afterDir="false" />
@@ -64,16 +66,16 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/thinh/OneDrive/Máy tính/DoAnCNPM&quot;
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/thinh/OneDrive/Máy tính/DoAnJava2/src/main/resources&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\thinh\OneDrive\Máy tính\DoAnJava2\src\main\resources" />
       <recent name="C:\Users\boygioi15\IdeaProjects\DoAnJava2\src\main\resources\css\Dialog" />
       <recent name="C:\Users\boygioi15\IdeaProjects\DoAnJava2\src\main\resources\css\TopNavBar" />
       <recent name="C:\Users\boygioi15\IdeaProjects\DoAnJava2\src\main\resources\css\InputKeyboard" />
       <recent name="C:\Users\boygioi15\IdeaProjects\DoAnJava2\src\main\resources\css\GraphCanvas" />
-      <recent name="C:\Users\boygioi15\IdeaProjects\DoAnJava2\src\main\resources\fxml\TopNavBar" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\boygioi15\IdeaProjects\DoAnJava2\src\main\resources\fxml\FilePanel" />

@@ -217,41 +217,62 @@ public class MainController implements Initializable {
         }
     }
 
-    static public Map<String,Boolean> ReadRecentFiles(){
-        File file = new File(Main.RecentFilesPath);
+        static public Map<String,Boolean> ReadRecentFiles(){
+            File file = new File(Main.RecentFilesPath);
 
-        Map<String,Boolean> fileMap = null;
-        if (file.exists()) {
-            try {
-                List<String> lines = Files.readAllLines(Paths.get(Main.RecentFilesPath));
-                fileMap = new HashMap<>();
+            Map<String,Boolean> fileMap = null;
+            if (file.exists()) {
+                try {
+                    List<String> lines = Files.readAllLines(Paths.get(Main.RecentFilesPath));
+                    fileMap = new HashMap<>();
 
-                //System.out.println("File content:");
-                for (String line : lines) {
-                    Integer first = line.indexOf(0);
-                    Boolean pinned;
-                    if(first.equals(0)){
-                        pinned = false;
-                    }else{
-                        pinned = true;
+                    //System.out.println("File content:");
+                    for (String line : lines) {
+                        char firstChar = line.charAt(0);
+                        Boolean pinned;
+                        if (firstChar == '0') { // So sánh với ký tự '0'
+                            pinned = false;
+                        } else {
+                            pinned = true;
+                        }
+                        String fileLocation = line.substring(2); // Sử dụng index 2 để bắt đầu từ ký tự thứ 3
+                        fileMap.put(fileLocation, pinned);
                     }
+                } catch (IOException e) {
+                    PopDialog.popErrorDialog("Can't read recent files","");
+                }
+            }
+            else {
+                try {
+                    file.createNewFile();
+                } catch (IOException e) {
+                    PopDialog.popErrorDialog("Can't create recent files","");
+                }
+            }
+            return fileMap;
+        }
+    static public void editPinned(String filePath, boolean pinned) {
+        Map<String, Boolean> fileMap = ReadRecentFiles();
+        if (fileMap.containsKey(filePath)) {
+            pinned = !pinned;
+            fileMap.put(filePath, pinned);
 
-                    String fileLocation = line.substring(2);
-                    fileMap.put(fileLocation,pinned);
+            clearRecentFilesContent();
+            try (FileWriter fw = new FileWriter(Main.RecentFilesPath, true);
+                 PrintWriter pw = new PrintWriter(fw)) {
+                for (Map.Entry<String, Boolean> entry : fileMap.entrySet()) {
+                    String line = entry.getValue() ? "1" : "0";
+                    line += " " + entry.getKey();
+                    pw.println(line);
                 }
             } catch (IOException e) {
-                PopDialog.popErrorDialog("Can't read recent files","");
+                PopDialog.popErrorDialog("Can't edit recent files", "");
             }
+        } else {
+            PopDialog.popErrorDialog("File not found in recent files", "");
         }
-        else {
-            try {
-                file.createNewFile();
-            } catch (IOException e) {
-                PopDialog.popErrorDialog("Can't create recent files","");
-            }
-        }
-        return fileMap;
     }
+
     static public void AddNewFileLocationToRecentFiles(String newPath){
         Map<String, Boolean> fileMap = ReadRecentFiles();
         fileMap.put(newPath,false);
