@@ -6,8 +6,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.Node;
+import javafx.scene.control.*;
 import main.doanjava2.GraphData;
 import main.doanjava2.LineType;
+import main.doanjava2.MainController;
 import org.controlsfx.control.PopOver;
 import org.controlsfx.control.PopOver.ArrowLocation;
 
@@ -16,176 +21,230 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.control.ColorPicker;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.Slider;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.shape.Circle;
 
 public class GraphBlock extends HBox {
 
-	private GraphData dataSource;
-	
-	private IntegerProperty order = new SimpleIntegerProperty();
-	private GraphData model = new GraphData();
-	
-	//init
-	private PopOver configPopOver = new PopOver();
-	
-	public GraphBlock() {
-		loadFXML();
-		initUIBinding();
-		initEvent();
-		initUI_ModelBinding();
-		updateUI();
-		configPopOver.animatedProperty().set(false);
-	}
+    private GraphData dataSource;
 
-	private void loadFXML() {
-		try {
-			FXMLLoader mainLoader = new FXMLLoader(getClass().getResource("/fxml/GraphList/GraphBlockUI.fxml"));
-			mainLoader.setRoot(this);
-			mainLoader.setController(this);
-			mainLoader.load();
-		} catch (IOException exception) {
-			throw new RuntimeException(exception);
-		}
-		
-		 try {
-             // Load nội dung từ file FXML
-             FXMLLoader popOverLoader = new FXMLLoader(getClass().getResource("/fxml/GraphList/GraphBlockConfigUI.fxml"));
-             popOverLoader.setController(this);
-             Parent root = popOverLoader.load();
+    private IntegerProperty order = new SimpleIntegerProperty();
+    private GraphData model = new GraphData();
+    MainController mnr;
 
-             // Tạo một PopOver và đặt nội dung là root
-             configPopOver.setContentNode(root);
+    // public static GraphExpression functionEvaluator = new GraphExpression();
 
-             // Đặt vị trí cho mũi tên
-             configPopOver.setArrowLocation(ArrowLocation.TOP_LEFT);
+    //init
+    private PopOver configPopOver = new PopOver();
 
-             // Không cho phép PopOver bị rời đi
-             configPopOver.setDetachable(false);
-             configPopOver.setDetached(false);
-             
-             List<String> lineTypes = Stream.of(LineType.values())
-                     .map(Enum::name)
-                     .collect(Collectors.toList());
-             typeComboBox.getItems().addAll(lineTypes);
-             typeComboBox.setValue("Continuous");
+    public GraphBlock() {
+        loadFXML();
+        initUIBinding();
+        initEvent();
+        initUI_ModelBinding();
+        updateUI();
+        configPopOver.animatedProperty().set(false);
 
-         }
-         catch (IOException e) {
-             e.printStackTrace();
-         }
-	}
-	@FXML Circle colorAndActive;
-	@FXML Label orderLabel;
-	@FXML TextField expressionTextField; 
-	@FXML Slider opacitySlider;
-	@FXML Label opacityLabel;
-	@FXML Slider widthSlider;
-	@FXML Label widthLabel;
-	@FXML ComboBox<String> typeComboBox;
-	@FXML ColorPicker colorPicker;
-	
-	private void initEvent() {
-		colorAndActive.setOnMouseClicked(Object ->{
-			toggleConfig();
-		});
-	}
-	private void initUIBinding() {
-		//opacity
-		opacitySlider.valueProperty().addListener(Object ->{
-			double value = opacitySlider.getValue();
+    }
 
-			value = Math.round(value * 10);
-			value = value/10;
-			
-			opacitySlider.valueProperty().set(value);
-			
-			String valueInString = Double.toString(value);
-			opacityLabel.setText(valueInString);
-		});
-		widthSlider.valueProperty().addListener(Object ->{
-			double value = widthSlider.getValue();
+    public void setManagerRef(MainController ref) {
+        mnr = ref;
+    }
 
-			double floor = Math.floor(value/0.5)*0.5;
-			double ceil = Math.ceil(value/0.5)*0.5;
-			double dstToFloor = value-floor;
-			if(dstToFloor<0.25) {
-				value = floor;
-			}else {
-				value = ceil;
-			}
-			widthSlider.valueProperty().set(value);
-			String valueInString = Double.toString(value);
-			widthLabel.setText(valueInString);
-		});
-	}
-	private void initUI_ModelBinding() {
-		model.addListener(Object ->{
-			updateUI();
-		});
-		opacitySlider.valueProperty().addListener(Object -> {
-			model.setOpacity(opacitySlider.getValue());
-		});
-		widthSlider.valueProperty().addListener(Object -> {
-			model.setLineWidth(widthSlider.getValue());
-		});
-		typeComboBox.valueProperty().addListener(Object -> {
-			model.setLineType(LineType.valueOf(typeComboBox.getValue()));
-		});
-		colorPicker.valueProperty().addListener(Object -> {
-			model.setGraphColor(colorPicker.getValue());
-		});
-		expressionTextField.textProperty().addListener(Object -> {
-			model.setExpressionString(expressionTextField.getText());
-		});
-
-	}
-	private void updateUI(){
-		colorAndActive.setFill(model.getGraphColor());
-		opacitySlider.setValue(model.getOpacity());
-		widthSlider.setValue(model.getLineWidth());
-		typeComboBox.setValue(model.getLineType().toString());
-		colorPicker.setValue(model.getGraphColor());
-		expressionTextField.setText(model.getExpressionString());
-	}
-	private void toggleConfig() {
-		if (configPopOver.isShowing()) {
-			configPopOver.hide();
-        } else {
-        	configPopOver.show(colorAndActive);
+    private void loadFXML() {
+        try {
+            FXMLLoader mainLoader = new FXMLLoader(getClass().getResource("/fxml/GraphList/GraphBlockUI.fxml"));
+            mainLoader.setRoot(this);
+            mainLoader.setController(this);
+            mainLoader.load();
+        } catch (IOException exception) {
+            throw new RuntimeException(exception);
         }
-	}
 
-	public GraphData getDataSource() {
-		return dataSource;
-	}
+        try {
+            // Load nội dung từ file FXML
+            FXMLLoader popOverLoader = new FXMLLoader(getClass().getResource("/fxml/GraphList/GraphBlockConfigUI.fxml"));
+            popOverLoader.setController(this);
+            Parent root = popOverLoader.load();
 
-	public void setDataSource(GraphData dataSource) {
-		this.dataSource = dataSource;
-		System.out.println(dataSource.getGraphColor());
-		listenToDataSourceChange();
-		updateDataSourceListener();
-		model.setWhole(dataSource);
+            // Tạo một PopOver và đặt nội dung là root
+            configPopOver.setContentNode(root);
 
-		System.out.println(model.getGraphColor());
+            // Đặt vị trí cho mũi tên
+            configPopOver.setArrowLocation(ArrowLocation.TOP_LEFT);
 
-	}
-	private void updateDataSourceListener() {
-		this.model.addListener(Object ->{
-			//barrier case
-			if(true) {
-				this.dataSource.setWhole(this.model);
-			}
-		});
-	}
-	private void listenToDataSourceChange() {
-		dataSource.addListener(Object ->{
-			model.setWhole(dataSource);
-		});
-	}
+            // Không cho phép PopOver bị rời đi
+            configPopOver.setDetachable(false);
+            configPopOver.setDetached(false);
+
+            List<String> lineTypes = Stream.of(LineType.values())
+                    .map(Enum::name)
+                    .collect(Collectors.toList());
+            typeComboBox.getItems().addAll(lineTypes);
+            typeComboBox.setValue("Continuous");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    Circle colorAndActive;
+    @FXML
+    Label orderLabel;
+    @FXML
+    TextField expressionTextField;
+    @FXML
+    Slider opacitySlider;
+    @FXML
+    Label opacityLabel;
+    @FXML
+    Slider widthSlider;
+    @FXML
+    Label widthLabel;
+    @FXML
+    ComboBox<String> typeComboBox;
+    @FXML
+    ColorPicker colorPicker;
+
+    @FXML
+    MenuItem dupicateMenuItem;
+    @FXML
+    MenuItem deleteMenuItem;
+
+    private void initEvent() {
+        colorAndActive.setOnMouseClicked(Object -> {
+            toggleConfig();
+        });
+        dupicateMenuItem.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                mnr.duplicateGraphData(dataSource);
+            }
+        });
+        deleteMenuItem.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                mnr.removeGraphData(dataSource);
+                mnr.graphExpression.printFunctionMap();
+            }
+        });
+        expressionTextField.focusedProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue) {
+                String expression = expressionTextField.getText();
+
+                if (model.getExpressionName().isEmpty()) {
+                    if (!expression.isEmpty()) {
+                        String expressionName = mnr.graphExpression.getKeyWithEmptyValue();
+                        model.setExpressionName(expressionName);
+                        dataSource.setExpressionName(expressionName);
+                        mnr.graphExpression.defineFunction(expressionName, expression);
+                        expressionTextField.setText(expressionName + " = " + (expression));
+                    }
+                }
+                if (!model.getExpressionName().isEmpty() && expression.isEmpty() || (!expressionTextField.getText().contains("=") && !model.getExpressionName().isEmpty() )) {
+                    String expressionName = model.getExpressionName();
+                    expressionTextField.setText(expressionName + " = " + (mnr.graphExpression.getExpressionValue(expressionName)));
+                }
+
+            }
+        });
+    }
+
+
+    private void initUIBinding() {
+        //opacity
+        opacitySlider.valueProperty().addListener(Object -> {
+            double value = opacitySlider.getValue();
+
+            value = Math.round(value * 10);
+            value = value / 10;
+
+            opacitySlider.valueProperty().set(value);
+
+            String valueInString = Double.toString(value);
+            opacityLabel.setText(valueInString);
+        });
+        widthSlider.valueProperty().addListener(Object -> {
+            double value = widthSlider.getValue();
+
+            double floor = Math.floor(value / 0.5) * 0.5;
+            double ceil = Math.ceil(value / 0.5) * 0.5;
+            double dstToFloor = value - floor;
+            if (dstToFloor < 0.25) {
+                value = floor;
+            } else {
+                value = ceil;
+            }
+            widthSlider.valueProperty().set(value);
+            String valueInString = Double.toString(value);
+            widthLabel.setText(valueInString);
+        });
+    }
+
+    private void initUI_ModelBinding() {
+        model.addListener(Object -> {
+            updateUI();
+        });
+        opacitySlider.valueProperty().addListener(Object -> {
+            model.setOpacity(opacitySlider.getValue());
+        });
+        widthSlider.valueProperty().addListener(Object -> {
+            model.setLineWidth(widthSlider.getValue());
+        });
+        typeComboBox.valueProperty().addListener(Object -> {
+            model.setLineType(LineType.valueOf(typeComboBox.getValue()));
+        });
+        colorPicker.valueProperty().addListener(Object -> {
+            model.setGraphColor(colorPicker.getValue());
+        });
+        expressionTextField.textProperty().addListener(Object -> {
+            model.setExpressionString(expressionTextField.getText());
+        });
+
+
+    }
+    private void updateUI() {
+        colorAndActive.setFill(model.getGraphColor());
+        opacitySlider.setValue(model.getOpacity());
+        widthSlider.setValue(model.getLineWidth());
+        typeComboBox.setValue(model.getLineType().toString());
+        colorPicker.setValue(model.getGraphColor());
+        expressionTextField.setText(model.getExpressionString());
+    }
+
+    private void toggleConfig() {
+        if (configPopOver.isShowing()) {
+            configPopOver.hide();
+        } else {
+            configPopOver.show(colorAndActive);
+        }
+    }
+
+    public GraphData getDataSource() {
+        return dataSource;
+    }
+
+    public void setDataSource(GraphData dataSource) {
+        this.dataSource = dataSource;
+        model.setWhole(dataSource);
+        listenToDataSourceChange();
+        updateDataSourceListener();
+
+
+    }
+
+    private void updateDataSourceListener() {
+        this.model.addListener(Object -> {
+            if (true) {
+                this.dataSource.setWhole(this.model);
+            }
+        });
+    }
+
+    private void listenToDataSourceChange() {
+        dataSource.addListener(Object -> {
+            model.setWhole(dataSource);
+        });
+    }
 }

@@ -13,11 +13,11 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.layout.Region;
 import javafx.scene.paint.Color;
 import main.doanjava2.GraphData;
+import main.doanjava2.MainController;
 
 class GraphImage_Params{
 	static double plottingSpaceOnScreen = 10;
 	static int loopLimit = 5;
-	
 	static int maxRecursion = 5;
 	static double angleThreshold = 20;//in degree
 }
@@ -26,7 +26,10 @@ public class GraphImage {
 	GraphData dataRef;
 	Canvas canvas;
 	private GraphicsContext gc;
-	
+	public void setManagerRef(MainController ref) {
+		mnr = ref;
+	}
+	MainController mnr;
 	public GraphImage(Setting settingRef, GraphData dataRef) {
 		this.settingRef = settingRef;
 		this.dataRef = dataRef;
@@ -125,17 +128,16 @@ public class GraphImage {
 		if(dataRef.getExpressionString().equals("")) {
 			return;
 		}
-		
-		
-		//System.out.println(canvas.getLayoutX()+","+canvas.getLayoutY());
-		//System.out.println(canvas.getWidth()+","+canvas.getHeight());
-				
+
+		String replacedExpression = mnr.graphExpression.handleReplaceExpression(dataRef);
+		System.out.println("check..........:     " +replacedExpression);
+
 		double plottingSpace = GraphImage_Params.plottingSpaceOnScreen/canvas.getWidth() * settingRef.getBoundaryWidth();
 		double currentX = settingRef.leftBoundary.get();
 		double endX = settingRef.rightBoundary.get()+plottingSpace;
 		double preX = currentX-plottingSpace/2;
 			
-		Expression expression = new Expression(dataRef.getExpressionString());  		
+		Expression expression = new Expression(replacedExpression);
 		expression.addFunction(expression.new Function("sin", 3) {
 			@Override
 			public BigDecimal eval(List<BigDecimal> parameters) {

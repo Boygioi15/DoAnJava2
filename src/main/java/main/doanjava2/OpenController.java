@@ -34,7 +34,6 @@
         @Override
         public void initialize(URL url, ResourceBundle resourceBundle) {
             loadRecentBlocks();
-            System.out.println("kkkk");
         }
 
         public void initManager() {

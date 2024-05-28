@@ -19,6 +19,8 @@ import javafx.stage.FileChooser;
 import main.doanjava2.filePanel.FilePanel;
 import main.doanjava2.graphCanvas.GraphCanvas;
 import main.doanjava2.graphList.ControlCode;
+import main.doanjava2.graphList.GraphBlock;
+import main.doanjava2.graphList.GraphExpression;
 import main.doanjava2.graphList.GraphList;
 import main.doanjava2.inputKeyboard.InputKeyboard;
 import main.doanjava2.topNavBar.SaveObject;
@@ -53,6 +55,7 @@ public class MainController implements Initializable {
         graphCanvas.setManagerRef(this);
         topNavbar.setManagerRef(this);
         saveObject.setManagerRef(this);
+        graphExpression.setManagerRef(this);
 
         filePanel.setManagerRef(this);
     }
@@ -309,13 +312,73 @@ public class MainController implements Initializable {
         }
     }
 
+    public void duplicateGraphData(GraphData original) {
+        if (original != null) {
+            GraphData temp = original.clone();
+            if(temp.getExpressionString().isEmpty()){
+                graphData.add(temp);
+                return;
+            }
+            String tempExpressionPart = original.getExpressionString();
+            if(temp.getExpressionString().contains("=")){
+                String[] parts = original.getExpressionString().split("=");
+                tempExpressionPart = parts[1].trim();
+            }
+
+            temp.setExpressionString((tempExpressionPart));
+
+            graphData.add(temp);
+        } else {
+            throw new IllegalArgumentException("origanel null ");
+        }
+
+    }
+
     public void ToggleFilePanel(){
         filePanel.ToggleFilePanel(inputKeyboard);
     }
+    public void removeGraphData(GraphData original) {
+        if (graphData != null) {
+            List<GraphData> toRemove = new ArrayList<>();
+            Set<GraphData> visited = new HashSet<>();
+            String originalName = extractFunctionName(original.getExpressionName());
 
+            toRemove.add(original);
+            visited.add(original);
+
+            findDependentGraphs(originalName, toRemove, visited);
+
+            for (GraphData dependent : toRemove) {
+                graphData.remove(dependent);
+                String expressionName = dependent.getExpressionName();
+                graphExpression.setExpressionValue(expressionName, "");
+            }
+
+            graphExpression.printFunctionMap();
+        } else {
+            throw new IllegalArgumentException("null");
+        }
+    }
+
+    private void findDependentGraphs(String originalName, List<GraphData> toRemove, Set<GraphData> visited) {
+        for (GraphData data : graphData) {
+            if (!visited.contains(data) && data.getExpressionString().contains(originalName + "(")) {
+                visited.add(data);
+                toRemove.add(data);
+                String dependentExpName = extractFunctionName(data.getExpressionName());
+                findDependentGraphs(dependentExpName, toRemove, visited);
+            }
+        }
+    }
+
+    private String extractFunctionName(String expressionName) {
+        if (expressionName.contains("(")) {
+            return expressionName.substring(0, expressionName.indexOf('(')).trim();
+        }
+        return expressionName.trim();
+    }
 
     private @FXML Region mainUIScreen;
-
     public @FXML FilePanel filePanel;
     public @FXML GraphList graphList;
     public @FXML InputKeyboard inputKeyboard;
@@ -324,4 +387,5 @@ public class MainController implements Initializable {
 
     public ObservableList<GraphData> graphData;
     public SaveObject saveObject = new SaveObject();
+    public GraphExpression graphExpression = new  GraphExpression();
 }

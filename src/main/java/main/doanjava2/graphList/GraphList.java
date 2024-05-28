@@ -1,16 +1,18 @@
 package main.doanjava2.graphList;
 
-import javafx.scene.control.TextField;
+import javafx.scene.Node;
+import javafx.scene.control.*;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import javafx.collections.ListChangeListener;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import main.doanjava2.GraphData;
 import main.doanjava2.MainController;
@@ -20,12 +22,16 @@ import javafx.util.Duration;
 public class GraphList extends VBox {
 	TextField currentlySelectedTextField = null;
     MainController mnr;
+    @FXML
+    private VBox graphListBox;
+    //name
+
 
     public GraphList() {
         loadFXML();
         initEvent();
     }
-    
+
     public void setManagerRef(MainController ref) {
     	mnr = ref;
     }
@@ -36,7 +42,7 @@ public class GraphList extends VBox {
 
         try {
             fxmlLoader.load();
-        } 
+        }
         catch (IOException exception) {
             throw new RuntimeException(exception);
         }
@@ -56,34 +62,37 @@ public class GraphList extends VBox {
 	                 }
 				}
 			}
-			
+
 		});
     }
     private void initEvent() {
-    	
+
     }
-    
+
     @FXML
     private void requestAddingGraphData() {
     	mnr.createNewGraphDataAtEnd();
     }
     public void addGraphBlock(int pos, GraphData graphData) {
     	GraphBlock toAdd = new GraphBlock();
+        toAdd.setManagerRef(mnr);
     	toAdd.setPrefWidth(this.getWidth());
+        System.out.println(graphData.getExpressionName());
     	toAdd.setDataSource(graphData);
-    	graphListBox.getChildren().add(pos, toAdd);
-    	//System.out.println("Hello");	
+        toAdd.requestFocus();
+        graphListBox.getChildren().add(pos, toAdd);
+
     }
     public void removeGraphBlock(int pos) {
-    	graphListBox.getChildren().remove(pos);		
+    	graphListBox.getChildren().remove(pos);
     }
-     
+
     public void insertContentIntoSelectingBlock(String content) {
     	if(currentlySelectedTextField!=null) {
     		int oldCaretPosition = currentlySelectedTextField.getCaretPosition();
     		String currentText = currentlySelectedTextField.getText();
             String newText = currentText.substring(0, oldCaretPosition) + content + currentText.substring(oldCaretPosition);
-            
+
             currentlySelectedTextField.setText(newText);
             currentlySelectedTextField.positionCaret(oldCaretPosition+content.length());
     	}
@@ -100,12 +109,11 @@ public class GraphList extends VBox {
     }
     public void requestLosingFocus() {
     	currentlySelectedTextField = null;
-    	graphListBox.requestFocus();
+        graphListBox.requestFocus();
     }
     @FXML
-    private void doSomething() {
-    	requestLosingFocus();
-    }
+   private void doSomething() {requestLosingFocus();
+  }
     @FXML
     private GridPane graphListPane;
     @FXML
@@ -138,10 +146,6 @@ public class GraphList extends VBox {
         tt.setToX(0);
         tt.play();
     }
-
-    @FXML
-    private VBox graphListBox;
-
     private void updateLabels() {
         for (int i = 0; i < graphListBox.getChildren().size(); i++) {
             HBox hbox = (HBox) graphListBox.getChildren().get(i);
@@ -149,5 +153,16 @@ public class GraphList extends VBox {
             label.setText((i + 1) + ".");
         }
     }
-    
+
+    public void focusOnNewGraphBlock(GraphData newGraphData) {
+        for (Node node : getParent().getChildrenUnmodifiable()) {
+            if (node instanceof GraphBlock) {
+                GraphBlock graphBlock = (GraphBlock) node;
+                if (graphBlock.getDataSource() == newGraphData) {
+                    graphBlock.expressionTextField.requestFocus();
+                    break;
+                }
+            }
+        }
+    }
 }
