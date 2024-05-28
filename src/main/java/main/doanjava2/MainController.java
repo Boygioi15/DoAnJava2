@@ -342,7 +342,11 @@ public class MainController implements Initializable {
             List<GraphData> toRemove = new ArrayList<>();
             Set<GraphData> visited = new HashSet<>();
             String originalName = extractFunctionName(original.getExpressionName());
-
+            if(originalName.isEmpty())
+            {
+                graphData.remove(original);
+                return;
+            }
             toRemove.add(original);
             visited.add(original);
 
