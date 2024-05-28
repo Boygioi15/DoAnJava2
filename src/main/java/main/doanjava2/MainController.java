@@ -324,7 +324,7 @@ public class MainController implements Initializable {
                 String[] parts = original.getExpressionString().split("=");
                 tempExpressionPart = parts[1].trim();
             }
-
+temp.setExpressionName("");
             temp.setExpressionString((tempExpressionPart));
 
             graphData.add(temp);
@@ -381,7 +381,34 @@ public class MainController implements Initializable {
         }
         return expressionName.trim();
     }
+    public String handleReplaceExpressions(GraphData model) {
+        if (model.getExpressionName().isEmpty()) {
+            if(model.getExpressionString().contains("="))
+            {
+                String[] parts = model.getExpressionString().split("=");
+                String expressionPart = parts[1].trim();
+                String exp = graphExpression.transExpressions(expressionPart);
+                return exp;
+            }
+            else{
+                String exp = graphExpression.transExpressions(model.getExpressionString());
+                return exp;
+            }
 
+        } else {
+            // khi sửa
+            if(!model.getExpressionString().contains("=") && !model.getExpressionName().isEmpty() )
+            {
+                return "";
+            }
+            String[] parts = model.getExpressionString().split("=");
+            String expressionPart = parts[1].trim();
+            graphExpression.setExpressionValue(model.getExpressionName(), expressionPart);
+            String exprValue = graphExpression.getExpressionValue(model.getExpressionName());
+            String exp = graphExpression.transExpressions(exprValue);
+            return exp;
+        }
+    }
     private @FXML Region mainUIScreen;
     public @FXML FilePanel filePanel;
     public @FXML GraphList graphList;

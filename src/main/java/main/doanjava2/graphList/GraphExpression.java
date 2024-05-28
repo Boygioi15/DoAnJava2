@@ -138,33 +138,5 @@ public class GraphExpression {
         }
         return -1; // No matching closing parenthesis found
     }
-    public String handleReplaceExpression(GraphData model) {
-        if (model.getExpressionName().isEmpty()) {
-            if(model.getExpressionString().contains("="))
-            {
-                String[] parts = model.getExpressionString().split("=");
-                String expressionPart = parts[1].trim();
-                String exp = mnr.graphExpression.transExpressions(expressionPart);
-                return exp;
-            }
-            else{
-                String exp = mnr.graphExpression.transExpressions(model.getExpressionString());
-                return exp;
-            }
-
-        } else {
-            // khi sửa
-            if(!model.getExpressionString().contains("=") && !model.getExpressionName().isEmpty() )
-            {
-                return "";
-            }
-            String[] parts = model.getExpressionString().split("=");
-            String expressionPart = parts[1].trim();
-            mnr.graphExpression.setExpressionValue(model.getExpressionName(), expressionPart);
-            String exprValue = mnr.graphExpression.getExpressionValue(model.getExpressionName());
-            String exp = mnr.graphExpression.transExpressions(exprValue);
-            return exp;
-        }
-    }
 
 }

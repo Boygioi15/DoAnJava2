@@ -129,7 +129,7 @@ public class GraphImage {
 			return;
 		}
 
-		String replacedExpression = mnr.graphExpression.handleReplaceExpression(dataRef);
+		String replacedExpression = mnr.handleReplaceExpressions(dataRef);
 		System.out.println("check..........:     " +replacedExpression);
 
 		double plottingSpace = GraphImage_Params.plottingSpaceOnScreen/canvas.getWidth() * settingRef.getBoundaryWidth();
