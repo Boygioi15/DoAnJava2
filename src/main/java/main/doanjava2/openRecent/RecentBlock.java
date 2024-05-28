@@ -6,6 +6,7 @@ import java.io.IOException;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.event.EventHandler;
+import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Region;
 import javafx.scene.text.Text;
@@ -18,11 +19,15 @@ public class RecentBlock extends AnchorPane {
 
     @FXML Text fileNameText;
     @FXML Text fileLocationText;
+    @FXML Text lastOpenedTimeLabel;
+    @FXML Button pinBtn;
 
     public Region getRecentBlock() {
         return recentBlock;
     }
+    public void initManager(){
 
+    }
     @FXML
     private Region recentBlock;
 
@@ -67,5 +72,22 @@ public class RecentBlock extends AnchorPane {
     public StringProperty fileLocationStringProperty() {
         return fileLocationString;
     }
-
+    public void setLastOpenedTimeString(String lastOpenedTimeString) {
+        lastOpenedTimeLabel.setText(lastOpenedTimeString);
+    }
+    public void setPinButtonAction(EventHandler eventHandler, boolean pin) {
+        pinBtn.setOnAction(eventHandler);
+        if (pin){
+            pinBtn.setText("Unpin");
+        }
+        else{
+            pinBtn.setText("Pin");
+        }
+    }
+    public void appearPinBtn(){
+        pinBtn.setManaged(true);
+    }
+    public void hidePinBtn(){
+        pinBtn.setManaged(false);
+    }
 }

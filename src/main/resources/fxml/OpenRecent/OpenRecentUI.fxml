@@ -31,7 +31,7 @@
                      <content>
                         <Accordion>
                           <panes>
-                            <TitledPane text="Pinned">
+                            <TitledPane fx:id="titledPanePinned" text="Pinned">
                                  <content>
                                     <VBox fx:id="pinnedContainer" minHeight="10.0" spacing="10.0">
                                        <padding>
@@ -40,7 +40,7 @@
                                     </VBox>
                                  </content>
                             </TitledPane>
-                            <TitledPane animated="false" text="Others">
+                            <TitledPane fx:id="titledPaneOther" animated="false" text="Others">
                                  <content>
                                     <VBox fx:id="otherContainer" minHeight="10.0" spacing="10.0">
                                        <padding>
