@@ -13,7 +13,7 @@ import main.doanjava2.topNavBar.ColorAdapter;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class GraphData {
     private String expressionString;
-
+    private String expressionName;
     @XmlJavaTypeAdapter(ColorAdapter.class)
     private Color graphColor;
     private LineType lineType;
@@ -33,18 +33,29 @@ public class GraphData {
 
     private boolean selected;
 
+    public String getExpressionName() {
+        return expressionName;
+    }
+
+    public void setExpressionName(String newExpressionName) {
+        if(!newExpressionName.equals(expressionName)) {
+            this.expressionName = newExpressionName;
+            notifyChange();
+        }
+    }
     @XmlTransient
     private BooleanProperty internalChanged = new SimpleBooleanProperty(false);
     public GraphData() {
         initDefault();
     }
     public void initDefault() {
-        setExpressionString("x+2");
+        setExpressionString("");
         setGraphColor(Color.BLACK);
         setLineType(LineType.Continuous);
         setLineWidth(2.5);
         setActive(true);
         setOpacity(1);
+        setExpressionName("");
     }
     public void addListener(InvalidationListener listener) {
         internalChanged.addListener(listener);
@@ -92,6 +103,7 @@ public class GraphData {
         this.setLineWidth(data.lineWidth);
         this.setOpacity(data.opacity);
         this.setActive(data.isActive);
+        this.setExpressionName(data.expressionName);
     }
     private void notifyChange() {
         internalChanged.set(!internalChanged.get());
@@ -113,5 +125,17 @@ public class GraphData {
             this.opacity = opacity;
             notifyChange();
         }
+    }
+    @Override
+    public GraphData clone() {
+        GraphData cloned = new GraphData();
+        cloned.setExpressionString(this.getExpressionString());
+        cloned.setExpressionName(this.getExpressionName());
+        cloned.setGraphColor(this.getGraphColor());
+        cloned.setLineType(this.getLineType());
+        cloned.setLineWidth(this.getLineWidth());
+        cloned.setActive(this.isActive());
+        cloned.setOpacity(this.getOpacity());
+        return cloned;
     }
 }
