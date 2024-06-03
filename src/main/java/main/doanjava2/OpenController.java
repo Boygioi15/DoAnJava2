@@ -61,6 +61,7 @@ public class OpenController implements Initializable {
                 primaryStage.close();
             } catch (IOException e) {
                 PopDialog.popErrorDialog("Unable to create new window", "");
+                e.printStackTrace();
             }
         });
         openFromFileSystemButton.setOnMouseClicked(mouseEvent -> {
