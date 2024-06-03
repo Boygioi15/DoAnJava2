@@ -81,7 +81,6 @@ public class GraphList extends VBox {
     	toAdd.setDataSource(graphData);
         toAdd.requestFocus();
         graphListBox.getChildren().add(pos, toAdd);
-
     }
     public void removeGraphBlock(int pos) {
     	graphListBox.getChildren().remove(pos);
@@ -153,16 +152,7 @@ public class GraphList extends VBox {
             label.setText((i + 1) + ".");
         }
     }
-
-    public void focusOnNewGraphBlock(GraphData newGraphData) {
-        for (Node node : getParent().getChildrenUnmodifiable()) {
-            if (node instanceof GraphBlock) {
-                GraphBlock graphBlock = (GraphBlock) node;
-                if (graphBlock.getDataSource() == newGraphData) {
-                    graphBlock.expressionTextField.requestFocus();
-                    break;
-                }
-            }
-        }
+    public int getSizeOfBox(){
+        return graphListBox.getChildren().size();
     }
 }

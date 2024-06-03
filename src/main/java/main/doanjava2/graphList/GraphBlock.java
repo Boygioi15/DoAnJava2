@@ -6,10 +6,12 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyCode;
 import main.doanjava2.GraphData;
 import main.doanjava2.LineType;
 import main.doanjava2.MainController;
@@ -149,6 +151,28 @@ public class GraphBlock extends HBox {
 
             }
         });
+        expressionTextField.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.ENTER) {
+                String expression = expressionTextField.getText();
+
+                if (model.getExpressionName().isEmpty()) {
+                    if (!expression.isEmpty()) {
+                        String expressionName = mnr.graphExpression.getKeyWithEmptyValue();
+                        model.setExpressionName(expressionName);
+                        dataSource.setExpressionName(expressionName);
+                        mnr.graphExpression.defineFunction(expressionName, expression);
+                        expressionTextField.setText(expressionName + " = " + expression);
+                    }
+                } else if (expression.isEmpty() || (!expression.contains("=") && !model.getExpressionName().isEmpty())) {
+                    String expressionName = model.getExpressionName();
+                    expressionTextField.setText(expressionName + " = " + mnr.graphExpression.getExpressionValue(expressionName));
+                }
+
+                // Đặt caret vào cuối của textField sau khi xử lý sự kiện
+                Platform.runLater(() -> expressionTextField.positionCaret(expressionTextField.getText().length()));
+            }
+        });
+
     }
 
 

@@ -1,3 +1,7 @@
+1 C:\Users\thinh\OneDrive\Máy tính\text1.graph
+1 C:\Users\thinh\AppData\Roaming\Microsoft\Windows\Network Shortcuts\text3.graph
+1 C:\Users\thinh\AppData\Roaming\Microsoft\Windows\Network Shortcuts\test2.graph
+0 C:\Users\thinh\AppData\Roaming\Microsoft\Windows\Network Shortcuts\text4.graph
 1 \Users\boygioi15\Downloads\hello.graph
 1 \Users\boygioi15\Downloads\test1.graph
 1 \Users\boygioi15\Downloads\graph.graph
