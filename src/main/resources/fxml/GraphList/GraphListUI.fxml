@@ -1,65 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
-<?import org.kordamp.ikonli.javafx.FontIcon ?>
-<fx:root onMousePressed="#doSomething" prefWidth="280.0" stylesheets="@../../css/GraphList/GraphList.css" type="javafx.scene.layout.VBox" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
 
-	<GridPane fx:id="graphListPane" VBox.vgrow="ALWAYS">
-    <columnConstraints>
-    	<ColumnConstraints hgrow="SOMETIMES" maxWidth="320.0" minWidth="0" prefWidth="320.0" />
-    	<ColumnConstraints hgrow="SOMETIMES" maxWidth="0" minWidth="0" prefWidth="0" />
-    </columnConstraints>
-
-    <rowConstraints>
-    	<RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-         <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
-    	<RowConstraints minHeight="10.0" vgrow="ALWAYS" />
-    </rowConstraints>
-
-    <children>
-        <VBox fx:id="graphListBox" alignment="TOP_CENTER" spacing="10" GridPane.rowIndex="2">
-            <padding>
-                <Insets bottom="4" left="8" right="8" top="4" />
-            </padding>
-        </VBox>
-
-        <Button fx:id="openButton" onAction="#openGraphList" style="-fx-background-color: #0000;" visible="false" GridPane.columnIndex="1">
-            <graphic>
-                <FontIcon iconLiteral="fa-angle-double-right" iconSize="24" />
-            </graphic>
-            <padding>
-                <Insets bottom="-4.0" top="-4.0" />
-            </padding>
-        </Button>
-
-        <AnchorPane>
-            <children>
-                <Button contentDisplay="CENTER" graphicTextGap="0.0" onAction="#closeGraphList" styleClass="transparent-button" textAlignment="CENTER" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="10.0">
-                    <graphic>
-                        <FontIcon iconLiteral="fa-angle-double-left" iconSize="24" />
-                    </graphic>
-                    <padding>
-                        <Insets bottom="4.0" left="8.0" right="8.0" top="4.0" />
-                    </padding>
-                </Button>
-
-                <Button contentDisplay="CENTER" graphicTextGap="0.0" layoutX="8.0" onAction="#requestAddingGraphData" styleClass="transparent-button" textAlignment="CENTER" AnchorPane.leftAnchor="4.0" AnchorPane.topAnchor="10.0">
-                    <graphic>
-                        <FontIcon iconLiteral="fa-plus" iconSize="18" />
-                    </graphic>
-                    <padding>
-                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
-                    </padding>
-                </Button>
-            </children>
-        </AnchorPane>
-
-      </children>
-   </GridPane>
+<fx:root fx:id="graphListPane" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="280.0" stylesheets="@../../css/GraphList/GraphList.css" type="GridPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+  <columnConstraints>
+    <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="250.0" />
+    <ColumnConstraints hgrow="ALWAYS" maxWidth="-Infinity" minWidth="35.0" prefWidth="10.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+  </rowConstraints>
+   <children>
+      <VBox prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <VBox fx:id="graphListBox" />
+            <MenuButton fx:id="addNewBtn" alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="transparent-button" text="+">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#requestAddingGraphData" text="Graph" />
+                <MenuItem mnemonicParsing="false" text="Table" />
+              </items>
+            </MenuButton>
+         </children>
+      </VBox>
+      <Button fx:id="openButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="transparent-button" text="&lt;&lt;" GridPane.columnIndex="1" />
+   </children>
 </fx:root>
