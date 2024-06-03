@@ -1,5 +1,7 @@
 package main.doanjava2.graphList;
 
+import javafx.scene.control.MenuButton;
+import javafx.scene.control.TextField;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 
@@ -19,8 +21,9 @@ import main.doanjava2.MainController;
 import javafx.animation.TranslateTransition;
 import javafx.util.Duration;
 
-public class GraphList extends VBox {
+public class GraphList extends GridPane {
 	TextField currentlySelectedTextField = null;
+    @FXML MenuButton addNewBtn;
     MainController mnr;
     @FXML
     private VBox graphListBox;
@@ -75,16 +78,18 @@ public class GraphList extends VBox {
     }
     public void addGraphBlock(int pos, GraphData graphData) {
     	GraphBlock toAdd = new GraphBlock();
-        toAdd.setManagerRef(mnr);
-    	toAdd.setPrefWidth(this.getWidth());
-        System.out.println(graphData.getExpressionName());
+    	toAdd.setPrefWidth(graphListBox.getWidth());
     	toAdd.setDataSource(graphData);
-        toAdd.requestFocus();
-        graphListBox.getChildren().add(pos, toAdd);
-
+    	graphListBox.getChildren().add(pos, toAdd);
+        if(graphListBox.getChildren().size()>9){
+            addNewBtn.setVisible(false);
+        }
     }
     public void removeGraphBlock(int pos) {
     	graphListBox.getChildren().remove(pos);
+        if(graphListBox.getChildren().size()<10){
+            addNewBtn.setVisible(false);
+        }
     }
 
     public void insertContentIntoSelectingBlock(String content) {
