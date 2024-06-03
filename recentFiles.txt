@@ -1,15 +1,16 @@
+1 \Users\boygioi15\Downloads\hello.graph
+1 \Users\boygioi15\Downloads\graph.graph
+1 \Users\thinh\OneDrive\Máy tính\test.graph
+1 C:\Users\thinh\AppData\Roaming\Microsoft\Windows\Network Shortcuts\test2.graph
+1 \Users\boygioi15\Downloads\heel.graph
 1 C:\Users\thinh\OneDrive\Máy tính\text1.graph
 1 C:\Users\thinh\AppData\Roaming\Microsoft\Windows\Network Shortcuts\text3.graph
-1 C:\Users\thinh\AppData\Roaming\Microsoft\Windows\Network Shortcuts\test2.graph
-0 C:\Users\thinh\AppData\Roaming\Microsoft\Windows\Network Shortcuts\text4.graph
-1 \Users\boygioi15\Downloads\hello.graph
 1 \Users\boygioi15\Downloads\test1.graph
-1 \Users\boygioi15\Downloads\graph.graph
 0 C:\Users\pc\Downloads\main.graph
-1 \Users\thinh\OneDrive\Máy tính\test.graph
+0 C:\Users\boygioi15\Downloads\test2.graph
 1 centFiles.txt
 1 \Users\boygioi15\Desktop\hi.graph
 1 \Users\thinh\OneDrive\Máy tính\test1.graph
+0 C:\Users\thinh\AppData\Roaming\Microsoft\Windows\Network Shortcuts\text4.graph
 1 C:\Users\pc\Downloads\checkGraph.graph
 1 \Users\pc\Downloads\check.graph
-1 \Users\boygioi15\Downloads\heel.graph
