@@ -236,7 +236,7 @@ public class GraphCanvas extends AnchorPane{
 	private void addGraph(int pos, GraphData graphData) {
 		GraphImage tempGraphImage = new GraphImage(setting, selectionMatrix, graphData);
 		tempGraphImage.setIndex(pos);
-
+		tempGraphImage.setManagerRef(mnr);
 		this.getChildren().add(tempGraphImage.canvas);
 		tempGraphImage.rescaleUI(this.getWidth(), this.getHeight());
 		graphImages.add(pos, tempGraphImage);
