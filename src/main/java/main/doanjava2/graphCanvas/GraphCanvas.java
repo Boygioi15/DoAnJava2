@@ -16,14 +16,15 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.util.Pair;
 import main.doanjava2.GraphData;
 import main.doanjava2.MainController;
 
 public class GraphCanvas extends AnchorPane{
 	Setting setting;
 	Background background;
+	SelectionMatrix selectionMatrix;
 	ArrayList<GraphImage> graphImages;
-	
 	public GraphCanvas() {
 		loadFXML();
 		initInside();       
@@ -33,7 +34,32 @@ public class GraphCanvas extends AnchorPane{
 	}
 	public void init() {
 		initDatabaseListener();
+		initEvent();
 	}
+
+	private void initEvent(){
+		this.setOnMousePressed(ob-> {
+			notifyMousePressed(ob);
+
+			mnr.setSelectedGraph(selectionMatrix.GetNearbyGraphIndex((int) ob.getX(), (int) ob.getY()));
+		});
+		this.setOnMouseDragged(ob -> {
+			if(mnr.getSelectedGraph()!=-1){
+				Pair<Integer, Integer> point = selectionMatrix.GetClosePoint(mnr.getSelectedGraph(), (int) ob.getX(), (int) ob.getY());
+				if(point!=null){
+					//display pop over
+					//draw circle at that point
+				}
+			}else{
+				translateCanvas(ob);
+			}
+
+		});
+		this.setOnScroll(ob ->{
+			zoomCanvas(ob);
+		});
+	}
+
 	public void setManagerRef(MainController ref) {
     	mnr = ref;
     }	
@@ -52,6 +78,9 @@ public class GraphCanvas extends AnchorPane{
 	private void initInside() {
 		setting = new Setting(this);
 		background = new Background(setting);
+		selectionMatrix = new SelectionMatrix(setting);
+
+		selectionMatrix.InitNewSize((int) this.getWidth(), (int) this.getHeight());
         this.getChildren().add(background.backgroundCanvas);
         background.update();
         this.widthProperty().addListener(ob -> rescaleUI());
@@ -174,16 +203,18 @@ public class GraphCanvas extends AnchorPane{
 	                         for (int j = start ; j < end ; i++) {
 	                         }
 	                     }
-	                 } 
+	                 }
 					 else if (c.wasUpdated()) {
 	                          //update item
-	                 } 
+	                 }
 					 else if(c.wasAdded()) {
 						 int index = c.getFrom();
+						 selectionMatrix.AddNewLayer(index);
 						 addGraph(index, mnr.graphData.get(index));
 					 }
 					 else {
 						 int index = c.getFrom();
+						 selectionMatrix.RemoveLayer(index);
 						 removeGraph(index);
 	                 }
 				}
@@ -203,7 +234,9 @@ public class GraphCanvas extends AnchorPane{
 		background.backgroundCanvas.setViewOrder(graphImages.size()+1);
 	}
 	private void addGraph(int pos, GraphData graphData) {
-		GraphImage tempGraphImage = new GraphImage(setting, graphData);
+		GraphImage tempGraphImage = new GraphImage(setting, selectionMatrix, graphData);
+		tempGraphImage.setIndex(pos);
+
 		this.getChildren().add(tempGraphImage.canvas);
 		tempGraphImage.rescaleUI(this.getWidth(), this.getHeight());
 		graphImages.add(pos, tempGraphImage);
@@ -396,12 +429,10 @@ public class GraphCanvas extends AnchorPane{
 			graphImage.rescaleUI(this.getWidth(), this.getHeight());
 		}
 		background.rescaleUI(this.getWidth(),this.getHeight());
+		selectionMatrix.InitNewSize((int)this.getWidth(),(int)this.getHeight());
 	}
 	@FXML
 	private void notifyMousePressed(MouseEvent e) {
-		if(settingUI.isVisible()) {
-			settingUI.setVisible(false);
-		}
 		recordMousePosition(e);
 	}
 	private Double prevMouseX = null, prevMouseY = null;

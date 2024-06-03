@@ -21,6 +21,18 @@ public class GraphData {
     private boolean isActive;
     private double opacity;
 
+    public boolean isSelected() {
+        return selected;
+    }
+    public void setSelected(boolean selected) {
+        if(this.selected!=selected) {
+            this.selected = selected;
+            notifyChange();
+        }
+    }
+
+    private boolean selected;
+
     @XmlTransient
     private BooleanProperty internalChanged = new SimpleBooleanProperty(false);
     public GraphData() {

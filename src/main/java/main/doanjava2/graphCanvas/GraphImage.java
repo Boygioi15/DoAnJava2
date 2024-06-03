@@ -23,14 +23,21 @@ class GraphImage_Params{
 }
 public class GraphImage {
 	Setting settingRef;
+	SelectionMatrix selectionMatrix;
 	GraphData dataRef;
 	Canvas canvas;
 	private GraphicsContext gc;
-	
-	public GraphImage(Setting settingRef, GraphData dataRef) {
+
+	public void setIndex(int index) {
+		this.index = index;
+	}
+
+	int index;
+	public GraphImage(Setting settingRef, SelectionMatrix selectionMatrix, GraphData dataRef) {
 		this.settingRef = settingRef;
 		this.dataRef = dataRef;
-		
+		this.selectionMatrix = selectionMatrix;
+
 		dataRef.addListener(ob -> update());
 		canvas = new Canvas();
 		gc = canvas.getGraphicsContext2D();
@@ -125,8 +132,7 @@ public class GraphImage {
 		if(dataRef.getExpressionString().equals("")) {
 			return;
 		}
-		
-		
+		selectionMatrix.ClearLayer(index);
 		//System.out.println(canvas.getLayoutX()+","+canvas.getLayoutY());
 		//System.out.println(canvas.getWidth()+","+canvas.getHeight());
 				
@@ -134,7 +140,7 @@ public class GraphImage {
 		double currentX = settingRef.leftBoundary.get();
 		double endX = settingRef.rightBoundary.get()+plottingSpace;
 		double preX = currentX-plottingSpace/2;
-			
+
 		Expression expression = new Expression(dataRef.getExpressionString());  		
 		expression.addFunction(expression.new Function("sin", 3) {
 			@Override
@@ -171,12 +177,16 @@ public class GraphImage {
 	
 		PointInfo prePointInfo = new PointInfo(preX,expression);
 		PointInfo curPointInfo = prePointInfo;
-		
-		while(currentX<endX) {				
+
+		if(!dataRef.isSelected()){
 			gc.setLineWidth(dataRef.getLineWidth());
-			gc.setGlobalAlpha(dataRef.getOpacity());
-			gc.setStroke(dataRef.getGraphColor());
-			
+		}else{
+			gc.setLineWidth(5);
+		}
+
+		gc.setGlobalAlpha(dataRef.getOpacity());
+		gc.setStroke(dataRef.getGraphColor());
+		while(currentX<endX) {
 			curPointInfo = new PointInfo(currentX,expression);	
 			currentX+=plottingSpace;		
 						
@@ -189,44 +199,19 @@ public class GraphImage {
 			 || (preState.equals(PointState.Inside)&&curState.equals(PointState.Outside))) 
 			{
 				prePointInfo = inspectFurther(prePointInfo, curPointInfo, 0, expression);
-				/*
-				gc.strokeLine(prePointInfo.getOnScreenX(), prePointInfo.getOnScreenY(),
-							  curPointInfo.getOnScreenX(),curPointInfo.getOnScreenY());
-				*/
-				/*
-				gc.setStroke(Color.BLUE);
-				gc.strokeLine(prePointInfo.getOnScreenX(), 0,
-						prePointInfo.getOnScreenX(),canvas.getHeight());
-				gc.setStroke(Color.GREEN);
-				gc.strokeLine(curPointInfo.getOnScreenX(), 0,
-						curPointInfo.getOnScreenX(),canvas.getHeight());
-				*/
 				continue;
 			}
-			gc.setStroke(Color.ORANGE);
 			if(preState.equals(PointState.Undetermined)&&curState.equals(PointState.Inside)) {
-				approximateUndeterminedPoint(curPointInfo, prePointInfo, expression);
 			}
 			if(preState.equals(PointState.Inside)&&curState.equals(PointState.Undetermined)) {
-				approximateUndeterminedPoint(prePointInfo, curPointInfo, expression);
 			}
-			
-			
 			if(preState.equals(PointState.MinusInfinity)&&curState.equals(PointState.Inside)) {
-				gc.strokeLine(curPointInfo.getOnScreenX(), curPointInfo.getOnScreenY(),
-							  curPointInfo.getOnScreenX(),canvas.getHeight());
 			}
 			if(preState.equals(PointState.Inside)&&curState.equals(PointState.MinusInfinity)) {
-				gc.strokeLine(prePointInfo.getOnScreenX(), prePointInfo.getOnScreenY(),
-							  prePointInfo.getOnScreenX(),canvas.getHeight());
 			}
 			if(preState.equals(PointState.PlusInfinity)&&curState.equals(PointState.Inside)) {
-				gc.strokeLine(curPointInfo.getOnScreenX(), curPointInfo.getOnScreenY(),
-							  curPointInfo.getOnScreenX(),0);
 			}
 			if(preState.equals(PointState.Inside)&&curState.equals(PointState.PlusInfinity)) {
-				gc.strokeLine(prePointInfo.getOnScreenX(), prePointInfo.getOnScreenY(),
-							  prePointInfo.getOnScreenX(),0);
 			}
 			
 			prePointInfo = curPointInfo;	
@@ -246,9 +231,13 @@ public class GraphImage {
 					 || (left.getState().equals(PointState.Outside)&&middle.getState().equals(PointState.Inside))
 					 || (left.getState().equals(PointState.Inside)&&middle.getState().equals(PointState.Outside))) 
 			{
+
 				gc.strokeLine(left.getOnScreenX(), left.getOnScreenY(), middle.getOnScreenX(), middle.getOnScreenY());
-			}else {
-				//System.out.println("hello");
+
+				selectionMatrix.PlotPoint(index,(int)left.getOnScreenX(),(int)left.getOnScreenY());
+				selectionMatrix.PlotPoint(index,(int)middle.getOnScreenX(),(int)middle.getOnScreenY());
+			}
+			else {
 			}
 			
 			return middle;

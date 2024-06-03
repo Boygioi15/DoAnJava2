@@ -334,7 +334,18 @@ public class MainController implements Initializable {
         filePanel.ToggleFilePanel(inputKeyboard);
     }
 
+    public void setSelectedGraph(int selection){
+        if(selectedGraph!=-1){
+            graphData.get(selectedGraph).setSelected(false);
+        }
+        if(selection!=-1){
+            graphData.get(selectedGraph).setSelected(true);
+        }
 
+    }
+    public int getSelectedGraph() {
+        return selectedGraph;
+    }
     private @FXML Region mainUIScreen;
 
     public @FXML FilePanel filePanel;
@@ -345,4 +356,8 @@ public class MainController implements Initializable {
 
     public ObservableList<GraphData> graphData;
     public SaveObject saveObject = new SaveObject();
+
+
+
+    private int selectedGraph = -1;
 }

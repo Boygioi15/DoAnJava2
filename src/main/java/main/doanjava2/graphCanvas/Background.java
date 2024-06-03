@@ -43,10 +43,10 @@ public class Background {
         usedToMeasureTextLength.setFont(BackgroundParams.axisNumberFont);
     }
 
+    private final GraphicsContext gc;
     Setting settingRef;
     Canvas backgroundCanvas;
     Color currentBackgroundColor;
-    private final GraphicsContext gc;
 
     public Background(Setting ref) {
         settingRef = ref;
