@@ -132,7 +132,7 @@ public class GraphImage {
 			this.input = input;
 		}
 	}
-	private void drawGraph() {
+		private void drawGraph() {
 		if(dataRef.getExpressionString().equals("")) {
 			return;
 		}
