@@ -324,7 +324,7 @@ public class MainController implements Initializable {
                 String[] parts = original.getExpressionString().split("=");
                 tempExpressionPart = parts[1].trim();
             }
-temp.setExpressionName("");
+            temp.setExpressionName("");
             temp.setExpressionString((tempExpressionPart));
 
             graphData.add(temp);
