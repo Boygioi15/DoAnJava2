@@ -133,94 +133,73 @@ public class GraphBlock extends HBox {
         });
         expressionTextField.focusedProperty().addListener((observable, oldValue, newValue) -> {
             if (!newValue) {
-                String expression = expressionTextField.getText().trim();
-
-                // Nếu expressionTextField chứa dấu "="
-                if (expression.contains("=")) {
-                    String expressionName = mnr.graphExpression.getFunctionName(expression);
-                    String expressionValue = mnr.graphExpression.parseExpression(expression);
-
-                    // Kiểm tra và cập nhật tên hàm nếu cần
-                    if (model.getExpressionName().isEmpty()) {
-                        // Trường hợp ban đầu chưa có tên hàm
-                        model.setExpressionName(expressionName);
-                        dataSource.setExpressionName(expressionName);
-                        mnr.graphExpression.defineFunction(expressionName, expressionValue);
-                        expressionTextField.setText(expressionName + " = " + expressionValue);
-                    } else {
-                        // Trường hợp đổi tên hàm
-                        String oldExpressionName = model.getExpressionName();
-                        if (!oldExpressionName.equals(expressionName)) {
-                            // Đổi tên hàm trong graphExpression
-                            mnr.graphExpression.renameFunction(oldExpressionName, expressionName);
-                            model.setExpressionName(expressionName);
-                            dataSource.setExpressionName(expressionName);
-                        }
-                        // Cập nhật giá trị biểu thức
-                        mnr.graphExpression.defineFunction(expressionName, expressionValue);
-                        expressionTextField.setText(expressionName + " = " + expressionValue);
-                    }
-                } else {
-                    // Trường hợp không chứa dấu "="
-                    if (!expression.isEmpty()) {
-                        if (model.getExpressionName().isEmpty()) {
-                            // Tạo tên hàm mới nếu chưa có
-                            String expressionName = mnr.graphExpression.getKeyWithEmptyValue();
-                            model.setExpressionName(expressionName);
-                            dataSource.setExpressionName(expressionName);
-                            mnr.graphExpression.defineFunction(expressionName, expression);
-                            expressionTextField.setText(expressionName + " = " + expression);
-                        } else {
-                            // Cập nhật giá trị biểu thức hiện tại
-                            String expressionName = model.getExpressionName();
-                            mnr.graphExpression.defineFunction(expressionName, expression);
-                            expressionTextField.setText(expressionName + " = " + mnr.graphExpression.getExpressionValue(expressionName));
-                        }
-                    }
-                }
-                if (!model.getExpressionName().isEmpty() && expression.isEmpty() || (!expressionTextField.getText().contains("=") && !model.getExpressionName().isEmpty() )) {
-                    String expressionName = model.getExpressionName();
-                    System.out.println("expressionName   "+ expressionName);
-                    expressionTextField.setText(expressionName + " = " + (mnr.graphExpression.getExpressionValue(expressionName)));
-                }
-
-            }
+                handleTextProperties();
                 mnr.graphExpression.printFunctionMap();
-
+            }
         });
 
         expressionTextField.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.ENTER) {
-                if (model.getExpressionName().isEmpty() && expressionTextField.getText().contains("=")) {
-                    String expressionName = mnr.graphExpression.getFunctionName(expressionTextField.getText());
-                    String expressionValue = mnr.graphExpression.parseExpression(expressionTextField.getText());
-                    model.setExpressionName(expressionName);
-                    dataSource.setExpressionName(expressionName);
-                    mnr.graphExpression.defineFunction(expressionName, expressionValue);
-                    expressionTextField.setText(expressionName + " = " + (expressionValue));
-                } else {
-                    String expression = expressionTextField.getText();
-                    if (model.getExpressionName().isEmpty()) {
-                        if (!expression.isEmpty()) {
-                            String expressionName = mnr.graphExpression.getKeyWithEmptyValue();
-                            model.setExpressionName(expressionName);
-                            dataSource.setExpressionName(expressionName);
-                            mnr.graphExpression.defineFunction(expressionName, expression);
-                            expressionTextField.setText(expressionName + " = " + (expression));
-                        }
-                    }
-                    if (!model.getExpressionName().isEmpty() && expression.isEmpty() || (!expressionTextField.getText().contains("=") && !model.getExpressionName().isEmpty())) {
-                        String expressionName = model.getExpressionName();
-                        System.out.println("expressionName   " + expressionName);
-                        expressionTextField.setText(expressionName + " = " + (mnr.graphExpression.getExpressionValue(expressionName)));
-                    }
+                handleTextProperties();
 
-                }
-                mnr.graphExpression.printFunctionMap();
             }
         });
 
     }
+    private void handleTextProperties(){
+        String expression = expressionTextField.getText().trim();
+
+        // Nếu expressionTextField chứa dấu "="
+        if (expression.contains("=")) {
+            String expressionName = mnr.graphExpression.getFunctionName(expression);
+            String expressionValue = mnr.graphExpression.parseExpression(expression);
+
+            // Kiểm tra và cập nhật tên hàm nếu cần
+            if (model.getExpressionName().isEmpty()) {
+                // Trường hợp ban đầu chưa có tên hàm
+                model.setExpressionName(expressionName);
+                dataSource.setExpressionName(expressionName);
+                mnr.graphExpression.defineFunction(expressionName, expressionValue);
+                expressionTextField.setText(expressionName + " = " + expressionValue);
+            } else {
+                // Trường hợp đổi tên hàm
+                String oldExpressionName = model.getExpressionName();
+                if (!oldExpressionName.equals(expressionName)) {
+                    // Đổi tên hàm trong graphExpression
+                    mnr.graphExpression.renameFunction(oldExpressionName, expressionName);
+                    model.setExpressionName(expressionName);
+                    dataSource.setExpressionName(expressionName);
+                }
+                // Cập nhật giá trị biểu thức
+                mnr.graphExpression.defineFunction(expressionName, expressionValue);
+                expressionTextField.setText(expressionName + " = " + expressionValue);
+            }
+        } else {
+            // Trường hợp không chứa dấu "="
+            if (!expression.isEmpty()) {
+                if (model.getExpressionName().isEmpty()) {
+                    // Tạo tên hàm mới nếu chưa có
+                    String expressionName = mnr.graphExpression.getKeyWithEmptyValue();
+                    model.setExpressionName(expressionName);
+                    dataSource.setExpressionName(expressionName);
+                    mnr.graphExpression.defineFunction(expressionName, expression);
+                    expressionTextField.setText(expressionName + " = " + expression);
+                } else {
+                    // Cập nhật giá trị biểu thức hiện tại
+                    String expressionName = model.getExpressionName();
+                    mnr.graphExpression.defineFunction(expressionName, expression);
+                    expressionTextField.setText(expressionName + " = " + mnr.graphExpression.getExpressionValue(expressionName));
+                }
+            }
+        }
+        if (!model.getExpressionName().isEmpty() && expression.isEmpty() || (!expressionTextField.getText().contains("=") && !model.getExpressionName().isEmpty())) {
+            String expressionName = model.getExpressionName();
+            System.out.println("expressionName   " + expressionName);
+            expressionTextField.setText(expressionName + " = " + (mnr.graphExpression.getExpressionValue(expressionName)));
+        }
+
+    }
+
 
 
     private void initUIBinding() {
@@ -275,6 +254,7 @@ public class GraphBlock extends HBox {
 
 
     }
+
     private void updateUI() {
         colorAndActive.setFill(model.getGraphColor());
         opacitySlider.setValue(model.getOpacity());

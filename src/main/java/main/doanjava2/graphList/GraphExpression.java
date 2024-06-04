@@ -230,6 +230,7 @@ public class GraphExpression {
     }
     public void renameFunction(String oldName, String newName) {
         String expressionValue = functionMap.remove(oldName);
+
         if (expressionValue != null) {
             functionMap.put(newName, expressionValue);
             functionMap.put(oldName, "");

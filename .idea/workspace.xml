@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c0c8e8f-6c6a-46f7-8269-c472333fba20" name="Changes" comment="finish welcome-screen">
+    <list default="true" id="7c0c8e8f-6c6a-46f7-8269-c472333fba20" name="Changes" comment="doi ten ham">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/doanjava2/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/doanjava2/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recentFiles.txt" beforeDir="false" afterPath="$PROJECT_DIR$/recentFiles.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/main/doanjava2/graphList/GraphBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/doanjava2/graphList/GraphBlock.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/main/doanjava2/graphList/GraphExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/doanjava2/graphList/GraphExpression.java" afterDir="false" />
     </list>
@@ -60,17 +60,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.HelloApplication.executor": "Run",
-    "Application.Main.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "handle-expression",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/thinh/OneDrive/Máy tính/DoAnJava2/src/main/resources",
-    "run.code.analysis.last.selected.profile": "pProject Default"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;handle-expression&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/thinh/OneDrive/Máy tính/DoAnJava2/src/main/resources&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\thinh\OneDrive\Máy tính\DoAnJava2\src\main\resources" />
@@ -143,7 +143,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716899596345</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="doi ten ham">
+      <option name="closed" value="true" />
+      <created>1717468970209</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1717468970209</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -161,6 +169,7 @@
     <MESSAGE value="finish" />
     <MESSAGE value="fix remove empty graphData" />
     <MESSAGE value="fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix" />
+    <MESSAGE value="doi ten ham" />
+    <option name="LAST_COMMIT_MESSAGE" value="doi ten ham" />
   </component>
 </project>
