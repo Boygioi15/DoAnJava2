@@ -40,9 +40,8 @@ public class GraphExpression {
     }
 
     public void defineFunction(String key, String expression) {
-        String emptyKey = getKeyWithEmptyValue();
-        if (emptyKey != null) {
-            functionMap.put(emptyKey, expression);
+        if (key != null) {
+            functionMap.put(key, expression);
         } else {
             System.out.println("Maximum number of functions reached.");
         }
@@ -135,42 +134,45 @@ public class GraphExpression {
 //    }
 
     public String transExpressions(String expression) {
-        boolean replaced;
-        do {
-            replaced = false;
-            for (Map.Entry<String, String> entry : functionMap.entrySet()) {
-                String functionName = entry.getKey().split("\\(")[0];
-                String functionExpression = entry.getValue();
-                Pattern pattern = Pattern.compile(functionName + "\\((.*?)\\)");
-                Matcher matcher = pattern.matcher(expression);
+        if(expression!=null){
+            boolean replaced;
+            do {
+                replaced = false;
+                for (Map.Entry<String, String> entry : functionMap.entrySet()) {
+                    String functionName = entry.getKey().split("\\(")[0];
+                    String functionExpression = entry.getValue();
+                    Pattern pattern = Pattern.compile(functionName + "\\((.*?)\\)");
+                    Matcher matcher = pattern.matcher(expression);
 
-                while (matcher.find()) {
-                    int openParenIndex = matcher.start() + functionName.length() + 1;
-                    System.out.println("check log:" +extractFunctionText(expression,openParenIndex-1));
-                    if(!defaultFunctions.contains(extractFunctionText(expression,openParenIndex-1)))
-                    {
-                        System.out.println("openParenIndex: " + openParenIndex);
-                        int closeParenIndex = findClosingParenthesis(expression, openParenIndex);
-                        System.out.println("closeParenIndex: " + closeParenIndex);
-                        if (closeParenIndex != -1) {
-                            String arg = expression.substring(openParenIndex, closeParenIndex);
-                            System.out.println("arg: " + arg);
-                            String replacedExpression = functionExpression.replace("x", "(" + arg + ")");
-                            System.out.println("replacedExpression: " + replacedExpression);
-                            expression = expression.substring(0, matcher.start()) + "(" + replacedExpression + ")" + expression.substring(closeParenIndex + 1);
-                            System.out.println("expression: " + expression);
-                            replaced = true;
-                            matcher = pattern.matcher(expression); // Reset matcher after replacement
+                    while (matcher.find()) {
+                        int openParenIndex = matcher.start() + functionName.length() + 1;
+                        System.out.println("check log:" +extractFunctionText(expression,openParenIndex-1));
+                        if(!defaultFunctions.contains(extractFunctionText(expression,openParenIndex-1)))
+                        {
+                            System.out.println("openParenIndex: " + openParenIndex);
+                            int closeParenIndex = findClosingParenthesis(expression, openParenIndex);
+                            System.out.println("closeParenIndex: " + closeParenIndex);
+                            if (closeParenIndex != -1) {
+                                String arg = expression.substring(openParenIndex, closeParenIndex);
+                                System.out.println("arg: " + arg);
+                                String replacedExpression = functionExpression.replace("x", "(" + arg + ")");
+                                System.out.println("replacedExpression: " + replacedExpression);
+                                expression = expression.substring(0, matcher.start()) + "(" + replacedExpression + ")" + expression.substring(closeParenIndex + 1);
+                                System.out.println("expression: " + expression);
+                                replaced = true;
+                                matcher = pattern.matcher(expression);
+                            }
                         }
+
+
                     }
 
-
                 }
-
-            }
-        } while (replaced);
-        System.out.println("change expression: " + expression);
-        return expression;
+            } while (replaced);
+            System.out.println("change expression: " + expression);
+            return expression;
+        }
+       return "";
     }
 
     private int findClosingParenthesis(String expression, int startIndex) {
@@ -185,20 +187,54 @@ public class GraphExpression {
                 }
             }
         }
-        return -1; // No matching closing parenthesis found
+        return -1;
     }
 
     public String extractFunctionText(String expression, int openParenIndex) {
         StringBuilder functionTextBuilder = new StringBuilder();
         int index = openParenIndex - 1;
-
-        // Lùi về phía trước cho đến khi gặp một toán tử hoặc ký tự không hợp lệ
         while (index >= 0 && Character.isLetter(expression.charAt(index))) {
             functionTextBuilder.insert(0, expression.charAt(index));
             index--;
         }
-
         return functionTextBuilder.toString();
+    }
+    public String getFunctionName(String expression) {
+        String[] parts = expression.split("=");
+
+        if (parts.length == 2) {
+            String functionName = parts[0].trim();
+
+            // Kiểm tra và thêm (x) nếu chưa có
+            if (!functionName.contains("(")) {
+                functionName += "(x)";
+            }
+
+            return functionName;
+        }
+
+        return "";
+    }
+
+    public String parseExpression(String expression) {
+        if(expression!=null) {
+            String expressionvalue;
+            String[] parts = expression.split("=");
+
+            if (parts.length == 2) {
+                expressionvalue = parts[1].trim();
+                return expressionvalue;
+            }
+        }
+        return "";
+    }
+    public void renameFunction(String oldName, String newName) {
+        String expressionValue = functionMap.remove(oldName);
+
+        if (expressionValue != null) {
+            functionMap.put(newName, expressionValue);
+            functionMap.put(oldName, "");
+        }
     }
 
 

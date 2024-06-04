@@ -416,8 +416,7 @@ public class MainController implements Initializable {
         if (model.getExpressionName().isEmpty()) {
             if(model.getExpressionString().contains("="))
             {
-                String[] parts = model.getExpressionString().split("=");
-                String expressionPart = parts[1].trim();
+                String expressionPart = graphExpression.parseExpression(model.getExpressionString());
                 String exp = graphExpression.transExpressions(expressionPart);
                 return exp;
             }
@@ -427,17 +426,25 @@ public class MainController implements Initializable {
             }
 
         } else {
-            // khi sửa
-            if(!model.getExpressionString().contains("=") && !model.getExpressionName().isEmpty() )
-            {
+            // Kiểm tra nếu biểu thức trống và tên hàm không trống
+            if (!model.getExpressionString().contains("=")) {
                 return "";
             }
-            String[] parts = model.getExpressionString().split("=");
-            String expressionPart = parts[1].trim();
-            graphExpression.setExpressionValue(model.getExpressionName(), expressionPart);
-            String exprValue = graphExpression.getExpressionValue(model.getExpressionName());
-            String exp = graphExpression.transExpressions(exprValue);
-            return exp;
+
+
+            String expressionPart = graphExpression.parseExpression(model.getExpressionString());
+
+            // Đảm bảo expressionPart không null trước khi sử dụng
+            if (expressionPart != null && !expressionPart.isEmpty()) {
+                graphExpression.setExpressionValue(model.getExpressionName(), expressionPart);
+                String exprValue = graphExpression.getExpressionValue(model.getExpressionName());
+                String exp = graphExpression.transExpressions(exprValue);
+                return exp;
+            } else {
+                // Xử lý trường hợp expressionPart là null
+                return "";
+            }
+
         }
     }
     private @FXML Region mainUIScreen;
