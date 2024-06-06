@@ -73,6 +73,11 @@ public class GraphList extends GridPane {
 
 		});
     }
+
+    public boolean isOpen() {
+        return isOpen;
+    }
+
     boolean isOpen = true;
     private void initEvent() {
         openButton.setOnAction(event -> {
@@ -84,6 +89,7 @@ public class GraphList extends GridPane {
             isOpen= !isOpen;
         });
     }
+
 
     @FXML
     private void requestAddingGraphData() {
