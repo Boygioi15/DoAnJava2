@@ -381,6 +381,7 @@ public class MainController implements Initializable {
             }
 
             graphExpression.printFunctionMap();
+
         } else {
             throw new IllegalArgumentException("null");
         }
@@ -391,12 +392,11 @@ public class MainController implements Initializable {
         if (selectedGraph != -1) {
             graphData.get(selectedGraph).setSelected(false);
         }
-        System.out.println("Check selection" + selection);
-        System.out.println("check length" + graphData.toArray().length);
         if (selection != -1) {
             graphData.get(selection).setSelected(true);
         }
-
+        System.out.println("Check selection" + selection);
+        System.out.println("check length" + graphData.toArray().length);
     }
 
     public int getSelectedGraph() {
