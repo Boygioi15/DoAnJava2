@@ -146,13 +146,13 @@ public class GraphBlock extends HBox {
         });
 
     }
-    private void handleTextProperties(){
+
+    private void handleTextProperties() {
         String expression = expressionTextField.getText().trim();
         // Regular expression for validating the expression
         String validExpressionRegex = "^([a-zA-Z0-9\\s+\\-*/^().,]*=)?[a-zA-Z0-9\\s+\\-*/^().,]+$";
 
         if (!expression.matches(validExpressionRegex)) {
-            // If the expression is invalid, show an error message and return
             return;
         }
 
@@ -185,12 +185,15 @@ public class GraphBlock extends HBox {
                 if (model.getExpressionName().isEmpty()) {
                     // Tạo tên hàm mới nếu chưa có
                     String expressionName = mnr.graphExpression.getKeyWithEmptyValue();
+                    if (expressionName.equals(expression)) {
+                        return;
+                    }
                     model.setExpressionName(expressionName);
                     dataSource.setExpressionName(expressionName);
                     mnr.graphExpression.defineFunction(expressionName, expression);
                     expressionTextField.setText(expressionName + " = " + expression);
                 } else {
-                    // Cập nhật giá trị biểu thức hiện tại
+
                     String expressionName = model.getExpressionName();
                     mnr.graphExpression.defineFunction(expressionName, expression);
                     expressionTextField.setText(expressionName + " = " + mnr.graphExpression.getExpressionValue(expressionName));
@@ -204,7 +207,6 @@ public class GraphBlock extends HBox {
         }
 
     }
-
 
 
     private void initUIBinding() {

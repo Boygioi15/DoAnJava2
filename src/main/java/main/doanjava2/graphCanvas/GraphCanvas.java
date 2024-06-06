@@ -212,7 +212,7 @@ public class GraphCanvas extends AnchorPane{
 						 selectionMatrix.AddNewLayer(index);
 						 addGraph(index, mnr.graphData.get(index));
 					 }
-					 else {
+					 else if(c.wasRemoved()){
 						 int index = c.getFrom();
 						 selectionMatrix.RemoveLayer(index);
 						 removeGraph(index);
@@ -235,11 +235,11 @@ public class GraphCanvas extends AnchorPane{
 	}
 	private void addGraph(int pos, GraphData graphData) {
 		GraphImage tempGraphImage = new GraphImage(setting, selectionMatrix, graphData);
-		tempGraphImage.setIndex(pos);
 		tempGraphImage.setManagerRef(mnr);
 		this.getChildren().add(tempGraphImage.canvas);
 		tempGraphImage.rescaleUI(this.getWidth(), this.getHeight());
 		graphImages.add(pos, tempGraphImage);
+		tempGraphImage.setIndex(graphImages.indexOf(tempGraphImage));
 		graphImages.get(pos).update();
 		updateViewOrder();
 		System.out.println(graphData.toString()+ " is added at " + pos);

@@ -136,6 +136,7 @@ public class GraphImage {
 		if(dataRef.getExpressionString().equals("")) {
 			return;
 		}
+		System.out.println("index smatrix" + index);
 		selectionMatrix.ClearLayer(index);
 		//System.out.println(canvas.getLayoutX()+","+canvas.getLayoutY());
 		//System.out.println(canvas.getWidth()+","+canvas.getHeight());
