@@ -2,6 +2,7 @@ package main.doanjava2.graphCanvas;
 
 import java.math.BigDecimal;
 import java.math.MathContext;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.udojava.evalex.Expression;
@@ -17,7 +18,7 @@ import main.doanjava2.MainController;
 
 class GraphImage_Params{
 	static double plottingSpaceOnScreen = 10;
-	static int loopLimit = 5;
+	static int loopLimit = 15;
 	static int maxRecursion = 5;
 	static double angleThreshold = 20;//in degree
 }
@@ -74,8 +75,6 @@ public class GraphImage {
 	enum PointState{
 		Inside,
 		Outside,
-		MinusInfinity,
-		PlusInfinity,
 		Undetermined
 	}
 	private class PointInfo{
@@ -97,11 +96,11 @@ public class GraphImage {
 				if(pointValueY>settingRef.botBoundary.get()&&pointValueY<settingRef.topBoundary.get()) {
 					state = PointState.Inside;
 				}
-				else if(pointValueY>settingRef.topBoundary.get()*5) {
-					state = PointState.PlusInfinity;
+				else if(pointValueY>settingRef.topBoundary.get()*2) {
+					state = PointState.Undetermined;
 				}
-				else if(pointValueY<settingRef.botBoundary.get()*5) {
-					state = PointState.MinusInfinity;
+				else if(pointValueY<settingRef.botBoundary.get()*2) {
+					state = PointState.Undetermined;
 				}
 				else {
 					state = PointState.Outside;
@@ -132,7 +131,7 @@ public class GraphImage {
 			this.input = input;
 		}
 	}
-		private void drawGraph() {
+	private void drawGraph() {
 		if(dataRef.getExpressionString().equals("")) {
 			return;
 		}
@@ -173,7 +172,7 @@ public class GraphImage {
 		expression.addFunction(expression.new Function("log", 3) {
 			@Override
 			public BigDecimal eval(List<BigDecimal> parameters) {
-				if(parameters.get(0).doubleValue()<1e-10) {
+				if(parameters.get(0).doubleValue()<0.0001) {
 					return new BigDecimal(-1e+9);
 				}
 				BigDecimal result = BigDecimalMath.log(parameters.get(0), MathContext.DECIMAL32);
@@ -193,132 +192,114 @@ public class GraphImage {
 
 		gc.setGlobalAlpha(dataRef.getOpacity());
 		gc.setStroke(dataRef.getGraphColor());
+
 		while(currentX<endX) {
-			curPointInfo = new PointInfo(currentX,expression);	
-			currentX+=plottingSpace;		
-						
+			curPointInfo = new PointInfo(currentX,expression);
+
 			//check state
 			PointState preState = prePointInfo.getState();
 			PointState curState = curPointInfo.getState();
-			//System.out.println(curState.toString());
-			if(preState.equals(PointState.Inside)&&curState.equals(PointState.Inside)
-			 || (preState.equals(PointState.Outside)&&curState.equals(PointState.Inside))
-			 || (preState.equals(PointState.Inside)&&curState.equals(PointState.Outside))) 
-			{
-				prePointInfo = inspectFurther(prePointInfo, curPointInfo, 0, expression);
+
+			if(preState.equals(PointState.Undetermined)&&curState.equals(PointState.Undetermined)){
+				prePointInfo = curPointInfo;
+				currentX+=plottingSpace;
 				continue;
 			}
-			if(preState.equals(PointState.Undetermined)&&curState.equals(PointState.Inside)) {
+			if(preState.equals(PointState.Undetermined)){
+				//System.out.println("Left");
+				//undetermined is pre
+				approximateUndeterminedPointLeft(curPointInfo,prePointInfo,expression);
 			}
-			if(preState.equals(PointState.Inside)&&curState.equals(PointState.Undetermined)) {
+			else if(curState.equals(PointState.Undetermined)){
+				//System.out.println("Right");
+				//undetermined is cur
+				approximateUndeterminedPointRight(prePointInfo,curPointInfo,expression);
 			}
-			if(preState.equals(PointState.MinusInfinity)&&curState.equals(PointState.Inside)) {
+			else{
+				List<PointInfo> toDrawPoints = getPointList(prePointInfo,curPointInfo,expression,0);
+				drawLine(prePointInfo,toDrawPoints.getFirst());
+				drawLine(curPointInfo,toDrawPoints.getLast());
+				for(int i = 0;i<toDrawPoints.size()-1;i++){
+					drawLine(toDrawPoints.get(i),toDrawPoints.get(i+1));
+				}
 			}
-			if(preState.equals(PointState.Inside)&&curState.equals(PointState.MinusInfinity)) {
-			}
-			if(preState.equals(PointState.PlusInfinity)&&curState.equals(PointState.Inside)) {
-			}
-			if(preState.equals(PointState.Inside)&&curState.equals(PointState.PlusInfinity)) {
-			}
-			
-			prePointInfo = curPointInfo;	
+			prePointInfo = curPointInfo;
+			currentX+=plottingSpace;
+			//System.out.println("-----------------------------------------------");
 		}
 	}
-	
-	private PointInfo inspectFurther(PointInfo left, PointInfo right, int currentRecursion, Expression e) {
-		PointInfo middle = new PointInfo((left.getInput()+right.getInput())/2, e);
-		double dLeft = (middle.getOutput()-left.getOutput())/(middle.getInput()-left.getInput());
+	private List<PointInfo> getPointList(PointInfo a, PointInfo b, Expression e, int currentRecursion){
+		List<PointInfo> result = new ArrayList<>();
+		//angle
+		PointInfo middle = new PointInfo((a.getInput()+b.getInput())/2, e);
+		double dLeft = (middle.getOutput()-a.getOutput())/(middle.getInput()-a.getInput());
 		double aLeft = Math.atan(dLeft);
-		double dRight = (right.getOutput()-middle.getOutput())/(right.getInput()-middle.getInput());
+		double dRight = (b.getOutput()-middle.getOutput())/(b.getInput()-middle.getInput());
 		double aRight = Math.atan(dRight);
 		double angleInDegree = (Math.abs(aLeft-aRight))*180/Math.PI;
-		if(angleInDegree<GraphImage_Params.angleThreshold||currentRecursion==GraphImage_Params.maxRecursion) {
-			//System.out.printf("left: %f, right: %f, angle: %f\n",dLeft,dRight,angleInDegree);
-			if(left.getState().equals(PointState.Inside)&&middle.getState().equals(PointState.Inside)
-					 || (left.getState().equals(PointState.Outside)&&middle.getState().equals(PointState.Inside))
-					 || (left.getState().equals(PointState.Inside)&&middle.getState().equals(PointState.Outside))) 
-			{
 
-				gc.strokeLine(left.getOnScreenX(), left.getOnScreenY(), middle.getOnScreenX(), middle.getOnScreenY());
-
-				selectionMatrix.PlotPoint(index,(int)left.getOnScreenX(),(int)left.getOnScreenY());
-				selectionMatrix.PlotPoint(index,(int)middle.getOnScreenX(),(int)middle.getOnScreenY());
-			}
-			else {
-			}
-			
-			return middle;
-			
-		}else {
-			gc.setStroke(Color.rgb(230, 33, 0));
-			if(currentRecursion==0) {
-				gc.setStroke(Color.GREEN);
-			}
-			else if(currentRecursion==1) {
-				gc.setStroke(Color.BLUE);
-			}
-			else if(currentRecursion==2) {
-				gc.setStroke(Color.ORANGE);
-			}
-			else if(currentRecursion==3) {
-				gc.setStroke(Color.RED);
-			}
-
-			double xMiddleLeft = (left.getInput()+middle.getInput())/2;
-			double xMiddleRight = (right.getInput()+middle.getInput())/2;
-			PointInfo pMiddleLeft = new PointInfo(xMiddleLeft, e);
-			PointInfo pMiddleRight = new PointInfo(xMiddleRight, e);
-			
-			pMiddleLeft = inspectFurther(left, middle,currentRecursion+1,e);
-			middle = inspectFurther(pMiddleLeft, pMiddleRight,currentRecursion+1,e);
-			pMiddleRight = inspectFurther(middle, right,currentRecursion+1,e);
-			
-			return pMiddleRight;
+		//check;
+		if(angleInDegree<GraphImage_Params.angleThreshold||currentRecursion==GraphImage_Params.maxRecursion){
+			result.add(middle);
+		}else{
+			result.addAll(0,getPointList(a,middle,e,currentRecursion+1));
+			result.addAll(getPointList(middle,b,e,currentRecursion+1));
 		}
+		return result;
 	}
-	
-	private void approximateUndeterminedPoint(PointInfo nearPoint, PointInfo underterminedPoint, Expression e) {
-		if(nearPoint.getInput()>underterminedPoint.getInput()) {
-			approximateUndeterminedPointLeft(nearPoint, underterminedPoint, e);
-		}else {
-			approximateUndeterminedPointRight(nearPoint, underterminedPoint, e);
-		}
-	}
-	private void approximateUndeterminedPointLeft(PointInfo nearPoint, PointInfo underterminedPoint, Expression e) {
-		double left = underterminedPoint.getInput(), right = nearPoint.getInput();
+	//sqrt(x)
+	private void approximateUndeterminedPointLeft(PointInfo nearPoint, PointInfo undeterminedPoint, Expression e) {
+		double left = undeterminedPoint.getInput(), right = nearPoint.getInput();
 		double currentApproximation = (left+right)/2;
 		PointInfo prePointInfo = nearPoint;
 		for(int i = 0;i<GraphImage_Params.loopLimit;i++) {
 			PointInfo curPointInfo = new PointInfo(currentApproximation, e);
 			PointState state = curPointInfo.getState();
-			if(state.equals(PointState.Inside)) {
+			if(state.equals(PointState.Inside)||state.equals(PointState.Outside)) {
 				right = currentApproximation;
-				currentApproximation = (left+right)/2;	
-				gc.strokeLine(prePointInfo.getOnScreenX(), prePointInfo.getOnScreenY(), 
-						curPointInfo.getOnScreenX(), curPointInfo.getOnScreenY());
+				currentApproximation = (left+right)/2;
+				drawLine(prePointInfo,curPointInfo);
+				prePointInfo = curPointInfo;
 			}
-			else if(state.equals(PointState.Undetermined)) {
+			else{
 				left = currentApproximation;
 				currentApproximation = (left+right)/2;				
-			}
-			else if(state.equals(PointState.MinusInfinity)) {
-				gc.strokeLine(prePointInfo.getOnScreenX(), prePointInfo.getOnScreenY(), 
-						prePointInfo.getOnScreenX(), canvas.getHeight());		
-				return;
-			}
-			else if(state.equals(PointState.MinusInfinity)) {
-				gc.strokeLine(prePointInfo.getOnScreenX(), prePointInfo.getOnScreenY(), 
-						prePointInfo.getOnScreenX(), 0);		
-				return;
 			}
 			//System.out.printf("Left: %.20f, Right: %.20f, Middle: %.20f\n", left,right,currentApproximation);
 		}
 		//System.out.println("\n\n");
 	}
-	private void approximateUndeterminedPointRight(PointInfo nearPoint, PointInfo underterminedPoint, Expression e) {
-		approximateUndeterminedPointLeft(nearPoint, underterminedPoint, e);
+	//sqrt(-x)
+	private void approximateUndeterminedPointRight(PointInfo nearPoint, PointInfo undeterminedPoint, Expression e) {
+		double left = nearPoint.getInput(), right = undeterminedPoint.getInput();
+		double currentApproximation = (left+right)/2;
+		PointInfo prePointInfo = nearPoint;
+		//System.out.printf("Left: %.20f, Right: %.20f, Middle: %.20f\n", left,right,currentApproximation);
+		for(int i = 0;i<GraphImage_Params.loopLimit;i++) {
+			PointInfo curPointInfo = new PointInfo(currentApproximation, e);
+			PointState state = curPointInfo.getState();
+			if(state.equals(PointState.Inside)||state.equals(PointState.Outside)) {
+				left = currentApproximation;
+				currentApproximation = (left+right)/2;
+				drawLine(prePointInfo,curPointInfo);
+				prePointInfo = curPointInfo;
+			}
+			else{
+				right = currentApproximation;
+				currentApproximation = (left+right)/2;
+			}
+			//System.out.printf("Left: %.20f, Right: %.20f, Middle: %.20f\n", left,right,currentApproximation);
+		}
+		//System.out.println("\n\n");
 	}
-	
+
+	private void drawLine(PointInfo a, PointInfo b){
+		if(a.getState().equals(PointState.Outside)&&b.getState().equals(PointState.Outside)){
+			return;
+		}
+		gc.strokeLine(a.getOnScreenX(), a.getOnScreenY(),
+				b.getOnScreenX(), b.getOnScreenY());
+	}
 	private double getOnCanvasCoordinateX(double point) {
 		double dstX = point - settingRef.leftBoundary.get();
 		double ratio = dstX/settingRef.getBoundaryWidth();

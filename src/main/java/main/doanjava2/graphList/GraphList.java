@@ -93,15 +93,16 @@ public class GraphList extends GridPane {
     	GraphBlock toAdd = new GraphBlock();
     	toAdd.setPrefWidth(graphListBox.getWidth());
     	toAdd.setDataSource(graphData);
-        toAdd.requestFocus();
-        toAdd.setManagerRef(mnr);
-        TextField textField = toAdd.getExpressionTextField();
+      toAdd.requestFocus();
+      toAdd.setManagerRef(mnr);
+      TextField textField = toAdd.getExpressionTextField();
         textField.focusedProperty().addListener(Object ->{
             if(textField.focusedProperty().get()) {
                 currentlySelectedTextField = textField;
             }
         });
         graphListBox.getChildren().add(pos, toAdd);
+        
         if(graphListBox.getChildren().size()>9){
             addNewBtn.setVisible(false);
         }

@@ -211,11 +211,13 @@ public class GraphCanvas extends AnchorPane{
 						 int index = c.getFrom();
 						 selectionMatrix.AddNewLayer(index);
 						 addGraph(index, mnr.graphData.get(index));
+						 updateIndex();
 					 }
 					 else {
 						 int index = c.getFrom();
 						 selectionMatrix.RemoveLayer(index);
 						 removeGraph(index);
+						 updateIndex();
 	                 }
 				}
 			}
@@ -250,7 +252,11 @@ public class GraphCanvas extends AnchorPane{
 		updateViewOrder();
 		System.out.println("An element is removed at " + pos);
 	}
-	
+	private void updateIndex(){
+		for(int i = 0;i<graphImages.size();i++){
+			graphImages.get(i).setIndex(i);
+		}
+	}
 	private @FXML VBox buttonsUI;
 	private @FXML TabPane settingUI;
 	private @FXML CheckBox majorGridline_cb;
