@@ -169,7 +169,6 @@ public class GraphExpression {
 
                 }
             } while (replaced);
-            System.out.println("change expression: " + expression);
             return expression;
         }
        return "";

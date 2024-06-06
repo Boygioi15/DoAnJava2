@@ -109,8 +109,6 @@ public class GraphList extends GridPane {
         textField.focusedProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue) {
                 currentlySelectedTextField = textField;
-                System.out.println("graphListBox.getChildren().indexOf(toAdd) " +graphListBox.getChildren().indexOf(toAdd));
-                System.out.println("pos" +pos);
                 mnr.setSelectedGraph(graphListBox.getChildren().indexOf(toAdd));
                 updateSelectedGraphBlock(toAdd);
             }
