@@ -149,6 +149,11 @@ public class GraphBlock extends HBox {
     private void handleTextProperties(){
         String expression = expressionTextField.getText().trim();
 
+        String validExpressionRegex = "^([a-zA-Z0-9\\s+\\-*/^().,]*=)?[a-zA-Z0-9\\s+\\-*/^().,]+$";
+
+        if (!expression.matches(validExpressionRegex)) {
+            return;
+        }
         // Nếu expressionTextField chứa dấu "="
         if (expression.contains("=")) {
             String expressionName = mnr.graphExpression.getFunctionName(expression);
