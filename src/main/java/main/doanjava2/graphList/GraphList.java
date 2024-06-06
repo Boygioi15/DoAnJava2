@@ -25,7 +25,7 @@ import javafx.util.Duration;
 
 public class GraphList extends GridPane {
 	TextField currentlySelectedTextField ;
-    @FXML MenuButton addNewBtn;
+    @FXML Button addNewBtn;
     MainController mnr;
     @FXML
     private VBox graphListBox;
@@ -142,13 +142,12 @@ public class GraphList extends GridPane {
 
     @FXML
     public void closeGraphList() {
-        TranslateTransition tt = new TranslateTransition(Duration.seconds(0.2), graphListPane);
-        tt.setToX(-graphListPane.getWidth()+35);
+        TranslateTransition tt = new TranslateTransition(Duration.seconds(0.1), graphListPane);
+        tt.setToX(-graphListPane.getWidth()+20);
         tt.play();
 
         tt.setOnFinished(e -> {
             openButton.setVisible(true);
-            openButton.setText(">>");
             this.setManaged(false);
         });
     }
@@ -159,9 +158,8 @@ public class GraphList extends GridPane {
             node.setVisible(true);
         }
         this.setManaged(true);
-        openButton.setText("<<");
 
-        TranslateTransition tt = new TranslateTransition(Duration.seconds(0.2), graphListPane);
+        TranslateTransition tt = new TranslateTransition(Duration.seconds(0.1), graphListPane);
         tt.setToX(0);
         tt.play();
     }

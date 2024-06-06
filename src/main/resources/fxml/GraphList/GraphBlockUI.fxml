@@ -9,32 +9,47 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50" style="-fx-background-color: transparent" stylesheets="@../../css/GraphList/GraphList.css" type="HBox" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
-	<children>
-      <AnchorPane>
-         <children>
-            <Label fx:id="orderLabel" text="1." AnchorPane.topAnchor="0.0" />
-            <Circle fx:id="colorAndActive" fill="DODGERBLUE" radius="15" stroke="BLACK" strokeType="INSIDE" AnchorPane.bottomAnchor="10" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10" AnchorPane.topAnchor="10" />
-         </children>
-      </AnchorPane>
-      <StackPane alignment="CENTER_RIGHT">
-         <children>
-            <TextField fx:id="expressionTextField" prefHeight="60.0" prefWidth="250.0" promptText="Enter expression..." StackPane.alignment="CENTER_RIGHT" />
-			<MenuButton fx:id="menuButton" mnemonicParsing="false" styleClass="transparent-button">
-                <padding>
-                    <Insets left="-8" />
-                </padding>
-               <items>
-                  <MenuItem fx:id="dupicateMenuItem" mnemonicParsing="false" text="Duplicate" />
-                  <MenuItem fx:id="deleteMenuItem" mnemonicParsing="false" text="Delete" />
-               </items>
-               <StackPane.margin>
-                  <Insets right="10" />
-               </StackPane.margin>
-            </MenuButton>
-         </children>
-      </StackPane>
-   </children>
+<fx:root maxHeight="50.0" minHeight="50.0" prefHeight="60.0" prefWidth="273.0" style="-fx-background-color: transparent; -fx-border-color: lightgray; -fx-border-width: 0.5; -fx-border-radius: 5;" styleClass="border-section" stylesheets="@../../css/GraphList/GraphList.css" type="HBox" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <AnchorPane maxWidth="60.0" minWidth="60.0" prefWidth="60.0" HBox.hgrow="ALWAYS">
+            <children>
+                <Label fx:id="orderLabel" style="-fx-font-family: Arial; -fx-font-size: 14;" text="1." AnchorPane.leftAnchor="2.0" AnchorPane.topAnchor="2.0">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font></Label>
+                <Circle fx:id="colorAndActive" fill="DODGERBLUE" radius="15" stroke="rgba(0, 0, 0, 0.3)" strokeType="INSIDE" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="10.0" />
+            </children>
+         <HBox.margin>
+            <Insets />
+         </HBox.margin>
+         <padding>
+            <Insets bottom="10.0" />
+         </padding>
+        </AnchorPane>
+        <StackPane alignment="CENTER_RIGHT" style="-fx-border-color: gray; -fx-border-width: 0 0 0 0.5;" styleClass="text-field-section">
+            <children>
+                <TextField fx:id="expressionTextField" prefWidth="240.0" promptText="Enter expression..." style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-font-family: Arial; -fx-font-size: 16;" StackPane.alignment="CENTER_RIGHT" />
+                <MenuButton alignment="CENTER_RIGHT" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" styleClass="add-button">
+                    <graphic>
+                    </graphic>
+                    <padding>
+                        <Insets left="4" right="-4" top="2" />
+                    </padding>
+                    <items>
+                        <MenuItem fx:id="dupicateMenuItem" mnemonicParsing="false" text="Duplicate    " />
+                        <MenuItem fx:id="deleteMenuItem" mnemonicParsing="false" text="Delete" />
+                    </items>
+                    <StackPane.margin>
+                        <Insets />
+                    </StackPane.margin>
+                </MenuButton>
+            </children>
+         <padding>
+            <Insets right="5.0" />
+         </padding>
+        </StackPane>
+    </children>
 
 </fx:root>

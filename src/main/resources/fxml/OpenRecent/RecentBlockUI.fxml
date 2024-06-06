@@ -15,7 +15,7 @@
          <children>
             <ImageView fx:id="fuckingInformativeIcon" fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../ic_graph.png" />
+                  <Image url="@../../images/ic_graph.png" />
                </image></ImageView>
             <VBox alignment="CENTER_LEFT" spacing="5.0" HBox.hgrow="ALWAYS">
                <children>

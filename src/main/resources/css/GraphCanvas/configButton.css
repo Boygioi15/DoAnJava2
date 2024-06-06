@@ -1,10 +1,13 @@
 .button{
-	-fx-background-color: rgb(217,217,217);
+	-fx-background-color: #E6E6E6;
+	-fx-border-color: lightgray;
+	-fx-border-width: 0.75;
+	-fx-border-radius: 10;
 }
 
 .button:hover{
-	-fx-background-color: rgb(197,197,197);
+	-fx-background-color: #DFDFDF;
 }
 .button:pressed{
-	-fx-background-color: rgb(177,177,177);
+	-fx-background-color: #D2D2D2;
 }

@@ -1,26 +1,24 @@
-.file-panel {
+.background {
     -fx-background-color: #ffffff;
+
     -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0, 0, 10);
 }
 
-.file-panel * {
-    -fx-background-color: white;
-}
 
-.file-panel .button {
+.button {
     /* Normal state */
     -fx-background-color: transparent;
     -fx-text-fill: #000000;
     -fx-font-size: 16px;
 }
 
-.file-panel .button:hover {
+.button:hover {
     /* Hover state */
     -fx-background-color: #dddddd;
     -fx-text-fill: #000000;
 }
 
-.file-panel .button:pressed {
+.button:pressed {
     /* Clicked state */
     -fx-background-color: #bbbbbb;
     -fx-text-fill: #000000;
