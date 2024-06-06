@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c0c8e8f-6c6a-46f7-8269-c472333fba20" name="Changes" comment="doi ten ham">
+    <list default="true" id="7c0c8e8f-6c6a-46f7-8269-c472333fba20" name="Changes" comment="finish welcome-screen">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/main/doanjava2/graphCanvas/GraphCanvas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/doanjava2/graphCanvas/GraphCanvas.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/main/doanjava2/graphCanvas/GraphImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/doanjava2/graphCanvas/GraphImage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/main/doanjava2/graphList/GraphExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/doanjava2/graphList/GraphExpression.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/main/doanjava2/graphList/GraphList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/doanjava2/graphList/GraphList.java" afterDir="false" />
+
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +29,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="handle-expression" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -144,15 +145,7 @@
       <option name="project" value="LOCAL" />
       <updated>1716899596345</updated>
     </task>
-    <task id="LOCAL-00004" summary="doi ten ham">
-      <option name="closed" value="true" />
-      <created>1717468970209</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1717468970209</updated>
-    </task>
-    <option name="localTasksCounter" value="5" />
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -170,7 +163,6 @@
     <MESSAGE value="finish" />
     <MESSAGE value="fix remove empty graphData" />
     <MESSAGE value="fix" />
-    <MESSAGE value="doi ten ham" />
-    <option name="LAST_COMMIT_MESSAGE" value="doi ten ham" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix" />
   </component>
 </project>

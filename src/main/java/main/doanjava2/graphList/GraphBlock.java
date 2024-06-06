@@ -149,6 +149,11 @@ public class GraphBlock extends HBox {
     private void handleTextProperties(){
         String expression = expressionTextField.getText().trim();
 
+        String validExpressionRegex = "^([a-zA-Z0-9\\s+\\-*/^().,]*=)?[a-zA-Z0-9\\s+\\-*/^().,]+$";
+
+        if (!expression.matches(validExpressionRegex)) {
+            return;
+        }
         // Nếu expressionTextField chứa dấu "="
         if (expression.contains("=")) {
             String expressionName = mnr.graphExpression.getFunctionName(expression);
@@ -194,7 +199,7 @@ public class GraphBlock extends HBox {
         }
         if (!model.getExpressionName().isEmpty() && expression.isEmpty() || (!expressionTextField.getText().contains("=") && !model.getExpressionName().isEmpty())) {
             String expressionName = model.getExpressionName();
-            System.out.println("expressionName   " + expressionName);
+
             expressionTextField.setText(expressionName + " = " + (mnr.graphExpression.getExpressionValue(expressionName)));
         }
 
@@ -253,6 +258,10 @@ public class GraphBlock extends HBox {
         });
 
 
+    }
+
+    public TextField getExpressionTextField() {
+        return expressionTextField;
     }
 
     private void updateUI() {
