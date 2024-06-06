@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c0c8e8f-6c6a-46f7-8269-c472333fba20" name="Changes" comment="finish welcome-screen">
+    <list default="true" id="7c0c8e8f-6c6a-46f7-8269-c472333fba20" name="Changes" comment="fix inputkeyboard vs open/close">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/main/doanjava2/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/doanjava2/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/doanjava2/graphCanvas/GraphImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/doanjava2/graphCanvas/GraphImage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/doanjava2/graphList/GraphBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/doanjava2/graphList/GraphBlock.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/main/doanjava2/graphList/GraphList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/doanjava2/graphList/GraphList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/GraphList/GraphListUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/GraphList/GraphListUI.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/css/GraphList/GraphList.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/GraphList/GraphList.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,7 +142,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716899596345</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="fix inputkeyboard vs open/close">
+      <option name="closed" value="true" />
+      <created>1717665486769</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1717665486769</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -162,6 +168,7 @@
     <MESSAGE value="finish" />
     <MESSAGE value="fix remove empty graphData" />
     <MESSAGE value="fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix" />
+    <MESSAGE value="fix inputkeyboard vs open/close" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix inputkeyboard vs open/close" />
   </component>
 </project>

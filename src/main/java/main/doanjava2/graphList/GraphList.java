@@ -95,16 +95,25 @@ public class GraphList extends GridPane {
     	toAdd.setDataSource(graphData);
         toAdd.requestFocus();
         toAdd.setManagerRef(mnr);
+        toAdd.getStyleClass().add("graph-block");
         TextField textField = toAdd.getExpressionTextField();
         textField.focusedProperty().addListener(Object ->{
             if(textField.focusedProperty().get()) {
                 currentlySelectedTextField = textField;
+                mnr.setSelectedGraph(pos);
+                updateSelectedGraphBlock(toAdd);
             }
         });
         graphListBox.getChildren().add(pos, toAdd);
         if(graphListBox.getChildren().size()>9){
             addNewBtn.setVisible(false);
         }
+    }
+    private void updateSelectedGraphBlock(GraphBlock selectedGraphBlock) {
+        for (Node node : graphListBox.getChildren()) {
+            node.getStyleClass().remove("selected");
+        }
+        selectedGraphBlock.getStyleClass().add("selected");
     }
     public void removeGraphBlock(int pos) {
     	graphListBox.getChildren().remove(pos);

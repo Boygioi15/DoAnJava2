@@ -387,12 +387,14 @@ public class MainController implements Initializable {
     }
 
     public void setSelectedGraph(int selection) {
-        System.out.println("Check selecttion " + selection);
+
         if (selectedGraph != -1) {
             graphData.get(selectedGraph).setSelected(false);
         }
+        System.out.println("Check selection" + selection);
+        System.out.println("check length" + graphData.toArray().length);
         if (selection != -1) {
-            graphData.get(selectedGraph).setSelected(true);
+            graphData.get(selection).setSelected(true);
         }
 
     }
