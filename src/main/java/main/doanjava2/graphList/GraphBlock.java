@@ -148,13 +148,17 @@ public class GraphBlock extends HBox {
     }
     private void handleTextProperties(){
         String expression = expressionTextField.getText().trim();
+        // Regular expression for validating the expression
+        String validExpressionRegex = "^([a-zA-Z0-9\\s+\\-*/^().,]*=)?[a-zA-Z0-9\\s+\\-*/^().,]+$";
 
-        // Nếu expressionTextField chứa dấu "="
+        if (!expression.matches(validExpressionRegex)) {
+            // If the expression is invalid, show an error message and return
+            return;
+        }
+
         if (expression.contains("=")) {
             String expressionName = mnr.graphExpression.getFunctionName(expression);
             String expressionValue = mnr.graphExpression.parseExpression(expression);
-
-            // Kiểm tra và cập nhật tên hàm nếu cần
             if (model.getExpressionName().isEmpty()) {
                 // Trường hợp ban đầu chưa có tên hàm
                 model.setExpressionName(expressionName);
@@ -176,6 +180,7 @@ public class GraphBlock extends HBox {
             }
         } else {
             // Trường hợp không chứa dấu "="
+
             if (!expression.isEmpty()) {
                 if (model.getExpressionName().isEmpty()) {
                     // Tạo tên hàm mới nếu chưa có
