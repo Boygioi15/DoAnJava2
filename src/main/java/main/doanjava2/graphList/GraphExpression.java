@@ -96,7 +96,7 @@ public class GraphExpression {
 
     public void printFunctionMap() {
         for (Map.Entry<String, String> entry : functionMap.entrySet()) {
-            System.out.println(entry.getKey() + " = " + entry.getValue());
+            ///System.out.println(entry.getKey() + " = " + entry.getValue());
         }
     }
 //
@@ -146,7 +146,7 @@ public class GraphExpression {
 
                     while (matcher.find()) {
                         int openParenIndex = matcher.start() + functionName.length() + 1;
-                        System.out.println("check log:" +extractFunctionText(expression,openParenIndex-1));
+                        //System.out.println("check log:" +extractFunctionText(expression,openParenIndex-1));
                         if(!defaultFunctions.contains(extractFunctionText(expression,openParenIndex-1)))
                         {
                             System.out.println("openParenIndex: " + openParenIndex);
@@ -154,11 +154,11 @@ public class GraphExpression {
                             System.out.println("closeParenIndex: " + closeParenIndex);
                             if (closeParenIndex != -1) {
                                 String arg = expression.substring(openParenIndex, closeParenIndex);
-                                System.out.println("arg: " + arg);
+                                //System.out.println("arg: " + arg);
                                 String replacedExpression = functionExpression.replace("x", "(" + arg + ")");
-                                System.out.println("replacedExpression: " + replacedExpression);
+                                //System.out.println("replacedExpression: " + replacedExpression);
                                 expression = expression.substring(0, matcher.start()) + "(" + replacedExpression + ")" + expression.substring(closeParenIndex + 1);
-                                System.out.println("expression: " + expression);
+                                //System.out.println("expression: " + expression);
                                 replaced = true;
                                 matcher = pattern.matcher(expression);
                             }
@@ -169,7 +169,7 @@ public class GraphExpression {
 
                 }
             } while (replaced);
-            System.out.println("change expression: " + expression);
+            //System.out.println("change expression: " + expression);
             return expression;
         }
        return "";

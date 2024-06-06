@@ -83,7 +83,6 @@ public class GraphList extends GridPane {
         toAdd.requestFocus();
         graphListBox.getChildren().add(pos, toAdd);
         toAdd.setManagerRef(mnr);
-    	graphListBox.getChildren().add(pos, toAdd);
         if(graphListBox.getChildren().size()>9){
             addNewBtn.setVisible(false);
         }
