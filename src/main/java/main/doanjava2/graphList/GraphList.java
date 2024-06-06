@@ -127,6 +127,9 @@ public class GraphList extends GridPane {
         if (graphListBox.getChildren().size() < 10) {
             // addNewBtn.setVisible(false);
         }
+        if (mnr.getSelectedGraph() >= graphListBox.getChildren().size()) {
+            mnr.setSelectedGraph(graphListBox.getChildren().size() - 1);
+        }
     }
 
     public void insertContentIntoSelectingBlock(String content) {
