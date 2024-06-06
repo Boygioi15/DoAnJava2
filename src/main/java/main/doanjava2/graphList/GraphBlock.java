@@ -194,7 +194,7 @@ public class GraphBlock extends HBox {
         }
         if (!model.getExpressionName().isEmpty() && expression.isEmpty() || (!expressionTextField.getText().contains("=") && !model.getExpressionName().isEmpty())) {
             String expressionName = model.getExpressionName();
-            System.out.println("expressionName   " + expressionName);
+
             expressionTextField.setText(expressionName + " = " + (mnr.graphExpression.getExpressionValue(expressionName)));
         }
 
@@ -253,6 +253,10 @@ public class GraphBlock extends HBox {
         });
 
 
+    }
+
+    public TextField getExpressionTextField() {
+        return expressionTextField;
     }
 
     private void updateUI() {

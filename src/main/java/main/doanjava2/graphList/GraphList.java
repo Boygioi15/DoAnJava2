@@ -1,5 +1,6 @@
 package main.doanjava2.graphList;
 
+import javafx.scene.Scene;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.TextField;
 import javafx.scene.Node;
@@ -12,6 +13,7 @@ import java.util.Map;
 import javafx.collections.ListChangeListener;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
@@ -22,17 +24,20 @@ import javafx.animation.TranslateTransition;
 import javafx.util.Duration;
 
 public class GraphList extends GridPane {
-	TextField currentlySelectedTextField = null;
+	TextField currentlySelectedTextField ;
     @FXML MenuButton addNewBtn;
     MainController mnr;
     @FXML
     private VBox graphListBox;
-    //name
-
+    @FXML
+    private GridPane graphListPane;
+    @FXML
+    private Button openButton;
 
     public GraphList() {
         loadFXML();
         initEvent();
+
     }
 
     public void setManagerRef(MainController ref) {
@@ -68,8 +73,16 @@ public class GraphList extends GridPane {
 
 		});
     }
+    boolean isOpen = true;
     private void initEvent() {
-
+        openButton.setOnAction(event -> {
+            if(isOpen){
+                closeGraphList();
+            }else{
+                openGraphList();
+            }
+            isOpen= !isOpen;
+        });
     }
 
     @FXML
@@ -81,9 +94,14 @@ public class GraphList extends GridPane {
     	toAdd.setPrefWidth(graphListBox.getWidth());
     	toAdd.setDataSource(graphData);
         toAdd.requestFocus();
-        graphListBox.getChildren().add(pos, toAdd);
         toAdd.setManagerRef(mnr);
-    	graphListBox.getChildren().add(pos, toAdd);
+        TextField textField = toAdd.getExpressionTextField();
+        textField.focusedProperty().addListener(Object ->{
+            if(textField.focusedProperty().get()) {
+                currentlySelectedTextField = textField;
+            }
+        });
+        graphListBox.getChildren().add(pos, toAdd);
         if(graphListBox.getChildren().size()>9){
             addNewBtn.setVisible(false);
         }
@@ -91,7 +109,7 @@ public class GraphList extends GridPane {
     public void removeGraphBlock(int pos) {
     	graphListBox.getChildren().remove(pos);
         if(graphListBox.getChildren().size()<10){
-            addNewBtn.setVisible(false);
+           // addNewBtn.setVisible(false);
         }
     }
 
@@ -119,25 +137,17 @@ public class GraphList extends GridPane {
     	currentlySelectedTextField = null;
         graphListBox.requestFocus();
     }
-    @FXML
-   private void doSomething() {requestLosingFocus();
-  }
-    @FXML
-    private GridPane graphListPane;
-    @FXML
-    private Button openButton;
+
 
     @FXML
     public void closeGraphList() {
         TranslateTransition tt = new TranslateTransition(Duration.seconds(0.2), graphListPane);
-        tt.setToX(-graphListPane.getWidth());
+        tt.setToX(-graphListPane.getWidth()+35);
         tt.play();
 
         tt.setOnFinished(e -> {
-            for (var node : graphListPane.getChildren()) {
-                node.setVisible(false);
-            }
             openButton.setVisible(true);
+            openButton.setText(">>");
             this.setManaged(false);
         });
     }
@@ -147,8 +157,8 @@ public class GraphList extends GridPane {
         for (var node : graphListPane.getChildren()) {
             node.setVisible(true);
         }
-        openButton.setVisible(false);
         this.setManaged(true);
+        openButton.setText("<<");
 
         TranslateTransition tt = new TranslateTransition(Duration.seconds(0.2), graphListPane);
         tt.setToX(0);

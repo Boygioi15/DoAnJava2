@@ -49,7 +49,8 @@ public class MainController implements Initializable {
         initData();
         init2();
     }
-    private void organizeRef(){
+
+    private void organizeRef() {
         graphList.setManagerRef(this);
         inputKeyboard.setManagerRef(this);
         graphCanvas.setManagerRef(this);
@@ -59,13 +60,15 @@ public class MainController implements Initializable {
 
         filePanel.setManagerRef(this);
     }
-    private void initData(){
+
+    private void initData() {
         graphData = FXCollections.observableArrayList();
         graphData.addListener((ListChangeListener<? super GraphData>) ob -> {
             isChanged.setValue(true);
         });
     }
-    private void init2(){
+
+    private void init2() {
         graphCanvas.init();
         graphList.initDataBinding();
 
@@ -73,35 +76,37 @@ public class MainController implements Initializable {
     }
 
     public void setUIReponsiveness() {
-        mainUIScreen.widthProperty().addListener(ob -> graphCanvas.setWidth(mainUIScreen.getWidth()*0.75));
-        mainUIScreen.heightProperty().addListener(ob -> graphCanvas.setHeight(mainUIScreen.getHeight()-topNavbar.getHeight()));
+        mainUIScreen.widthProperty().addListener(ob -> graphCanvas.setWidth(mainUIScreen.getWidth() * 0.75));
+        mainUIScreen.heightProperty().addListener(ob -> graphCanvas.setHeight(mainUIScreen.getHeight() - topNavbar.getHeight()));
     }
 
     public void forwardInputRequest(String content) {
         graphList.insertContentIntoSelectingBlock(content);
     }
+
     public void forwardControlRequest(ControlCode code) {
         graphList.handleControlRequest(code);
     }
-    public void createNewGraphDataAtEnd(){
+
+    public void createNewGraphDataAtEnd() {
         graphData.add(new GraphData());
     }
 
-    public void Save(){
-        try{
+    public void Save() {
+        try {
             saveObject.getCurrentProps();
             //set up jaxb
             JAXBContext context = JAXBContext.newInstance(SaveObject.class);
             Marshaller marshaller = context.createMarshaller();
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
-            if(currentFile!=null && (!currentFile.exists() || currentFile.isDirectory())) {
+            if (currentFile != null && (!currentFile.exists() || currentFile.isDirectory())) {
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                 alert.setTitle("Unable to locate file");
                 alert.setHeaderText("Unable to locate file\nDo you wish to create a new one?");
 
                 Optional<ButtonType> result = alert.showAndWait();
-                if (result.get() == ButtonType.OK){
+                if (result.get() == ButtonType.OK) {
                     //open file chooser
                     FileChooser fileChooser = new FileChooser();
                     fileChooser.setTitle("Save File");
@@ -109,7 +114,7 @@ public class MainController implements Initializable {
                     FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Graph files (*.graph)");
                     fileChooser.getExtensionFilters().add(extFilter);
                     File file = fileChooser.showSaveDialog(null);
-                    if(file==null){
+                    if (file == null) {
                         return;
                     }
                     marshaller.marshal(saveObject, file);
@@ -121,15 +126,15 @@ public class MainController implements Initializable {
                 }
                 return;
             }
-            if(currentFile==null){
+            if (currentFile == null) {
                 //open file chooser
                 FileChooser fileChooser = new FileChooser();
                 fileChooser.setTitle("Save File");
 
-                FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Graph files ","*.graph");
+                FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Graph files ", "*.graph");
                 fileChooser.getExtensionFilters().add(extFilter);
                 File file = fileChooser.showSaveDialog(null);
-                if(file==null){
+                if (file == null) {
                     return;
                 }
                 marshaller.marshal(saveObject, file);
@@ -137,19 +142,18 @@ public class MainController implements Initializable {
 
                 topNavbar.UpdateFileName(FilenameUtils.getBaseName(currentFile.getName()));
                 //PopDialog.popSuccessDialog("Save file successfully");
-            }
-            else{
+            } else {
                 marshaller.marshal(saveObject, currentFile);
             }
             isChanged.setValue(false);
             AddNewFileLocationToRecentFiles(currentFile.getAbsolutePath());
-        }
-        catch(JAXBException e){
-            PopDialog.popErrorDialog("Save file failed",e.getMessage());
+        } catch (JAXBException e) {
+            PopDialog.popErrorDialog("Save file failed", e.getMessage());
         }
 
     }
-    public void SaveAs(){
+
+    public void SaveAs() {
         try {
             //set up jaxb
             saveObject.getCurrentProps();
@@ -164,7 +168,7 @@ public class MainController implements Initializable {
             FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Graph files", "*.graph");
             fileChooser.getExtensionFilters().add(extFilter);
             File file = fileChooser.showSaveDialog(null);
-            if(file==null){
+            if (file == null) {
                 return;
             }
             marshaller.marshal(saveObject, file);
@@ -173,13 +177,12 @@ public class MainController implements Initializable {
             topNavbar.UpdateFileName(FilenameUtils.getBaseName(currentFile.getName()));
             isChanged.setValue(false);
             AddNewFileLocationToRecentFiles(currentFile.getAbsolutePath());
-        }
-        catch (JAXBException e){
-            PopDialog.popErrorDialog("Save file failed",e.getMessage());
+        } catch (JAXBException e) {
+            PopDialog.popErrorDialog("Save file failed", e.getMessage());
         }
     }
 
-    public static void Open(){
+    public static void Open() {
         //open fileChooser
         FileChooser fileChooser = new FileChooser();
         FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Graph files", "*.graph");
@@ -187,16 +190,17 @@ public class MainController implements Initializable {
         fileChooser.setTitle("Open File");
         File file = fileChooser.showOpenDialog(null);
 
-        if(file!=null){
+        if (file != null) {
             try {
                 MainController controller = CreateNewWindow();
                 controller.PrimitiveLoad(file);
             } catch (JAXBException | IOException e) {
-                PopDialog.popErrorDialog("Unable to load data","");
+                PopDialog.popErrorDialog("Unable to load data", "");
             }
         }
     }
-    public void PrimitiveLoad(File file) throws JAXBException{
+
+    public void PrimitiveLoad(File file) throws JAXBException {
         if (file != null) {
             JAXBContext jaxbContext = JAXBContext.newInstance(SaveObject.class);
             Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
@@ -207,7 +211,7 @@ public class MainController implements Initializable {
                 graphData.clear();
                 //System.out.println(graphData.size());
 
-                for(GraphData cGraphData : saveObject.getGraphDatas()){
+                for (GraphData cGraphData : saveObject.getGraphDatas()) {
                     graphData.add(cGraphData);
                 }
                 //System.out.println(graphData.size());
@@ -220,40 +224,40 @@ public class MainController implements Initializable {
         }
     }
 
-        static public Map<String,Boolean> ReadRecentFiles(){
-            File file = new File(Main.RecentFilesPath);
+    static public Map<String, Boolean> ReadRecentFiles() {
+        File file = new File(Main.RecentFilesPath);
 
-            Map<String,Boolean> fileMap = null;
-            if (file.exists()) {
-                try {
-                    List<String> lines = Files.readAllLines(Paths.get(Main.RecentFilesPath));
-                    fileMap = new HashMap<>();
+        Map<String, Boolean> fileMap = null;
+        if (file.exists()) {
+            try {
+                List<String> lines = Files.readAllLines(Paths.get(Main.RecentFilesPath));
+                fileMap = new HashMap<>();
 
-                    //System.out.println("File content:");
-                    for (String line : lines) {
-                        char firstChar = line.charAt(0);
-                        Boolean pinned;
-                        if (firstChar == '0') { // So sánh với ký tự '0'
-                            pinned = false;
-                        } else {
-                            pinned = true;
-                        }
-                        String fileLocation = line.substring(2); // Sử dụng index 2 để bắt đầu từ ký tự thứ 3
-                        fileMap.put(fileLocation, pinned);
+                //System.out.println("File content:");
+                for (String line : lines) {
+                    char firstChar = line.charAt(0);
+                    Boolean pinned;
+                    if (firstChar == '0') { // So sánh với ký tự '0'
+                        pinned = false;
+                    } else {
+                        pinned = true;
                     }
-                } catch (IOException e) {
-                    PopDialog.popErrorDialog("Can't read recent files","");
+                    String fileLocation = line.substring(2); // Sử dụng index 2 để bắt đầu từ ký tự thứ 3
+                    fileMap.put(fileLocation, pinned);
                 }
+            } catch (IOException e) {
+                PopDialog.popErrorDialog("Can't read recent files", "");
             }
-            else {
-                try {
-                    file.createNewFile();
-                } catch (IOException e) {
-                    PopDialog.popErrorDialog("Can't create recent files","");
-                }
+        } else {
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                PopDialog.popErrorDialog("Can't create recent files", "");
             }
-            return fileMap;
         }
+        return fileMap;
+    }
+
     static public void editPinned(String filePath, boolean pinned) {
         Map<String, Boolean> fileMap = ReadRecentFiles();
         if (fileMap.containsKey(filePath)) {
@@ -276,72 +280,69 @@ public class MainController implements Initializable {
         }
     }
 
-    static public void AddNewFileLocationToRecentFiles(String newPath){
+    static public void AddNewFileLocationToRecentFiles(String newPath) {
         Map<String, Boolean> fileMap = ReadRecentFiles();
-        fileMap.put(newPath,false);
+        fileMap.put(newPath, false);
 
         clearRecentFilesContent();
         try (FileWriter fw = new FileWriter(Main.RecentFilesPath, true);
-             PrintWriter pw = new PrintWriter(fw)){
-            for(Map.Entry<String,Boolean> entry: fileMap.entrySet()){
+             PrintWriter pw = new PrintWriter(fw)) {
+            for (Map.Entry<String, Boolean> entry : fileMap.entrySet()) {
                 String line = "";
-                if(entry.getValue()) {
+                if (entry.getValue()) {
                     line = line.concat("1");
-                }
-                else{
+                } else {
                     line = line.concat("0");
                 }
                 line = line.concat(" ");
                 line = line.concat(entry.getKey());
                 pw.println(line);
             }
-        }
-        catch (IOException e) {
-            PopDialog.popErrorDialog("Can't add recent files","");
+        } catch (IOException e) {
+            PopDialog.popErrorDialog("Can't add recent files", "");
         }
     }
-    static public void RemoveFileLocationFromRecentFiles(String path){
+
+    static public void RemoveFileLocationFromRecentFiles(String path) {
         Map<String, Boolean> fileMap = ReadRecentFiles();
         fileMap.remove(path);
 
         clearRecentFilesContent();
         try (FileWriter fw = new FileWriter(Main.RecentFilesPath, true);
-             PrintWriter pw = new PrintWriter(fw)){
-            for(Map.Entry<String,Boolean> entry: fileMap.entrySet()){
+             PrintWriter pw = new PrintWriter(fw)) {
+            for (Map.Entry<String, Boolean> entry : fileMap.entrySet()) {
                 String line = "";
-                if(entry.getValue()) {
+                if (entry.getValue()) {
                     line = line.concat("1");
-                }
-                else{
+                } else {
                     line = line.concat("0");
                 }
                 line = line.concat(" ");
                 line = line.concat(entry.getKey());
                 pw.println(line);
             }
-        }
-        catch (IOException e) {
-            PopDialog.popErrorDialog("Can't add recent files","");
+        } catch (IOException e) {
+            PopDialog.popErrorDialog("Can't add recent files", "");
         }
     }
 
-    static private void clearRecentFilesContent(){
+    static private void clearRecentFilesContent() {
         try (FileWriter fw = new FileWriter(Main.RecentFilesPath)) {
             // Opening the file in write mode without append will clear the file
         } catch (IOException e) {
-            PopDialog.popErrorDialog("Small error appear!","");
+            PopDialog.popErrorDialog("Small error appear!", "");
         }
     }
 
     public void duplicateGraphData(GraphData original) {
         if (original != null) {
             GraphData temp = original.clone();
-            if(temp.getExpressionString().isEmpty()){
+            if (temp.getExpressionString().isEmpty()) {
                 graphData.add(temp);
                 return;
             }
             String tempExpressionPart = original.getExpressionString();
-            if(temp.getExpressionString().contains("=")){
+            if (temp.getExpressionString().contains("=")) {
                 String[] parts = original.getExpressionString().split("=");
                 tempExpressionPart = parts[1].trim();
             }
@@ -355,16 +356,16 @@ public class MainController implements Initializable {
 
     }
 
-    public void ToggleFilePanel(){
+    public void ToggleFilePanel() {
         filePanel.ToggleFilePanel(inputKeyboard);
     }
+
     public void removeGraphData(GraphData original) {
         if (graphData != null) {
             List<GraphData> toRemove = new ArrayList<>();
             Set<GraphData> visited = new HashSet<>();
             String originalName = extractFunctionName(original.getExpressionName());
-            if(originalName.isEmpty())
-            {
+            if (originalName.isEmpty()) {
                 graphData.remove(original);
                 return;
             }
@@ -384,17 +385,22 @@ public class MainController implements Initializable {
             throw new IllegalArgumentException("null");
         }
     }
-    public void setSelectedGraph(int selection){
-        if(selectedGraph!=-1){
+
+    public void setSelectedGraph(int selection) {
+        System.out.println("Check selecttion " + selection);
+        if (selectedGraph != -1) {
             graphData.get(selectedGraph).setSelected(false);
         }
-        if(selection!=-1){
+        if (selection != -1) {
             graphData.get(selectedGraph).setSelected(true);
         }
 
     }
+
     public int getSelectedGraph() {
-        return selectedGraph;}
+        return selectedGraph;
+    }
+
     private void findDependentGraphs(String originalName, List<GraphData> toRemove, Set<GraphData> visited) {
         for (GraphData data : graphData) {
             if (!visited.contains(data) && data.getExpressionString().contains(originalName + "(")) {
@@ -412,15 +418,14 @@ public class MainController implements Initializable {
         }
         return expressionName.trim();
     }
+
     public String handleReplaceExpressions(GraphData model) {
         if (model.getExpressionName().isEmpty()) {
-            if(model.getExpressionString().contains("="))
-            {
+            if (model.getExpressionString().contains("=")) {
                 String expressionPart = graphExpression.parseExpression(model.getExpressionString());
                 String exp = graphExpression.transExpressions(expressionPart);
                 return exp;
-            }
-            else{
+            } else {
                 String exp = graphExpression.transExpressions(model.getExpressionString());
                 return exp;
             }
@@ -447,6 +452,7 @@ public class MainController implements Initializable {
 
         }
     }
+
     private @FXML Region mainUIScreen;
     public @FXML FilePanel filePanel;
     public @FXML GraphList graphList;
@@ -457,5 +463,5 @@ public class MainController implements Initializable {
     public ObservableList<GraphData> graphData;
     public SaveObject saveObject = new SaveObject();
     private int selectedGraph = -1;
-    public GraphExpression graphExpression = new  GraphExpression();
+    public GraphExpression graphExpression = new GraphExpression();
 }
