@@ -4,18 +4,27 @@ import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBException;
 import jakarta.xml.bind.Marshaller;
 import jakarta.xml.bind.Unmarshaller;
+import javafx.animation.PauseTransition;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.collections.FXCollections;
 
+import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
 import javafx.stage.FileChooser;
+import javafx.util.Duration;
 import main.doanjava2.filePanel.FilePanel;
 import main.doanjava2.graphCanvas.GraphCanvas;
 import main.doanjava2.graphList.ControlCode;
@@ -43,11 +52,45 @@ public class MainController implements Initializable {
     public File currentFile = null;
     public final BooleanProperty isChanged = new SimpleBooleanProperty(false);
 
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         organizeRef();
         initData();
         init2();
+
+        AnchorPane.setTopAnchor(graphList,topNavbar.getHeight());
+        AnchorPane.setTopAnchor(graphCanvas,topNavbar.getHeight());
+
+        mainUIScreen.addEventFilter(MouseEvent.MOUSE_CLICKED, event -> {
+            //System.out.println(event.getSource().toString());
+            if(!isEventFromNode(event,topNavbar)){
+                filePanel.CloseFilePanel();
+            }
+            setSelectedGraph(-1);
+        });
+        mainUIScreen.addEventFilter(MouseEvent.MOUSE_DRAGGED, event -> {
+            //System.out.println(event.getSource().toString());
+            if(!isEventFromNode(event,topNavbar)){
+                filePanel.CloseFilePanel();
+            }
+        });
+    }
+    // Method to check if an event source is from a specific node or its descendants
+    private boolean isEventFromNode(MouseEvent event, Node node) {
+        // Check if the event target is the node or any of its children
+        return node.equals(event.getSource()) || isDescendantOf(node, (Node) event.getTarget());
+    }
+
+    // Method to check if a target node is a descendant of a given node
+    private boolean isDescendantOf(Node parent, Node child) {
+        while (child != null) {
+            if (child.equals(parent)) {
+                return true;
+            }
+            child = child.getParent();
+        }
+        return false;
     }
 
     private void organizeRef() {
@@ -357,7 +400,7 @@ public class MainController implements Initializable {
     }
 
     public void ToggleFilePanel() {
-        filePanel.ToggleFilePanel(inputKeyboard);
+        filePanel.ToggleFilePanel();
     }
 
     public void removeGraphData(GraphData original) {
@@ -387,13 +430,15 @@ public class MainController implements Initializable {
     }
 
     public void setSelectedGraph(int selection) {
-        System.out.println("Check selecttion " + selection);
         if (selectedGraph != -1) {
             graphData.get(selectedGraph).setSelected(false);
         }
         if (selection != -1) {
-            graphData.get(selectedGraph).setSelected(true);
+            selectedGraph = selection;
+            graphData.get(selection).setSelected(true);
         }
+        System.out.println("Check selection" + selection);
+        //System.out.println("check length" + graphData.toArray().length);
 
     }
 
@@ -453,6 +498,12 @@ public class MainController implements Initializable {
         }
     }
 
+    public void OpenBlockPane(){
+        filePanelBlockPane.setVisible(true);
+    }
+    public void CloseBlockPane(){
+        filePanelBlockPane.setVisible(false);
+    }
     private @FXML Region mainUIScreen;
     public @FXML FilePanel filePanel;
     public @FXML GraphList graphList;
@@ -460,6 +511,7 @@ public class MainController implements Initializable {
     public @FXML GraphCanvas graphCanvas;
     public @FXML TopNavBar topNavbar;
 
+    @FXML public Pane filePanelBlockPane;
     public ObservableList<GraphData> graphData;
     public SaveObject saveObject = new SaveObject();
     private int selectedGraph = -1;

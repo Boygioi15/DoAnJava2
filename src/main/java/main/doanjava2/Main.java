@@ -23,7 +23,7 @@ public class Main extends Application {
     private static Integer SCREEN_HEIGHT_MIN = 600;
     public static MainController CreateNewWindow() throws IOException {
         FXMLLoader loader = new FXMLLoader(
-                Main.class.getResource("/fxml/Main/MainUI.fxml")
+                Main.class.getResource("/fxml/Main/MainUI2.fxml")
         );
         Scene newScene = new Scene(loader.load());
         Stage newStage = new Stage();

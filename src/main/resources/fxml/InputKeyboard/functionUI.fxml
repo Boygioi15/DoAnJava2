@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<ScrollPane maxHeight="-Infinity" maxWidth=" -Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="306.0" stylesheets="@../../css/InputKeyboard/background.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.doanjava2.inputKeyboard.InputKeyboard">
+<ScrollPane maxHeight="-Infinity" maxWidth=" -Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="306.0" stylesheets="@../../css/InputKeyboard/background.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" >
    <content>
       <VBox maxHeight="-Infinity" prefHeight="358.0" prefWidth="267.0" stylesheets="@../../css/InputKeyboard/button.css">
          <children>

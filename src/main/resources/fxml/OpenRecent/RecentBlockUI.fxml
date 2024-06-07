@@ -9,11 +9,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<fx:root prefWidth="250.0" type="AnchorPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root stylesheets="@../../css/Recents/Recent.css" type="AnchorPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <HBox fx:id="recentBlock" alignment="CENTER_LEFT" maxHeight="70.0" minHeight="70.0" minWidth="-Infinity" prefHeight="70.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <HBox fx:id="recentBlock" alignment="CENTER_LEFT" maxHeight="70.0" maxWidth="1.7976931348623157E308" minHeight="70.0" minWidth="-Infinity" prefHeight="70.0" prefWidth="318.0" spacing="5.0" styleClass="hello-block" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-176.0" AnchorPane.topAnchor="0.0">
          <children>
-            <ImageView fx:id="fuckingInformativeIcon" fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="fuckingInformativeIcon" fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="NEVER">
                <image>
                   <Image url="@../../images/ic_graph.png" />
                </image></ImageView>
@@ -23,18 +23,39 @@
                      <children>
                         <HBox alignment="CENTER_LEFT" layoutX="-90.0" layoutY="-37.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <Text fx:id="fileNameText" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20;" styleClass="test1" text="Name" />
+                              <Text fx:id="fileNameText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="file" text="Name" />
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER_LEFT" spacing="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <HBox alignment="CENTER_LEFT" spacing="5.0" styleClass="dir-text" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <Text fx:id="lastOpenedTimeLabel" fill="#c4c4c4" strokeType="OUTSIDE" strokeWidth="0.0" text="Time" />
-                              <Button fx:id="pinBtn" managed="false" mnemonicParsing="false" prefHeight="25.0" prefWidth="67.0" text="Pin" />
+                              <Text fx:id="lastOpenedTimeLabel" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dir" text="Time" />
+                              <AnchorPane>
+                                 <children>
+                                    <Button fx:id="pinBtn" mnemonicParsing="false" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <graphic>
+                                          <ImageView fx:id="pinImg" fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../images/pin.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button fx:id="unpinBtn" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <graphic>
+                                          <ImageView fx:id="pinImg1" fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../images/unpin.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                 </children>
+                              </AnchorPane>
                            </children>
                         </HBox>
                      </children>
                   </AnchorPane>
-                  <Text fx:id="fileLocationText" fill="#c4c4c4" strokeType="OUTSIDE" strokeWidth="0.0" text="File Location">
+                  <Text fx:id="fileLocationText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dir" text="File Location">
                      <VBox.margin>
                         <Insets />
                      </VBox.margin></Text>

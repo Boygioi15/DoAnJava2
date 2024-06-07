@@ -6,7 +6,7 @@
 }
 
 .file-name{
-    -fx-font-family: Arial:
+    -fx-font-family: Arial;
     -fx-font-size: 24;
 }
 
@@ -20,10 +20,10 @@
     -fx-background-radius: 5px;
     -fx-border-radius: 5px;
 }
-.icon-button:hover {
+.icon-button: hover {
 	-fx-background-color: #E6E6E6;
 }
 
-.icon-button:pressed {
+.icon-button: pressed {
 	-fx-background-color: #DFDFDF;
 }

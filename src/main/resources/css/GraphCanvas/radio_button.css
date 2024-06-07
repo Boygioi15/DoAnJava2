@@ -7,7 +7,7 @@
     -fx-padding: 0px;
 }
 .radio-button:selected .radio .dot {
-    -fx-background-color: #28a3f4;
+    -fx-background-color: #2496EF;
     -fx-background-insets: 0;
 }
 .radio-button .dot {

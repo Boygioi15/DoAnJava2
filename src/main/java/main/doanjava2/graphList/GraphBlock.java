@@ -11,7 +11,9 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
+import javafx.scene.layout.Region;
 import main.doanjava2.GraphData;
 import main.doanjava2.LineType;
 import main.doanjava2.MainController;
@@ -39,6 +41,7 @@ public class GraphBlock extends HBox {
     //init
     private PopOver configPopOver = new PopOver();
 
+    Tooltip tooltip = new Tooltip();
     public GraphBlock() {
         loadFXML();
         initUIBinding();
@@ -46,7 +49,8 @@ public class GraphBlock extends HBox {
         initUI_ModelBinding();
         updateUI();
         configPopOver.animatedProperty().set(false);
-
+        tooltip.setStyle("-fx-font-family: Arial; "
+                + "-fx-font-size: 14; ");
     }
 
     public void setManagerRef(MainController ref) {
@@ -109,6 +113,11 @@ public class GraphBlock extends HBox {
     @FXML
     ColorPicker colorPicker;
 
+    @FXML
+    Label warningLabel;
+
+    @FXML
+    Region errorPane;
     @FXML
     MenuItem dupicateMenuItem;
     @FXML
@@ -185,6 +194,9 @@ public class GraphBlock extends HBox {
                 if (model.getExpressionName().isEmpty()) {
                     // Tạo tên hàm mới nếu chưa có
                     String expressionName = mnr.graphExpression.getKeyWithEmptyValue();
+                    if (expressionName.equals(expression)) {
+                        return;
+                    }
                     model.setExpressionName(expressionName);
                     dataSource.setExpressionName(expressionName);
                     mnr.graphExpression.defineFunction(expressionName, expression);
@@ -236,7 +248,6 @@ public class GraphBlock extends HBox {
             widthLabel.setText(valueInString);
         });
     }
-
     private void initUI_ModelBinding() {
         model.addListener(Object -> {
             updateUI();
@@ -265,6 +276,14 @@ public class GraphBlock extends HBox {
     }
 
     private void updateUI() {
+        if(!model.getErrorString().isEmpty()){
+            errorPane.setVisible(true);
+            tooltip.setText(model.getErrorString());
+            warningLabel.setTooltip(tooltip);
+        }else{
+            errorPane.setVisible(false);
+        }
+
         colorAndActive.setFill(model.getGraphColor());
         opacitySlider.setValue(model.getOpacity());
         widthSlider.setValue(model.getLineWidth());
@@ -290,8 +309,6 @@ public class GraphBlock extends HBox {
         model.setWhole(dataSource);
         listenToDataSourceChange();
         updateDataSourceListener();
-
-
     }
 
     private void updateDataSourceListener() {

@@ -1,21 +1,31 @@
 package main.doanjava2.graphCanvas;
 
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import javafx.collections.ListChangeListener;
 import javafx.css.PseudoClass;
+import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.ScrollEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
+import javafx.scene.text.Font;
+import javafx.stage.Popup;
 import javafx.util.Pair;
 import main.doanjava2.GraphData;
 import main.doanjava2.MainController;
@@ -25,17 +35,37 @@ public class GraphCanvas extends AnchorPane{
 	Background background;
 	SelectionMatrix selectionMatrix;
 	ArrayList<GraphImage> graphImages;
+
+	private Circle selectedCircle = new Circle();
+	private Circle outerCircle = new Circle();
+
 	public GraphCanvas() {
 		loadFXML();
 		initInside();       
 		initBinding();
 		initViewOrder();
 		graphImages = new ArrayList<GraphImage>();
+
+		// Thiết lập thuộc tính cho selectedCircle
+		outerCircle.setRadius(10); // Thiết lập bán kính cho chấm tròn
+		outerCircle.setFill(Color.DARKGRAY); // Thiết lập màu sắc cho chấm tròn
+		outerCircle.setVisible(false); // Ban đầu ẩn chấm tròn
+		this.getChildren().add(outerCircle); // Thêm chấm tròn vào GraphCanvas
+
+		// Thiết lập thuộc tính cho selectedCircle
+		selectedCircle.setRadius(7); // Thiết lập bán kính cho chấm tròn
+		selectedCircle.setFill(Color.WHITE); // Thiết lập màu sắc cho chấm tròn
+		selectedCircle.setVisible(false); // Ban đầu ẩn chấm tròn
+		this.getChildren().add(selectedCircle); // Thêm chấm tròn vào GraphCanvas
+
 	}
 	public void init() {
 		initDatabaseListener();
 		initEvent();
 	}
+
+	private Popup popUp = new Popup();
+	private Pane content = new Pane();
 
 	private void initEvent(){
 		this.setOnMousePressed(ob-> {
@@ -44,20 +74,75 @@ public class GraphCanvas extends AnchorPane{
 			mnr.setSelectedGraph(selectionMatrix.GetNearbyGraphIndex((int) ob.getX(), (int) ob.getY()));
 		});
 		this.setOnMouseDragged(ob -> {
-			if(mnr.getSelectedGraph()!=-1){
+			if (mnr.getSelectedGraph() != -1) {
 				Pair<Integer, Integer> point = selectionMatrix.GetClosePoint(mnr.getSelectedGraph(), (int) ob.getX(), (int) ob.getY());
-				if(point!=null){
-					//display pop over
-					//draw circle at that point
+				if (point != null) {
+					// Cập nhật vị trí của selectedCircle
+					selectedCircle.setCenterX(point.getKey());
+					selectedCircle.setCenterY(point.getValue());
+					outerCircle.setCenterX(point.getKey());
+					outerCircle.setCenterY(point.getValue());
+					// Hiển thị selectedCircle
+					selectedCircle.setVisible(true);
+					outerCircle.setVisible(true);
+					showPopUp(point.getKey(), point.getValue());
 				}
-			}else{
+			} else {
 				translateCanvas(ob);
 			}
-
+		});
+		this.setOnMouseReleased(ob -> {
+			// Ẩn dialog khi thả chuột
+			popUp.hide();
+			selectedCircle.setVisible(false);
+			outerCircle.setVisible(false);
 		});
 		this.setOnScroll(ob ->{
 			zoomCanvas(ob);
 		});
+	}
+	public void showPopUp(Integer x, Integer y) {
+		// Xóa nội dung cũ và tạo nội dung mới
+		content.getChildren().clear();
+
+		// Format tọa độ x và y với hai chữ số thập phân
+		DecimalFormat df = new DecimalFormat("#.###");
+		String formattedX = df.format(getOnScreenCoordinateX(x));
+		String formattedY = df.format(getOnScreenCoordinateY(y));
+
+		// Tạo label và thiết lập kiểu chữ, font size, shadow
+		Label label = new Label("(" + formattedX + ", " + formattedY + ")");
+		label.setFont(Font.font("Arial", 18)); // Tăng kích thước chữ lên 18
+		label.setPadding(new Insets(10));
+
+		label.setStyle("-fx-background-color: white; -fx-background-radius: 3; " +
+				"-fx-effect: dropshadow(gaussian, gray, 5, 0, 1, 1);" +
+				"-fx-border-color: gray; -fx-border-width: 1.2;-fx-border-radius: 3;" +
+				"-fx-font-weight: normal;");
+
+		content.getChildren().add(label);
+
+		// Thiết lập nội dung cho PopOver
+		popUp.getContent().clear();
+		popUp.getContent().add(content);
+
+		if(mnr.graphList.isOpen()) {
+			// Hiển thị PopUp
+			popUp.show(this.getScene().getWindow(), x + mnr.graphList.getWidth() - popUp.getWidth(), y + mnr.topNavbar.getHeight()-popUp.getHeight()+10);
+		} else {
+			popUp.show(this.getScene().getWindow(), x- popUp.getWidth(), y + mnr.topNavbar.getHeight() - popUp.getHeight()+10);
+		}
+	}
+	private double getOnScreenCoordinateX(Integer point) {
+		double ratio = point / this.getWidth();
+		double onScreen = setting.getLeftBoundary() + ratio * setting.getBoundaryWidth();
+		return onScreen;
+	}
+
+	private double getOnScreenCoordinateY(Integer point) {
+		double ratio = point / this.getHeight();
+		double onScreen = setting.getTopBoundary() - ratio * setting.getBoundaryHeight();
+		return onScreen;
 	}
 
 	public void setManagerRef(MainController ref) {
@@ -196,24 +281,13 @@ public class GraphCanvas extends AnchorPane{
 			@Override
 			public void onChanged(Change<? extends GraphData> c) {
 				while(c.next()) {
-					 if (c.wasPermutated()) {
-	                     for (int i = c.getFrom(); i < c.getTo(); ++i) {
-	                    	 int start = c.getFrom() ;
-	                         int end = c.getTo() ;
-	                         for (int j = start ; j < end ; i++) {
-	                         }
-	                     }
-	                 }
-					 else if (c.wasUpdated()) {
-	                          //update item
-	                 }
-					 else if(c.wasAdded()) {
+					if(c.wasAdded()) {
 						 int index = c.getFrom();
 						 selectionMatrix.AddNewLayer(index);
 						 addGraph(index, mnr.graphData.get(index));
 						 updateIndex();
 					 }
-					 else {
+					 else if(c.wasRemoved()){
 						 int index = c.getFrom();
 						 selectionMatrix.RemoveLayer(index);
 						 removeGraph(index);

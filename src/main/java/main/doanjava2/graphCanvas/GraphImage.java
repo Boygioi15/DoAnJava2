@@ -5,9 +5,11 @@ import java.math.MathContext;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.udojava.evalex.Expression;
 
 import ch.obermuhlner.math.big.BigDecimalMath;
+
+import com.udojava.evalex.Expression;
+import com.udojava.evalex.Expression.ExpressionException;
 
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
@@ -16,8 +18,9 @@ import javafx.scene.paint.Color;
 import main.doanjava2.GraphData;
 import main.doanjava2.MainController;
 
+
 class GraphImage_Params{
-	static double plottingSpaceOnScreen = 10;
+	static double plottingSpaceOnScreen = 200;
 	static int loopLimit = 15;
 	static int maxRecursion = 5;
 	static double angleThreshold = 20;//in degree
@@ -75,16 +78,19 @@ public class GraphImage {
 	enum PointState{
 		Inside,
 		Outside,
-		Undetermined
+		Undetermined,
+		Dead
 	}
 	private class PointInfo{
 		private double input, yValue;
 		private double onScreenX, onScreenY;
 		private PointState state;
+		public String errorMessage;
 		public PointInfo(double pointValueX, Expression expression) {
 			expression.setVariable("x", Double.toString(pointValueX));
 			try {
 				setInput(pointValueX);
+
 				BigDecimal r = expression.eval();
 				double pointValueY = r.doubleValue();
 				yValue = pointValueY;
@@ -104,11 +110,19 @@ public class GraphImage {
 				}
 				else {
 					state = PointState.Outside;
-				}		
+				}
 			}
-			catch(Exception e) {
-				state = PointState.Undetermined;
-				//System.out.println(e);
+
+			catch (Expression.ExpressionException e){
+
+				String message = e.getMessage();
+				if(message.startsWith("Argument to")){
+					state = PointState.Undetermined;
+				}
+				else {
+					errorMessage = e.getMessage();
+					state = PointState.Dead;
+				}
 			}
 		}
 		
@@ -133,6 +147,7 @@ public class GraphImage {
 	}
 	private void drawGraph() {
 		if(dataRef.getExpressionString().equals("")) {
+			dataRef.setErrorString("");
 			return;
 		}
 		selectionMatrix.ClearLayer(index);
@@ -141,35 +156,37 @@ public class GraphImage {
 				
 
 		String replacedExpression = mnr.handleReplaceExpressions(dataRef);
-
+		if(replacedExpression.isEmpty()){
+			return;
+		}
 		double plottingSpace = GraphImage_Params.plottingSpaceOnScreen/canvas.getWidth() * settingRef.getBoundaryWidth();
 		double currentX = settingRef.leftBoundary.get();
 		double endX = settingRef.rightBoundary.get()+plottingSpace;
 		double preX = currentX-plottingSpace/2;
 			
 		Expression expression = new Expression(replacedExpression);
-		expression.addFunction(expression.new Function("sin", 3) {
+		expression.addFunction(expression.new Function("sin", 1) {
 			@Override
 			public BigDecimal eval(List<BigDecimal> parameters) {
 				BigDecimal result = BigDecimalMath.sin(parameters.get(0), MathContext.DECIMAL32);
 				return result;
 			}
 		});	
-		expression.addFunction(expression.new Function("sin", 3) {
+		expression.addFunction(expression.new Function("sin", 1) {
 			@Override
 			public BigDecimal eval(List<BigDecimal> parameters) {
 				BigDecimal result = BigDecimalMath.cos(parameters.get(0), MathContext.DECIMAL32);
 				return result;
 			}
 		});	
-		expression.addFunction(expression.new Function("tan", 3) {
+		expression.addFunction(expression.new Function("tan", 1) {
 			@Override
 			public BigDecimal eval(List<BigDecimal> parameters) {
 				BigDecimal result = BigDecimalMath.tan(parameters.get(0), MathContext.DECIMAL32);
 				return result;
 			}
 		});
-		expression.addFunction(expression.new Function("log", 3) {
+		expression.addFunction(expression.new Function("log", 1) {
 			@Override
 			public BigDecimal eval(List<BigDecimal> parameters) {
 				if(parameters.get(0).doubleValue()<0.0001) {
@@ -195,11 +212,14 @@ public class GraphImage {
 
 		while(currentX<endX) {
 			curPointInfo = new PointInfo(currentX,expression);
-
 			//check state
 			PointState preState = prePointInfo.getState();
 			PointState curState = curPointInfo.getState();
 
+			if(curState.equals(PointState.Dead)){
+				dataRef.setErrorString(curPointInfo.errorMessage);
+				return;
+			}
 			if(preState.equals(PointState.Undetermined)&&curState.equals(PointState.Undetermined)){
 				prePointInfo = curPointInfo;
 				currentX+=plottingSpace;
@@ -227,6 +247,7 @@ public class GraphImage {
 			currentX+=plottingSpace;
 			//System.out.println("-----------------------------------------------");
 		}
+		dataRef.setErrorString("");
 	}
 	private List<PointInfo> getPointList(PointInfo a, PointInfo b, Expression e, int currentRecursion){
 		List<PointInfo> result = new ArrayList<>();

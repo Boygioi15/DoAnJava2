@@ -1,5 +1,6 @@
 package main.doanjava2.graphList;
 
+import javafx.css.PseudoClass;
 import javafx.scene.Scene;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.TextField;
@@ -93,12 +94,16 @@ public class GraphList extends GridPane {
     	GraphBlock toAdd = new GraphBlock();
     	toAdd.setPrefWidth(graphListBox.getWidth());
     	toAdd.setDataSource(graphData);
-      toAdd.requestFocus();
-      toAdd.setManagerRef(mnr);
-      TextField textField = toAdd.getExpressionTextField();
-        textField.focusedProperty().addListener(Object ->{
-            if(textField.focusedProperty().get()) {
+        toAdd.requestFocus();
+        toAdd.setManagerRef(mnr);
+        toAdd.getStyleClass().add("graph-block");
+
+        TextField textField = toAdd.getExpressionTextField();
+        textField.focusedProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue) {
                 currentlySelectedTextField = textField;
+                mnr.setSelectedGraph(graphListBox.getChildren().indexOf(toAdd));
+                updateSelectedGraphBlock(toAdd);
             }
         });
         graphListBox.getChildren().add(pos, toAdd);
@@ -106,6 +111,13 @@ public class GraphList extends GridPane {
         if(graphListBox.getChildren().size()>9){
             addNewBtn.setVisible(false);
         }
+    }
+    PseudoClass graphBlockSelected = PseudoClass.getPseudoClass("selected");
+    private void updateSelectedGraphBlock(GraphBlock selectedGraphBlock) {
+        for (Node node : graphListBox.getChildren()) {
+            node.pseudoClassStateChanged(graphBlockSelected, false);
+        }
+        selectedGraphBlock.pseudoClassStateChanged(graphBlockSelected, true);
     }
     public void removeGraphBlock(int pos) {
     	graphListBox.getChildren().remove(pos);
@@ -172,5 +184,8 @@ public class GraphList extends GridPane {
     }
     public int getSizeOfBox(){
         return graphListBox.getChildren().size();
+    }
+    public boolean isOpen() {
+        return isOpen;
     }
 }

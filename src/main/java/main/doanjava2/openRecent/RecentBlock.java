@@ -7,6 +7,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Region;
 import javafx.scene.text.Text;
@@ -21,7 +22,7 @@ public class RecentBlock extends AnchorPane {
     @FXML Text fileLocationText;
     @FXML Text lastOpenedTimeLabel;
     @FXML Button pinBtn;
-
+    @FXML ImageView pinImg;
     public Region getRecentBlock() {
         return recentBlock;
     }

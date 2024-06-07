@@ -3,10 +3,7 @@ package main.doanjava2;
 import jakarta.xml.bind.JAXBException;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ContextMenu;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.TextField;
-import javafx.scene.control.TitledPane;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
@@ -31,9 +28,9 @@ public class OpenController implements Initializable {
     private List<File> recentFiles = new ArrayList<>();
 
     @FXML
-    private HBox createNewButton;
+    private Button createNewButton;
     @FXML
-    private HBox openFromFileSystemButton;
+    private Button openFromFileSystemButton;
     @FXML
     private VBox pinnedContainer;
     @FXML
@@ -118,7 +115,6 @@ public class OpenController implements Initializable {
                     refreshRecentBlocks();
                 },
                 pinned);
-
         // Lấy thời gian sửa đổi lần cuối của tệp
         long lastModified = file.lastModified();
         Date lastModifiedDate = new Date(lastModified);
@@ -129,7 +125,6 @@ public class OpenController implements Initializable {
 
         // Đặt thời gian vào recentBlock
         recentBlock.setLastOpenedTimeString(lastModifiedString);
-
         // Các bước còn lại
         Region tempBlock = recentBlock.getRecentBlock(); // Get the HBox from RecentBlock
         setupRecentBlockUI(file, tempBlock);

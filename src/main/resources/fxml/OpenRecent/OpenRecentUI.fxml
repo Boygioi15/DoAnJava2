@@ -1,56 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<SplitPane dividerPositions="0.6" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.doanjava2.OpenController">
+<SplitPane fx:id="screen" dividerPositions="0.5916380297823596" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" stylesheets="@../../css/Recents/Recent.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.doanjava2.OpenController">
     <items>
         <AnchorPane minHeight="0.0" minWidth="0.0">
             <children>
                 <VBox layoutX="42.0" layoutY="-42.0" spacing="5.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
                     <children>
-                        <Label text="Ease graphing calculator" />
-                        <Label text="Open recent" />
-                  <HBox>
+                        <Label styleClass="title-text" text="Phần mềm vẽ đồ thị - Ease" />
+                        <Label styleClass="header-text" text="Open recent">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin></Label>
+                  <StackPane>
                      <children>
-                                <TextField fx:id="searchTextField" prefWidth="250.0" />
-                                <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" />
+                                <TextField fx:id="searchTextField" maxWidth="1.7976931348623157E308" styleClass="search-text-field" />
+                                <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER_RIGHT">
+                           <StackPane.margin>
+                              <Insets right="5.0" />
+                           </StackPane.margin>
+                           <image>
+                              <Image url="@../../images/find.png" />
+                           </image></ImageView>
                      </children>
-                  </HBox>
-                  <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS">
+                  </StackPane>
+                  <HBox />
+                  <ScrollPane fitToWidth="true" hbarPolicy="ALWAYS" styleClass="background" vbarPolicy="ALWAYS" VBox.vgrow="ALWAYS">
                      <content>
-                        <Accordion>
-                          <panes>
-                            <TitledPane fx:id="titledPanePinned" text="Pinned">
+                        <VBox>
+                           <children>
+                              <TitledPane fx:id="titledPanePinned" styleClass="body-text-header" text="Pinned">
                                  <content>
                                     <VBox fx:id="pinnedContainer" minHeight="10.0" spacing="10.0">
                                        <padding>
-                                          <Insets top="10.0" />
+                                          <Insets top="5.0" />
                                        </padding>
                                     </VBox>
                                  </content>
-                            </TitledPane>
-                            <TitledPane fx:id="titledPaneOther" animated="false" text="Others">
+                              </TitledPane>
+                              <TitledPane fx:id="titledPaneOther" animated="false" styleClass="body-text-header" text="Others">
                                  <content>
                                     <VBox fx:id="otherContainer" minHeight="10.0" spacing="10.0">
                                        <padding>
-                                          <Insets top="10.0" />
+                                          <Insets top="5.0" />
                                        </padding>
                                     </VBox>
                                  </content>
-                            </TitledPane>
-                          </panes>
-                        </Accordion>
+                              </TitledPane>
+                           </children>
+                        </VBox>
                      </content>
                   </ScrollPane>
                     </children>
@@ -59,42 +71,54 @@
         </AnchorPane>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
             <children>
-                <VBox layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" spacing="10.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="30.0">
+                <VBox layoutX="10.0" layoutY="46.0" prefHeight="200.0" prefWidth="100.0" spacing="5.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="50.0">
                     <children>
-                        <Label text="Get started" />
-                        <AnchorPane />
-                        <AnchorPane />
-                        <HBox fx:id="createNewButton" alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="200.0" style="-fx-background-color: #999999;">
-                            <children>
-                                <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" />
-                                <VBox alignment="CENTER_LEFT">
-                                    <children>
-                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Create new" />
-                                        <Text fill="#c4c4c4" strokeType="OUTSIDE" strokeWidth="0.0" text="Create new, empty graph file" />
-                                    </children>
-                                </VBox>
-                            </children>
-                            <VBox.margin>
-                                <Insets />
-                            </VBox.margin>
-                            <padding>
-                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                            </padding>
+                        <Label styleClass="header-text" text="Get started" />
+                  <Button fx:id="createNewButton" contentDisplay="TOP" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="70.0" styleClass="control-button">
+                     <graphic>
+                              <HBox fx:id="button1" alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="200.0" spacing="5.0">
+                                  <children>
+                                      <ImageView fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../images/new.png" />
+                                 </image>
+                              </ImageView>
+                                      <VBox alignment="CENTER_LEFT" spacing="5.0">
+                                          <children>
+                                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Create new" />
+                                              <Text fill="#515151" strokeType="OUTSIDE" strokeWidth="0.0" text="Create new, empty graph file" />
+                                          </children>
+                                      </VBox>
+                                  </children>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                              </HBox>
+                     </graphic>
+                  </Button>
+                  <HBox />
+                  <Button fx:id="openFromFileSystemButton" contentDisplay="GRAPHIC_ONLY" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="70.0" styleClass="control-button">
+                     <graphic>
+                        <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="200.0" spacing="5.0">
+                           <children>
+                              <ImageView fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../images/open.png" />
+                                 </image>
+                              </ImageView>
+                              <VBox alignment="CENTER_LEFT" spacing="5.0">
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="body-text-header" text="Open from file system" />
+                                    <Text fill="#515151" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="body-text" text="Browse file to open" />
+                                 </children>
+                              </VBox>
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
                         </HBox>
-                        <HBox fx:id="openFromFileSystemButton" alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="200.0" style="-fx-background-color: #999999;">
-                            <children>
-                                <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" />
-                                <VBox alignment="CENTER_LEFT">
-                                    <children>
-                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Open from file system" />
-                                        <Text fill="#c4c4c4" strokeType="OUTSIDE" strokeWidth="0.0" text="Browse file to open" />
-                                    </children>
-                                </VBox>
-                            </children>
-                            <padding>
-                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                            </padding>
-                        </HBox>
+                     </graphic>
+                  </Button>
                     </children>
                 </VBox>
             </children>

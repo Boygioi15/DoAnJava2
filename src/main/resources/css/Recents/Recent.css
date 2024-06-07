@@ -1,0 +1,147 @@
+.background{
+    -fx-background-color: white;
+    -fx-border-color : transparent;
+}
+.title-text{
+    -fx-font-size: 20;
+    -fx-font-family: Arial;
+    -fx-font-weight: bold;
+}
+.header-text{
+    -fx-font-size: 16;
+    -fx-font-family: Arial;
+}
+.body-text-header{
+    -fx-font-size: 14;
+    -fx-font-family: Arial;
+    -fx-font-weight: bold;
+}
+.body-text{
+    -fx-font-size: 13;
+    -fx-font-family: Arial;
+}
+
+.split-pane *.split-pane-divider {
+    -fx-padding: 0 1 0 1;
+    visibility: false;
+}
+.split-pane {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+}
+
+.titled-pane{
+    -fx-border-color: transparent;
+}
+.titled-pane .content {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+.titled-pane .title {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+.titled-pane .title: hover {
+    -fx-background-color: #F2F2F2;
+}
+.titled-pane .title: pressed {
+    -fx-background-color: #E6E6E6;
+}
+
+.titled-pane-content{
+    -fx-border-width: 0 0 0 1;
+    -fx-border-color: gray;
+}
+
+
+
+.titled-pane > .title > .arrow-button .arrow
+{
+    -fx-background-color: transparent;
+    -fx-border-color: black;
+    -fx-border-width: 1;
+    -fx-effect: null;
+    -fx-shape: "M0,0 L5,5 L10,0";
+}
+.search-text-field{
+    -fx-background-color: transparent;
+
+    -fx-border-color: gray;
+    -fx-border-width: 1;
+    -fx-border-radius: 3;
+
+    -fx-min-height: 30;
+    -fx-max-height: 30;
+}
+
+
+.scroll-pane > .viewport{
+    -fx-background-color: transparent;
+}
+
+.control-button{
+    -fx-background-color: #F2F2F2;
+    -fx-border-color: #1F83D1;
+    -fx-border-width: 1;
+    -fx-border-radius: 5;
+}
+.control-button:hover {
+    -fx-background-color: #E2E2E2;
+}
+.control-button:pressed {
+    -fx-background-color: #D2D2D2;
+}
+
+.hello-block{
+    -fx-border-color: gray;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-background-color: #FDFDFD;
+}
+.hello-block:hover{
+    -fx-background-color: #EDEDED;
+    -fx-border-color: #1F83D1;
+}
+.hello-block:pressed{
+    -fx-background-color: #DDDDDD;
+}
+.hello-block .file{
+    -fx-font-size: 16;
+    -fx-font-family: Arial;
+    -fx-font-family: Arial;
+    -fx-font-weight: normal;
+}
+.hello-block .dir{
+    -fx-font-size: 13;
+    -fx-font-family: Arial;
+    -fx-font-weight: normal;
+    -fx-fill: darkgray;
+}
+
+.scroll-pane .column-header-background .filler {
+    -fx-background-color: transparent;
+}
+.scroll-pane .corner {
+    -fx-background-color: transparent;
+}
+.scroll-bar:vertical,
+.scroll-bar:vertical .track,
+.scroll-bar:vertical .track-background,
+.scroll-bar:horizontal,
+.scroll-bar:horizontal .track,
+.scroll-bar:horizontal .track-background {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar .increment-button,
+.scroll-bar .decrement-button {
+    -fx-opacity: 0;
+    -fx-padding: 2;
+}
+.scroll-bar:vertical .thumb{
+    -fx-background-color:  #b0b0b0;
+}
+.scroll-bar:horizontal .thumb {
+    -fx-background-color:  #b0b0b0;
+}

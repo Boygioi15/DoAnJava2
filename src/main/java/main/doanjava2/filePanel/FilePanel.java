@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -23,7 +24,7 @@ import java.io.IOException;
 
 import static main.doanjava2.Main.CreateNewWindow;
 
-public class FilePanel extends VBox {
+public class FilePanel extends AnchorPane {
     MainController mnr;
 
     private TranslateTransition slideIn;
@@ -78,14 +79,30 @@ public class FilePanel extends VBox {
         });
     }
 
-    public void ToggleFilePanel(InputKeyboard inputKeyboard) {
+    public void CloseFilePanel(){
+        if (!this.isVisible()) {
+            return;
+        }
+        mnr.filePanelBlockPane.setVisible(false);
+        slideOut.play();
+        slideOut.setOnFinished(e -> this.setVisible(false));
+        mnr.CloseBlockPane();
+    }
+    public void OpenFilePanel(){
         if (this.isVisible()) {
-            slideOut.play();
-            slideOut.setOnFinished(e -> this.setVisible(false));
+            return;
+        }
+        mnr.filePanelBlockPane.setVisible(true);
+        this.setVisible(true);
+        slideIn.play();
+        mnr.inputKeyboard.close();
+        mnr.OpenBlockPane();
+    }
+    public void ToggleFilePanel() {
+        if (!this.isVisible()) {
+            OpenFilePanel();
         } else {
-            this.setVisible(true);
-            slideIn.play();
-            inputKeyboard.close();
+            CloseFilePanel();
         }
     }
 }

@@ -44,3 +44,30 @@
 #graphListPane .text-field {
     -fx-pref-height: 40px;
 }
+
+.graph-block {
+    -fx-background-color: white;
+
+    -fx-border-width: 0.5;
+    -fx-border-color: lightgray;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+.graph-block: selected {
+    -fx-border-color: #2496EF;
+    -fx-border-width: 1;
+}
+.graph-block . anchor-pane {
+    -fx-background-color:  white;
+    -fx-border-color: gray;
+    -fx-border-width:  0 0.5 0 0;
+    -fx-background-radius: 5;
+}
+
+.graph-block: selected . anchor-pane {
+    -fx-background-color:  #E6E6E6;
+    -fx-border-color: #2496EF;
+    -fx-border-width:  0 0.5 0 0;
+    -fx-background-radius: 5;
+}
+

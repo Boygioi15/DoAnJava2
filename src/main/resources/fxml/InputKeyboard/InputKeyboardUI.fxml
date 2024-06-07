@@ -3,6 +3,8 @@
 <?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -10,20 +12,25 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<?import org.kordamp.ikonli.javafx.FontIcon?>
-<fx:root prefHeight="250" prefWidth="1040.0" styleClass="input-keyboard-panel" stylesheets="@../../css/InputKeyboard/button.css, @../../css/InputKeyboard/background.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" >
+<fx:root prefHeight="250.0" styleClass="input-keyboard-panel" stylesheets="@../../css/InputKeyboard/button.css, @../../css/InputKeyboard/background.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
 	<children>
 		<Button fx:id="closeButton" mnemonicParsing="false" onAction="#toggleOnOff" prefHeight="27.0" prefWidth="63.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
 			<graphic>
-				<FontIcon iconLiteral="fa-keyboard-o" iconSize="30" />
 			</graphic>
+         <graphic>
+            <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/keyboard.png" />
+               </image>
+            </ImageView>
+         </graphic>
 		</Button>
 
-		<HBox fx:id="numberKeyboard" alignment="CENTER" prefHeight="196.0" prefWidth="1019.0" spacing="20.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+		<HBox fx:id="numberKeyboard" alignment="CENTER" spacing="20.0" style="visibility: true;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
 			<children>
-				<VBox alignment="CENTER" layoutX="71.0" layoutY="111.0" spacing="5" style="-fx-spacing: 4;" AnchorPane.bottomAnchor="125.66666666666669" AnchorPane.leftAnchor="71.0" AnchorPane.rightAnchor="347.00000000000006" AnchorPane.topAnchor="111.0">
+				<VBox alignment="CENTER" layoutX="71.0" layoutY="111.0" spacing="7.0" style="-fx-spacing: 4;" AnchorPane.bottomAnchor="125.66666666666669" AnchorPane.leftAnchor="71.0" AnchorPane.rightAnchor="347.00000000000006" AnchorPane.topAnchor="111.0">
 					<children>
-						<HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="5">
+						<HBox alignment="CENTER" spacing="5.0">
 							<children>
 								<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="x">
 									<styleClass>
@@ -51,7 +58,7 @@
 								</Button>
 							</children>
 						</HBox>
-						<HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="5">
+						<HBox alignment="CENTER" spacing="5.0">
 							<children>
 								<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="(">
 									<styleClass>
@@ -79,7 +86,7 @@
 								</Button>
 							</children>
 						</HBox>
-						<HBox alignment="CENTER" prefHeight="100.0" prefWidth="311.0" spacing="5">
+						<HBox alignment="CENTER" spacing="5.0">
 							<children>
 								<Button mnemonicParsing="false" onMousePressed="#insertAbsButtonPressing" text="|x|">
 									<styleClass>
@@ -107,12 +114,12 @@
 								</Button>
 							</children>
 						</HBox>
-						<HBox alignment="CENTER" prefHeight="100.0" prefWidth="359.0" spacing="5">
+						<HBox alignment="CENTER" spacing="5.0">
 							<children>
-								<Button fx:id="control_LetterKeyboardSwitcher" mnemonicParsing="false" text="A B C">
+								<Button fx:id="control_LetterKeyboardSwitcher" mnemonicParsing="false" text="ABC">
 									<styleClass>
-										<String fx:value="normal-button" />
 										<String fx:value="number-button" />
+										<String fx:value="normal-button" />
 									</styleClass>
 								</Button>
 								<Button mnemonicParsing="false" onMousePressed="#insertSpecialButtonPressing" text="sqrt">
@@ -139,7 +146,7 @@
 				</VBox>
 				<VBox alignment="CENTER" layoutX="71.0" layoutY="111.0" style="-fx-spacing: 4;" AnchorPane.bottomAnchor="125.66666666666669" AnchorPane.leftAnchor="71.0" AnchorPane.rightAnchor="347.00000000000006" AnchorPane.topAnchor="111.0">
 					<children>
-						<HBox alignment="CENTER" prefHeight="100.0" prefWidth="233.0" style="-fx-spacing: 4;">
+						<HBox alignment="CENTER" style="-fx-spacing: 4;">
 							<children>
 								<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="7">
 									<styleClass>
@@ -167,7 +174,7 @@
 								</Button>
 							</children>
 						</HBox>
-						<HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-spacing: 4;">
+						<HBox alignment="CENTER" style="-fx-spacing: 4;">
 							<children>
 								<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="4">
 									<styleClass>
@@ -195,7 +202,7 @@
 								</Button>
 							</children>
 						</HBox>
-						<HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-spacing: 4;">
+						<HBox alignment="CENTER" style="-fx-spacing: 4;">
 							<children>
 								<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="1">
 									<styleClass>
@@ -223,7 +230,7 @@
 								</Button>
 							</children>
 						</HBox>
-						<HBox alignment="CENTER" prefHeight="100.0" prefWidth="359.0" style="-fx-spacing: 4;">
+						<HBox alignment="CENTER" style="-fx-spacing: 4;">
 							<children>
 								<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="0">
 									<styleClass>
@@ -253,7 +260,7 @@
 						</HBox>
 					</children>
 				</VBox>
-				<GridPane>
+				<GridPane hgap="2.0">
 					<columnConstraints>
 						<ColumnConstraints />
 						<ColumnConstraints />
@@ -265,16 +272,16 @@
 						<RowConstraints minHeight="10.0" />
 					</rowConstraints>
 					<children>
-						<Button fx:id="functionBtn" mnemonicParsing="false" prefWidth="150.0" text="Functions" GridPane.columnSpan="2">
+						<Button fx:id="functionBtn" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="f(x)" GridPane.columnSpan="2">
 							<GridPane.margin>
 								<Insets bottom="5.0" />
 							</GridPane.margin>
-							<styleClass>
-								<String fx:value="function-button" />
-								<String fx:value="normal-button" />
-							</styleClass>
+                     <styleClass>
+                        <String fx:value="normal-button" />
+                        <String fx:value="function-button" />
+                     </styleClass>
 						</Button>
-						<Button mnemonicParsing="false" onMousePressed="#moveCaretLeftButtonPressing" prefWidth="75.0" text="Left" GridPane.rowIndex="1">
+						<Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMousePressed="#moveCaretLeftButtonPressing" prefWidth="75.0" GridPane.rowIndex="1">
 							<GridPane.margin>
 								<Insets />
 							</GridPane.margin>
@@ -282,8 +289,15 @@
 								<String fx:value="function-button" />
 								<String fx:value="normal-button" />
 							</styleClass>
+                     <graphic>
+                        <ImageView fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/left.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
 						</Button>
-						<Button mnemonicParsing="false" onMousePressed="#deleteButtonPressing" prefWidth="100.0" text="Delete" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+						<Button mnemonicParsing="false" onMousePressed="#deleteButtonPressing" prefWidth="100.0" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
 							<styleClass>
 								<String fx:value="function-button" />
 								<String fx:value="normal-button" />
@@ -291,14 +305,28 @@
 							<GridPane.margin>
 								<Insets top="5.0" />
 							</GridPane.margin>
+                     <graphic>
+                        <ImageView fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/backspace.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
 						</Button>
-						<Button mnemonicParsing="false" onMousePressed="#moveCaretRightButtonPressing" prefWidth="75.0" text="Right" GridPane.columnIndex="1" GridPane.rowIndex="1">
+						<Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMousePressed="#moveCaretRightButtonPressing" prefWidth="75.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
 							<styleClass>
 								<String fx:value="function-button" />
 								<String fx:value="normal-button" />
 							</styleClass>
+                     <graphic>
+                        <ImageView fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/right.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
 						</Button>
-						<Button mnemonicParsing="false" prefWidth="150.0" text="Enter" GridPane.columnSpan="2" GridPane.rowIndex="3">
+						<Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="150.0" text="Enter" GridPane.columnSpan="2" GridPane.rowIndex="3">
 							<styleClass>
 								<String fx:value="normal-button" />
 								<String fx:value="function-button" />
@@ -312,9 +340,9 @@
 				</GridPane>
 			</children>
 		</HBox>
-		<VBox fx:id="normalLetterKeyboard" alignment="CENTER" prefHeight="196.0" prefWidth="1040.0" spacing="10.0" style="visibility: false;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+		<VBox fx:id="normalLetterKeyboard" alignment="CENTER" prefWidth="1040.0" spacing="5.0" style="visibility: false;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
 			<children>
-				<HBox alignment="CENTER" spacing="3.0">
+				<HBox alignment="CENTER" spacing="5.0">
 					<children>
 						<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" prefWidth="83.0" text="q">
 							<styleClass>
@@ -381,7 +409,7 @@
 						<Insets />
 					</VBox.margin>
 				</HBox>
-				<HBox alignment="CENTER" spacing="3.0">
+				<HBox alignment="CENTER" spacing="5.0">
 					<children>
 						<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="a">
 							<styleClass>
@@ -446,7 +474,7 @@
 					<children>
 						<Button mnemonicParsing="false" onMousePressed="#switchNormalLetterToCappedLetterKeyBoard" text="Up">
 							<HBox.margin>
-								<Insets right="38.0" />
+								<Insets right="55.0" />
 							</HBox.margin>
 							<styleClass>
 								<String fx:value="normal-button" />
@@ -500,7 +528,7 @@
 						</Button>
 						<Button mnemonicParsing="false" onMousePressed="#deleteButtonPressing" text="Delete">
 							<HBox.margin>
-								<Insets left="38.0" />
+								<Insets left="55.0" />
 							</HBox.margin>
 							<styleClass>
 								<String fx:value="normal-button" />
@@ -519,7 +547,7 @@
 					<children>
 						<Button mnemonicParsing="false" onMousePressed="#switchNoramlLetterToNumberKeyBoard" text="Number">
 							<HBox.margin>
-								<Insets left="5.0" />
+								<Insets left="5.0" right="10.0" />
 							</HBox.margin>
 							<styleClass>
 								<String fx:value="normal-button" />
@@ -547,7 +575,7 @@
 								<String fx:value="letter-button" />
 							</styleClass>
 						</Button>
-						<Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" prefHeight="42.0" prefWidth="440.0" text=" ">
+						<Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text=" ">
 							<styleClass>
 								<String fx:value="normal-button" />
 								<String fx:value="letter-button" />
@@ -566,17 +594,18 @@
 								<String fx:value="letter-button" />
 							</styleClass>
 						</Button>
-						<Button mnemonicParsing="false" text="Enter">
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="important-button" />
-							</styleClass>
+						<Button mnemonicParsing="false" prefWidth="110.0" text="Enter">
 							<HBox.margin>
-								<Insets left="5.0" />
+								<Insets />
 							</HBox.margin>
 							<padding>
 								<Insets left="10.0" right="10.0" />
 							</padding>
+                     <styleClass>
+                        <String fx:value="important-button" />
+                        <String fx:value="function-button" />
+                        <String fx:value="normal-button" />
+                     </styleClass>
 						</Button>
 					</children>
 					<VBox.margin>
@@ -585,9 +614,9 @@
 				</HBox>
 			</children>
 		</VBox>
-		<VBox fx:id="cappedLetterKeyboard" alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="196.0" prefWidth="1040.0" spacing="10.0" style="visibility: false;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+		<VBox fx:id="cappedLetterKeyboard" alignment="CENTER" layoutX="10.0" layoutY="10.0" prefWidth="1040.0" spacing="5.0" style="visibility: false;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
 			<children>
-				<HBox alignment="CENTER" spacing="3.0">
+				<HBox alignment="CENTER" spacing="5.0">
 					<children>
 						<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="Q">
 							<styleClass>
@@ -654,7 +683,7 @@
 						<Insets />
 					</VBox.margin>
 				</HBox>
-				<HBox alignment="CENTER" spacing="3.0">
+				<HBox alignment="CENTER" spacing="5.0">
 					<children>
 						<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="A">
 							<styleClass>
@@ -719,7 +748,7 @@
 					<children>
 						<Button mnemonicParsing="false" onMousePressed="#switchCappedLetterToNormalLetterKeyBoard" text="Down">
 							<HBox.margin>
-								<Insets right="38.0" />
+								<Insets right="55.0" />
 							</HBox.margin>
 							<styleClass>
 								<String fx:value="normal-button" />
@@ -773,7 +802,7 @@
 						</Button>
 						<Button mnemonicParsing="false" onMousePressed="#deleteButtonPressing" text="Delete">
 							<HBox.margin>
-								<Insets left="38.0" />
+								<Insets left="55.0" />
 							</HBox.margin>
 							<styleClass>
 								<String fx:value="normal-button" />
@@ -792,7 +821,7 @@
 					<children>
 						<Button mnemonicParsing="false" onMousePressed="#switchCappedLetterToNumberKeyBoard" text="Number">
 							<HBox.margin>
-								<Insets left="5.0" />
+								<Insets left="5.0" right="10.0" />
 							</HBox.margin>
 							<styleClass>
 								<String fx:value="normal-button" />
@@ -839,13 +868,14 @@
 								<String fx:value="letter-button" />
 							</styleClass>
 						</Button>
-						<Button mnemonicParsing="false" text="Enter">
+						<Button mnemonicParsing="false" prefWidth="110.0" text="Enter">
 							<styleClass>
 								<String fx:value="normal-button" />
-								<String fx:value="important-button" />
+								<String fx:value="function-button" />
+                        <String fx:value="important-button" />
 							</styleClass>
 							<HBox.margin>
-								<Insets left="5.0" />
+								<Insets />
 							</HBox.margin>
 							<padding>
 								<Insets left="10.0" right="10.0" />
@@ -860,4 +890,7 @@
 		</VBox>
 
 	</children>
+   <padding>
+      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+   </padding>
 </fx:root>

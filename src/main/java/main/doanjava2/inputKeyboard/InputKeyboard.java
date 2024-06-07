@@ -68,10 +68,8 @@ public class InputKeyboard extends AnchorPane {
 		// System.out.println("Input keyboard closed!");
 		if (!isClosed) {
 			close();
-			isClosed = true;
 		} else {
 			open();
-			isClosed = false;
 		}
 
 	}
@@ -87,6 +85,7 @@ public class InputKeyboard extends AnchorPane {
 			transition.setToY(-closeButton.getHeight() * 1.5);
 			transition.play();
 		}
+		isClosed = true;
 	}
 
 	public void open() {
@@ -100,6 +99,7 @@ public class InputKeyboard extends AnchorPane {
 			transition.setToY(0);
 			transition.play();
 		}
+		isClosed = false;
 	}
 
 	// control buttons

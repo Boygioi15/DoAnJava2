@@ -14,6 +14,7 @@ import main.doanjava2.topNavBar.ColorAdapter;
 public class GraphData {
     private String expressionString;
     private String expressionName;
+    private String errorString;
     @XmlJavaTypeAdapter(ColorAdapter.class)
     private Color graphColor;
     private LineType lineType;
@@ -56,6 +57,7 @@ public class GraphData {
         setActive(true);
         setOpacity(1);
         setExpressionName("");
+        setErrorString("");
     }
     public void addListener(InvalidationListener listener) {
         internalChanged.addListener(listener);
@@ -104,6 +106,7 @@ public class GraphData {
         this.setOpacity(data.opacity);
         this.setActive(data.isActive);
         this.setExpressionName(data.expressionName);
+        this.setErrorString(data.errorString);
     }
     private void notifyChange() {
         internalChanged.set(!internalChanged.get());
@@ -137,5 +140,16 @@ public class GraphData {
         cloned.setActive(this.isActive());
         cloned.setOpacity(this.getOpacity());
         return cloned;
+    }
+
+    public String getErrorString() {
+        return errorString;
+    }
+
+    public void setErrorString(String newErrorString) {
+        if(!newErrorString.equals(errorString)) {
+            this.errorString = newErrorString;
+            notifyChange();
+        }
     }
 }

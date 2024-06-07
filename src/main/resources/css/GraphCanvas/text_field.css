@@ -24,7 +24,7 @@
 	-fx-font-weight: lighter;
 }
 .text-field:focused{
-	-fx-border-color: #28a3f4;
+	-fx-border-color: #2496EF;
 }
 
 .text-field.error {
