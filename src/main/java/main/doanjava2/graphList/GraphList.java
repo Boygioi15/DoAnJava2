@@ -97,7 +97,7 @@ public class GraphList extends GridPane {
                     if (currentlySelectedTextField != null && !isDescendantOf(target,currentlySelectedTextField)) {
                         updateSelectedGraphBlock(null);
                         mnr.setSelectedGraph(-1);
-                        currentlySelectedTextField.getParent().requestFocus(); // Move focus away from TextField
+                        currentlySelectedTextField.getParent().requestFocus();
                         currentlySelectedTextField = null;
                     }
                 });
