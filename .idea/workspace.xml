@@ -4,35 +4,36 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c0c8e8f-6c6a-46f7-8269-c472333fba20" name="Changes" comment="finish welcome-screen">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/css/GraphCanvas/main.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/code.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/gear.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/home.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/menu.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/new.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/open.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/plus.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/question.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/save as.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/save.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/zoom in.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/zoom out.png" afterDir="false" />
+    <list default="true" id="7c0c8e8f-6c6a-46f7-8269-c472333fba20" name="Changes" comment="xong">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/doanjava2/graphList/GraphList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/doanjava2/graphList/GraphList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/images/Logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/FilePanel/FilePanelUI.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/FilePanel/FilePanelUI.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/GraphCanvas/configButton.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/GraphCanvas/configButton.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/GraphList/GraphList.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/GraphList/GraphList.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/TopNavBar/TopNavBar.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/TopNavBar/TopNavBar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/doanjava2/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/doanjava2/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/doanjava2/graphCanvas/Background.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/doanjava2/graphCanvas/Background.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/doanjava2/graphCanvas/GraphCanvas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/doanjava2/graphCanvas/GraphCanvas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/doanjava2/topNavBar/TopNavBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/doanjava2/topNavBar/TopNavBar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/css/FilePanel/FilePanelUI.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/DarkTheme/FilePanel/FilePanelUI.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/css/GraphCanvas/check_box.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/DarkTheme/GraphCanvas/check_box.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/css/GraphCanvas/configButton.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/DarkTheme/GraphCanvas/configButton.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/css/GraphCanvas/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/DarkTheme/GraphCanvas/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/css/GraphCanvas/radio_button.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/DarkTheme/GraphCanvas/radio_button.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/css/GraphCanvas/tab_pane.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/DarkTheme/GraphCanvas/tab_pane.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/css/GraphCanvas/text_field.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/DarkTheme/GraphCanvas/text_field.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/css/GraphList/GraphList.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/css/InputKeyboard/background.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/DarkTheme/InputKeyboard/background.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/css/InputKeyboard/button.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/DarkTheme/InputKeyboard/button.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/css/TopNavBar/TopNavBar.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/DarkTheme/TopNavBar/TopNavBar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/css/TopNavBar/helpBox.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/DarkTheme/TopNavBar/helpBox.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/FilePanel/FilePanelUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/FilePanel/FilePanelUI.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/GraphCanvas/GraphCanvasUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/GraphCanvas/GraphCanvasUI.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/GraphList/GraphBlockConfigUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/GraphList/GraphBlockConfigUI.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/GraphList/GraphBlockUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/GraphList/GraphBlockUI.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/GraphList/GraphListUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/GraphList/GraphListUI.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/InputKeyboard/InputKeyboardUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/InputKeyboard/InputKeyboardUI.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/Main/MainUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/Main/MainUI.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/OpenRecent/OpenRecentUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/OpenRecent/OpenRecentUI.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/OpenRecent/RecentBlockUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/OpenRecent/RecentBlockUI.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/TopNavBar/HelpBox.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/TopNavBar/HelpBox.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/TopNavBar/LanguageBox.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/TopNavBar/LanguageBox.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/TopNavBar/TopNavBarUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/TopNavBar/TopNavBarUI.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ic_graph.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/images/ic_graph.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +52,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="handle-expression" />
+        <entry key="$PROJECT_DIR$" value="selected-graphblock" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -91,20 +92,19 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "styleQuyen",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/thinh/OneDrive/Máy tính/DoAnJava2/src/main/resources",
+    "last_opened_file_path": "C:/Users/pc/Desktop/DoAnJava2/src/main/resources/css/DarkTheme",
     "run.code.analysis.last.selected.profile": "pProject Default"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\pc\Desktop\DoAnJava2\src\main\resources\css\DarkTheme" />
+      <recent name="C:\Users\pc\Desktop\DoAnJava2\src\main\resources\css\DarkTheme\TopNavBar" />
       <recent name="C:\Users\thinh\OneDrive\Máy tính\DoAnJava2\src\main\resources" />
       <recent name="C:\Users\boygioi15\IdeaProjects\DoAnJava2\src\main\resources\css\Dialog" />
       <recent name="C:\Users\boygioi15\IdeaProjects\DoAnJava2\src\main\resources\css\TopNavBar" />
-      <recent name="C:\Users\boygioi15\IdeaProjects\DoAnJava2\src\main\resources\css\InputKeyboard" />
-      <recent name="C:\Users\boygioi15\IdeaProjects\DoAnJava2\src\main\resources\css\GraphCanvas" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\boygioi15\IdeaProjects\DoAnJava2\src\main\resources\images" />
       <recent name="C:\Users\boygioi15\IdeaProjects\DoAnJava2\src\main\resources\css\Recent" />
       <recent name="C:\Users\boygioi15\IdeaProjects\DoAnJava2\src\main\resources\fxml\FilePanel" />
       <recent name="C:\Users\boygioi15\IdeaProjects\DoAnJava2\src\main\resources\fxml\GraphList" />
@@ -129,7 +129,6 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main" />
       </list>
@@ -168,7 +167,39 @@
       <option name="project" value="LOCAL" />
       <updated>1716899596345</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="fix inputkeyboard vs open/close">
+      <option name="closed" value="true" />
+      <created>1717665486769</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1717665486769</updated>
+    </task>
+    <task id="LOCAL-00005" summary="css selected graph block tam tam">
+      <option name="closed" value="true" />
+      <created>1717672580331</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1717672580331</updated>
+    </task>
+    <task id="LOCAL-00006" summary="xong">
+      <option name="closed" value="true" />
+      <created>1717687444066</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1717687444066</updated>
+    </task>
+    <task id="LOCAL-00007" summary="xong">
+      <option name="closed" value="true" />
+      <created>1717688308678</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1717688308678</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -186,6 +217,9 @@
     <MESSAGE value="finish" />
     <MESSAGE value="fix remove empty graphData" />
     <MESSAGE value="fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix" />
+    <MESSAGE value="fix inputkeyboard vs open/close" />
+    <MESSAGE value="css selected graph block tam tam" />
+    <MESSAGE value="xong" />
+    <option name="LAST_COMMIT_MESSAGE" value="xong" />
   </component>
 </project>

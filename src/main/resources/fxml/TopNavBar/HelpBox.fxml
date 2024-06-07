@@ -10,120 +10,136 @@
 <?import javafx.scene.text.Text?>
 
 <?import org.kordamp.ikonli.javafx.FontIcon?>
-<VBox fx:id="helpBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="350.0" style="-fx-padding: 10px;" stylesheets="@../../css/TopNavBar/helpBox.css" visible="false" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
-	 <children>
-      <VBox prefHeight="133.0" prefWidth="333.0">
-         <children>
-            <Text fill="#2f72dc" strokeType="OUTSIDE" strokeWidth="0.0" text="Tours">
-               <font>
-                  <Font size="23.0" />
-               </font>
-            </Text>
-            <Line endX="228.1667022705078" startX="-100.0" stroke="#2f72dc" strokeWidth="2.0" />
-            <HBox prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <VBox alignment="CENTER" prefHeight="88.0" prefWidth="87.0" style="-fx-spacing: 4;" styleClass="box">
-                     <children>
-                        <Circle fx:id="sliderCircle" fill="DODGERBLUE" radius="31.0" stroke="BLACK" strokeType="INSIDE" styleClass="circleTours" />
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="textTours" text="Slider">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Text>
-                     </children>
-                  </VBox>
-                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-spacing: 4;" styleClass="box">
-                     <children>
-                        <Circle fx:id="tableCircle" fill="DODGERBLUE" radius="31.0" stroke="BLACK" strokeType="INSIDE" styleClass="circleTours" />
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="textTours" text="Tables">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Text>
-                     </children>
-                  </VBox>
-                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-spacing: 4;" styleClass="box" stylesheets="@../../css/TopNavBar/helpBox.css">
-                     <children>
-                        <Circle fx:id="restrictionsCircle" fill="DODGERBLUE" radius="31.0" stroke="BLACK" strokeType="INSIDE" styleClass="circleTours" />
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="textTours" text="Restrictions">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Text>
-                     </children>
-                  </VBox>
-                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-spacing: 4;" styleClass="box">
-                     <children>
-                        <Circle fx:id="regressionCircle" fill="DODGERBLUE" radius="31.0" stroke="BLACK" strokeType="INSIDE" styleClass="circleTours" />
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="textTours" text="Regression">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Text>
-                     </children>
-                  </VBox>
-               </children>
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin>
-            </HBox>
-         </children>
-      </VBox>
-      <VBox prefHeight="231.0" prefWidth="331.0">
-         <children>
-            <Text fill="#2f72dc" strokeType="OUTSIDE" strokeWidth="0.0" text="Resources">
-               <font>
-                  <Font size="23.0" />
-               </font>
-            </Text>
-            <Line endX="228.1667022705078" startX="-100.0" stroke="#2f72dc" strokeWidth="2.0" />
-            <Button mnemonicParsing="false" style="-fx-background-color: transparent;" styleClass="buttonText" stylesheets="@../../css/TopNavBar/helpBox.css" text="Getting started">
-               <graphic>
-                  <FontIcon iconLiteral="fa-rocket" iconSize="23" />
-               </graphic>
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin>
-            </Button>
-            <Button mnemonicParsing="false" style="-fx-background-color: transparent;" styleClass="buttonText" stylesheets="@../../css/TopNavBar/helpBox.css" text="Video tutorials">
-               <graphic>
-                  <FontIcon iconLiteral="fa-video-camera" iconSize="23" />
-               </graphic>
-            </Button>
-            <Button mnemonicParsing="false" style="-fx-background-color: transparent;" styleClass="buttonText" stylesheets="@../../css/TopNavBar/helpBox.css" text="Desmos user guide">
-               <graphic>
-                  <FontIcon iconLiteral="fa-book" iconSize="23" />
-               </graphic>
-            </Button>
-            <Button mnemonicParsing="false" style="-fx-background-color: transparent;" styleClass="buttonText" stylesheets="@../../css/TopNavBar/helpBox.css" text="Help center">
-               <graphic>
-                  <FontIcon iconLiteral="fa-commenting-o" iconSize="23" />
-               </graphic>
-            </Button>
-            <Button mnemonicParsing="false" style="-fx-background-color: transparent;" styleClass="buttonText" stylesheets="@../../css/TopNavBar/helpBox.css" text="Keyboard shortcuts">
-               <graphic>
-                  <FontIcon iconLiteral="fa-keyboard-o" iconSize="23" />
-               </graphic>
-            </Button>
-         </children>
-      </VBox>
-      <VBox prefHeight="49.0" prefWidth="333.0">
-         <children>
-            <Text fill="#2f72dc" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact us">
-               <font>
-                  <Font size="23.0" />
-               </font>
-            </Text>
-            <Line endX="228.1667022705078" startX="-100.0" stroke="#2f72dc" strokeWidth="2.0" />
-            <Button mnemonicParsing="false" style="-fx-background-color: transparent;" styleClass="buttonText" stylesheets="@../../css/TopNavBar/helpBox.css" text="Email our support team">
-               <graphic>
-                  <FontIcon iconLiteral="fa-envelope-o" iconSize="23" />
-               </graphic>
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin>
-            </Button>
-         </children>
-      </VBox>
-   </children>
+<VBox fx:id="helpBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+      prefHeight="430.0" prefWidth="350.0" style="-fx-padding: 10px;" stylesheets="@../../css/LightTheme/TopNavBar/helpBox.css"
+      visible="false" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <VBox prefHeight="133.0" prefWidth="333.0">
+            <children>
+                <Text fill="#2f72dc" strokeType="OUTSIDE" strokeWidth="0.0" text="Tours">
+                    <font>
+                        <Font size="23.0"/>
+                    </font>
+                </Text>
+                <Line endX="228.1667022705078" startX="-100.0" stroke="#2f72dc" strokeWidth="2.0"/>
+                <HBox prefHeight="100.0" prefWidth="200.0">
+                    <children>
+                        <VBox alignment="CENTER" prefHeight="88.0" prefWidth="87.0" style="-fx-spacing: 4;"
+                              styleClass="box">
+                            <children>
+                                <Circle fx:id="sliderCircle" fill="DODGERBLUE" radius="31.0" stroke="BLACK"
+                                        strokeType="INSIDE" styleClass="circleTours"/>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="textTours" text="Slider">
+                                    <font>
+                                        <Font size="14.0"/>
+                                    </font>
+                                </Text>
+                            </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-spacing: 4;"
+                              styleClass="box">
+                            <children>
+                                <Circle fx:id="tableCircle" fill="DODGERBLUE" radius="31.0" stroke="BLACK"
+                                        strokeType="INSIDE" styleClass="circleTours"/>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="textTours" text="Tables">
+                                    <font>
+                                        <Font size="14.0"/>
+                                    </font>
+                                </Text>
+                            </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-spacing: 4;"
+                              styleClass="box" stylesheets="@../../css/LightTheme/TopNavBar/helpBox.css">
+                            <children>
+                                <Circle fx:id="restrictionsCircle" fill="DODGERBLUE" radius="31.0" stroke="BLACK"
+                                        strokeType="INSIDE" styleClass="circleTours"/>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="textTours" text="Restrictions">
+                                    <font>
+                                        <Font size="14.0"/>
+                                    </font>
+                                </Text>
+                            </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-spacing: 4;"
+                              styleClass="box">
+                            <children>
+                                <Circle fx:id="regressionCircle" fill="DODGERBLUE" radius="31.0" stroke="BLACK"
+                                        strokeType="INSIDE" styleClass="circleTours"/>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="textTours" text="Regression">
+                                    <font>
+                                        <Font size="14.0"/>
+                                    </font>
+                                </Text>
+                            </children>
+                        </VBox>
+                    </children>
+                    <VBox.margin>
+                        <Insets top="10.0"/>
+                    </VBox.margin>
+                </HBox>
+            </children>
+        </VBox>
+        <VBox prefHeight="231.0" prefWidth="331.0">
+            <children>
+                <Text fill="#2f72dc" strokeType="OUTSIDE" strokeWidth="0.0" text="Resources">
+                    <font>
+                        <Font size="23.0"/>
+                    </font>
+                </Text>
+                <Line endX="228.1667022705078" startX="-100.0" stroke="#2f72dc" strokeWidth="2.0"/>
+                <Button mnemonicParsing="false" style="-fx-background-color: transparent;" styleClass="buttonText"
+                        stylesheets="@../../css/LightTheme/TopNavBar/helpBox.css" text="Getting started">
+                    <graphic>
+                        <FontIcon iconLiteral="fa-rocket" iconSize="23"/>
+                    </graphic>
+                    <VBox.margin>
+                        <Insets top="10.0"/>
+                    </VBox.margin>
+                </Button>
+                <Button mnemonicParsing="false" style="-fx-background-color: transparent;" styleClass="buttonText"
+                        stylesheets="@../../css/LightTheme/TopNavBar/helpBox.css" text="Video tutorials">
+                    <graphic>
+                        <FontIcon iconLiteral="fa-video-camera" iconSize="23"/>
+                    </graphic>
+                </Button>
+                <Button mnemonicParsing="false" style="-fx-background-color: transparent;" styleClass="buttonText"
+                        stylesheets="@../../css/LightTheme/TopNavBar/helpBox.css" text="Desmos user guide">
+                    <graphic>
+                        <FontIcon iconLiteral="fa-book" iconSize="23"/>
+                    </graphic>
+                </Button>
+                <Button mnemonicParsing="false" style="-fx-background-color: transparent;" styleClass="buttonText"
+                        stylesheets="@../../css/LightTheme/TopNavBar/helpBox.css" text="Help center">
+                    <graphic>
+                        <FontIcon iconLiteral="fa-commenting-o" iconSize="23"/>
+                    </graphic>
+                </Button>
+                <Button mnemonicParsing="false" style="-fx-background-color: transparent;" styleClass="buttonText"
+                        stylesheets="@../../css/LightTheme/TopNavBar/helpBox.css" text="Keyboard shortcuts">
+                    <graphic>
+                        <FontIcon iconLiteral="fa-keyboard-o" iconSize="23"/>
+                    </graphic>
+                </Button>
+            </children>
+        </VBox>
+        <VBox prefHeight="49.0" prefWidth="333.0">
+            <children>
+                <Text fill="#2f72dc" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact us">
+                    <font>
+                        <Font size="23.0"/>
+                    </font>
+                </Text>
+                <Line endX="228.1667022705078" startX="-100.0" stroke="#2f72dc" strokeWidth="2.0"/>
+                <Button mnemonicParsing="false" style="-fx-background-color: transparent;" styleClass="buttonText"
+                        stylesheets="@../../css/LightTheme/TopNavBar/helpBox.css" text="Email our support team">
+                    <graphic>
+                        <FontIcon iconLiteral="fa-envelope-o" iconSize="23"/>
+                    </graphic>
+                    <VBox.margin>
+                        <Insets top="10.0"/>
+                    </VBox.margin>
+                </Button>
+            </children>
+        </VBox>
+    </children>
 </VBox>

@@ -15,6 +15,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.WindowEvent;
 
 import java.io.IOException;
+import java.util.Objects;
 import java.util.Optional;
 
 public class Main extends Application {
@@ -25,6 +26,7 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader(
                 Main.class.getResource("/fxml/Main/MainUI.fxml")
         );
+
         Scene newScene = new Scene(loader.load());
         Stage newStage = new Stage();
         Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();

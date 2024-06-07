@@ -11,853 +11,904 @@
 <?import javafx.scene.layout.VBox?>
 
 <?import org.kordamp.ikonli.javafx.FontIcon?>
-<fx:root prefHeight="250" prefWidth="1040.0" styleClass="input-keyboard-panel" stylesheets="@../../css/InputKeyboard/button.css, @../../css/InputKeyboard/background.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" >
-	<children>
-		<Button fx:id="closeButton" mnemonicParsing="false" onAction="#toggleOnOff" prefHeight="27.0" prefWidth="63.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
-			<graphic>
-				<FontIcon iconLiteral="fa-keyboard-o" iconSize="30" />
-			</graphic>
-		</Button>
+<fx:root prefHeight="250" prefWidth="1040.0" styleClass="input-keyboard-panel"
+         stylesheets="@../../css/LightTheme/InputKeyboard/button.css, @../../css/LightTheme/InputKeyboard/background.css"
+         type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <Button fx:id="closeButton" mnemonicParsing="false" onAction="#toggleOnOff" prefHeight="27.0" prefWidth="63.0"
+                AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+            <graphic>
+                <FontIcon iconLiteral="fa-keyboard-o" iconSize="30"/>
+            </graphic>
+        </Button>
 
-		<HBox fx:id="numberKeyboard" alignment="CENTER" prefHeight="196.0" prefWidth="1019.0" spacing="20.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-			<children>
-				<VBox alignment="CENTER" layoutX="71.0" layoutY="111.0" spacing="5" style="-fx-spacing: 4;" AnchorPane.bottomAnchor="125.66666666666669" AnchorPane.leftAnchor="71.0" AnchorPane.rightAnchor="347.00000000000006" AnchorPane.topAnchor="111.0">
-					<children>
-						<HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="5">
-							<children>
-								<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="x">
-									<styleClass>
-										<String fx:value="normal-button" />
-										<String fx:value="number-button" />
-									</styleClass>
-								</Button>
-								<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="y">
-									<styleClass>
-										<String fx:value="normal-button" />
-										<String fx:value="number-button" />
-									</styleClass>
-								</Button>
-								<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="π">
-									<styleClass>
-										<String fx:value="normal-button" />
-										<String fx:value="number-button" />
-									</styleClass>
-								</Button>
-								<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="e">
-									<styleClass>
-										<String fx:value="normal-button" />
-										<String fx:value="number-button" />
-									</styleClass>
-								</Button>
-							</children>
-						</HBox>
-						<HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="5">
-							<children>
-								<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="(">
-									<styleClass>
-										<String fx:value="normal-button" />
-										<String fx:value="number-button" />
-									</styleClass>
-								</Button>
-								<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text=")">
-									<styleClass>
-										<String fx:value="normal-button" />
-										<String fx:value="number-button" />
-									</styleClass>
-								</Button>
-								<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="&lt;">
-									<styleClass>
-										<String fx:value="normal-button" />
-										<String fx:value="number-button" />
-									</styleClass>
-								</Button>
-								<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" style="-fx-line-spacing: 10;" text="&gt;">
-									<styleClass>
-										<String fx:value="normal-button" />
-										<String fx:value="number-button" />
-									</styleClass>
-								</Button>
-							</children>
-						</HBox>
-						<HBox alignment="CENTER" prefHeight="100.0" prefWidth="311.0" spacing="5">
-							<children>
-								<Button mnemonicParsing="false" onMousePressed="#insertAbsButtonPressing" text="|x|">
-									<styleClass>
-										<String fx:value="normal-button" />
-										<String fx:value="number-button" />
-									</styleClass>
-								</Button>
-								<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text=",">
-									<styleClass>
-										<String fx:value="normal-button" />
-										<String fx:value="number-button" />
-									</styleClass>
-								</Button>
-								<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="≤">
-									<styleClass>
-										<String fx:value="normal-button" />
-										<String fx:value="number-button" />
-									</styleClass>
-								</Button>
-								<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="≥">
-									<styleClass>
-										<String fx:value="normal-button" />
-										<String fx:value="number-button" />
-									</styleClass>
-								</Button>
-							</children>
-						</HBox>
-						<HBox alignment="CENTER" prefHeight="100.0" prefWidth="359.0" spacing="5">
-							<children>
-								<Button fx:id="control_LetterKeyboardSwitcher" mnemonicParsing="false" text="A B C">
-									<styleClass>
-										<String fx:value="normal-button" />
-										<String fx:value="number-button" />
-									</styleClass>
-								</Button>
-								<Button mnemonicParsing="false" onMousePressed="#insertSpecialButtonPressing" text="sqrt">
-									<styleClass>
-										<String fx:value="normal-button" />
-										<String fx:value="number-button" />
-									</styleClass>
-								</Button>
-								<Button fx:id="insert_squarePower" mnemonicParsing="false" text="a^2">
-									<styleClass>
-										<String fx:value="normal-button" />
-										<String fx:value="number-button" />
-									</styleClass>
-								</Button>
-								<Button fx:id="insert_genericPower" mnemonicParsing="false" text="a^b">
-									<styleClass>
-										<String fx:value="normal-button" />
-										<String fx:value="number-button" />
-									</styleClass>
-								</Button>
-							</children>
-						</HBox>
-					</children>
-				</VBox>
-				<VBox alignment="CENTER" layoutX="71.0" layoutY="111.0" style="-fx-spacing: 4;" AnchorPane.bottomAnchor="125.66666666666669" AnchorPane.leftAnchor="71.0" AnchorPane.rightAnchor="347.00000000000006" AnchorPane.topAnchor="111.0">
-					<children>
-						<HBox alignment="CENTER" prefHeight="100.0" prefWidth="233.0" style="-fx-spacing: 4;">
-							<children>
-								<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="7">
-									<styleClass>
-										<String fx:value="normal-button" />
-										<String fx:value="number-button" />
-									</styleClass>
-								</Button>
-								<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="8">
-									<styleClass>
-										<String fx:value="normal-button" />
-										<String fx:value="number-button" />
-									</styleClass>
-								</Button>
-								<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="9">
-									<styleClass>
-										<String fx:value="normal-button" />
-										<String fx:value="number-button" />
-									</styleClass>
-								</Button>
-								<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="/">
-									<styleClass>
-										<String fx:value="normal-button" />
-										<String fx:value="number-button" />
-									</styleClass>
-								</Button>
-							</children>
-						</HBox>
-						<HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-spacing: 4;">
-							<children>
-								<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="4">
-									<styleClass>
-										<String fx:value="normal-button" />
-										<String fx:value="number-button" />
-									</styleClass>
-								</Button>
-								<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="5">
-									<styleClass>
-										<String fx:value="normal-button" />
-										<String fx:value="number-button" />
-									</styleClass>
-								</Button>
-								<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="6">
-									<styleClass>
-										<String fx:value="normal-button" />
-										<String fx:value="number-button" />
-									</styleClass>
-								</Button>
-								<Button fx:id="insert_multiplication" mnemonicParsing="false" style="-fx-line-spacing: 5; -fx-line-spacing: 10;" text="x">
-									<styleClass>
-										<String fx:value="normal-button" />
-										<String fx:value="number-button" />
-									</styleClass>
-								</Button>
-							</children>
-						</HBox>
-						<HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-spacing: 4;">
-							<children>
-								<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="1">
-									<styleClass>
-										<String fx:value="normal-button" />
-										<String fx:value="number-button" />
-									</styleClass>
-								</Button>
-								<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="2">
-									<styleClass>
-										<String fx:value="normal-button" />
-										<String fx:value="number-button" />
-									</styleClass>
-								</Button>
-								<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="3">
-									<styleClass>
-										<String fx:value="normal-button" />
-										<String fx:value="number-button" />
-									</styleClass>
-								</Button>
-								<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="-">
-									<styleClass>
-										<String fx:value="normal-button" />
-										<String fx:value="number-button" />
-									</styleClass>
-								</Button>
-							</children>
-						</HBox>
-						<HBox alignment="CENTER" prefHeight="100.0" prefWidth="359.0" style="-fx-spacing: 4;">
-							<children>
-								<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="0">
-									<styleClass>
-										<String fx:value="normal-button" />
-										<String fx:value="number-button" />
-									</styleClass>
-								</Button>
-								<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text=".">
-									<styleClass>
-										<String fx:value="normal-button" />
-										<String fx:value="number-button" />
-									</styleClass>
-								</Button>
-								<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="=">
-									<styleClass>
-										<String fx:value="normal-button" />
-										<String fx:value="number-button" />
-									</styleClass>
-								</Button>
-								<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="+">
-									<styleClass>
-										<String fx:value="normal-button" />
-										<String fx:value="number-button" />
-									</styleClass>
-								</Button>
-							</children>
-						</HBox>
-					</children>
-				</VBox>
-				<GridPane>
-					<columnConstraints>
-						<ColumnConstraints />
-						<ColumnConstraints />
-					</columnConstraints>
-					<rowConstraints>
-						<RowConstraints />
-						<RowConstraints minHeight="10.0" />
-						<RowConstraints minHeight="10.0" />
-						<RowConstraints minHeight="10.0" />
-					</rowConstraints>
-					<children>
-						<Button fx:id="functionBtn" mnemonicParsing="false" prefWidth="150.0" text="Functions" GridPane.columnSpan="2">
-							<GridPane.margin>
-								<Insets bottom="5.0" />
-							</GridPane.margin>
-							<styleClass>
-								<String fx:value="function-button" />
-								<String fx:value="normal-button" />
-							</styleClass>
-						</Button>
-						<Button mnemonicParsing="false" onMousePressed="#moveCaretLeftButtonPressing" prefWidth="75.0" text="Left" GridPane.rowIndex="1">
-							<GridPane.margin>
-								<Insets />
-							</GridPane.margin>
-							<styleClass>
-								<String fx:value="function-button" />
-								<String fx:value="normal-button" />
-							</styleClass>
-						</Button>
-						<Button mnemonicParsing="false" onMousePressed="#deleteButtonPressing" prefWidth="100.0" text="Delete" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
-							<styleClass>
-								<String fx:value="function-button" />
-								<String fx:value="normal-button" />
-							</styleClass>
-							<GridPane.margin>
-								<Insets top="5.0" />
-							</GridPane.margin>
-						</Button>
-						<Button mnemonicParsing="false" onMousePressed="#moveCaretRightButtonPressing" prefWidth="75.0" text="Right" GridPane.columnIndex="1" GridPane.rowIndex="1">
-							<styleClass>
-								<String fx:value="function-button" />
-								<String fx:value="normal-button" />
-							</styleClass>
-						</Button>
-						<Button mnemonicParsing="false" prefWidth="150.0" text="Enter" GridPane.columnSpan="2" GridPane.rowIndex="3">
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="function-button" />
-								<String fx:value="important-button" />
-							</styleClass>
-							<GridPane.margin>
-								<Insets top="5.0" />
-							</GridPane.margin>
-						</Button>
-					</children>
-				</GridPane>
-			</children>
-		</HBox>
-		<VBox fx:id="normalLetterKeyboard" alignment="CENTER" prefHeight="196.0" prefWidth="1040.0" spacing="10.0" style="visibility: false;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-			<children>
-				<HBox alignment="CENTER" spacing="3.0">
-					<children>
-						<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" prefWidth="83.0" text="q">
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="letter-button" />
-							</styleClass>
-						</Button>
-						<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="w">
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="letter-button" />
-							</styleClass>
-						</Button>
-						<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="e">
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="letter-button" />
-							</styleClass>
-						</Button>
-						<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="r">
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="letter-button" />
-							</styleClass>
-						</Button>
-						<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="t">
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="letter-button" />
-							</styleClass>
-						</Button>
-						<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="y">
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="letter-button" />
-							</styleClass>
-						</Button>
-						<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="u">
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="letter-button" />
-							</styleClass>
-						</Button>
-						<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="i">
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="letter-button" />
-							</styleClass>
-						</Button>
-						<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="o">
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="letter-button" />
-							</styleClass>
-						</Button>
-						<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="p">
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="letter-button" />
-							</styleClass>
-						</Button>
-					</children>
-					<VBox.margin>
-						<Insets />
-					</VBox.margin>
-				</HBox>
-				<HBox alignment="CENTER" spacing="3.0">
-					<children>
-						<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="a">
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="letter-button" />
-							</styleClass>
-						</Button>
-						<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="s">
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="letter-button" />
-							</styleClass>
-						</Button>
-						<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="d">
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="letter-button" />
-							</styleClass>
-						</Button>
-						<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="f">
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="letter-button" />
-							</styleClass>
-						</Button>
-						<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="g">
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="letter-button" />
-							</styleClass>
-						</Button>
-						<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="h">
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="letter-button" />
-							</styleClass>
-						</Button>
-						<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="j">
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="letter-button" />
-							</styleClass>
-						</Button>
-						<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="k">
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="letter-button" />
-							</styleClass>
-						</Button>
-						<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="l">
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="letter-button" />
-							</styleClass>
-						</Button>
-					</children>
-					<VBox.margin>
-						<Insets />
-					</VBox.margin>
-				</HBox>
-				<HBox alignment="CENTER" spacing="3.0">
-					<children>
-						<Button mnemonicParsing="false" onMousePressed="#switchNormalLetterToCappedLetterKeyBoard" text="Up">
-							<HBox.margin>
-								<Insets right="38.0" />
-							</HBox.margin>
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="function-button" />
-							</styleClass>
-							<padding>
-								<Insets left="30.0" right="30.0" />
-							</padding>
-						</Button>
-						<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" prefWidth="83.0" text="z">
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="letter-button" />
-							</styleClass>
-						</Button>
-						<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" prefWidth="83.0" text="x">
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="letter-button" />
-							</styleClass>
-						</Button>
-						<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" prefWidth="83.0" text="c">
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="letter-button" />
-							</styleClass>
-						</Button>
-						<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" prefWidth="83.0" text="v">
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="letter-button" />
-							</styleClass>
-						</Button>
-						<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" prefWidth="83.0" text="b">
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="letter-button" />
-							</styleClass>
-						</Button>
-						<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" prefWidth="83.0" text="n">
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="letter-button" />
-							</styleClass>
-						</Button>
-						<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="m">
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="letter-button" />
-							</styleClass>
-						</Button>
-						<Button mnemonicParsing="false" onMousePressed="#deleteButtonPressing" text="Delete">
-							<HBox.margin>
-								<Insets left="38.0" />
-							</HBox.margin>
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="function-button" />
-							</styleClass>
-							<padding>
-								<Insets left="30.0" right="30.0" />
-							</padding>
-						</Button>
-					</children>
-					<VBox.margin>
-						<Insets />
-					</VBox.margin>
-				</HBox>
-				<HBox alignment="CENTER" spacing="3.0">
-					<children>
-						<Button mnemonicParsing="false" onMousePressed="#switchNoramlLetterToNumberKeyBoard" text="Number">
-							<HBox.margin>
-								<Insets left="5.0" />
-							</HBox.margin>
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="function-button" />
-							</styleClass>
-							<padding>
-								<Insets left="10.0" right="10.0" />
-							</padding>
-						</Button>
-						<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" prefWidth="83.0" text=",">
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="letter-button" />
-							</styleClass>
-						</Button>
-						<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" prefWidth="83.0" text="(">
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="letter-button" />
-							</styleClass>
-						</Button>
-						<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" prefHeight="42.0" prefWidth="146.0" text=")">
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="letter-button" />
-							</styleClass>
-						</Button>
-						<Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" prefHeight="42.0" prefWidth="440.0" text=" ">
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="letter-button" />
-								<String fx:value="space-button" />
-							</styleClass>
-						</Button>
-						<Button mnemonicParsing="false" onMousePressed="#moveCaretLeftButtonPressing" prefWidth="83.0" text="&lt;">
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="letter-button" />
-							</styleClass>
-						</Button>
-						<Button mnemonicParsing="false" onMousePressed="#moveCaretRightButtonPressing" prefWidth="83.0" text="&gt;">
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="letter-button" />
-							</styleClass>
-						</Button>
-						<Button mnemonicParsing="false" text="Enter">
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="important-button" />
-							</styleClass>
-							<HBox.margin>
-								<Insets left="5.0" />
-							</HBox.margin>
-							<padding>
-								<Insets left="10.0" right="10.0" />
-							</padding>
-						</Button>
-					</children>
-					<VBox.margin>
-						<Insets />
-					</VBox.margin>
-				</HBox>
-			</children>
-		</VBox>
-		<VBox fx:id="cappedLetterKeyboard" alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="196.0" prefWidth="1040.0" spacing="10.0" style="visibility: false;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-			<children>
-				<HBox alignment="CENTER" spacing="3.0">
-					<children>
-						<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="Q">
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="letter-button" />
-							</styleClass>
-						</Button>
-						<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="W">
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="letter-button" />
-							</styleClass>
-						</Button>
-						<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="E">
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="letter-button" />
-							</styleClass>
-						</Button>
-						<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="R">
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="letter-button" />
-							</styleClass>
-						</Button>
-						<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="T">
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="letter-button" />
-							</styleClass>
-						</Button>
-						<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="Y">
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="letter-button" />
-							</styleClass>
-						</Button>
-						<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="U">
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="letter-button" />
-							</styleClass>
-						</Button>
-						<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="I">
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="letter-button" />
-							</styleClass>
-						</Button>
-						<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="O">
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="letter-button" />
-							</styleClass>
-						</Button>
-						<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="P">
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="letter-button" />
-							</styleClass>
-						</Button>
-					</children>
-					<VBox.margin>
-						<Insets />
-					</VBox.margin>
-				</HBox>
-				<HBox alignment="CENTER" spacing="3.0">
-					<children>
-						<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="A">
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="letter-button" />
-							</styleClass>
-						</Button>
-						<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="S">
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="letter-button" />
-							</styleClass>
-						</Button>
-						<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="D">
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="letter-button" />
-							</styleClass>
-						</Button>
-						<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="F">
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="letter-button" />
-							</styleClass>
-						</Button>
-						<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="G">
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="letter-button" />
-							</styleClass>
-						</Button>
-						<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="H">
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="letter-button" />
-							</styleClass>
-						</Button>
-						<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="J">
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="letter-button" />
-							</styleClass>
-						</Button>
-						<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="K">
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="letter-button" />
-							</styleClass>
-						</Button>
-						<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="L">
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="letter-button" />
-							</styleClass>
-						</Button>
-					</children>
-					<VBox.margin>
-						<Insets />
-					</VBox.margin>
-				</HBox>
-				<HBox alignment="CENTER" spacing="3.0">
-					<children>
-						<Button mnemonicParsing="false" onMousePressed="#switchCappedLetterToNormalLetterKeyBoard" text="Down">
-							<HBox.margin>
-								<Insets right="38.0" />
-							</HBox.margin>
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="function-button" />
-							</styleClass>
-							<padding>
-								<Insets left="20.0" right="20.0" />
-							</padding>
-						</Button>
-						<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" prefWidth="83.0" text="Z">
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="letter-button" />
-							</styleClass>
-						</Button>
-						<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" prefWidth="83.0" text="X">
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="letter-button" />
-							</styleClass>
-						</Button>
-						<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" prefWidth="83.0" text="C">
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="letter-button" />
-							</styleClass>
-						</Button>
-						<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" prefWidth="83.0" text="V">
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="letter-button" />
-							</styleClass>
-						</Button>
-						<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" prefWidth="83.0" text="B">
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="letter-button" />
-							</styleClass>
-						</Button>
-						<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" prefWidth="83.0" text="N">
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="letter-button" />
-							</styleClass>
-						</Button>
-						<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="M">
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="letter-button" />
-							</styleClass>
-						</Button>
-						<Button mnemonicParsing="false" onMousePressed="#deleteButtonPressing" text="Delete">
-							<HBox.margin>
-								<Insets left="38.0" />
-							</HBox.margin>
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="function-button" />
-							</styleClass>
-							<padding>
-								<Insets left="30.0" right="30.0" />
-							</padding>
-						</Button>
-					</children>
-					<VBox.margin>
-						<Insets />
-					</VBox.margin>
-				</HBox>
-				<HBox alignment="CENTER" spacing="3.0">
-					<children>
-						<Button mnemonicParsing="false" onMousePressed="#switchCappedLetterToNumberKeyBoard" text="Number">
-							<HBox.margin>
-								<Insets left="5.0" />
-							</HBox.margin>
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="function-button" />
-							</styleClass>
-							<padding>
-								<Insets left="10.0" right="10.0" />
-							</padding>
-						</Button>
-						<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" prefWidth="83.0" text=",">
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="letter-button" />
-							</styleClass>
-						</Button>
-						<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" prefWidth="83.0" text="(">
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="letter-button" />
-							</styleClass>
-						</Button>
-						<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" prefWidth="83.0" text=")">
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="letter-button" />
-							</styleClass>
-						</Button>
-						<Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" prefHeight="43.0" text=" ">
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="letter-button" />
-								<String fx:value="space-button" />
-							</styleClass>
-						</Button>
-						<Button mnemonicParsing="false" onMousePressed="#moveCaretLeftButtonPressing" prefWidth="83.0" text="&lt;">
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="letter-button" />
-							</styleClass>
-						</Button>
-						<Button mnemonicParsing="false" onMousePressed="#moveCaretRightButtonPressing" prefWidth="83.0" text="&gt;">
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="letter-button" />
-							</styleClass>
-						</Button>
-						<Button mnemonicParsing="false" text="Enter">
-							<styleClass>
-								<String fx:value="normal-button" />
-								<String fx:value="important-button" />
-							</styleClass>
-							<HBox.margin>
-								<Insets left="5.0" />
-							</HBox.margin>
-							<padding>
-								<Insets left="10.0" right="10.0" />
-							</padding>
-						</Button>
-					</children>
-					<VBox.margin>
-						<Insets />
-					</VBox.margin>
-				</HBox>
-			</children>
-		</VBox>
+        <HBox fx:id="numberKeyboard" alignment="CENTER" prefHeight="196.0" prefWidth="1019.0" spacing="20.0"
+              AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <children>
+                <VBox alignment="CENTER" layoutX="71.0" layoutY="111.0" spacing="5" style="-fx-spacing: 4;"
+                      AnchorPane.bottomAnchor="125.66666666666669" AnchorPane.leftAnchor="71.0"
+                      AnchorPane.rightAnchor="347.00000000000006" AnchorPane.topAnchor="111.0">
+                    <children>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="5">
+                            <children>
+                                <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="x">
+                                    <styleClass>
+                                        <String fx:value="normal-button"/>
+                                        <String fx:value="number-button"/>
+                                    </styleClass>
+                                </Button>
+                                <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="y">
+                                    <styleClass>
+                                        <String fx:value="normal-button"/>
+                                        <String fx:value="number-button"/>
+                                    </styleClass>
+                                </Button>
+                                <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="π">
+                                    <styleClass>
+                                        <String fx:value="normal-button"/>
+                                        <String fx:value="number-button"/>
+                                    </styleClass>
+                                </Button>
+                                <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="e">
+                                    <styleClass>
+                                        <String fx:value="normal-button"/>
+                                        <String fx:value="number-button"/>
+                                    </styleClass>
+                                </Button>
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="5">
+                            <children>
+                                <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="(">
+                                    <styleClass>
+                                        <String fx:value="normal-button"/>
+                                        <String fx:value="number-button"/>
+                                    </styleClass>
+                                </Button>
+                                <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text=")">
+                                    <styleClass>
+                                        <String fx:value="normal-button"/>
+                                        <String fx:value="number-button"/>
+                                    </styleClass>
+                                </Button>
+                                <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1"
+                                        text="&lt;">
+                                    <styleClass>
+                                        <String fx:value="normal-button"/>
+                                        <String fx:value="number-button"/>
+                                    </styleClass>
+                                </Button>
+                                <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1"
+                                        style="-fx-line-spacing: 10;" text="&gt;">
+                                    <styleClass>
+                                        <String fx:value="normal-button"/>
+                                        <String fx:value="number-button"/>
+                                    </styleClass>
+                                </Button>
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="311.0" spacing="5">
+                            <children>
+                                <Button mnemonicParsing="false" onMousePressed="#insertAbsButtonPressing" text="|x|">
+                                    <styleClass>
+                                        <String fx:value="normal-button"/>
+                                        <String fx:value="number-button"/>
+                                    </styleClass>
+                                </Button>
+                                <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text=",">
+                                    <styleClass>
+                                        <String fx:value="normal-button"/>
+                                        <String fx:value="number-button"/>
+                                    </styleClass>
+                                </Button>
+                                <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="≤">
+                                    <styleClass>
+                                        <String fx:value="normal-button"/>
+                                        <String fx:value="number-button"/>
+                                    </styleClass>
+                                </Button>
+                                <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="≥">
+                                    <styleClass>
+                                        <String fx:value="normal-button"/>
+                                        <String fx:value="number-button"/>
+                                    </styleClass>
+                                </Button>
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="359.0" spacing="5">
+                            <children>
+                                <Button fx:id="control_LetterKeyboardSwitcher" mnemonicParsing="false" text="A B C">
+                                    <styleClass>
+                                        <String fx:value="normal-button"/>
+                                        <String fx:value="number-button"/>
+                                    </styleClass>
+                                </Button>
+                                <Button mnemonicParsing="false" onMousePressed="#insertSpecialButtonPressing"
+                                        text="sqrt">
+                                    <styleClass>
+                                        <String fx:value="normal-button"/>
+                                        <String fx:value="number-button"/>
+                                    </styleClass>
+                                </Button>
+                                <Button fx:id="insert_squarePower" mnemonicParsing="false" text="a^2">
+                                    <styleClass>
+                                        <String fx:value="normal-button"/>
+                                        <String fx:value="number-button"/>
+                                    </styleClass>
+                                </Button>
+                                <Button fx:id="insert_genericPower" mnemonicParsing="false" text="a^b">
+                                    <styleClass>
+                                        <String fx:value="normal-button"/>
+                                        <String fx:value="number-button"/>
+                                    </styleClass>
+                                </Button>
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+                <VBox alignment="CENTER" layoutX="71.0" layoutY="111.0" style="-fx-spacing: 4;"
+                      AnchorPane.bottomAnchor="125.66666666666669" AnchorPane.leftAnchor="71.0"
+                      AnchorPane.rightAnchor="347.00000000000006" AnchorPane.topAnchor="111.0">
+                    <children>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="233.0" style="-fx-spacing: 4;">
+                            <children>
+                                <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="7">
+                                    <styleClass>
+                                        <String fx:value="normal-button"/>
+                                        <String fx:value="number-button"/>
+                                    </styleClass>
+                                </Button>
+                                <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="8">
+                                    <styleClass>
+                                        <String fx:value="normal-button"/>
+                                        <String fx:value="number-button"/>
+                                    </styleClass>
+                                </Button>
+                                <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="9">
+                                    <styleClass>
+                                        <String fx:value="normal-button"/>
+                                        <String fx:value="number-button"/>
+                                    </styleClass>
+                                </Button>
+                                <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="/">
+                                    <styleClass>
+                                        <String fx:value="normal-button"/>
+                                        <String fx:value="number-button"/>
+                                    </styleClass>
+                                </Button>
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-spacing: 4;">
+                            <children>
+                                <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="4">
+                                    <styleClass>
+                                        <String fx:value="normal-button"/>
+                                        <String fx:value="number-button"/>
+                                    </styleClass>
+                                </Button>
+                                <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="5">
+                                    <styleClass>
+                                        <String fx:value="normal-button"/>
+                                        <String fx:value="number-button"/>
+                                    </styleClass>
+                                </Button>
+                                <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="6">
+                                    <styleClass>
+                                        <String fx:value="normal-button"/>
+                                        <String fx:value="number-button"/>
+                                    </styleClass>
+                                </Button>
+                                <Button fx:id="insert_multiplication" mnemonicParsing="false"
+                                        style="-fx-line-spacing: 5; -fx-line-spacing: 10;" text="x">
+                                    <styleClass>
+                                        <String fx:value="normal-button"/>
+                                        <String fx:value="number-button"/>
+                                    </styleClass>
+                                </Button>
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-spacing: 4;">
+                            <children>
+                                <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="1">
+                                    <styleClass>
+                                        <String fx:value="normal-button"/>
+                                        <String fx:value="number-button"/>
+                                    </styleClass>
+                                </Button>
+                                <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="2">
+                                    <styleClass>
+                                        <String fx:value="normal-button"/>
+                                        <String fx:value="number-button"/>
+                                    </styleClass>
+                                </Button>
+                                <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="3">
+                                    <styleClass>
+                                        <String fx:value="normal-button"/>
+                                        <String fx:value="number-button"/>
+                                    </styleClass>
+                                </Button>
+                                <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="-">
+                                    <styleClass>
+                                        <String fx:value="normal-button"/>
+                                        <String fx:value="number-button"/>
+                                    </styleClass>
+                                </Button>
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="359.0" style="-fx-spacing: 4;">
+                            <children>
+                                <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="0">
+                                    <styleClass>
+                                        <String fx:value="normal-button"/>
+                                        <String fx:value="number-button"/>
+                                    </styleClass>
+                                </Button>
+                                <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text=".">
+                                    <styleClass>
+                                        <String fx:value="normal-button"/>
+                                        <String fx:value="number-button"/>
+                                    </styleClass>
+                                </Button>
+                                <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="=">
+                                    <styleClass>
+                                        <String fx:value="normal-button"/>
+                                        <String fx:value="number-button"/>
+                                    </styleClass>
+                                </Button>
+                                <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="+">
+                                    <styleClass>
+                                        <String fx:value="normal-button"/>
+                                        <String fx:value="number-button"/>
+                                    </styleClass>
+                                </Button>
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+                <GridPane>
+                    <columnConstraints>
+                        <ColumnConstraints/>
+                        <ColumnConstraints/>
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints/>
+                        <RowConstraints minHeight="10.0"/>
+                        <RowConstraints minHeight="10.0"/>
+                        <RowConstraints minHeight="10.0"/>
+                    </rowConstraints>
+                    <children>
+                        <Button fx:id="functionBtn" mnemonicParsing="false" prefWidth="150.0" text="Functions"
+                                GridPane.columnSpan="2">
+                            <GridPane.margin>
+                                <Insets bottom="5.0"/>
+                            </GridPane.margin>
+                            <styleClass>
+                                <String fx:value="function-button"/>
+                                <String fx:value="normal-button"/>
+                            </styleClass>
+                        </Button>
+                        <Button mnemonicParsing="false" onMousePressed="#moveCaretLeftButtonPressing" prefWidth="75.0"
+                                text="Left" GridPane.rowIndex="1">
+                            <GridPane.margin>
+                                <Insets/>
+                            </GridPane.margin>
+                            <styleClass>
+                                <String fx:value="function-button"/>
+                                <String fx:value="normal-button"/>
+                            </styleClass>
+                        </Button>
+                        <Button mnemonicParsing="false" onMousePressed="#deleteButtonPressing" prefWidth="100.0"
+                                text="Delete" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                            <styleClass>
+                                <String fx:value="function-button"/>
+                                <String fx:value="normal-button"/>
+                            </styleClass>
+                            <GridPane.margin>
+                                <Insets top="5.0"/>
+                            </GridPane.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" onMousePressed="#moveCaretRightButtonPressing" prefWidth="75.0"
+                                text="Right" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                            <styleClass>
+                                <String fx:value="function-button"/>
+                                <String fx:value="normal-button"/>
+                            </styleClass>
+                        </Button>
+                        <Button mnemonicParsing="false" prefWidth="150.0" text="Enter" GridPane.columnSpan="2"
+                                GridPane.rowIndex="3">
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="function-button"/>
+                                <String fx:value="important-button"/>
+                            </styleClass>
+                            <GridPane.margin>
+                                <Insets top="5.0"/>
+                            </GridPane.margin>
+                        </Button>
+                    </children>
+                </GridPane>
+            </children>
+        </HBox>
+        <VBox fx:id="normalLetterKeyboard" alignment="CENTER" prefHeight="196.0" prefWidth="1040.0" spacing="10.0"
+              style="visibility: false;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="0.0"
+              AnchorPane.rightAnchor="0.0">
+            <children>
+                <HBox alignment="CENTER" spacing="3.0">
+                    <children>
+                        <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" prefWidth="83.0"
+                                text="q">
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="letter-button"/>
+                            </styleClass>
+                        </Button>
+                        <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="w">
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="letter-button"/>
+                            </styleClass>
+                        </Button>
+                        <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="e">
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="letter-button"/>
+                            </styleClass>
+                        </Button>
+                        <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="r">
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="letter-button"/>
+                            </styleClass>
+                        </Button>
+                        <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="t">
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="letter-button"/>
+                            </styleClass>
+                        </Button>
+                        <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="y">
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="letter-button"/>
+                            </styleClass>
+                        </Button>
+                        <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="u">
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="letter-button"/>
+                            </styleClass>
+                        </Button>
+                        <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="i">
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="letter-button"/>
+                            </styleClass>
+                        </Button>
+                        <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="o">
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="letter-button"/>
+                            </styleClass>
+                        </Button>
+                        <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="p">
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="letter-button"/>
+                            </styleClass>
+                        </Button>
+                    </children>
+                    <VBox.margin>
+                        <Insets/>
+                    </VBox.margin>
+                </HBox>
+                <HBox alignment="CENTER" spacing="3.0">
+                    <children>
+                        <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="a">
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="letter-button"/>
+                            </styleClass>
+                        </Button>
+                        <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="s">
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="letter-button"/>
+                            </styleClass>
+                        </Button>
+                        <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="d">
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="letter-button"/>
+                            </styleClass>
+                        </Button>
+                        <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="f">
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="letter-button"/>
+                            </styleClass>
+                        </Button>
+                        <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="g">
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="letter-button"/>
+                            </styleClass>
+                        </Button>
+                        <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="h">
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="letter-button"/>
+                            </styleClass>
+                        </Button>
+                        <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="j">
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="letter-button"/>
+                            </styleClass>
+                        </Button>
+                        <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="k">
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="letter-button"/>
+                            </styleClass>
+                        </Button>
+                        <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="l">
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="letter-button"/>
+                            </styleClass>
+                        </Button>
+                    </children>
+                    <VBox.margin>
+                        <Insets/>
+                    </VBox.margin>
+                </HBox>
+                <HBox alignment="CENTER" spacing="3.0">
+                    <children>
+                        <Button mnemonicParsing="false" onMousePressed="#switchNormalLetterToCappedLetterKeyBoard"
+                                text="Up">
+                            <HBox.margin>
+                                <Insets right="38.0"/>
+                            </HBox.margin>
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="function-button"/>
+                            </styleClass>
+                            <padding>
+                                <Insets left="30.0" right="30.0"/>
+                            </padding>
+                        </Button>
+                        <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" prefWidth="83.0"
+                                text="z">
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="letter-button"/>
+                            </styleClass>
+                        </Button>
+                        <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" prefWidth="83.0"
+                                text="x">
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="letter-button"/>
+                            </styleClass>
+                        </Button>
+                        <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" prefWidth="83.0"
+                                text="c">
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="letter-button"/>
+                            </styleClass>
+                        </Button>
+                        <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" prefWidth="83.0"
+                                text="v">
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="letter-button"/>
+                            </styleClass>
+                        </Button>
+                        <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" prefWidth="83.0"
+                                text="b">
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="letter-button"/>
+                            </styleClass>
+                        </Button>
+                        <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" prefWidth="83.0"
+                                text="n">
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="letter-button"/>
+                            </styleClass>
+                        </Button>
+                        <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="m">
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="letter-button"/>
+                            </styleClass>
+                        </Button>
+                        <Button mnemonicParsing="false" onMousePressed="#deleteButtonPressing" text="Delete">
+                            <HBox.margin>
+                                <Insets left="38.0"/>
+                            </HBox.margin>
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="function-button"/>
+                            </styleClass>
+                            <padding>
+                                <Insets left="30.0" right="30.0"/>
+                            </padding>
+                        </Button>
+                    </children>
+                    <VBox.margin>
+                        <Insets/>
+                    </VBox.margin>
+                </HBox>
+                <HBox alignment="CENTER" spacing="3.0">
+                    <children>
+                        <Button mnemonicParsing="false" onMousePressed="#switchNoramlLetterToNumberKeyBoard"
+                                text="Number">
+                            <HBox.margin>
+                                <Insets left="5.0"/>
+                            </HBox.margin>
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="function-button"/>
+                            </styleClass>
+                            <padding>
+                                <Insets left="10.0" right="10.0"/>
+                            </padding>
+                        </Button>
+                        <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" prefWidth="83.0"
+                                text=",">
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="letter-button"/>
+                            </styleClass>
+                        </Button>
+                        <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" prefWidth="83.0"
+                                text="(">
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="letter-button"/>
+                            </styleClass>
+                        </Button>
+                        <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" prefHeight="42.0"
+                                prefWidth="146.0" text=")">
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="letter-button"/>
+                            </styleClass>
+                        </Button>
+                        <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                                mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" prefHeight="42.0"
+                                prefWidth="440.0" text=" ">
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="letter-button"/>
+                                <String fx:value="space-button"/>
+                            </styleClass>
+                        </Button>
+                        <Button mnemonicParsing="false" onMousePressed="#moveCaretLeftButtonPressing" prefWidth="83.0"
+                                text="&lt;">
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="letter-button"/>
+                            </styleClass>
+                        </Button>
+                        <Button mnemonicParsing="false" onMousePressed="#moveCaretRightButtonPressing" prefWidth="83.0"
+                                text="&gt;">
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="letter-button"/>
+                            </styleClass>
+                        </Button>
+                        <Button mnemonicParsing="false" text="Enter">
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="important-button"/>
+                            </styleClass>
+                            <HBox.margin>
+                                <Insets left="5.0"/>
+                            </HBox.margin>
+                            <padding>
+                                <Insets left="10.0" right="10.0"/>
+                            </padding>
+                        </Button>
+                    </children>
+                    <VBox.margin>
+                        <Insets/>
+                    </VBox.margin>
+                </HBox>
+            </children>
+        </VBox>
+        <VBox fx:id="cappedLetterKeyboard" alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="196.0"
+              prefWidth="1040.0" spacing="10.0" style="visibility: false;" AnchorPane.bottomAnchor="10.0"
+              AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <children>
+                <HBox alignment="CENTER" spacing="3.0">
+                    <children>
+                        <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="Q">
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="letter-button"/>
+                            </styleClass>
+                        </Button>
+                        <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="W">
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="letter-button"/>
+                            </styleClass>
+                        </Button>
+                        <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="E">
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="letter-button"/>
+                            </styleClass>
+                        </Button>
+                        <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="R">
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="letter-button"/>
+                            </styleClass>
+                        </Button>
+                        <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="T">
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="letter-button"/>
+                            </styleClass>
+                        </Button>
+                        <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="Y">
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="letter-button"/>
+                            </styleClass>
+                        </Button>
+                        <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="U">
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="letter-button"/>
+                            </styleClass>
+                        </Button>
+                        <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="I">
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="letter-button"/>
+                            </styleClass>
+                        </Button>
+                        <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="O">
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="letter-button"/>
+                            </styleClass>
+                        </Button>
+                        <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="P">
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="letter-button"/>
+                            </styleClass>
+                        </Button>
+                    </children>
+                    <VBox.margin>
+                        <Insets/>
+                    </VBox.margin>
+                </HBox>
+                <HBox alignment="CENTER" spacing="3.0">
+                    <children>
+                        <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="A">
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="letter-button"/>
+                            </styleClass>
+                        </Button>
+                        <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="S">
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="letter-button"/>
+                            </styleClass>
+                        </Button>
+                        <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="D">
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="letter-button"/>
+                            </styleClass>
+                        </Button>
+                        <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="F">
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="letter-button"/>
+                            </styleClass>
+                        </Button>
+                        <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="G">
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="letter-button"/>
+                            </styleClass>
+                        </Button>
+                        <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="H">
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="letter-button"/>
+                            </styleClass>
+                        </Button>
+                        <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="J">
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="letter-button"/>
+                            </styleClass>
+                        </Button>
+                        <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="K">
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="letter-button"/>
+                            </styleClass>
+                        </Button>
+                        <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="L">
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="letter-button"/>
+                            </styleClass>
+                        </Button>
+                    </children>
+                    <VBox.margin>
+                        <Insets/>
+                    </VBox.margin>
+                </HBox>
+                <HBox alignment="CENTER" spacing="3.0">
+                    <children>
+                        <Button mnemonicParsing="false" onMousePressed="#switchCappedLetterToNormalLetterKeyBoard"
+                                text="Down">
+                            <HBox.margin>
+                                <Insets right="38.0"/>
+                            </HBox.margin>
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="function-button"/>
+                            </styleClass>
+                            <padding>
+                                <Insets left="20.0" right="20.0"/>
+                            </padding>
+                        </Button>
+                        <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" prefWidth="83.0"
+                                text="Z">
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="letter-button"/>
+                            </styleClass>
+                        </Button>
+                        <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" prefWidth="83.0"
+                                text="X">
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="letter-button"/>
+                            </styleClass>
+                        </Button>
+                        <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" prefWidth="83.0"
+                                text="C">
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="letter-button"/>
+                            </styleClass>
+                        </Button>
+                        <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" prefWidth="83.0"
+                                text="V">
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="letter-button"/>
+                            </styleClass>
+                        </Button>
+                        <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" prefWidth="83.0"
+                                text="B">
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="letter-button"/>
+                            </styleClass>
+                        </Button>
+                        <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" prefWidth="83.0"
+                                text="N">
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="letter-button"/>
+                            </styleClass>
+                        </Button>
+                        <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" text="M">
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="letter-button"/>
+                            </styleClass>
+                        </Button>
+                        <Button mnemonicParsing="false" onMousePressed="#deleteButtonPressing" text="Delete">
+                            <HBox.margin>
+                                <Insets left="38.0"/>
+                            </HBox.margin>
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="function-button"/>
+                            </styleClass>
+                            <padding>
+                                <Insets left="30.0" right="30.0"/>
+                            </padding>
+                        </Button>
+                    </children>
+                    <VBox.margin>
+                        <Insets/>
+                    </VBox.margin>
+                </HBox>
+                <HBox alignment="CENTER" spacing="3.0">
+                    <children>
+                        <Button mnemonicParsing="false" onMousePressed="#switchCappedLetterToNumberKeyBoard"
+                                text="Number">
+                            <HBox.margin>
+                                <Insets left="5.0"/>
+                            </HBox.margin>
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="function-button"/>
+                            </styleClass>
+                            <padding>
+                                <Insets left="10.0" right="10.0"/>
+                            </padding>
+                        </Button>
+                        <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" prefWidth="83.0"
+                                text=",">
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="letter-button"/>
+                            </styleClass>
+                        </Button>
+                        <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" prefWidth="83.0"
+                                text="(">
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="letter-button"/>
+                            </styleClass>
+                        </Button>
+                        <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" prefWidth="83.0"
+                                text=")">
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="letter-button"/>
+                            </styleClass>
+                        </Button>
+                        <Button mnemonicParsing="false" onMousePressed="#handleButtonPressing_Type1" prefHeight="43.0"
+                                text=" ">
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="letter-button"/>
+                                <String fx:value="space-button"/>
+                            </styleClass>
+                        </Button>
+                        <Button mnemonicParsing="false" onMousePressed="#moveCaretLeftButtonPressing" prefWidth="83.0"
+                                text="&lt;">
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="letter-button"/>
+                            </styleClass>
+                        </Button>
+                        <Button mnemonicParsing="false" onMousePressed="#moveCaretRightButtonPressing" prefWidth="83.0"
+                                text="&gt;">
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="letter-button"/>
+                            </styleClass>
+                        </Button>
+                        <Button mnemonicParsing="false" text="Enter">
+                            <styleClass>
+                                <String fx:value="normal-button"/>
+                                <String fx:value="important-button"/>
+                            </styleClass>
+                            <HBox.margin>
+                                <Insets left="5.0"/>
+                            </HBox.margin>
+                            <padding>
+                                <Insets left="10.0" right="10.0"/>
+                            </padding>
+                        </Button>
+                    </children>
+                    <VBox.margin>
+                        <Insets/>
+                    </VBox.margin>
+                </HBox>
+            </children>
+        </VBox>
 
-	</children>
+    </children>
 </fx:root>

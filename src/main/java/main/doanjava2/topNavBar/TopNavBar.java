@@ -49,6 +49,7 @@ public class TopNavBar extends BorderPane {
 
 		try {
 			fxmlLoader.load();
+			this.getStylesheets().add(getClass().getResource("/css/LightTheme/TopNavBar/TopNavBar.css").toExternalForm());
 		} catch (IOException exception) {
 			throw new RuntimeException(exception);
 		}

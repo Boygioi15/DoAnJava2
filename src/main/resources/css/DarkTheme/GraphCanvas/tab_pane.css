@@ -2,36 +2,27 @@
     -fx-opacity : 0;
 }
 
-.tab-pane
-{
-    -fx-tab-min-width:50px;
+.tab-pane {
+    -fx-tab-min-width: 50px;
     -fx-tab-min-height: 25px;
     -fx-tab-max-height: 25px;
 
-    -fx-background-color: #FFFFFF;
-    -fx-border-color: #333333;
+    -fx-background-color: #333333; /* Màu nền tối */
+    -fx-border-color: #555555; /* Màu viền */
     -fx-border-width: 1.5;
-    -fx-shape: "M5,0
-    A 10,10 90 0 0 0,5 L0,235
-    A 10,10 90 0 0 5,240 L235,240
-    A 10,10 90 0 0 240,235
-    L240,45 L255,30 L240,15 L240,5
-    A 10,10 90 0 0 235,0 L5,0
-    Z
-    ";
+    -fx-shape: "M5,0 A 10,10 90 0 0 0,5 L0,235 A 10,10 90 0 0 5,240 L235,240 A 10,10 90 0 0 240,235 L240,45 L255,30 L240,15 L240,5 A 10,10 90 0 0 235,0 L5,0 Z";
 
 }
-.tab-pane .tab
-{
+
+.tab-pane .tab {
     -fx-focus-color: transparent;
-    -fx-background-color: #FFFFFF;
+    -fx-background-color: #333333; /* Màu nền tối */
     -fx-background-radius: 3;
     -fx-background-insets: 3;
 }
 
-.tab-pane .tab:selected
-{
-    -fx-background-color: #28a3f4;
+.tab-pane .tab:selected {
+    -fx-background-color: #1E88E5; /* Màu nền xanh đậm */
 }
 
 .tab-pane:focused > .tab-header-area > .headers-region > .tab:selected .focus-indicator {
@@ -39,18 +30,19 @@
     -fx-border-width: 1;
     -fx-border-color: -fx-focus-color;
 }
+
 .tab-pane:top .tab-header-area {
     -fx-padding: 0 0 0 7;
 }
+
 .tab .tab-label {
     -fx-alignment: CENTER;
-    -fx-text-fill: #000000;
+    -fx-text-fill: #FFFFFF; /* Màu chữ trắng */
     -fx-font-size: 16px;
     -fx-font-family: "Arial";
-    -fx-font-weight: 700 ;
-
+    -fx-font-weight: 700;
 }
 
 .tab:selected .tab-label {
-    -fx-text-fill: #FFFFFF;
+    -fx-text-fill: #FFFFFF; /* Màu chữ trắng */
 }

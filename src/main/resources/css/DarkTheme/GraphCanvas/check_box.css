@@ -1,0 +1,14 @@
+.check-box .box {
+    -fx-background-color: #333333; /* Màu nền tối */
+    -fx-border-color: #555555; /* Màu viền */
+    -fx-border-radius: 3px;
+     -fx-text-fill: #FFFFFF; /* Màu chữ trắng */
+}
+
+.check-box:selected .mark {
+    -fx-background-color: #FFFFFF; /* Màu chữ trắng */
+}
+
+.check-box:selected .box {
+    -fx-background-color: #1E88E5; /* Màu nền xanh đậm */
+}

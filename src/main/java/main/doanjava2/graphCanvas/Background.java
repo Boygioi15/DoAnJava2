@@ -31,12 +31,30 @@ class BackgroundParams {
     static Color minorGridColor = Color.GAINSBORO;
 
     static double multiplierMinGap = 65;
-    static Color darkTheme = Color.DARKBLUE;
+    static Color darkTheme = Color.rgb(0,0,0);
     static Color lightTheme = Color.rgb(253, 253, 253);
 }
 
 public class Background {
     private static final Text usedToMeasureTextLength;
+    public void setTheme(boolean isLight) {
+        if(!isLight){
+            currentBackgroundColor = BackgroundParams.darkTheme;
+            BackgroundParams.majorGridColor = Color.WHITE;
+            BackgroundParams.minorGridColor = Color.WHITE;
+            BackgroundParams.axisColor = Color.WHITE;
+            BackgroundParams.axisNumber_OnScreenColor = Color.WHITE;
+        }else{
+            currentBackgroundColor = BackgroundParams.lightTheme;
+            BackgroundParams.majorGridColor = Color.BLACK;
+            BackgroundParams.minorGridColor = Color.BLACK;
+            BackgroundParams.axisColor = Color.BLACK;
+            BackgroundParams.axisNumber_OnScreenColor = Color.BLACK;
+        }
+        gc.setStroke(BackgroundParams.majorGridColor);
+        gc.setStroke(BackgroundParams.minorGridColor);
+        gc.setFill(currentBackgroundColor);
+    }
 
     static {
         usedToMeasureTextLength = new Text();

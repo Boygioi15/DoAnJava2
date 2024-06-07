@@ -1,0 +1,4 @@
+.input-keyboard-panel {
+    -fx-background-color: #2B2B2B; /* Màu nền tối */
+    -fx-effect: dropshadow(three-pass-box, rgba(255, 255, 255, 0.1), 10, 0, 0, -1); /* Hiệu ứng bóng */
+}

@@ -10,40 +10,52 @@
 <?import javafx.scene.text.Text?>
 
 <fx:root prefWidth="250.0" type="AnchorPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <HBox fx:id="recentBlock" alignment="CENTER_LEFT" maxHeight="70.0" minHeight="70.0" minWidth="-Infinity" prefHeight="70.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <ImageView fx:id="fuckingInformativeIcon" fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../images/ic_graph.png" />
-               </image></ImageView>
-            <VBox alignment="CENTER_LEFT" spacing="5.0" HBox.hgrow="ALWAYS">
-               <children>
-                  <AnchorPane>
-                     <children>
-                        <HBox alignment="CENTER_LEFT" layoutX="-90.0" layoutY="-37.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-                           <children>
-                              <Text fx:id="fileNameText" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20;" styleClass="test1" text="Name" />
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER_LEFT" spacing="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                           <children>
-                              <Text fx:id="lastOpenedTimeLabel" fill="#c4c4c4" strokeType="OUTSIDE" strokeWidth="0.0" text="Time" />
-                              <Button fx:id="pinBtn" managed="false" mnemonicParsing="false" prefHeight="25.0" prefWidth="67.0" text="Pin" />
-                           </children>
-                        </HBox>
-                     </children>
-                  </AnchorPane>
-                  <Text fx:id="fileLocationText" fill="#c4c4c4" strokeType="OUTSIDE" strokeWidth="0.0" text="File Location">
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin></Text>
-               </children>
-            </VBox>
-         </children>
-         <padding>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-         </padding>
-      </HBox>
-   </children>
+    <children>
+        <HBox fx:id="recentBlock" alignment="CENTER_LEFT" maxHeight="70.0" minHeight="70.0" minWidth="-Infinity"
+              prefHeight="70.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+              AnchorPane.topAnchor="0.0">
+            <children>
+                <ImageView fx:id="fuckingInformativeIcon" fitHeight="48.0" fitWidth="48.0" pickOnBounds="true"
+                           preserveRatio="true">
+                    <image>
+                        <Image url="@../../images/ic_graph.png"/>
+                    </image>
+                </ImageView>
+                <VBox alignment="CENTER_LEFT" spacing="5.0" HBox.hgrow="ALWAYS">
+                    <children>
+                        <AnchorPane>
+                            <children>
+                                <HBox alignment="CENTER_LEFT" layoutX="-90.0" layoutY="-37.0"
+                                      AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                                      AnchorPane.topAnchor="0.0">
+                                    <children>
+                                        <Text fx:id="fileNameText" strokeType="OUTSIDE" strokeWidth="0.0"
+                                              style="-fx-font-size: 20;" styleClass="test1" text="Name"/>
+                                    </children>
+                                </HBox>
+                                <HBox alignment="CENTER_LEFT" spacing="5.0" AnchorPane.bottomAnchor="0.0"
+                                      AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <children>
+                                        <Text fx:id="lastOpenedTimeLabel" fill="#c4c4c4" strokeType="OUTSIDE"
+                                              strokeWidth="0.0" text="Time"/>
+                                        <Button fx:id="pinBtn" managed="false" mnemonicParsing="false" prefHeight="25.0"
+                                                prefWidth="67.0" text="Pin"/>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </AnchorPane>
+                        <Text fx:id="fileLocationText" fill="#c4c4c4" strokeType="OUTSIDE" strokeWidth="0.0"
+                              text="File Location">
+                            <VBox.margin>
+                                <Insets/>
+                            </VBox.margin>
+                        </Text>
+                    </children>
+                </VBox>
+            </children>
+            <padding>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+            </padding>
+        </HBox>
+    </children>
 </fx:root>

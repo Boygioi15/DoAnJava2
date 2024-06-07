@@ -1,0 +1,21 @@
+.background {
+    -fx-background-color: #333333; /* Màu nền tối */
+    -fx-effect: dropshadow(three-pass-box, rgba(255, 255, 255, 0.5), 10, 0, 0, 10); /* Đổ bóng */
+}
+
+.button {
+    /* Normal state */
+    -fx-background-color: transparent;
+    -fx-text-fill: #FFFFFF; /* Màu chữ trắng */
+    -fx-font-size: 16px;
+}
+
+.button:hover {
+    /* Hover state */
+    -fx-background-color: #555555; /* Màu nền tối khi di chuột qua */
+}
+
+.button:pressed {
+    /* Clicked state */
+    -fx-background-color: #777777; /* Màu nền tối khi được nhấn */
+}

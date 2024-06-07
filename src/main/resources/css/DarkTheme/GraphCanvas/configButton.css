@@ -1,0 +1,15 @@
+.button {
+    -fx-background-color: #333333; /* Màu nền tối */
+    -fx-border-color: #555555; /* Màu viền */
+    -fx-border-width: 0.75;
+    -fx-border-radius: 10;
+    -fx-text-fill: #FFFFFF; /* Màu chữ trắng */
+}
+
+.button:hover {
+    -fx-background-color: #555555; /* Màu nền tối khi di chuột qua */
+}
+
+.button:pressed {
+    -fx-background-color: #777777; /* Màu nền tối khi được nhấn */
+}

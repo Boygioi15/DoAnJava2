@@ -1,0 +1,85 @@
+.normal-button {
+    -fx-pref-height: 45;
+    -fx-border-radius: 5;
+    -fx-background-color: #2B2B2B; /* Màu nền tối */
+    -fx-text-fill: #FFFFFF; /* Màu chữ trắng */
+}
+
+.function-button {
+    -fx-background-color: #444444; /* Màu nền tối hơn */
+    -fx-font-family: "Arial";
+    -fx-font-size: 16;
+    -fx-text-fill: #FFFFFF; /* Màu chữ trắng */
+}
+
+.function-button:hover {
+    -fx-background-color: #666666; /* Màu nền khi di chuột qua */
+}
+
+.important-button {
+    -fx-background-color: #1E88E5; /* Màu nền xanh đậm */
+    -fx-font-weight: bold;
+    -fx-text-fill: #FFFFFF; /* Màu chữ trắng */
+}
+
+.important-button:hover {
+    -fx-background-color: #42A5F5; /* Màu nền xanh sáng hơn khi di chuột qua */
+}
+
+.number-button {
+    -fx-pref-width: 80;
+    -fx-background-color: #333333; /* Màu nền tối */
+    -fx-border-width: 0.5;
+    -fx-border-color: #FFFFFF; /* Màu viền trắng */
+    -fx-font-family: "Cambria Math";
+    -fx-font-size: 14;
+    -fx-text-fill: #FFFFFF; /* Màu chữ trắng */
+}
+
+.number-button:hover {
+    -fx-background-color: #555555; /* Màu nền khi di chuột qua */
+}
+
+.letter-button {
+    -fx-pref-width: 85;
+    -fx-background-color: #333333; /* Màu nền tối */
+    -fx-border-width: 0.5;
+    -fx-border-color: #FFFFFF; /* Màu viền trắng */
+    -fx-font-family: "Arial";
+    -fx-font-size: 14;
+    -fx-text-fill: #FFFFFF; /* Màu chữ trắng */
+}
+
+.letter-button:hover {
+    -fx-background-color: #555555; /* Màu nền khi di chuột qua */
+}
+
+.space-button {
+    -fx-pref-width: 309;
+    -fx-background-color: #333333; /* Màu nền tối */
+    -fx-text-fill: #FFFFFF; /* Màu chữ trắng */
+}
+
+.math-button {
+    -fx-pref-height: 35;
+    -fx-pref-width: 85;
+    -fx-background-color: #333333; /* Màu nền tối */
+    -fx-border-width: 0.5;
+    -fx-border-color: #FFFFFF; /* Màu viền trắng */
+    -fx-font-family: "Cambria Math";
+    -fx-font-size: 14;
+    -fx-text-fill: #FFFFFF; /* Màu chữ trắng */
+}
+
+.math-button:hover {
+    -fx-background-color: #555555; /* Màu nền khi di chuột qua */
+}
+
+#closeButton {
+    -fx-background-color: transparent;
+    -fx-text-fill: #FFFFFF; /* Màu chữ trắng */
+}
+
+#closeButton:hover {
+    -fx-background-color: rgba(172, 172, 172, 0.15);
+}
