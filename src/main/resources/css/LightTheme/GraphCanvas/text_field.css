@@ -1,0 +1,33 @@
+.label-text-field{
+	-fx-background-color: transparent;
+	-fx-border-width: 1;
+	-fx-border-color: rgb(170,170,170);
+	-fx-border-radius: 5;
+
+	-fx-font-family: 'arial';
+	-fx-font-size: 14;
+}
+.label-text-field:focused{
+	-fx-background-color: transparent;
+	-fx-border-color: #28a3f4;
+	-fx-border-radius: 5;
+}
+.number-text-field{
+	-fx-background-color: transparent;
+	-fx-border-color: rgb(170,170,170);
+	-fx-border-width: 0 0 1 0;
+	-fx-padding: 0 3 0.5 3;
+
+	-fx-font-family: 'arial';
+	-fx-font-size: 14;
+	-fx-font-style: italic;
+	-fx-font-weight: lighter;
+}
+.text-field:focused{
+	-fx-border-color: #28a3f4;
+}
+
+.text-field.error {
+	-fx-border-color: red ;
+	-fx-focus-color: red ;
+}

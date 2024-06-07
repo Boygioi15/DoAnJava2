@@ -1,0 +1,124 @@
+#graphListPane {
+    -fx-background-color: #1C1C1C;
+    -fx-effect: dropshadow(three-pass-box, rgba(255, 255, 255, 0.1), 5, 0, 0, 5);
+}
+
+.add-button {
+    -fx-background-color: #333333;
+    -fx-border-color: #555555;
+    -fx-border-radius: 3;
+    -fx-background-image: url('plus.png');
+    -fx-background-size: 24px;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+}
+
+.add-button:hover {
+    -fx-background-color: #555555;
+}
+
+.add-button:pressed {
+    -fx-background-color: #777777;
+}
+
+.menu-button {
+    -fx-border-color: transparent;
+    -fx-background-color: #333333;
+}
+
+.detail-button {
+    -fx-background-color: #444444;
+    -fx-border-width: 0;
+    -fx-background-radius: 2;
+}
+
+.detail-button:hover {
+    -fx-background-color: #555555;
+    -fx-background-radius: 5;
+}
+
+.detail-button:pressed {
+    -fx-background-color: #666666;
+    -fx-background-radius: 5;
+}
+
+.detail-surface {
+    -fx-background-color: #2B2B2B;
+    -fx-background-radius: 5;
+}
+
+#graphListPane .text-field {
+    -fx-pref-height: 40px;
+    -fx-background-color: #2B2B2B;
+    -fx-text-fill: lightgray;
+    -fx-border-color: #555555;
+}
+
+
+.menu-item {
+    -fx-background-color: #2B2B2B;
+    -fx-text-fill: lightgray;
+}
+
+.menu-item:selected {
+    -fx-background-color: #3E3E3E;
+    -fx-text-fill: lightgray;
+}
+
+
+.menu-item:hover {
+    -fx-background-color: #4E4E4E;
+   -fx-text-fill: lightgray;
+}
+
+
+.menu {
+    -fx-background-color: #3E3E3E;
+    -fx-border-color: #404040;
+    -fx-padding:0px;
+}
+
+.menu-item .label {
+   -fx-text-fill: lightgray;
+}
+
+
+.grid-pane {
+    -fx-background-color: #2b2b2b;
+    -fx-padding: 10px;
+}
+
+.label {
+    -fx-text-fill: white;
+}
+
+.combo-box {
+    -fx-background-color: #424242;
+    -fx-text-fill: white;
+}
+
+.color-picker {
+    -fx-background-color: #424242;
+}
+
+.slider .thumb {
+    -fx-background-color: #ff6f00;
+}
+
+.hbox {
+    -fx-background-color: #2b2b2b;
+}
+
+.hbox .label {
+    -fx-text-fill: white;
+}
+
+.hbox .label .margin {
+    -fx-bottom: 5px;
+}
+
+
+.hbox .padding {
+    -fx-insets: 0px 0px 0px 5px;
+}
+

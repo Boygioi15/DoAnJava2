@@ -1,0 +1,28 @@
+.background {
+	-fx-background-color: #fdfdfd;
+}
+
+.gear-button{
+ -fx-background-image: url('imageLight/gear.png');
+  -fx-background-size: 24px;
+  -fx-background-position: center;
+  -fx-background-repeat: no-repeat;
+}
+.zoom-in-button{
+ -fx-background-image: url('imageLight/zoomin.png');
+  -fx-background-size: 24px;
+  -fx-background-position: center;
+  -fx-background-repeat: no-repeat;
+}
+.zoom-out-button{
+ -fx-background-image: url('imageLight/zoomout.png');
+  -fx-background-size: 24px;
+  -fx-background-position: center;
+  -fx-background-repeat: no-repeat;
+}
+.home-button{
+ -fx-background-image: url('imageLight/home.png');
+  -fx-background-size: 24px;
+  -fx-background-position: center;
+  -fx-background-repeat: no-repeat;
+}

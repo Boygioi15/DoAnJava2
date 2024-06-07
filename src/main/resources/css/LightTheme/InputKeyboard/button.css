@@ -1,0 +1,78 @@
+.normal-button{
+	-fx-pref-height: 45;
+	-fx-border-radius: 5;
+}
+.function-button{
+	-fx-background-color: #BBBBBB;
+	
+	-fx-font-family: "Arial";
+	-fx-font-size: 16;
+	
+}
+.function-button:hover{
+	-fx-background-color: #888888;
+}
+
+.important-button{
+	-fx-background-color: #28a3f4;
+	-fx-font-weight: bold;
+	-fx-text-fill: #FFFFFF
+}
+.important-button:hover{
+	-fx-background-color: #a4d7ff;
+}
+.number-button{
+	-fx-pref-width: 80;
+	-fx-background-color: #FFFFFF;
+	-fx-border-width: 0.5;
+	-fx-border-color: #111111;
+	
+	-fx-font-family: "Cambria Math";
+	-fx-font-size: 14;
+}
+.number-button:hover{
+	-fx-background-color: #BBBBBB;
+}
+.letter-button{
+	-fx-pref-width: 85;
+	-fx-background-color: #FFFFFF;
+	-fx-border-width: 0.5;
+	-fx-border-color: #111111;
+	
+	-fx-font-family: "Arial";
+	-fx-font-size: 14;
+}
+.letter-button:hover{
+	-fx-background-color: #BBBBBB;
+}
+.space-button{
+	-fx-pref-width: 309;
+}
+.math-button{
+	-fx-pref-height: 35;
+	-fx-pref-width: 85;
+	-fx-background-color: #FFFFFF;
+	-fx-border-width: 0.5;
+	-fx-border-color: #111111;
+	
+	-fx-font-family: "Cambria Math";
+	-fx-font-size: 14;
+}
+.math-button:hover{
+	-fx-background-color: #BBBBBB;
+}
+
+#closeButton {
+	-fx-background-color: transparent;
+}
+
+#closeButton:hover {
+	-fx-background-color: rgba(172, 172, 172, 0.15);
+}
+
+.keyboard-button{
+ -fx-background-image: url('keyboard.png');
+  -fx-background-size: 50px;
+  -fx-background-position: center;
+  -fx-background-repeat: no-repeat;
+}
