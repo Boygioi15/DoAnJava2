@@ -16,10 +16,7 @@ import javafx.collections.ListChangeListener;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import main.doanjava2.GraphData;
 import main.doanjava2.MainController;
 import javafx.animation.TranslateTransition;
@@ -151,6 +148,7 @@ public class GraphList extends GridPane {
         if (mnr.getSelectedGraph() >= graphListBox.getChildren().size()) {
             mnr.setSelectedGraph(graphListBox.getChildren().size() - 1);
         }
+        updateLabels();
     }
 
     PseudoClass graphBlockSelected = PseudoClass.getPseudoClass("selected");
@@ -227,7 +225,8 @@ public class GraphList extends GridPane {
     private void updateLabels() {
         for (int i = 0; i < graphListBox.getChildren().size(); i++) {
             HBox hbox = (HBox) graphListBox.getChildren().get(i);
-            Label label = (Label) hbox.getChildren().get(0);
+            AnchorPane anchorPane = (AnchorPane) hbox.getChildren().get(0);
+            Label label = (Label) anchorPane.getChildren().get(0);
             label.setText((i + 1) + ".");
         }
     }
