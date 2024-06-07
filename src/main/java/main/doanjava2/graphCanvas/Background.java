@@ -40,16 +40,18 @@ public class Background {
     public void setTheme(boolean isLight) {
         if(!isLight){
             currentBackgroundColor = BackgroundParams.darkTheme;
-            BackgroundParams.majorGridColor = Color.WHITE;
-            BackgroundParams.minorGridColor = Color.WHITE;
-            BackgroundParams.axisColor = Color.WHITE;
-            BackgroundParams.axisNumber_OnScreenColor = Color.WHITE;
+            BackgroundParams.majorGridColor = Color.LIGHTGRAY;
+            BackgroundParams.minorGridColor = Color.rgb(90,90,90);
+            BackgroundParams.axisColor = Color.LIGHTGRAY;
+            BackgroundParams.axisNumber_OnScreenColor = Color.LIGHTGRAY;
+            BackgroundParams.axisNumber_OffScreenColor = Color.LIGHTGRAY;
         }else{
             currentBackgroundColor = BackgroundParams.lightTheme;
             BackgroundParams.majorGridColor = Color.BLACK;
-            BackgroundParams.minorGridColor = Color.BLACK;
+            BackgroundParams.minorGridColor = Color.GAINSBORO;
             BackgroundParams.axisColor = Color.BLACK;
             BackgroundParams.axisNumber_OnScreenColor = Color.BLACK;
+            BackgroundParams.axisNumber_OffScreenColor = Color.LIGHTGRAY;
         }
         gc.setStroke(BackgroundParams.majorGridColor);
         gc.setStroke(BackgroundParams.minorGridColor);

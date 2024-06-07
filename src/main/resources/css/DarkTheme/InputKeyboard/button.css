@@ -1,83 +1,83 @@
 .normal-button {
     -fx-pref-height: 45;
     -fx-border-radius: 5;
-    -fx-background-color: #2B2B2B; /* Màu nền tối */
-    -fx-text-fill: #FFFFFF; /* Màu chữ trắng */
+    -fx-background-color: #2B2B2B;
+   -fx-text-fill: lightgray;
 }
 
 .function-button {
-    -fx-background-color: #444444; /* Màu nền tối hơn */
+    -fx-background-color: #444444;
     -fx-font-family: "Arial";
     -fx-font-size: 16;
-    -fx-text-fill: #FFFFFF; /* Màu chữ trắng */
+    -fx-text-fill: lightgray;
 }
 
 .function-button:hover {
-    -fx-background-color: #666666; /* Màu nền khi di chuột qua */
+    -fx-background-color: #666666;
 }
 
 .important-button {
-    -fx-background-color: #1E88E5; /* Màu nền xanh đậm */
+    -fx-background-color: #1E88E5;
     -fx-font-weight: bold;
-    -fx-text-fill: #FFFFFF; /* Màu chữ trắng */
+    -fx-text-fill: lightgray;
 }
 
 .important-button:hover {
-    -fx-background-color: #42A5F5; /* Màu nền xanh sáng hơn khi di chuột qua */
+    -fx-background-color: #42A5F5;
 }
 
 .number-button {
     -fx-pref-width: 80;
-    -fx-background-color: #333333; /* Màu nền tối */
+    -fx-background-color: #333333;
     -fx-border-width: 0.5;
-    -fx-border-color: #FFFFFF; /* Màu viền trắng */
+    -fx-border-color: #FFFFFF;
     -fx-font-family: "Cambria Math";
     -fx-font-size: 14;
-    -fx-text-fill: #FFFFFF; /* Màu chữ trắng */
+   -fx-text-fill: lightgray;
 }
 
 .number-button:hover {
-    -fx-background-color: #555555; /* Màu nền khi di chuột qua */
+    -fx-background-color: #555555;
 }
 
 .letter-button {
     -fx-pref-width: 85;
-    -fx-background-color: #333333; /* Màu nền tối */
+    -fx-background-color: #333333;
     -fx-border-width: 0.5;
-    -fx-border-color: #FFFFFF; /* Màu viền trắng */
+    -fx-border-color: #FFFFFF;
     -fx-font-family: "Arial";
     -fx-font-size: 14;
-    -fx-text-fill: #FFFFFF; /* Màu chữ trắng */
+    -fx-text-fill: lightgray;
 }
 
 .letter-button:hover {
-    -fx-background-color: #555555; /* Màu nền khi di chuột qua */
+    -fx-background-color: #555555;
 }
 
 .space-button {
     -fx-pref-width: 309;
-    -fx-background-color: #333333; /* Màu nền tối */
-    -fx-text-fill: #FFFFFF; /* Màu chữ trắng */
+    -fx-background-color: #333333;
+   -fx-text-fill: lightgray;
 }
 
 .math-button {
     -fx-pref-height: 35;
     -fx-pref-width: 85;
-    -fx-background-color: #333333; /* Màu nền tối */
+    -fx-background-color: #333333;
     -fx-border-width: 0.5;
-    -fx-border-color: #FFFFFF; /* Màu viền trắng */
+    -fx-border-color: #FFFFFF;
     -fx-font-family: "Cambria Math";
     -fx-font-size: 14;
-    -fx-text-fill: #FFFFFF; /* Màu chữ trắng */
+   -fx-text-fill: lightgray;
 }
 
 .math-button:hover {
-    -fx-background-color: #555555; /* Màu nền khi di chuột qua */
+    -fx-background-color: #555555;
 }
 
 #closeButton {
-    -fx-background-color: transparent;
-    -fx-text-fill: #FFFFFF; /* Màu chữ trắng */
+    -fx-background-color: #2B2B2B;
+   -fx-text-fill: lightgray;
 }
 
 #closeButton:hover {

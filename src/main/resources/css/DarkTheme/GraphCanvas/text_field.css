@@ -6,7 +6,7 @@
 
     -fx-font-family: 'Arial';
     -fx-font-size: 14;
-    -fx-text-fill: #FFFFFF; /* Màu chữ trắng */
+    -fx-text-fill: lightgray;
 }
 
 .label-text-field:focused {
@@ -25,7 +25,7 @@
     -fx-font-size: 14;
     -fx-font-style: italic;
     -fx-font-weight: lighter;
-    -fx-text-fill: #FFFFFF; /* Màu chữ trắng */
+   -fx-text-fill: lightgray;
 }
 
 .text-field:focused {

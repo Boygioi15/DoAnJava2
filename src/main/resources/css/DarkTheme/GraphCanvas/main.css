@@ -1,12 +1,11 @@
 .background {
-    -fx-background-color: #333333; /* Màu nền tối */
-}
-/* Các text trong toàn bộ ứng dụng */
-.text {
-    -fx-fill: #FFFFFF; /* Màu chữ trắng */
+    -fx-background-color: #333333;
 }
 
-/* Các text cụ thể trong ứng dụng của bạn */
+.text {
+    -fx-fill: lightgray;
+}
+
 .text-specific {
-    -fx-fill: #FFFFFF; /* Màu chữ trắng */
+    -fx-fill: lightgray;
 }

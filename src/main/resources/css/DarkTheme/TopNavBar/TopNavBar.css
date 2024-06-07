@@ -8,29 +8,29 @@
 .file-name {
     -fx-font-family: Arial;
     -fx-font-size: 24;
-    -fx-text-fill: #FFFFFF; /* Màu chữ trắng */
+    -fx-text-fill: lightgray;
 }
 
 .product-name {
     -fx-font-family: Arial;
     -fx-font-size: 20;
-    -fx-text-fill: #FFFFFF; /* Màu chữ trắng */
+   -fx-text-fill: lightgray;
 }
 
 .icon-button {
-    -fx-background-color: #333333; /* Màu nền đậm */
+    -fx-background-color: #333333;
     -fx-margin: 10px;
     -fx-background-radius: 5px;
     -fx-border-radius: 5px;
 }
 
 .icon-button:hover {
-    -fx-background-color: #555555; /* Màu nền đậm khi di chuột qua */
+    -fx-background-color: #555555;
 }
 
 .icon-button:pressed {
-    -fx-background-color: #777777; /* Màu nền đậm khi được nhấn */
+    -fx-background-color: #777777;
 }
 Text {
-    -fx-fill: #FFFFFF; /* Màu chữ trắng */
+    -fx-fill: lightgray;
 }
