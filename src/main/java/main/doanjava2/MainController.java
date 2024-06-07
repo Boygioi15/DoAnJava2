@@ -476,7 +476,7 @@ public class MainController implements Initializable {
             }
 
         } else {
-            // Kiểm tra nếu biểu thức trống và tên hàm không trống
+
             if (!model.getExpressionString().contains("=")) {
                 return "";
             }

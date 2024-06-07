@@ -81,6 +81,16 @@ public class GraphImage {
 		Undetermined,
 		Dead
 	}
+	private boolean isValidExpression(Expression expression) {
+		try {
+			expression.eval();
+			return true;
+		} catch (Exception e) {
+			// If an exception occurs, the expression is not valid
+			return false;
+		}
+	}
+
 	private class PointInfo{
 		private double input, yValue;
 		private double onScreenX, onScreenY;
@@ -90,7 +100,9 @@ public class GraphImage {
 			expression.setVariable("x", Double.toString(pointValueX));
 			try {
 				setInput(pointValueX);
-
+				if (!isValidExpression(expression)) {
+					return;
+				}
 				BigDecimal r = expression.eval();
 				double pointValueY = r.doubleValue();
 				yValue = pointValueY;
@@ -156,6 +168,7 @@ public class GraphImage {
 				
 
 		String replacedExpression = mnr.handleReplaceExpressions(dataRef);
+		System.out.println("replace Expression: " + replacedExpression);
 		if(replacedExpression.isEmpty()){
 			return;
 		}

@@ -150,7 +150,7 @@ public class GraphBlock extends HBox {
         expressionTextField.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.ENTER) {
                 handleTextProperties();
-
+                expressionTextField.positionCaret(expressionTextField.getText().length());
             }
         });
 
@@ -214,6 +214,7 @@ public class GraphBlock extends HBox {
 
             expressionTextField.setText(expressionName + " = " + (mnr.graphExpression.getExpressionValue(expressionName)));
         }
+        
 
     }
 
