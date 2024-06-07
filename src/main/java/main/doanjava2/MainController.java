@@ -431,7 +431,10 @@ public class MainController implements Initializable {
 
     public void setSelectedGraph(int selection) {
         if (selectedGraph != -1) {
-            graphData.get(selectedGraph).setSelected(false);
+            if(selectedGraph<graphData.toArray().length -1)
+            {
+                graphData.get(selectedGraph).setSelected(false);
+            }
         }
         if (selection != -1) {
             selectedGraph = selection;

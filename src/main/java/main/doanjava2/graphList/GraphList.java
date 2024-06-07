@@ -70,6 +70,7 @@ public class GraphList extends GridPane {
                     } else if (c.wasRemoved()) {
                         int index = c.getFrom();
                         removeGraphBlock(index);
+
                     }
                 }
             }
@@ -147,6 +148,9 @@ public class GraphList extends GridPane {
         if (graphListBox.getChildren().size() > 9) {
             addNewBtn.setVisible(false);
         }
+        if (mnr.getSelectedGraph() >= graphListBox.getChildren().size()) {
+            mnr.setSelectedGraph(graphListBox.getChildren().size() - 1);
+        }
     }
 
     PseudoClass graphBlockSelected = PseudoClass.getPseudoClass("selected");
@@ -165,6 +169,7 @@ public class GraphList extends GridPane {
         if (graphListBox.getChildren().size() < 10) {
             // addNewBtn.setVisible(false);
         }
+
 
     }
 
