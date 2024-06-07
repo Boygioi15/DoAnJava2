@@ -151,6 +151,7 @@ public class GraphBlock extends HBox {
             if (event.getCode() == KeyCode.ENTER) {
                 handleTextProperties();
                 expressionTextField.positionCaret(expressionTextField.getText().length());
+                mnr.createNewGraphDataAtEnd();
             }
         });
 

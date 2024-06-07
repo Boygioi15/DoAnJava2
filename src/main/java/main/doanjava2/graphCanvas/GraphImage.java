@@ -172,6 +172,7 @@ public class GraphImage {
 		if(replacedExpression.isEmpty()){
 			return;
 		}
+
 		double plottingSpace = GraphImage_Params.plottingSpaceOnScreen/canvas.getWidth() * settingRef.getBoundaryWidth();
 		double currentX = settingRef.leftBoundary.get();
 		double endX = settingRef.rightBoundary.get()+plottingSpace;
@@ -212,7 +213,7 @@ public class GraphImage {
 		//System.out.println("Result: " + result);  
 	
 		PointInfo prePointInfo = new PointInfo(preX,expression);
-		PointInfo curPointInfo = prePointInfo;
+        PointInfo curPointInfo ;
 
 		if(!dataRef.isSelected()){
 			gc.setLineWidth(dataRef.getLineWidth());
@@ -226,9 +227,12 @@ public class GraphImage {
 		while(currentX<endX) {
 			curPointInfo = new PointInfo(currentX,expression);
 			//check state
-			PointState preState = prePointInfo.getState();
+            PointState preState = prePointInfo.getState();
 			PointState curState = curPointInfo.getState();
 
+			if (curState==null||preState==null){
+				return;
+			}
 			if(curState.equals(PointState.Dead)){
 				dataRef.setErrorString(curPointInfo.errorMessage);
 				return;
