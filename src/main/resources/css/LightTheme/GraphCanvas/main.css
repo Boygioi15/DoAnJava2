@@ -1,0 +1,50 @@
+.background {
+	-fx-background-color: #fdfdfd;
+}
+
+.button{
+	-fx-background-color: #E6E6E6;
+	-fx-border-color: lightgray;
+	-fx-border-width: 0.75;
+	-fx-border-radius: 10;
+}
+
+.button:hover{
+	-fx-background-color: #DFDFDF;
+}
+.button:pressed{
+	-fx-background-color: #D2D2D2;
+}
+
+.gear-button{
+    -fx-background-image: url('imageLight/gear.png');
+    -fx-background-size: 26px;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+}
+.zoom-in-button{
+ -fx-background-image: url('imageLight/zoomin.png');
+  -fx-background-size: 26px;
+  -fx-background-position: center;
+  -fx-background-repeat: no-repeat;
+}
+.zoom-out-button{
+ -fx-background-image: url('imageLight/zoomout.png');
+  -fx-background-size: 26px;
+  -fx-background-position: center;
+  -fx-background-repeat: no-repeat;
+}
+.home-button{
+ -fx-background-image: url('imageLight/home.png');
+  -fx-background-size: 26px;
+  -fx-background-position: center;
+  -fx-background-repeat: no-repeat;
+}
+
+.text {
+    -fx-fill: black;
+}
+
+.text-specific {
+    -fx-fill: black;
+}

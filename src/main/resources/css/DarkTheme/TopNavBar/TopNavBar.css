@@ -1,0 +1,55 @@
+.background {
+    -fx-background-color: #1C1C1C;
+    -fx-border-color: #404040;
+    -fx-border-width: 0 0 1 0;
+    -fx-effect: dropshadow(three-pass-box, rgba(255, 255, 255, 0.1), 2, 0, 0, 2);
+}
+
+.file-name {
+    -fx-font-family: Arial;
+    -fx-font-size: 28;
+    -fx-text-fill: lightgray;
+}
+
+.product-name {
+    -fx-font-family: Arial;
+    -fx-font-size: 20;
+   -fx-text-fill: lightgray;
+}
+
+.icon-button {
+    -fx-background-color: #333333;
+    -fx-margin: 10px;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+}
+
+.icon-button:hover {
+    -fx-background-color: #555555;
+}
+
+.icon-button:pressed {
+    -fx-background-color: #777777;
+}
+Text {
+    -fx-fill: lightgray;
+}
+
+.menu-button{
+-fx-background-image: url('menu.png');
+  -fx-background-size: 28px;
+  -fx-background-position: center;
+  -fx-background-repeat: no-repeat;
+}
+.code-button{
+-fx-background-image: url('code.png');
+  -fx-background-size: 28px;
+  -fx-background-position: center;
+  -fx-background-repeat: no-repeat;
+}
+.question-button{
+-fx-background-image: url('question.png');
+  -fx-background-size: 28px;
+  -fx-background-position: center;
+  -fx-background-repeat: no-repeat;
+}

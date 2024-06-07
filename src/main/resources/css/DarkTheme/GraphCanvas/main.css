@@ -1,0 +1,47 @@
+.background {
+    -fx-background-color: #333333;
+}
+
+.text {
+    -fx-fill: lightgray;
+}
+
+.text-specific {
+    -fx-fill: lightgray;
+}
+.button{
+	-fx-background-color: #333333;
+}
+
+.button:hover{
+	-fx-background-color: #434343;
+}
+.button:pressed{
+	-fx-background-color: #535353;
+}
+
+.gear-button{
+  -fx-background-image: url('imageDark/gear.png');
+  -fx-background-size: 26px;
+  -fx-background-position: center;
+  -fx-background-repeat: no-repeat;
+
+}
+.zoom-in-button{
+ -fx-background-image: url('imageDark/zoomin.png');
+  -fx-background-size: 26px;
+  -fx-background-position: center;
+  -fx-background-repeat: no-repeat;
+}
+.zoom-out-button{
+  -fx-background-image: url('imageDark/zoomout.png');
+  -fx-background-size: 26px;
+  -fx-background-position: center;
+  -fx-background-repeat: no-repeat;
+}
+.home-button{
+  -fx-background-image: url('imageDark/home.png');
+  -fx-background-size: 26px;
+  -fx-background-position: center;
+  -fx-background-repeat: no-repeat;
+}

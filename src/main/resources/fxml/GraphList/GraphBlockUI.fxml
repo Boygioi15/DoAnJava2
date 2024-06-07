@@ -13,7 +13,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<fx:root maxHeight="50.0" minHeight="50.0" prefHeight="60.0" prefWidth="273.0" styleClass="graph-block" stylesheets="@../../css/GraphList/GraphList.css" type="HBox" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="50.0" minHeight="50.0" prefHeight="60.0" prefWidth="273.0" styleClass="graph-block" stylesheets="@../../css/LightTheme/GraphList/GraphList.css" type="HBox" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <AnchorPane styleClass="anchor-pane" HBox.hgrow="ALWAYS">
             <children>
@@ -43,7 +43,7 @@
         <StackPane alignment="CENTER_RIGHT" styleClass="text-field-section">
             <children>
                 <TextField fx:id="expressionTextField" prefWidth="240.0" promptText="Enter expression..." style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-font-family: Arial; -fx-font-size: 16;" StackPane.alignment="CENTER_RIGHT" />
-                <MenuButton alignment="CENTER_RIGHT" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" styleClass="add-button">
+                <MenuButton alignment="CENTER_RIGHT" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT">
                     <graphic>
                     </graphic>
                     <padding>

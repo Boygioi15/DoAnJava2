@@ -3,6 +3,7 @@ package main.doanjava2.graphList;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -52,7 +53,16 @@ public class GraphBlock extends HBox {
         tooltip.setStyle("-fx-font-family: Arial; "
                 + "-fx-font-size: 14; ");
     }
-
+    public void updateTheme(boolean isLightTheme){
+        if(isLightTheme){
+            this.getStylesheets().clear();
+            this.getStylesheets().add(getClass().getResource("/css/LightTheme/GraphList/GraphList.css").toExternalForm());
+        }
+        else{
+            this.getStylesheets().clear();
+            this.getStylesheets().add(getClass().getResource("/css/DarkTheme/GraphList/GraphList.css").toExternalForm());
+        }
+    }
     public void setManagerRef(MainController ref) {
         mnr = ref;
     }
@@ -291,8 +301,14 @@ public class GraphBlock extends HBox {
         colorPicker.setValue(model.getGraphColor());
         expressionTextField.setText(model.getExpressionString());
     }
-
+    public void setTheme(boolean isThemeLight) {
+        String cssPath = isThemeLight ? "/css/LightTheme/GraphList/GraphList.css" : "/css/DarkTheme/GraphList/GraphList.css";
+        String css = Objects.requireNonNull(getClass().getResource(cssPath)).toExternalForm();
+        ((Parent) configPopOver.getContentNode()).getStylesheets().clear();
+        ((Parent) configPopOver.getContentNode()).getStylesheets().add(css);
+    }
     private void toggleConfig() {
+        setTheme(mnr.graphList.isLightTheme);
         if (configPopOver.isShowing()) {
             configPopOver.hide();
         } else {

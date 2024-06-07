@@ -124,6 +124,16 @@ public class GraphImage {
 					state = PointState.Dead;
 				}
 			}
+			catch (Exception e){
+				String message = e.getMessage();
+				if(message.startsWith("Argument to")){
+					state = PointState.Undetermined;
+				}
+				else {
+					errorMessage = e.getMessage();
+					state = PointState.Dead;
+				}
+			}
 		}
 		
 		public double getOnScreenX() {

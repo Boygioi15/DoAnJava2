@@ -52,7 +52,7 @@ public class TopNavBar extends BorderPane {
 		} catch (IOException exception) {
 			throw new RuntimeException(exception);
 		}
-
+		this.getStylesheets().add(getClass().getResource("/css/LightTheme/TopNavBar/TopNavBar.css").toExternalForm());
 
 	}
 	public void UpdateFileName(String fileName){

@@ -12,10 +12,7 @@ import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TabPane;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.ScrollEvent;
 import javafx.scene.layout.AnchorPane;
@@ -87,6 +84,9 @@ public class GraphCanvas extends AnchorPane{
 					outerCircle.setVisible(true);
 					showPopUp(point.getKey(), point.getValue());
 				}
+				else {
+					translateCanvas(ob);
+				}
 			} else {
 				translateCanvas(ob);
 			}
@@ -99,6 +99,62 @@ public class GraphCanvas extends AnchorPane{
 		});
 		this.setOnScroll(ob ->{
 			zoomCanvas(ob);
+		});
+
+		darkThemeButton.setOnMouseClicked(mouseEvent -> {
+			mnr.topNavbar.getStylesheets().clear();
+			mnr.topNavbar.getStylesheets().add(getClass().getResource("/css/DarkTheme/TopNavBar/TopNavBar.css").toExternalForm());
+
+			mnr.inputKeyboard.getStylesheets().clear();
+			mnr.inputKeyboard.getStylesheets().add(getClass().getResource("/css/DarkTheme/InputKeyboard/button.css").toExternalForm());
+			mnr.inputKeyboard.getStylesheets().add(getClass().getResource("/css/DarkTheme/InputKeyboard/background.css").toExternalForm());
+
+			mnr.graphCanvas.getStylesheets().clear();
+			mnr.graphCanvas.getStylesheets().add(getClass().getResource("/css/DarkTheme/GraphCanvas/main.css").toExternalForm());
+			mnr.graphCanvas.getStylesheets().add(getClass().getResource("/css/DarkTheme/GraphCanvas/tab_pane.css").toExternalForm());
+			mnr.graphCanvas.getStylesheets().add(getClass().getResource("/css/DarkTheme/GraphCanvas/check_box.css").toExternalForm());
+			mnr.graphCanvas.getStylesheets().add(getClass().getResource("/css/DarkTheme/GraphCanvas/radio_button.css").toExternalForm());
+			mnr.graphCanvas.getStylesheets().add(getClass().getResource("/css/DarkTheme/GraphCanvas/text_field.css").toExternalForm());
+
+			mnr.filePanel.getStylesheets().clear();
+			mnr.filePanel.getStylesheets().add(getClass().getResource("/css/DarkTheme/FilePanel/FilePanelUI.css").toExternalForm());
+
+			background.setTheme(false);
+			background.update();
+
+			mnr.graphList.getStylesheets().clear();
+			mnr.graphList.getStylesheets().add(getClass().getResource("/css/DarkTheme/GraphList/GraphList.css").toExternalForm());
+
+			mnr.graphList.isLightTheme=false;
+			mnr.graphList.updateBlockTheme();
+		});
+
+		lightThemeButton.setOnMouseClicked(mouseEvent -> {
+			mnr.topNavbar.getStylesheets().clear();
+			mnr.topNavbar.getStylesheets().add(getClass().getResource("/css/LightTheme/TopNavBar/TopNavBar.css").toExternalForm());
+
+			mnr.inputKeyboard.getStylesheets().clear();
+			mnr.inputKeyboard.getStylesheets().add(getClass().getResource("/css/LightTheme/InputKeyboard/button.css").toExternalForm());
+			mnr.inputKeyboard.getStylesheets().add(getClass().getResource("/css/LightTheme/InputKeyboard/background.css").toExternalForm());
+
+			mnr.graphCanvas.getStylesheets().clear();
+			mnr.graphCanvas.getStylesheets().add(getClass().getResource("/css/LightTheme/GraphCanvas/main.css").toExternalForm());
+			mnr.graphCanvas.getStylesheets().add(getClass().getResource("/css/LightTheme/GraphCanvas/tab_pane.css").toExternalForm());
+			mnr.graphCanvas.getStylesheets().add(getClass().getResource("/css/LightTheme/GraphCanvas/check_box.css").toExternalForm());
+			mnr.graphCanvas.getStylesheets().add(getClass().getResource("/css/LightTheme/GraphCanvas/radio_button.css").toExternalForm());
+			mnr.graphCanvas.getStylesheets().add(getClass().getResource("/css/LightTheme/GraphCanvas/text_field.css").toExternalForm());
+
+			mnr.filePanel.getStylesheets().clear();
+			mnr.filePanel.getStylesheets().add(getClass().getResource("/css/LightTheme/FilePanel/FilePanelUI.css").toExternalForm());
+
+			background.setTheme(true);
+			background.update();
+
+			mnr.graphList.getStylesheets().clear();
+			mnr.graphList.getStylesheets().add(getClass().getResource("/css/LightTheme/GraphList/GraphList.css").toExternalForm());
+			mnr.graphList.isLightTheme=true;
+			mnr.graphList.updateBlockTheme();
+
 		});
 	}
 	public void showPopUp(Integer x, Integer y) {
@@ -348,6 +404,9 @@ public class GraphCanvas extends AnchorPane{
 	private @FXML TextField xLabel_tf;
 	private @FXML TextField yLabel_tf;
 	private final PseudoClass errorTextField = PseudoClass.getPseudoClass("error");
+
+	private @FXML RadioButton lightThemeButton;
+	private @FXML RadioButton darkThemeButton;
 
 	
 	private @FXML TextField add_tf;

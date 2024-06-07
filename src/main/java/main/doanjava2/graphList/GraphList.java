@@ -15,16 +15,14 @@ import javafx.collections.ListChangeListener;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import main.doanjava2.GraphData;
 import main.doanjava2.MainController;
 import javafx.animation.TranslateTransition;
 import javafx.util.Duration;
 
 public class GraphList extends GridPane {
+    public boolean isLightTheme = true;
 	TextField currentlySelectedTextField ;
     @FXML Button addNewBtn;
     MainController mnr;
@@ -96,8 +94,7 @@ public class GraphList extends GridPane {
     	toAdd.setDataSource(graphData);
         toAdd.requestFocus();
         toAdd.setManagerRef(mnr);
-        toAdd.getStyleClass().add("graph-block");
-
+        toAdd.updateTheme(isLightTheme);
         TextField textField = toAdd.getExpressionTextField();
         textField.focusedProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue) {
@@ -125,7 +122,6 @@ public class GraphList extends GridPane {
            // addNewBtn.setVisible(false);
         }
     }
-
     public void insertContentIntoSelectingBlock(String content) {
     	if(currentlySelectedTextField!=null) {
     		int oldCaretPosition = currentlySelectedTextField.getCaretPosition();
@@ -187,5 +183,13 @@ public class GraphList extends GridPane {
     }
     public boolean isOpen() {
         return isOpen;
+    }
+    public void updateBlockTheme(){
+        for(Node block : graphListBox.getChildren()){
+            if(block instanceof GraphBlock temp){
+                temp.updateTheme(isLightTheme);
+            }
+            //mnr.filePanel.getStylesheets().add(getClass().getResource("/css/LightTheme/FilePanel/FilePanelUI.css").toExternalForm());
+        }
     }
 }

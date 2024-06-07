@@ -27,17 +27,36 @@ class BackgroundParams {
     static double axisArrowHeight = 3;
     static double majorGridWidth = 1;
     static double minorGridWidth = 0.5;
-    static Color majorGridColor = Color.rgb(120, 120, 120);
+    static Color majorGridColor = Color.rgb(150, 150, 150);
     static Color minorGridColor = Color.GAINSBORO;
 
     static double multiplierMinGap = 65;
-    static Color darkTheme = Color.DARKBLUE;
+    static Color darkTheme = Color.rgb(0,0,0);
     static Color lightTheme = Color.rgb(253, 253, 253);
 }
 
 public class Background {
     private static final Text usedToMeasureTextLength;
-
+    public void setTheme(boolean isLight) {
+        if(!isLight){
+            currentBackgroundColor = BackgroundParams.darkTheme;
+            BackgroundParams.majorGridColor = Color.LIGHTGRAY;
+            BackgroundParams.minorGridColor = Color.rgb(90,90,90);
+            BackgroundParams.axisColor = Color.LIGHTGRAY;
+            BackgroundParams.axisNumber_OnScreenColor = Color.LIGHTGRAY;
+            BackgroundParams.axisNumber_OffScreenColor = Color.LIGHTGRAY;
+        }else{
+            currentBackgroundColor = BackgroundParams.lightTheme;
+            BackgroundParams.majorGridColor = Color.BLACK;
+            BackgroundParams.minorGridColor = Color.GAINSBORO;
+            BackgroundParams.axisColor = Color.BLACK;
+            BackgroundParams.axisNumber_OnScreenColor = Color.BLACK;
+            BackgroundParams.axisNumber_OffScreenColor = Color.LIGHTGRAY;
+        }
+        gc.setStroke(BackgroundParams.majorGridColor);
+        gc.setStroke(BackgroundParams.minorGridColor);
+        gc.setFill(currentBackgroundColor);
+    }
     static {
         usedToMeasureTextLength = new Text();
         usedToMeasureTextLength.setFont(BackgroundParams.axisNumberFont);

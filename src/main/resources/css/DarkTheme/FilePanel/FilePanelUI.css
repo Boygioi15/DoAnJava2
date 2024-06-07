@@ -1,0 +1,43 @@
+.background {
+    -fx-background-color: #333333;
+    -fx-effect: dropshadow(three-pass-box, rgba(255, 255, 255, 0.5), 10, 0, 0, 10);
+}
+
+.button {
+    -fx-background-color: transparent;
+    -fx-text-fill: lightgray;
+    -fx-font-size: 16px;
+}
+
+.button:hover {
+    -fx-background-color: #555555;
+}
+
+.button:pressed {
+
+    -fx-background-color: #777777;
+}
+.new-button{
+  -fx-background-image: url('new.png');
+  -fx-background-size: 24px;
+  -fx-background-position: 10px 10px;
+  -fx-background-repeat: no-repeat;
+ }
+.save-button{
+ -fx-background-image: url('save.png');
+  -fx-background-size: 24px;
+  -fx-background-position: 10px 10px;
+  -fx-background-repeat: no-repeat;
+}
+.save-as-button{
+ -fx-background-image: url('saveas.png');
+  -fx-background-size: 24px;
+  -fx-background-position: 10px 10px;
+  -fx-background-repeat: no-repeat;
+}
+.open-button{
+ -fx-background-image: url('open.png');
+  -fx-background-size: 24px;
+  -fx-background-position: 10px 10px;
+  -fx-background-repeat: no-repeat;
+}

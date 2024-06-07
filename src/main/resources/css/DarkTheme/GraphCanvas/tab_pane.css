@@ -1,0 +1,48 @@
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-opacity : 0;
+}
+
+.tab-pane {
+    -fx-tab-min-width: 50px;
+    -fx-tab-min-height: 25px;
+    -fx-tab-max-height: 25px;
+
+    -fx-background-color: #333333;
+    -fx-border-color: #555555;
+    -fx-border-width: 1.5;
+    -fx-shape: "M5,0 A 10,10 90 0 0 0,5 L0,235 A 10,10 90 0 0 5,240 L235,240 A 10,10 90 0 0 240,235 L240,45 L255,30 L240,15 L240,5 A 10,10 90 0 0 235,0 L5,0 Z";
+
+}
+
+.tab-pane .tab {
+    -fx-focus-color: transparent;
+    -fx-background-color: #333333;
+    -fx-background-radius: 3;
+    -fx-background-insets: 3;
+}
+
+.tab-pane .tab:selected {
+    -fx-background-color: #1E88E5;
+}
+
+.tab-pane:focused > .tab-header-area > .headers-region > .tab:selected .focus-indicator {
+    -fx-border-style: solid;
+    -fx-border-width: 1;
+    -fx-border-color: -fx-focus-color;
+}
+
+.tab-pane:top .tab-header-area {
+    -fx-padding: 0 0 0 7;
+}
+
+.tab .tab-label {
+    -fx-alignment: CENTER;
+    -fx-text-fill: lightgray;
+    -fx-font-size: 16px;
+    -fx-font-family: "Arial";
+    -fx-font-weight: 700;
+}
+
+.tab:selected .tab-label {
+    -fx-text-fill: lightgray;
+}

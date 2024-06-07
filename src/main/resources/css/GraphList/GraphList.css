@@ -18,10 +18,7 @@
     /* Clicked/pressed state */
     -fx-background-color: #DFDFDF;
 }
-.menu-button{
-    -fx-border-color: transparent;
-    -fx-background-color: white;
-}
+
 .detail-button{
     -fx-background-color: #f2f2f2;
     -fx-border-width: 0;
@@ -41,10 +38,6 @@
 }
 
 
-#graphListPane .text-field {
-    -fx-pref-height: 40px;
-}
-
 .graph-block {
     -fx-background-color: white;
 
@@ -58,6 +51,12 @@
     -fx-border-width: 1;
 }
 .graph-block . anchor-pane {
+    -fx-background-color:  white;
+    -fx-border-color: gray;
+    -fx-border-width:  0 0.5 0 0;
+    -fx-background-radius: 5;
+}
+.graph-block . menu-button{
     -fx-background-color:  white;
     -fx-border-color: gray;
     -fx-border-width:  0 0.5 0 0;

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.String?>
+<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.image.Image?>
@@ -12,18 +13,11 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<fx:root prefHeight="250.0" styleClass="input-keyboard-panel" stylesheets="@../../css/InputKeyboard/button.css, @../../css/InputKeyboard/background.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root prefHeight="250.0" styleClass="input-keyboard-panel" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
 	<children>
-		<Button fx:id="closeButton" mnemonicParsing="false" onAction="#toggleOnOff" prefHeight="27.0" prefWidth="63.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+		<Button fx:id="closeButton" mnemonicParsing="false" onAction="#toggleOnOff" prefHeight="27.0" prefWidth="63.0" styleClass="keyboard-button" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
 			<graphic>
 			</graphic>
-         <graphic>
-            <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../images/keyboard.png" />
-               </image>
-            </ImageView>
-         </graphic>
 		</Button>
 
 		<HBox fx:id="numberKeyboard" alignment="CENTER" spacing="20.0" style="visibility: true;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
@@ -893,4 +887,8 @@
    <padding>
       <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
    </padding>
+   <stylesheets>
+      <URL value="@../../css/LightTheme/InputKeyboard/background.css" />
+      <URL value="@../../css/LightTheme/InputKeyboard/button.css" />
+   </stylesheets>
 </fx:root>
