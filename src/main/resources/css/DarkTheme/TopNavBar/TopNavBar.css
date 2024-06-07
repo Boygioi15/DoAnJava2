@@ -34,3 +34,22 @@
 Text {
     -fx-fill: lightgray;
 }
+
+.menu-button{
+-fx-background-image: url('menu.png');
+  -fx-background-size: 24px;
+  -fx-background-position: center;
+  -fx-background-repeat: no-repeat;
+}
+.code-button{
+-fx-background-image: url('code.png');
+  -fx-background-size: 24px;
+  -fx-background-position: center;
+  -fx-background-repeat: no-repeat;
+}
+.question-button{
+-fx-background-image: url('question.png');
+  -fx-background-size: 24px;
+  -fx-background-position: center;
+  -fx-background-repeat: no-repeat;
+}

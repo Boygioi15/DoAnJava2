@@ -17,3 +17,27 @@
 
     -fx-background-color: #777777;
 }
+.new-button{
+  -fx-background-image: url('new.png');
+  -fx-background-size: 24px;
+  -fx-background-position: 10px 10px;
+  -fx-background-repeat: no-repeat;
+ }
+.save-button{
+ -fx-background-image: url('save.png');
+  -fx-background-size: 24px;
+  -fx-background-position: 10px 10px;
+  -fx-background-repeat: no-repeat;
+}
+.save-as-button{
+ -fx-background-image: url('saveas.png');
+  -fx-background-size: 24px;
+  -fx-background-position: 10px 10px;
+  -fx-background-repeat: no-repeat;
+}
+.open-button{
+ -fx-background-image: url('open.png');
+  -fx-background-size: 24px;
+  -fx-background-position: 10px 10px;
+  -fx-background-repeat: no-repeat;
+}

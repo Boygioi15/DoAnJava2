@@ -82,8 +82,11 @@ public class GraphCanvas extends AnchorPane {
 
             background.setTheme(false);
             background.update();
+
             mnr.graphList.getStylesheets().clear();
             mnr.graphList.getStylesheets().add(getClass().getResource("/css/DarkTheme/GraphList/GraphList.css").toExternalForm());
+
+            mnr.graphList.isLightTheme=false;
         });
 
         lightThemeButton.setOnMouseClicked(mouseEvent -> {
@@ -109,6 +112,7 @@ public class GraphCanvas extends AnchorPane {
 
             mnr.graphList.getStylesheets().clear();
             mnr.graphList.getStylesheets().add(getClass().getResource("/css/LightTheme/GraphList/GraphList.css").toExternalForm());
+            mnr.graphList.isLightTheme=true;
         });
 
     }

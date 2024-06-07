@@ -9,3 +9,31 @@
 .text-specific {
     -fx-fill: lightgray;
 }
+.gear-button{
+ -fx-background-image: url('imageDark/gear.png');
+  -fx-background-size: 24px;
+  -fx-background-position: center;
+  -fx-background-repeat: no-repeat;
+-fx-background-color: #333333;
+}
+.zoom-in-button{
+ -fx-background-image: url('imageDark/zoomin.png');
+  -fx-background-size: 24px;
+  -fx-background-position: center;
+  -fx-background-repeat: no-repeat;
+-fx-background-color: #333333;
+}
+.zoom-out-button{
+ -fx-background-image: url('imageDark/zoomout.png');
+  -fx-background-size: 24px;
+  -fx-background-position: center;
+  -fx-background-repeat: no-repeat;
+-fx-background-color: #333333;
+}
+.home-button{
+ -fx-background-image: url('imageDark/home.png');
+  -fx-background-size: 24px;
+  -fx-background-position: center;
+  -fx-background-repeat: no-repeat;
+-fx-background-color: #333333;
+}

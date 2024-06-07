@@ -3,6 +3,7 @@ package main.doanjava2.graphList;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -10,6 +11,7 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import main.doanjava2.GraphData;
@@ -29,7 +31,6 @@ import javafx.scene.shape.Circle;
 public class GraphBlock extends HBox {
 
     private GraphData dataSource;
-
     private IntegerProperty order = new SimpleIntegerProperty();
     private GraphData model = new GraphData();
     MainController mnr;
@@ -59,6 +60,7 @@ public class GraphBlock extends HBox {
             mainLoader.setRoot(this);
             mainLoader.setController(this);
             mainLoader.load();
+
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
@@ -85,9 +87,16 @@ public class GraphBlock extends HBox {
             typeComboBox.getItems().addAll(lineTypes);
             typeComboBox.setValue("Continuous");
 
+
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    public void setTheme(boolean isThemeLight) {
+        String cssPath = isThemeLight ? "/css/LightTheme/GraphList/GraphList.css" : "/css/DarkTheme/GraphList/GraphList.css";
+        String css = Objects.requireNonNull(getClass().getResource(cssPath)).toExternalForm();
+        ((Parent) configPopOver.getContentNode()).getStylesheets().clear();
+        ((Parent) configPopOver.getContentNode()).getStylesheets().add(css);
     }
 
     @FXML
@@ -274,6 +283,7 @@ public class GraphBlock extends HBox {
     }
 
     private void toggleConfig() {
+        setTheme(mnr.graphList.isLightTheme);
         if (configPopOver.isShowing()) {
             configPopOver.hide();
         } else {

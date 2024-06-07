@@ -25,6 +25,7 @@ import javafx.util.Duration;
 
 public class GraphList extends GridPane {
 	TextField currentlySelectedTextField ;
+    public  boolean isLightTheme = true;
     @FXML Button addNewBtn;
     MainController mnr;
     @FXML

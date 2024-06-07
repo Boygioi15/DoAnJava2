@@ -15,10 +15,10 @@
          stylesheets="@../../css/LightTheme/InputKeyboard/button.css, @../../css/LightTheme/InputKeyboard/background.css"
          type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
     <children>
-        <Button fx:id="closeButton" mnemonicParsing="false" onAction="#toggleOnOff" prefHeight="27.0" prefWidth="63.0"
+        <Button fx:id="closeButton" mnemonicParsing="false" onAction="#toggleOnOff" prefHeight="27.0" prefWidth="63.0" styleClass="keyboard-button"
                 AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
             <graphic>
-                <FontIcon iconLiteral="fa-keyboard-o" iconSize="30"/>
+
             </graphic>
         </Button>
 

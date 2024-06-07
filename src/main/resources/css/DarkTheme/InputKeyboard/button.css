@@ -76,10 +76,17 @@
 }
 
 #closeButton {
-    -fx-background-color: #2B2B2B;
+   -fx-background-color: transparent;
    -fx-text-fill: lightgray;
 }
 
 #closeButton:hover {
     -fx-background-color: rgba(172, 172, 172, 0.15);
+}
+
+.keyboard-button{
+ -fx-background-image: url('keyboard.png');
+  -fx-background-size: 50px;
+  -fx-background-position: center;
+  -fx-background-repeat: no-repeat;
 }

@@ -7,6 +7,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -19,7 +21,10 @@ import main.doanjava2.ultilities.PopDialog;
 import javafx.animation.TranslateTransition;
 import javafx.util.Duration;
 
+import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.util.Objects;
 
 import static main.doanjava2.Main.CreateNewWindow;
 
@@ -76,8 +81,19 @@ public class FilePanel extends VBox {
         saveAsButton.setOnAction(ob -> {
             mnr.SaveAs();
         });
-    }
 
+    }
+//    private void setButtonIcon(Button button, String iconPath) {
+//        InputStream iconStream = getClass().getResourceAsStream(iconPath);
+//        if (iconStream == null) {
+//            System.err.println("Resource not found: " + iconPath);
+//            return;
+//        }
+//        ImageView imageView = new ImageView(new Image(iconStream));
+//        imageView.setFitWidth(16); // Set the desired width
+//        imageView.setFitHeight(16); // Set the desired height
+//        button.setGraphic(imageView);
+//    }
     public void ToggleFilePanel(InputKeyboard inputKeyboard) {
         if (this.isVisible()) {
             slideOut.play();
@@ -88,4 +104,5 @@ public class FilePanel extends VBox {
             inputKeyboard.close();
         }
     }
+
 }

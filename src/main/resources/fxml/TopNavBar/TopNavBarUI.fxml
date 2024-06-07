@@ -30,7 +30,7 @@
     <left>
         <HBox alignment="CENTER_LEFT" spacing="5" BorderPane.alignment="CENTER">
             <children>
-                <Button fx:id="openFilePanelButton" mnemonicParsing="false">
+                <Button fx:id="openFilePanelButton" mnemonicParsing="false" styleClass="menu-button">
                     <graphic>
                     </graphic>
                     <styleClass>
@@ -38,9 +38,7 @@
                     </styleClass>
                     <graphic>
                         <ImageView fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../../images/menu.png"/>
-                            </image>
+
                         </ImageView>
                     </graphic>
                     <HBox.margin>
@@ -65,7 +63,7 @@
                 <Insets right="10.0"/>
             </padding>
             <children>
-                <Button fx:id="openLanguageButton" mnemonicParsing="false">
+                <Button fx:id="openLanguageButton" mnemonicParsing="false" styleClass="question-button">
                     <graphic>
                     </graphic>
                     <styleClass>
@@ -73,13 +71,11 @@
                     </styleClass>
                     <graphic>
                         <ImageView fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../../images/question.png"/>
-                            </image>
+
                         </ImageView>
                     </graphic>
                 </Button>
-                <Button fx:id="openCoopButton" mnemonicParsing="false">
+                <Button fx:id="openCoopButton" mnemonicParsing="false" styleClass="code-button">
                     <graphic>
                     </graphic>
                     <styleClass>
@@ -87,9 +83,7 @@
                     </styleClass>
                     <graphic>
                         <ImageView fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../../images/code.png"/>
-                            </image>
+
                         </ImageView>
                     </graphic>
                 </Button>

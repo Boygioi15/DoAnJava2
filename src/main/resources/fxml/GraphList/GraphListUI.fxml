@@ -28,9 +28,7 @@
                         onAction="#requestAddingGraphData" styleClass="add-button">
                     <graphic>
                         <ImageView fitHeight="24.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../../images/plus.png"/>
-                            </image>
+
                         </ImageView>
                     </graphic>
                     <VBox.margin>

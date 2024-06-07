@@ -27,7 +27,8 @@
                            @../../css/LightTheme/GraphCanvas/tab_pane.css,
                            @../../css/LightTheme/GraphCanvas/check_box.css,
                            @../../css/LightTheme/GraphCanvas/radio_button.css,
-                           @../../css/LightTheme/GraphCanvas/text_field.css" type="AnchorPane"
+                           @../../css/LightTheme/GraphCanvas/text_field.css, @../../css/LightTheme/GraphCanvas/configButton.css"
+         type="AnchorPane"
          xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
 
     <GridPane fx:id="debugUI" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
@@ -76,12 +77,13 @@
 
         </children>
     </GridPane>
-    <VBox fx:id="buttonsUI" stylesheets="@../../css/LightTheme/GraphCanvas/configButton.css"
+    <VBox fx:id="buttonsUI"
           AnchorPane.rightAnchor="10.0"
           AnchorPane.topAnchor="10.0">
         <children>
             <Button minHeight="40.0" minWidth="-Infinity" mnemonicParsing="false" onAction="#toggleSettingUI"
-                    prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 5; -fx-border-radius: 5;">
+                    prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 5; -fx-border-radius: 5;"
+                    styleClass="gear-button">
                 <graphic>
                 </graphic>
                 <VBox.margin>
@@ -89,25 +91,23 @@
                 </VBox.margin>
                 <graphic>
                     <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
-                        <image>
-                            <Image url="@../../images/gear.png"/>
-                        </image>
+
                     </ImageView>
                 </graphic>
             </Button>
             <Button minWidth="-Infinity" mnemonicParsing="false" onAction="#zoomInCanvas_AtMiddle" prefHeight="40.0"
+                    styleClass="zoom-in-button"
                     prefWidth="40.0" style="-fx-background-radius: 5; -fx-border-radius: 5;">
                 <graphic>
                 </graphic>
                 <graphic>
                     <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
-                        <image>
-                            <Image url="@../../images/zoom%20in.png"/>
-                        </image>
+
                     </ImageView>
                 </graphic>
             </Button>
             <Button minWidth="-Infinity" mnemonicParsing="false" onAction="#zoomOutCanvas_AtMiddle" prefHeight="40.0"
+                    styleClass="zoom-out-button"
                     prefWidth="40.0" style="-fx-background-radius: 5; -fx-border-radius: 5;">
                 <graphic>
                 </graphic>
@@ -116,13 +116,12 @@
                 </VBox.margin>
                 <graphic>
                     <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
-                        <image>
-                            <Image url="@../../images/zoom%20out.png"/>
-                        </image>
+
                     </ImageView>
                 </graphic>
             </Button>
             <Button minWidth="-Infinity" mnemonicParsing="false" onAction="#goHome" prefHeight="40.0" prefWidth="40.0"
+                    styleClass="home-button"
                     style="-fx-background-radius: 5; -fx-border-radius: 5;">
                 <graphic>
                 </graphic>
@@ -131,9 +130,7 @@
                 </VBox.margin>
                 <graphic>
                     <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
-                        <image>
-                            <Image url="@../../images/home.png"/>
-                        </image>
+
                     </ImageView>
                 </graphic>
 
@@ -249,14 +246,16 @@
                                 <children>
                                     <HBox alignment="CENTER_LEFT" spacing="5.0">
                                         <children>
-                                            <Label alignment="CENTER" text="Boundary:" textAlignment="CENTER" styleClass="text-specific">
+                                            <Label alignment="CENTER" text="Boundary:" textAlignment="CENTER"
+                                                   styleClass="text-specific">
                                                 <font>
                                                     <Font name="Arial" size="14.0"/>
                                                 </font>
                                             </Label>
                                             <TextField fx:id="leftBoundary_tf" prefWidth="60.0"
-                                                       styleClass="number-text-field" />
-                                            <Label alignment="CENTER" text="&lt;x&lt;" textAlignment="CENTER" styleClass="text-specific">
+                                                       styleClass="number-text-field"/>
+                                            <Label alignment="CENTER" text="&lt;x&lt;" textAlignment="CENTER"
+                                                   styleClass="text-specific">
                                                 <font>
                                                     <Font name="Arial" size="16.0"/>
                                                 </font>
@@ -267,7 +266,8 @@
                                     </HBox>
                                     <HBox alignment="CENTER_LEFT" spacing="5.0">
                                         <children>
-                                            <Label alignment="CENTER" text="Range:" textAlignment="CENTER" styleClass="text-specific">
+                                            <Label alignment="CENTER" text="Range:" textAlignment="CENTER"
+                                                   styleClass="text-specific">
                                                 <font>
                                                     <Font name="Arial" size="14.0"/>
                                                 </font>
@@ -278,7 +278,8 @@
                                     </HBox>
                                     <HBox alignment="CENTER_LEFT" spacing="5.0">
                                         <children>
-                                            <Label alignment="CENTER" text="Label:" textAlignment="CENTER" styleClass="text-specific">
+                                            <Label alignment="CENTER" text="Label:" textAlignment="CENTER"
+                                                   styleClass="text-specific">
                                                 <font>
                                                     <Font name="Arial" size="14.0"/>
                                                 </font>
@@ -324,14 +325,16 @@
                                 <children>
                                     <HBox alignment="CENTER_LEFT" spacing="5.0">
                                         <children>
-                                            <Label alignment="CENTER" text="Boundary:" textAlignment="CENTER" styleClass="text-specific">
+                                            <Label alignment="CENTER" text="Boundary:" textAlignment="CENTER"
+                                                   styleClass="text-specific">
                                                 <font>
                                                     <Font name="Arial" size="14.0"/>
                                                 </font>
                                             </Label>
                                             <TextField fx:id="botBoundary_tf" prefWidth="60.0"
                                                        styleClass="number-text-field"/>
-                                            <Label alignment="CENTER" text="&lt;y&lt;" textAlignment="CENTER" styleClass="text-specific">
+                                            <Label alignment="CENTER" text="&lt;y&lt;" textAlignment="CENTER"
+                                                   styleClass="text-specific">
                                                 <font>
                                                     <Font name="Arial" size="16.0"/>
                                                 </font>
@@ -342,7 +345,8 @@
                                     </HBox>
                                     <HBox alignment="CENTER_LEFT" spacing="5.0">
                                         <children>
-                                            <Label alignment="CENTER" text="Range:" textAlignment="CENTER" styleClass="text-specific">
+                                            <Label alignment="CENTER" text="Range:" textAlignment="CENTER"
+                                                   styleClass="text-specific">
                                                 <font>
                                                     <Font name="Arial" size="14.0"/>
                                                 </font>
@@ -353,7 +357,8 @@
                                     </HBox>
                                     <HBox alignment="CENTER_LEFT" spacing="5.0">
                                         <children>
-                                            <Label alignment="CENTER" text="Label:" textAlignment="CENTER" styleClass="text-specific">
+                                            <Label alignment="CENTER" text="Label:" textAlignment="CENTER"
+                                                   styleClass="text-specific">
                                                 <font>
                                                     <Font name="Arial" size="14.0"/>
                                                 </font>

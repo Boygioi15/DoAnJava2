@@ -7,58 +7,51 @@
 <?import javafx.scene.layout.VBox?>
 
 <fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0"
-         prefWidth="250.0" spacing="2.0" styleClass="background" stylesheets="@../../css/LightTheme/FilePanel/FilePanelUI.css"
+         prefWidth="250.0" spacing="2.0" styleClass="background"
+         stylesheets="@../../css/LightTheme/FilePanel/FilePanelUI.css"
          type="VBox" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <Button fx:id="newButton" alignment="TOP_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
-                text="New">
+                text="New" styleClass="new-button">
             <padding>
                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
             </padding>
             <graphic>
                 <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../../images/new.png"/>
-                    </image>
+
                 </ImageView>
             </graphic>
         </Button>
-        <Button fx:id="openButton" alignment="TOP_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
+        <Button fx:id="openButton" alignment="TOP_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="open-button"
                 text="Open">
             <padding>
                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
             </padding>
             <graphic>
                 <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../../images/open.png"/>
-                    </image>
+
                 </ImageView>
             </graphic>
         </Button>
-        <Button fx:id="saveButton" alignment="TOP_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
+        <Button fx:id="saveButton" alignment="TOP_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="save-button"
                 text="Save">
             <padding>
                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
             </padding>
             <graphic>
                 <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../../images/save.png"/>
-                    </image>
+
                 </ImageView>
             </graphic>
         </Button>
-        <Button fx:id="saveAsButton" alignment="TOP_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
+        <Button fx:id="saveAsButton" alignment="TOP_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="save-as-button"
                 text="Save as">
             <padding>
                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
             </padding>
             <graphic>
                 <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../../images/save%20as.png"/>
-                    </image>
+
                 </ImageView>
             </graphic>
         </Button>
