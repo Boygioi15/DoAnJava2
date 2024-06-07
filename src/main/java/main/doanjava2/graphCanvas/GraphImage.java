@@ -81,6 +81,16 @@ public class GraphImage {
 		Undetermined,
 		Dead
 	}
+	private boolean isValidExpression(Expression expression) {
+		try {
+			expression.eval();
+			return true;
+		} catch (Exception e) {
+			// If an exception occurs, the expression is not valid
+			return false;
+		}
+	}
+
 	private class PointInfo{
 		private double input, yValue;
 		private double onScreenX, onScreenY;
@@ -90,7 +100,9 @@ public class GraphImage {
 			expression.setVariable("x", Double.toString(pointValueX));
 			try {
 				setInput(pointValueX);
-
+				if (!isValidExpression(expression)) {
+					return;
+				}
 				BigDecimal r = expression.eval();
 				double pointValueY = r.doubleValue();
 				yValue = pointValueY;
@@ -156,9 +168,11 @@ public class GraphImage {
 				
 
 		String replacedExpression = mnr.handleReplaceExpressions(dataRef);
+		System.out.println("replace Expression: " + replacedExpression);
 		if(replacedExpression.isEmpty()){
 			return;
 		}
+
 		double plottingSpace = GraphImage_Params.plottingSpaceOnScreen/canvas.getWidth() * settingRef.getBoundaryWidth();
 		double currentX = settingRef.leftBoundary.get();
 		double endX = settingRef.rightBoundary.get()+plottingSpace;
@@ -199,7 +213,7 @@ public class GraphImage {
 		//System.out.println("Result: " + result);  
 	
 		PointInfo prePointInfo = new PointInfo(preX,expression);
-		PointInfo curPointInfo = prePointInfo;
+        PointInfo curPointInfo ;
 
 		if(!dataRef.isSelected()){
 			gc.setLineWidth(dataRef.getLineWidth());
@@ -213,9 +227,12 @@ public class GraphImage {
 		while(currentX<endX) {
 			curPointInfo = new PointInfo(currentX,expression);
 			//check state
-			PointState preState = prePointInfo.getState();
+            PointState preState = prePointInfo.getState();
 			PointState curState = curPointInfo.getState();
 
+			if (curState==null||preState==null){
+				return;
+			}
 			if(curState.equals(PointState.Dead)){
 				dataRef.setErrorString(curPointInfo.errorMessage);
 				return;

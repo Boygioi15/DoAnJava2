@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c0c8e8f-6c6a-46f7-8269-c472333fba20" name="Changes" comment="finish welcome-screen">
+    <list default="true" id="7c0c8e8f-6c6a-46f7-8269-c472333fba20" name="Changes" comment="xong">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recentFiles.txt" beforeDir="false" afterPath="$PROJECT_DIR$/recentFiles.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/main/doanjava2/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/doanjava2/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/doanjava2/OpenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/doanjava2/OpenController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/main/doanjava2/graphList/GraphList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/doanjava2/graphList/GraphList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/doanjava2/openRecent/RecentBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/doanjava2/openRecent/RecentBlock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/OpenRecent/RecentBlockUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/OpenRecent/RecentBlockUI.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,15 +18,15 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="handle-expression" />
+        <entry key="$PROJECT_DIR$" value="selected-graphblock" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -41,12 +37,12 @@
     &quot;assignee&quot;: &quot;thinhleduc387&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Boygioi15/DoAnJava2.git",
-    "accountId": "eccbd3a9-89bc-4e46-8b5d-46937a7c02be"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Boygioi15/DoAnJava2.git&quot;,
+    &quot;accountId&quot;: &quot;efc580e4-ca15-41ef-ae3c-024046440c6f&quot;
   }
-}]]></component>
+}</component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -83,8 +79,6 @@
       <recent name="C:\Users\boygioi15\IdeaProjects\DoAnJava2\src\main\resources\css\GraphCanvas" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\boygioi15\IdeaProjects\DoAnJava2\src\main\resources\images" />
-      <recent name="C:\Users\boygioi15\IdeaProjects\DoAnJava2\src\main\resources\css\Recents" />
       <recent name="C:\Users\boygioi15\IdeaProjects\DoAnJava2\src\main\resources\css\Recent" />
       <recent name="C:\Users\boygioi15\IdeaProjects\DoAnJava2\src\main\resources\fxml\FilePanel" />
       <recent name="C:\Users\boygioi15\IdeaProjects\DoAnJava2\src\main\resources\fxml\GraphList" />
@@ -148,7 +142,39 @@
       <option name="project" value="LOCAL" />
       <updated>1716899596345</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="fix inputkeyboard vs open/close">
+      <option name="closed" value="true" />
+      <created>1717665486769</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1717665486769</updated>
+    </task>
+    <task id="LOCAL-00005" summary="css selected graph block tam tam">
+      <option name="closed" value="true" />
+      <created>1717672580331</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1717672580331</updated>
+    </task>
+    <task id="LOCAL-00006" summary="xong">
+      <option name="closed" value="true" />
+      <created>1717687444066</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1717687444066</updated>
+    </task>
+    <task id="LOCAL-00007" summary="xong">
+      <option name="closed" value="true" />
+      <created>1717688308678</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1717688308678</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -166,6 +192,9 @@
     <MESSAGE value="finish" />
     <MESSAGE value="fix remove empty graphData" />
     <MESSAGE value="fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix" />
+    <MESSAGE value="fix inputkeyboard vs open/close" />
+    <MESSAGE value="css selected graph block tam tam" />
+    <MESSAGE value="xong" />
+    <option name="LAST_COMMIT_MESSAGE" value="xong" />
   </component>
 </project>
