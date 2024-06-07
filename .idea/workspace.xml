@@ -5,45 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7c0c8e8f-6c6a-46f7-8269-c472333fba20" name="Changes" comment="finish welcome-screen">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/css/Recents/Recent.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/css/Recents/test.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/fxml/Main/MainUI2.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/fxml/OpenRecent/test.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/backspace.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/enter.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/find.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/keyboard.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/left.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/pin.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/right.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/warningTri.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/recentFiles.txt" beforeDir="false" afterPath="$PROJECT_DIR$/recentFiles.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/doanjava2/GraphData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/doanjava2/GraphData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/doanjava2/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/doanjava2/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/main/doanjava2/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/doanjava2/MainController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/main/doanjava2/OpenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/doanjava2/OpenController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/doanjava2/filePanel/FilePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/doanjava2/filePanel/FilePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/doanjava2/graphCanvas/GraphCanvas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/doanjava2/graphCanvas/GraphCanvas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/doanjava2/graphCanvas/GraphImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/doanjava2/graphCanvas/GraphImage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/doanjava2/graphCanvas/SelectionMatrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/doanjava2/graphCanvas/SelectionMatrix.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/doanjava2/graphList/GraphBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/doanjava2/graphList/GraphBlock.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/main/doanjava2/graphList/GraphList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/doanjava2/graphList/GraphList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/doanjava2/inputKeyboard/InputKeyboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/doanjava2/inputKeyboard/InputKeyboard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/main/doanjava2/openRecent/RecentBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/doanjava2/openRecent/RecentBlock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/FilePanel/FilePanelUI.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/FilePanel/FilePanelUI.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/GraphCanvas/check_box.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/GraphCanvas/check_box.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/GraphCanvas/radio_button.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/GraphCanvas/radio_button.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/GraphCanvas/tab_pane.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/GraphCanvas/tab_pane.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/GraphCanvas/text_field.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/GraphCanvas/text_field.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/GraphList/GraphList.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/GraphList/GraphList.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/InputKeyboard/button.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/InputKeyboard/button.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/TopNavBar/TopNavBar.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/TopNavBar/TopNavBar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/FilePanel/FilePanelUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/FilePanel/FilePanelUI.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/GraphList/GraphBlockUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/GraphList/GraphBlockUI.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/InputKeyboard/InputKeyboardUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/InputKeyboard/InputKeyboardUI.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/InputKeyboard/functionUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/InputKeyboard/functionUI.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/OpenRecent/OpenRecentUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/OpenRecent/OpenRecentUI.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/OpenRecent/RecentBlockUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/OpenRecent/RecentBlockUI.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -74,12 +41,12 @@
     &quot;assignee&quot;: &quot;thinhleduc387&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/Boygioi15/DoAnJava2.git&quot;,
-    &quot;accountId&quot;: &quot;efc580e4-ca15-41ef-ae3c-024046440c6f&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Boygioi15/DoAnJava2.git",
+    "accountId": "eccbd3a9-89bc-4e46-8b5d-46937a7c02be"
   }
-}</component>
+}]]></component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -96,17 +63,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;styleQuyen&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/thinh/OneDrive/Máy tính/DoAnJava2/src/main/resources&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.HelloApplication.executor": "Run",
+    "Application.Main.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "IMPORTANT",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/thinh/OneDrive/Máy tính/DoAnJava2/src/main/resources",
+    "run.code.analysis.last.selected.profile": "pProject Default"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\thinh\OneDrive\Máy tính\DoAnJava2\src\main\resources" />

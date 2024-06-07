@@ -302,26 +302,36 @@ public class MainController implements Initializable {
     }
 
     static public void editPinned(String filePath, boolean pinned) {
-        Map<String, Boolean> fileMap = ReadRecentFiles();
-        if (fileMap.containsKey(filePath)) {
-            pinned = !pinned;
-            fileMap.put(filePath, pinned);
+        File file = new File(filePath);
 
-            clearRecentFilesContent();
-            try (FileWriter fw = new FileWriter(Main.RecentFilesPath, true);
-                 PrintWriter pw = new PrintWriter(fw)) {
-                for (Map.Entry<String, Boolean> entry : fileMap.entrySet()) {
-                    String line = entry.getValue() ? "1" : "0";
-                    line += " " + entry.getKey();
-                    pw.println(line);
+        // Kiểm tra sự tồn tại của tệp
+        if (!file.exists()) {
+            PopDialog.popErrorDialog("File not found", "The system cannot find the file specified: " + file.getPath() +
+                    "\n\nDự án bạn chọn có thể không còn tồn tại. Bạn có thể xóa khỏi danh sách bằng cách click chuột phải vào dự án đó, chọn Delete.");
+        }
+        else {
+            Map<String, Boolean> fileMap = ReadRecentFiles();
+            if (fileMap.containsKey(filePath)) {
+                pinned = !pinned;
+                fileMap.put(filePath, pinned);
+
+                clearRecentFilesContent();
+                try (FileWriter fw = new FileWriter(Main.RecentFilesPath, true);
+                     PrintWriter pw = new PrintWriter(fw)) {
+                    for (Map.Entry<String, Boolean> entry : fileMap.entrySet()) {
+                        String line = entry.getValue() ? "1" : "0";
+                        line += " " + entry.getKey();
+                        pw.println(line);
+                    }
+                } catch (IOException e) {
+                    PopDialog.popErrorDialog("Can't edit recent files", e.getMessage());
                 }
-            } catch (IOException e) {
-                PopDialog.popErrorDialog("Can't edit recent files", "");
+            } else {
+                PopDialog.popErrorDialog("File not found in recent files", "");
             }
-        } else {
-            PopDialog.popErrorDialog("File not found in recent files", "");
         }
     }
+
 
     static public void AddNewFileLocationToRecentFiles(String newPath) {
         Map<String, Boolean> fileMap = ReadRecentFiles();
@@ -349,6 +359,9 @@ public class MainController implements Initializable {
     static public void RemoveFileLocationFromRecentFiles(String path) {
         Map<String, Boolean> fileMap = ReadRecentFiles();
         fileMap.remove(path);
+        for (String key : fileMap.keySet()) {
+            System.out.println(key);
+        }
 
         clearRecentFilesContent();
         try (FileWriter fw = new FileWriter(Main.RecentFilesPath, true);

@@ -1,13 +1,1 @@
-1 \Users\boygioi15\Downloads\hello.graph
-1 \Users\boygioi15\Downloads\graph.graph
-0 \Users\thinh\OneDrive\Máy tính\test.graph
-0 C:\Users\pc\Downloads\ok123.graph
-1 \Users\boygioi15\Downloads\heel.graph
-0 C:\Users\thinh\OneDrive\Máy tính\text1.graph
-1 \Users\boygioi15\Downloads\test1.graph
-0 C:\Users\pc\Downloads\main.graph
-1 centFiles.txt
-1 \Users\boygioi15\Desktop\hi.graph
-0 \Users\thinh\OneDrive\Máy tính\test1.graph
-1 C:\Users\pc\Downloads\checkGraph.graph
-1 \Users\pc\Downloads\check.graph
+0 C:\Users\thinh\OneDrive\Máy tính\rư.graph

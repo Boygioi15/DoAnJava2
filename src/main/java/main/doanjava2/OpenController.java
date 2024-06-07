@@ -62,23 +62,39 @@ public class OpenController implements Initializable {
             }
         });
         openFromFileSystemButton.setOnMouseClicked(mouseEvent -> {
-            MainController.Open();
-            primaryStage.close();
+            Open();
         });
         searchTextField.textProperty().addListener((observable, oldValue, newValue) -> {
             searchRecent(newValue);
         });
     }
+    private void Open() {
+        //open fileChooser
+        FileChooser fileChooser = new FileChooser();
+        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Graph files", "*.graph");
+        fileChooser.getExtensionFilters().add(extFilter);
+        fileChooser.setTitle("Open File");
+        File file = fileChooser.showOpenDialog(null);
 
+        if (file != null) {
+            try {
+                MainController controller = CreateNewWindow();
+                controller.PrimitiveLoad(file);
+                primaryStage.close();
+            } catch (JAXBException | IOException e) {
+                PopDialog.popErrorDialog("Unable to load data", "");
+            }
+        }
+    }
     private void searchRecent(String key) {
         pinnedContainer.getChildren().clear();
         otherContainer.getChildren().clear();
 
         for (File file : recentFiles) {
             String fileName = file.getName().toLowerCase();
-            String filePath = file.getAbsolutePath().toLowerCase();
+            String filePath = file.getPath().toLowerCase();
             if (fileName.contains(key.toLowerCase()) || filePath.contains(key.toLowerCase())) {
-                boolean pinned = MainController.ReadRecentFiles().getOrDefault(file.getAbsolutePath(), false);
+                boolean pinned = MainController.ReadRecentFiles().getOrDefault(file.getPath(), false);
                 addRecentBlock(file, pinned);
             }
         }
@@ -109,12 +125,13 @@ public class OpenController implements Initializable {
     private void addRecentBlock(File file, boolean pinned) {
         RecentBlock recentBlock = new RecentBlock();
         recentBlock.setFileNameString(file.getName());
-        recentBlock.setFileLocationString(file.getAbsolutePath());
+        recentBlock.setFileLocationString(file.getPath());
         recentBlock.setPinButtonAction(event -> {
-                    MainController.editPinned(file.getAbsolutePath(), pinned);
+                    MainController.editPinned(file.getPath(), pinned);
                     refreshRecentBlocks();
                 },
                 pinned);
+        recentBlock.hidePinBtn();
         // Lấy thời gian sửa đổi lần cuối của tệp
         long lastModified = file.lastModified();
         Date lastModifiedDate = new Date(lastModified);
@@ -163,7 +180,7 @@ public class OpenController implements Initializable {
         switch (action) {
             case "open":
                 if (!file.exists()) {
-                    PopDialog.popErrorDialog("File not found", "The system cannot find the file specified: " + file.getAbsolutePath() +
+                    PopDialog.popErrorDialog("File not found", "The system cannot find the file specified: " + file.getPath() +
                             "\n\nDự án bạn chọn có thể không còn tồn tại. Bạn có thể xóa khỏi danh sách bằng cách click chuột phải vào dự án đó, chọn Delete.");
                     return;
                 }
@@ -171,13 +188,15 @@ public class OpenController implements Initializable {
                     MainController controller = CreateNewWindow();
                     controller.PrimitiveLoad(file);
                     primaryStage.close();
+
                 } catch (JAXBException | IOException e) {
                     PopDialog.popErrorDialog("Unable to load data", e.getMessage());
                 }
                 break;
+
             case "delete":
                 recentFiles.remove(file);
-                MainController.RemoveFileLocationFromRecentFiles(file.getAbsolutePath());
+                MainController.RemoveFileLocationFromRecentFiles(file.getPath());
                 refreshRecentBlocks();
                 break;
             default:
@@ -190,7 +209,7 @@ public class OpenController implements Initializable {
         otherContainer.getChildren().clear();
 
         for (File file : recentFiles) {
-            boolean pinned = MainController.ReadRecentFiles().getOrDefault(file.getAbsolutePath(), false);
+            boolean pinned = MainController.ReadRecentFiles().getOrDefault(file.getPath(), false);
             addRecentBlock(file, pinned);
         }
         titledPaneOther.setExpanded(true);
