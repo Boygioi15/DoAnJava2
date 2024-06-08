@@ -67,7 +67,7 @@ public class MainController implements Initializable {
             if(!isEventFromNode(event,topNavbar)){
                 filePanel.CloseFilePanel();
             }
-            setSelectedGraph(-1);
+            //setSelectedGraph(-1);
         });
         mainUIScreen.addEventFilter(MouseEvent.MOUSE_DRAGGED, event -> {
             //System.out.println(event.getSource().toString());
@@ -302,24 +302,33 @@ public class MainController implements Initializable {
     }
 
     static public void editPinned(String filePath, boolean pinned) {
-        Map<String, Boolean> fileMap = ReadRecentFiles();
-        if (fileMap.containsKey(filePath)) {
-            pinned = !pinned;
-            fileMap.put(filePath, pinned);
+        File file = new File(filePath);
 
-            clearRecentFilesContent();
-            try (FileWriter fw = new FileWriter(Main.RecentFilesPath, true);
-                 PrintWriter pw = new PrintWriter(fw)) {
-                for (Map.Entry<String, Boolean> entry : fileMap.entrySet()) {
-                    String line = entry.getValue() ? "1" : "0";
-                    line += " " + entry.getKey();
-                    pw.println(line);
+        // Kiểm tra sự tồn tại của tệp
+        if (!file.exists()) {
+            PopDialog.popErrorDialog("File not found", "The system cannot find the file specified: " + file.getPath() +
+                    "\n\nYou can remove the file by right-click and select delete");
+        }
+        else {
+            Map<String, Boolean> fileMap = ReadRecentFiles();
+            if (fileMap.containsKey(filePath)) {
+                pinned = !pinned;
+                fileMap.put(filePath, pinned);
+
+                clearRecentFilesContent();
+                try (FileWriter fw = new FileWriter(Main.RecentFilesPath, true);
+                     PrintWriter pw = new PrintWriter(fw)) {
+                    for (Map.Entry<String, Boolean> entry : fileMap.entrySet()) {
+                        String line = entry.getValue() ? "1" : "0";
+                        line += " " + entry.getKey();
+                        pw.println(line);
+                    }
+                } catch (IOException e) {
+                    PopDialog.popErrorDialog("Can't edit recent files", e.getMessage());
                 }
-            } catch (IOException e) {
-                PopDialog.popErrorDialog("Can't edit recent files", "");
+            } else {
+                PopDialog.popErrorDialog("File not found in recent files", "");
             }
-        } else {
-            PopDialog.popErrorDialog("File not found in recent files", "");
         }
     }
 
@@ -433,13 +442,12 @@ public class MainController implements Initializable {
         if (selectedGraph != -1) {
             graphData.get(selectedGraph).setSelected(false);
         }
+        selectedGraph = selection;
         if (selection != -1) {
-            selectedGraph = selection;
             graphData.get(selection).setSelected(true);
         }
+        graphList.updateSelectedGraphBlock(selection);
         System.out.println("Check selection" + selection);
-        //System.out.println("check length" + graphData.toArray().length);
-
     }
 
     public int getSelectedGraph() {

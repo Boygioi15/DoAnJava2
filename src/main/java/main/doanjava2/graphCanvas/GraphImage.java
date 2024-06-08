@@ -20,7 +20,7 @@ import main.doanjava2.MainController;
 
 
 class GraphImage_Params{
-	static double plottingSpaceOnScreen = 200;
+	static double plottingSpaceOnScreen = 1;
 	static int loopLimit = 15;
 	static int maxRecursion = 5;
 	static double angleThreshold = 20;//in degree
@@ -126,6 +126,10 @@ public class GraphImage {
 			}
 			catch (Exception e){
 				String message = e.getMessage();
+				if(message == null){
+					state = PointState.Undetermined;
+					return;
+				}
 				if(message.startsWith("Argument to")){
 					state = PointState.Undetermined;
 				}
@@ -164,7 +168,6 @@ public class GraphImage {
 		//System.out.println(canvas.getLayoutX()+","+canvas.getLayoutY());
 		//System.out.println(canvas.getWidth()+","+canvas.getHeight());
 				
-
 		String replacedExpression = mnr.handleReplaceExpressions(dataRef);
 		if(replacedExpression.isEmpty()){
 			return;
@@ -330,6 +333,8 @@ public class GraphImage {
 		}
 		gc.strokeLine(a.getOnScreenX(), a.getOnScreenY(),
 				b.getOnScreenX(), b.getOnScreenY());
+		selectionMatrix.PlotPoint(index,(int)a.getOnScreenX(),(int)a.getOnScreenY());
+		selectionMatrix.PlotPoint(index,(int)b.getOnScreenX(),(int)b.getOnScreenY());
 	}
 	private double getOnCanvasCoordinateX(double point) {
 		double dstX = point - settingRef.leftBoundary.get();

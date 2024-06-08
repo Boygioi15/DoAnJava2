@@ -7,6 +7,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Region;
@@ -78,17 +79,21 @@ public class RecentBlock extends AnchorPane {
     }
     public void setPinButtonAction(EventHandler eventHandler, boolean pin) {
         pinBtn.setOnAction(eventHandler);
-        if (pin){
-            pinBtn.setText("Unpin");
-        }
-        else{
-            pinBtn.setText("Pin");
+        if (pin) {
+            // Thay thế đường dẫn tới hình ảnh của bạn
+            Image unpinnedImage = new Image(getClass().getResource("/images/unpin.png").toExternalForm());
+            pinImg.setImage(unpinnedImage);
+        } else {
+            // Thay thế đường dẫn tới hình ảnh của bạn
+            Image pinnedImage = new Image(getClass().getResource("/images/pin.png").toExternalForm());
+            pinImg.setImage(pinnedImage);
         }
     }
+
     public void appearPinBtn(){
-        pinBtn.setManaged(true);
+        pinBtn.setVisible(true);
     }
     public void hidePinBtn(){
-        pinBtn.setManaged(false);
+        pinBtn.setVisible(false);
     }
 }

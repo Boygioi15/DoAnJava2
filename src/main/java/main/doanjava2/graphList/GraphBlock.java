@@ -160,7 +160,8 @@ public class GraphBlock extends HBox {
         expressionTextField.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.ENTER) {
                 handleTextProperties();
-
+                expressionTextField.positionCaret(expressionTextField.getText().length());
+                mnr.graphData.add(order.get()+1,new GraphData());
             }
         });
 
@@ -339,5 +340,10 @@ public class GraphBlock extends HBox {
         dataSource.addListener(Object -> {
             model.setWhole(dataSource);
         });
+    }
+
+    public void updateIndex(int index){
+        order.set(index);
+        orderLabel.setText(Integer.toString(index+1)+".");
     }
 }

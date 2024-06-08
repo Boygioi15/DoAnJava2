@@ -18,6 +18,7 @@ public class SelectionMatrix {
         backgroundCanvas = new Canvas();
     }
     public int GetNearbyGraphIndex(int mouseX, int mouseY) {
+
         // Kiểm tra nếu tọa độ chuột nằm trong giới hạn
         if (mouseX < 0 || mouseY < 0 || mouseX >= w || mouseY >= h) {
             return -1;

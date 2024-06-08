@@ -1,5 +1,6 @@
 package main.doanjava2.graphList;
 
+import javafx.application.Platform;
 import javafx.css.PseudoClass;
 import javafx.scene.Scene;
 import javafx.scene.control.MenuButton;
@@ -82,6 +83,38 @@ public class GraphList extends GridPane {
             }
             isOpen= !isOpen;
         });
+
+        Platform.runLater(() -> {
+            //dua event len goc
+            Scene scene = this.getScene();
+            if (scene != null) {
+                //them su kien chuot
+                scene.addEventFilter(MouseEvent.MOUSE_CLICKED, event -> {
+                    //lay node xuat phat
+                    Node target = (Node) event.getTarget();
+                    //dang chon & ko phai node minh dang select
+                    if (currentlySelectedTextField != null && !isDescendantOf(target,currentlySelectedTextField)) {
+                        updateSelectedGraphBlock(null);
+                        mnr.setSelectedGraph(-1);
+                        requestLosingFocus();
+                    }
+                });
+            }
+        });
+    }
+
+    public boolean isDescendantOf(Node descendant, Node ancestor) {
+        while (descendant != null) {
+            if (descendant == ancestor) {
+                return true;
+            }
+            else if(descendant == mnr.inputKeyboard)
+            {
+                return true;
+            }
+            descendant = descendant.getParent();
+        }
+        return false;
     }
 
     @FXML
@@ -103,24 +136,46 @@ public class GraphList extends GridPane {
                 updateSelectedGraphBlock(toAdd);
             }
         });
+
+
         graphListBox.getChildren().add(pos, toAdd);
-        
-        if(graphListBox.getChildren().size()>9){
+
+        Platform.runLater(() -> textField.requestFocus());
+
+        if(graphListBox.getChildren().size()>19){
             addNewBtn.setVisible(false);
         }
+        updateLabels();
     }
     PseudoClass graphBlockSelected = PseudoClass.getPseudoClass("selected");
     private void updateSelectedGraphBlock(GraphBlock selectedGraphBlock) {
         for (Node node : graphListBox.getChildren()) {
             node.pseudoClassStateChanged(graphBlockSelected, false);
         }
+        if(selectedGraphBlock==null){
+            return;
+        }
         selectedGraphBlock.pseudoClassStateChanged(graphBlockSelected, true);
+    }
+    public void updateSelectedGraphBlock(int index) {
+        for (Node node : graphListBox.getChildren()) {
+            node.pseudoClassStateChanged(graphBlockSelected, false);
+        }
+        if(index==-1){
+            return;
+        }
+        GraphBlock selected = (GraphBlock) graphListBox.getChildren().get(index);
+        selected.pseudoClassStateChanged(graphBlockSelected, true);
     }
     public void removeGraphBlock(int pos) {
     	graphListBox.getChildren().remove(pos);
-        if(graphListBox.getChildren().size()<10){
-           // addNewBtn.setVisible(false);
+        if(graphListBox.getChildren().size()<20){
+           addNewBtn.setVisible(true);
         }
+        updateSelectedGraphBlock(null);
+        mnr.setSelectedGraph(-1);
+        requestLosingFocus();
+        updateLabels();
     }
     public void insertContentIntoSelectingBlock(String content) {
     	if(currentlySelectedTextField!=null) {
@@ -173,9 +228,9 @@ public class GraphList extends GridPane {
     }
     private void updateLabels() {
         for (int i = 0; i < graphListBox.getChildren().size(); i++) {
-            HBox hbox = (HBox) graphListBox.getChildren().get(i);
-            Label label = (Label) hbox.getChildren().get(0);
-            label.setText((i + 1) + ".");
+            if(graphListBox.getChildren().get(i) instanceof GraphBlock temp){
+                temp.updateIndex(i);
+            }
         }
     }
     public int getSizeOfBox(){

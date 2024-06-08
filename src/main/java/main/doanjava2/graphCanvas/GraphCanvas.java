@@ -6,9 +6,6 @@ import java.util.ArrayList;
 
 import javafx.collections.ListChangeListener;
 import javafx.css.PseudoClass;
-import javafx.event.ActionEvent;
-import javafx.event.Event;
-import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
@@ -41,6 +38,7 @@ public class GraphCanvas extends AnchorPane{
 		initInside();       
 		initBinding();
 		initViewOrder();
+		initPopUp();
 		graphImages = new ArrayList<GraphImage>();
 
 		// Thiết lập thuộc tính cho selectedCircle
@@ -63,12 +61,27 @@ public class GraphCanvas extends AnchorPane{
 
 	private Popup popUp = new Popup();
 	private Pane content = new Pane();
-
+	Label popUpLabel = new Label();
 	private void initEvent(){
 		this.setOnMousePressed(ob-> {
 			notifyMousePressed(ob);
 
 			mnr.setSelectedGraph(selectionMatrix.GetNearbyGraphIndex((int) ob.getX(), (int) ob.getY()));
+			if (mnr.getSelectedGraph() != -1) {
+				Pair<Integer, Integer> point = selectionMatrix.GetClosePoint(mnr.getSelectedGraph(), (int) ob.getX(), (int) ob.getY());
+				if (point != null) {
+					// Cập nhật vị trí của selectedCircle
+					selectedCircle.setCenterX(point.getKey());
+					selectedCircle.setCenterY(point.getValue());
+					outerCircle.setCenterX(point.getKey());
+					outerCircle.setCenterY(point.getValue());
+					// Hiển thị selectedCircle
+					selectedCircle.setVisible(true);
+					outerCircle.setVisible(true);
+					showPopUp(point.getKey(), point.getValue());
+				}
+			}
+			System.out.println("Graph: " +selectionMatrix.GetNearbyGraphIndex((int) ob.getX(), (int) ob.getY()));
 		});
 		this.setOnMouseDragged(ob -> {
 			if (mnr.getSelectedGraph() != -1) {
@@ -157,26 +170,29 @@ public class GraphCanvas extends AnchorPane{
 
 		});
 	}
-	public void showPopUp(Integer x, Integer y) {
-		// Xóa nội dung cũ và tạo nội dung mới
-		content.getChildren().clear();
+	private void initPopUp(){
+		content.setPrefWidth(120);
+		content.setMinWidth(120);
+		// Tạo label và thiết lập kiểu chữ, font size, shadow
+		popUpLabel.setFont(Font.font("Arial", 18)); // Tăng kích thước chữ lên 18
+		popUpLabel.setPadding(new Insets(10));
 
+		popUpLabel.setStyle("-fx-background-color: white; -fx-background-radius: 3; " +
+				"-fx-effect: dropshadow(gaussian, gray, 5, 0, 1, 1);" +
+				"-fx-border-color: gray; -fx-border-width: 1.2;-fx-border-radius: 3;" +
+				"-fx-font-weight: normal;");
+		content.getChildren().add(popUpLabel);
+	}
+	private void setPopUpText(int x, int y){
 		// Format tọa độ x và y với hai chữ số thập phân
 		DecimalFormat df = new DecimalFormat("#.###");
 		String formattedX = df.format(getOnScreenCoordinateX(x));
 		String formattedY = df.format(getOnScreenCoordinateY(y));
-
-		// Tạo label và thiết lập kiểu chữ, font size, shadow
-		Label label = new Label("(" + formattedX + ", " + formattedY + ")");
-		label.setFont(Font.font("Arial", 18)); // Tăng kích thước chữ lên 18
-		label.setPadding(new Insets(10));
-
-		label.setStyle("-fx-background-color: white; -fx-background-radius: 3; " +
-				"-fx-effect: dropshadow(gaussian, gray, 5, 0, 1, 1);" +
-				"-fx-border-color: gray; -fx-border-width: 1.2;-fx-border-radius: 3;" +
-				"-fx-font-weight: normal;");
-
-		content.getChildren().add(label);
+		popUpLabel.setText("(" + formattedX + ", " + formattedY + ")");
+	}
+	public void showPopUp(Integer x, Integer y) {
+		// Xóa nội dung cũ và tạo nội dung mới
+		setPopUpText(x,y);
 
 		// Thiết lập nội dung cho PopOver
 		popUp.getContent().clear();
@@ -184,9 +200,9 @@ public class GraphCanvas extends AnchorPane{
 
 		if(mnr.graphList.isOpen()) {
 			// Hiển thị PopUp
-			popUp.show(this.getScene().getWindow(), x + mnr.graphList.getWidth() - popUp.getWidth(), y + mnr.topNavbar.getHeight()-popUp.getHeight()+10);
+			popUp.show(this.getScene().getWindow(), x + mnr.graphList.getWidth() - popUp.getWidth(), y + mnr.topNavbar.getHeight()-popUp.getHeight()+20);
 		} else {
-			popUp.show(this.getScene().getWindow(), x- popUp.getWidth(), y + mnr.topNavbar.getHeight() - popUp.getHeight()+10);
+			popUp.show(this.getScene().getWindow(), x- popUp.getWidth(), y + mnr.topNavbar.getHeight() - popUp.getHeight()+20);
 		}
 	}
 	private double getOnScreenCoordinateX(Integer point) {
