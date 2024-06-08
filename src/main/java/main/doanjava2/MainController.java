@@ -162,6 +162,7 @@ public class MainController implements Initializable {
                     }
                     marshaller.marshal(saveObject, file);
                     currentFile = file;
+                    filePanel.saveAsButton.setText("Save a new copy");
 
                     topNavbar.UpdateFileName(FilenameUtils.getBaseName(currentFile.getName()));
                     isChanged.setValue(false);
@@ -182,6 +183,7 @@ public class MainController implements Initializable {
                 }
                 marshaller.marshal(saveObject, file);
                 currentFile = file;
+                filePanel.saveAsButton.setText("Save a new copy");
 
                 topNavbar.UpdateFileName(FilenameUtils.getBaseName(currentFile.getName()));
                 //PopDialog.popSuccessDialog("Save file successfully");
@@ -216,6 +218,7 @@ public class MainController implements Initializable {
             }
             marshaller.marshal(saveObject, file);
             currentFile = file;
+            filePanel.saveAsButton.setText("Save a new copy");
 
             topNavbar.UpdateFileName(FilenameUtils.getBaseName(currentFile.getName()));
             isChanged.setValue(false);
@@ -260,6 +263,7 @@ public class MainController implements Initializable {
                 //System.out.println(graphData.size());
                 graphCanvas.setSetting(saveObject.getSetting());
                 currentFile = file;
+                filePanel.saveAsButton.setText("Save a new copy");
 
                 topNavbar.UpdateFileName(FilenameUtils.removeExtension(currentFile.getName()));
                 isChanged.setValue(false);

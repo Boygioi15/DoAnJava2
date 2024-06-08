@@ -114,9 +114,8 @@ public class GraphImage {
 			}
 
 			catch (Expression.ExpressionException e){
-
 				String message = e.getMessage();
-				if(message.startsWith("Argument to")){
+				if(message.startsWith("Argument to")||message.startsWith("Infinite ")){
 					state = PointState.Undetermined;
 				}
 				else {
@@ -178,13 +177,6 @@ public class GraphImage {
 		double preX = currentX-plottingSpace/2;
 			
 		Expression expression = new Expression(replacedExpression);
-		expression.addFunction(expression.new Function("sin", 1) {
-			@Override
-			public BigDecimal eval(List<BigDecimal> parameters) {
-				BigDecimal result = BigDecimalMath.sin(parameters.get(0), MathContext.DECIMAL32);
-				return result;
-			}
-		});	
 		expression.addFunction(expression.new Function("sin", 1) {
 			@Override
 			public BigDecimal eval(List<BigDecimal> parameters) {

@@ -33,7 +33,7 @@ public class FilePanel extends AnchorPane {
     @FXML Button newButton;
     @FXML Button openButton;
     @FXML Button saveButton;
-    @FXML Button saveAsButton;
+    public @FXML Button saveAsButton;
     public FilePanel() {
         loadFXML();
         initAction();

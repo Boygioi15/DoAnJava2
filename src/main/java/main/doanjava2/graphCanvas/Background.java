@@ -47,7 +47,7 @@ public class Background {
             BackgroundParams.axisNumber_OffScreenColor = Color.LIGHTGRAY;
         }else{
             currentBackgroundColor = BackgroundParams.lightTheme;
-            BackgroundParams.majorGridColor = Color.BLACK;
+            BackgroundParams.majorGridColor =  Color.rgb(150, 150, 150);
             BackgroundParams.minorGridColor = Color.GAINSBORO;
             BackgroundParams.axisColor = Color.BLACK;
             BackgroundParams.axisNumber_OnScreenColor = Color.BLACK;
