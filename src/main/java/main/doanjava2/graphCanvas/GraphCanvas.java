@@ -213,9 +213,9 @@ public class GraphCanvas extends AnchorPane{
 
 		if(mnr.graphList.isOpen()) {
 			// Hiển thị PopUp
-			popUp.show(this.getScene().getWindow(), x + mnr.graphList.getWidth() - popUp.getWidth(), y + mnr.topNavbar.getHeight()-popUp.getHeight()+20);
+			popUp.show(this.getScene().getWindow(), x + mnr.graphList.getWidth() - popUp.getWidth()+this.getScene().getWindow().getX(), y + mnr.topNavbar.getHeight()-popUp.getHeight()+20+this.getScene().getWindow().getY());
 		} else {
-			popUp.show(this.getScene().getWindow(), x- popUp.getWidth(), y + mnr.topNavbar.getHeight() - popUp.getHeight()+20);
+			popUp.show(this.getScene().getWindow(), x- popUp.getWidth()+this.getScene().getWindow().getX(), y + mnr.topNavbar.getHeight() - popUp.getHeight()+20+this.getScene().getWindow().getY());
 		}
 	}
 	private double getOnScreenCoordinateX(Integer point) {

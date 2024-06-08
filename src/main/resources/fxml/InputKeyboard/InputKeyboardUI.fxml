@@ -316,7 +316,7 @@
                         </ImageView>
                      </graphic>
 						</Button>
-						<Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="150.0" text="Enter" GridPane.columnSpan="2" GridPane.rowIndex="3">
+						<Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMousePressed="#enter" prefWidth="150.0" text="Enter" GridPane.columnSpan="2" GridPane.rowIndex="3">
 							<styleClass>
 								<String fx:value="normal-button" />
 								<String fx:value="function-button" />
@@ -590,7 +590,7 @@
 								<String fx:value="letter-button" />
 							</styleClass>
 						</Button>
-						<Button mnemonicParsing="false" prefWidth="110.0" text="Enter">
+						<Button mnemonicParsing="false" onMousePressed="#enter" prefWidth="110.0" text="Enter">
 							<HBox.margin>
 								<Insets />
 							</HBox.margin>
@@ -871,7 +871,7 @@
 								<String fx:value="letter-button" />
 							</styleClass>
 						</Button>
-						<Button mnemonicParsing="false" prefWidth="110.0" text="Enter">
+						<Button mnemonicParsing="false" onMousePressed="#enter" prefWidth="110.0" text="Enter">
 							<styleClass>
 								<String fx:value="normal-button" />
 								<String fx:value="function-button" />
