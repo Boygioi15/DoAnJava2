@@ -8,206 +8,227 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<ScrollPane maxHeight="-Infinity" maxWidth=" -Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="306.0" stylesheets="@../../css/InputKeyboard/background.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" >
-   <content>
-      <VBox maxHeight="-Infinity" prefHeight="358.0" prefWidth="267.0" stylesheets="@../../css/InputKeyboard/button.css">
-         <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="HÀM LƯỢNG GIÁC">
-               <VBox.margin>
-                  <Insets left="20.0" top="10.0" />
-               </VBox.margin>
-            </Text>
-            <VBox prefHeight="102.0" prefWidth="448.0">
-               <children>
-                  <HBox prefHeight="41.0" prefWidth="245.0" spacing="15.0">
-                     <children>
-                        <Button mnemonicParsing="false" onMousePressed="#insertSpecialButtonPressing" text="sin">
-                           <styleClass>
-                              <String fx:value="normal-button" />
-                              <String fx:value="math-button" />
-                           </styleClass>
-                           <HBox.margin>
-                              <Insets left="15.0" />
-                           </HBox.margin>
-                        </Button>
-                        <Button mnemonicParsing="false" onMousePressed="#insertSpecialButtonPressing" text="cos">
-                           <styleClass>
-                              <String fx:value="normal-button" />
-                              <String fx:value="math-button" />
-                           </styleClass>
-                        </Button>
-                        <Button mnemonicParsing="false" onMousePressed="#insertSpecialButtonPressing" text="tan">
-                           <styleClass>
-                              <String fx:value="normal-button" />
-                              <String fx:value="math-button" />
-                           </styleClass>
-                        </Button>
-                     </children>
-                     <VBox.margin>
-                        <Insets left="5.0" top="10.0" />
-                     </VBox.margin>
-                  </HBox>
-                  <HBox prefHeight="41.0" prefWidth="245.0" spacing="15.0">
-                     <children>
-                        <Button mnemonicParsing="false" onMousePressed="#insertSpecialButtonPressing" text="csc">
-                           <styleClass>
-                              <String fx:value="normal-button" />
-                              <String fx:value="math-button" />
-                           </styleClass>
-                           <HBox.margin>
-                              <Insets left="15.0" />
-                           </HBox.margin>
-                        </Button>
-                        <Button mnemonicParsing="false" onMousePressed="#insertSpecialButtonPressing" text="sec">
-                           <styleClass>
-                              <String fx:value="normal-button" />
-                              <String fx:value="math-button" />
-                           </styleClass>
-                        </Button>
-                        <Button mnemonicParsing="false" onMousePressed="#insertSpecialButtonPressing" text="cot">
-                           <styleClass>
-                              <String fx:value="normal-button" />
-                              <String fx:value="math-button" />
-                           </styleClass>
-                        </Button>
-                     </children>
-                     <VBox.margin>
-                        <Insets left="5.0" />
-                     </VBox.margin>
-                  </HBox>
-               </children>
-            </VBox>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="HÀM LƯỢNG GIÁC NGHỊCH ĐẢO">
-               <VBox.margin>
-                  <Insets left="20.0" top="10.0" />
-               </VBox.margin>
-            </Text>
-            <VBox prefHeight="102.0" prefWidth="448.0">
-               <children>
-                  <HBox prefHeight="41.0" prefWidth="245.0" spacing="15.0">
-                     <children>
-                        <Button mnemonicParsing="false" onMousePressed="#insertSpecialButtonPressing" text="asin">
-                           <styleClass>
-                              <String fx:value="normal-button" />
-                              <String fx:value="math-button" />
-                           </styleClass>
-                           <HBox.margin>
-                              <Insets left="15.0" />
-                           </HBox.margin>
-                        </Button>
-                        <Button mnemonicParsing="false" onMousePressed="#insertSpecialButtonPressing" text="acos">
-                           <styleClass>
-                              <String fx:value="normal-button" />
-                              <String fx:value="math-button" />
-                           </styleClass>
-                        </Button>
-                        <Button mnemonicParsing="false" onMousePressed="#insertSpecialButtonPressing" text="atan">
-                           <styleClass>
-                              <String fx:value="normal-button" />
-                              <String fx:value="math-button" />
-                           </styleClass>
-                        </Button>
-                     </children>
-                     <VBox.margin>
-                        <Insets left="5.0" top="10.0" />
-                     </VBox.margin>
-                  </HBox>
-                  <HBox prefHeight="41.0" prefWidth="245.0" spacing="15.0">
-                     <children>
-                        <Button mnemonicParsing="false" onMousePressed="#insertSpecialButtonPressing" text="acsc">
-                           <styleClass>
-                              <String fx:value="normal-button" />
-                              <String fx:value="math-button" />
-                           </styleClass>
-                           <HBox.margin>
-                              <Insets left="15.0" />
-                           </HBox.margin>
-                        </Button>
-                        <Button mnemonicParsing="false" onMousePressed="#insertSpecialButtonPressing" text="asec">
-                           <styleClass>
-                              <String fx:value="normal-button" />
-                              <String fx:value="math-button" />
-                           </styleClass>
-                        </Button>
-                        <Button mnemonicParsing="false" onMousePressed="#insertSpecialButtonPressing" text="acot">
-                           <styleClass>
-                              <String fx:value="normal-button" />
-                              <String fx:value="math-button" />
-                           </styleClass>
-                        </Button>
-                     </children>
-                     <VBox.margin>
-                        <Insets left="5.0" />
-                     </VBox.margin>
-                  </HBox>
-               </children>
-            </VBox>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="HÀM LƯỢNG GIÁC HYPERBOLIC">
-               <VBox.margin>
-                  <Insets left="20.0" top="10.0" />
-               </VBox.margin>
-            </Text>
-            <VBox prefHeight="102.0" prefWidth="448.0">
-               <children>
-                  <HBox prefHeight="41.0" prefWidth="245.0" spacing="15.0">
-                     <children>
-                        <Button mnemonicParsing="false" onMousePressed="#insertSpecialButtonPressing" text="sinh">
-                           <styleClass>
-                              <String fx:value="normal-button" />
-                              <String fx:value="math-button" />
-                           </styleClass>
-                           <HBox.margin>
-                              <Insets left="15.0" />
-                           </HBox.margin>
-                        </Button>
-                        <Button mnemonicParsing="false" onMousePressed="#insertSpecialButtonPressing" text="cosh">
-                           <styleClass>
-                              <String fx:value="normal-button" />
-                              <String fx:value="math-button" />
-                           </styleClass>
-                        </Button>
-                        <Button mnemonicParsing="false" onMousePressed="#insertSpecialButtonPressing" text="tanh">
-                           <styleClass>
-                              <String fx:value="normal-button" />
-                              <String fx:value="math-button" />
-                           </styleClass>
-                        </Button>
-                     </children>
-                     <VBox.margin>
-                        <Insets left="5.0" top="10.0" />
-                     </VBox.margin>
-                  </HBox>
-                  <HBox prefHeight="41.0" prefWidth="245.0" spacing="15.0">
-                     <children>
-                        <Button mnemonicParsing="false" onMousePressed="#insertSpecialButtonPressing" text="csch">
-                           <styleClass>
-                              <String fx:value="normal-button" />
-                              <String fx:value="math-button" />
-                           </styleClass>
-                           <HBox.margin>
-                              <Insets left="15.0" />
-                           </HBox.margin>
-                        </Button>
-                        <Button mnemonicParsing="false" onMousePressed="#insertSpecialButtonPressing" text="sech">
-                           <styleClass>
-                              <String fx:value="normal-button" />
-                              <String fx:value="math-button" />
-                           </styleClass>
-                        </Button>
-                        <Button mnemonicParsing="false" onMousePressed="#insertSpecialButtonPressing" text="coth">
-                           <styleClass>
-                              <String fx:value="normal-button" />
-                              <String fx:value="math-button" />
-                           </styleClass>
-                        </Button>
-                     </children>
-                     <VBox.margin>
-                        <Insets left="5.0" />
-                     </VBox.margin>
-                  </HBox>
-               </children>
-            </VBox>
-         </children>
-      </VBox>
-   </content>
+<ScrollPane maxHeight="-Infinity" maxWidth=" -Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0"
+            prefWidth="306.0" stylesheets="@../../css/DarkTheme/InputKeyboard/functionUI.css" styleClass="scroll-pane"
+            xmlns:fx="http://javafx.com/fxml/1">
+    <content>
+        <VBox maxHeight="-Infinity" prefHeight="358.0" prefWidth="267.0"
+            >
+            <children>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="HÀM LƯỢNG GIÁC" styleClass="text">
+                    <VBox.margin>
+                        <Insets left="20.0" top="10.0"/>
+                    </VBox.margin>
+                </Text>
+                <VBox prefHeight="102.0" prefWidth="448.0">
+                    <children>
+                        <HBox prefHeight="41.0" prefWidth="245.0" spacing="15.0">
+                            <children>
+                                <Button mnemonicParsing="false" onMousePressed="#insertSpecialButtonPressing"
+                                        text="sin">
+                                    <styleClass>
+                                        <String fx:value="normal-button"/>
+                                        <String fx:value="math-button"/>
+                                    </styleClass>
+                                    <HBox.margin>
+                                        <Insets left="15.0"/>
+                                    </HBox.margin>
+                                </Button>
+                                <Button mnemonicParsing="false" onMousePressed="#insertSpecialButtonPressing"
+                                        text="cos">
+                                    <styleClass>
+                                        <String fx:value="normal-button"/>
+                                        <String fx:value="math-button"/>
+                                    </styleClass>
+                                </Button>
+                                <Button mnemonicParsing="false" onMousePressed="#insertSpecialButtonPressing"
+                                        text="tan">
+                                    <styleClass>
+                                        <String fx:value="normal-button"/>
+                                        <String fx:value="math-button"/>
+                                    </styleClass>
+                                </Button>
+                            </children>
+                            <VBox.margin>
+                                <Insets left="5.0" top="10.0"/>
+                            </VBox.margin>
+                        </HBox>
+                        <HBox prefHeight="41.0" prefWidth="245.0" spacing="15.0">
+                            <children>
+                                <Button mnemonicParsing="false" onMousePressed="#insertSpecialButtonPressing"
+                                        text="csc">
+                                    <styleClass>
+                                        <String fx:value="normal-button"/>
+                                        <String fx:value="math-button"/>
+                                    </styleClass>
+                                    <HBox.margin>
+                                        <Insets left="15.0"/>
+                                    </HBox.margin>
+                                </Button>
+                                <Button mnemonicParsing="false" onMousePressed="#insertSpecialButtonPressing"
+                                        text="sec">
+                                    <styleClass>
+                                        <String fx:value="normal-button"/>
+                                        <String fx:value="math-button"/>
+                                    </styleClass>
+                                </Button>
+                                <Button mnemonicParsing="false" onMousePressed="#insertSpecialButtonPressing"
+                                        text="cot">
+                                    <styleClass>
+                                        <String fx:value="normal-button"/>
+                                        <String fx:value="math-button"/>
+                                    </styleClass>
+                                </Button>
+                            </children>
+                            <VBox.margin>
+                                <Insets left="5.0"/>
+                            </VBox.margin>
+                        </HBox>
+                    </children>
+                </VBox>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="HÀM LƯỢNG GIÁC NGHỊCH ĐẢO" styleClass="text">
+                    <VBox.margin>
+                        <Insets left="20.0" top="10.0"/>
+                    </VBox.margin>
+                </Text>
+                <VBox prefHeight="102.0" prefWidth="448.0">
+                    <children>
+                        <HBox prefHeight="41.0" prefWidth="245.0" spacing="15.0">
+                            <children>
+                                <Button mnemonicParsing="false" onMousePressed="#insertSpecialButtonPressing"
+                                        text="asin">
+                                    <styleClass>
+                                        <String fx:value="normal-button"/>
+                                        <String fx:value="math-button"/>
+                                    </styleClass>
+                                    <HBox.margin>
+                                        <Insets left="15.0"/>
+                                    </HBox.margin>
+                                </Button>
+                                <Button mnemonicParsing="false" onMousePressed="#insertSpecialButtonPressing"
+                                        text="acos">
+                                    <styleClass>
+                                        <String fx:value="normal-button"/>
+                                        <String fx:value="math-button"/>
+                                    </styleClass>
+                                </Button>
+                                <Button mnemonicParsing="false" onMousePressed="#insertSpecialButtonPressing"
+                                        text="atan">
+                                    <styleClass>
+                                        <String fx:value="normal-button"/>
+                                        <String fx:value="math-button"/>
+                                    </styleClass>
+                                </Button>
+                            </children>
+                            <VBox.margin>
+                                <Insets left="5.0" top="10.0"/>
+                            </VBox.margin>
+                        </HBox>
+                        <HBox prefHeight="41.0" prefWidth="245.0" spacing="15.0">
+                            <children>
+                                <Button mnemonicParsing="false" onMousePressed="#insertSpecialButtonPressing"
+                                        text="acsc">
+                                    <styleClass>
+                                        <String fx:value="normal-button"/>
+                                        <String fx:value="math-button"/>
+                                    </styleClass>
+                                    <HBox.margin>
+                                        <Insets left="15.0"/>
+                                    </HBox.margin>
+                                </Button>
+                                <Button mnemonicParsing="false" onMousePressed="#insertSpecialButtonPressing"
+                                        text="asec">
+                                    <styleClass>
+                                        <String fx:value="normal-button"/>
+                                        <String fx:value="math-button"/>
+                                    </styleClass>
+                                </Button>
+                                <Button mnemonicParsing="false" onMousePressed="#insertSpecialButtonPressing"
+                                        text="acot">
+                                    <styleClass>
+                                        <String fx:value="normal-button"/>
+                                        <String fx:value="math-button"/>
+                                    </styleClass>
+                                </Button>
+                            </children>
+                            <VBox.margin>
+                                <Insets left="5.0"/>
+                            </VBox.margin>
+                        </HBox>
+                    </children>
+                </VBox>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="HÀM LƯỢNG GIÁC HYPERBOLIC" styleClass="text">
+                    <VBox.margin>
+                        <Insets left="20.0" top="10.0"/>
+                    </VBox.margin>
+                </Text>
+                <VBox prefHeight="102.0" prefWidth="448.0">
+                    <children>
+                        <HBox prefHeight="41.0" prefWidth="245.0" spacing="15.0">
+                            <children>
+                                <Button mnemonicParsing="false" onMousePressed="#insertSpecialButtonPressing"
+                                        text="sinh">
+                                    <styleClass>
+                                        <String fx:value="normal-button"/>
+                                        <String fx:value="math-button"/>
+                                    </styleClass>
+                                    <HBox.margin>
+                                        <Insets left="15.0"/>
+                                    </HBox.margin>
+                                </Button>
+                                <Button mnemonicParsing="false" onMousePressed="#insertSpecialButtonPressing"
+                                        text="cosh">
+                                    <styleClass>
+                                        <String fx:value="normal-button"/>
+                                        <String fx:value="math-button"/>
+                                    </styleClass>
+                                </Button>
+                                <Button mnemonicParsing="false" onMousePressed="#insertSpecialButtonPressing"
+                                        text="tanh">
+                                    <styleClass>
+                                        <String fx:value="normal-button"/>
+                                        <String fx:value="math-button"/>
+                                    </styleClass>
+                                </Button>
+                            </children>
+                            <VBox.margin>
+                                <Insets left="5.0" top="10.0"/>
+                            </VBox.margin>
+                        </HBox>
+                        <HBox prefHeight="41.0" prefWidth="245.0" spacing="15.0">
+                            <children>
+                                <Button mnemonicParsing="false" onMousePressed="#insertSpecialButtonPressing"
+                                        text="csch">
+                                    <styleClass>
+                                        <String fx:value="normal-button"/>
+                                        <String fx:value="math-button"/>
+                                    </styleClass>
+                                    <HBox.margin>
+                                        <Insets left="15.0"/>
+                                    </HBox.margin>
+                                </Button>
+                                <Button mnemonicParsing="false" onMousePressed="#insertSpecialButtonPressing"
+                                        text="sech">
+                                    <styleClass>
+                                        <String fx:value="normal-button"/>
+                                        <String fx:value="math-button"/>
+                                    </styleClass>
+                                </Button>
+                                <Button mnemonicParsing="false" onMousePressed="#insertSpecialButtonPressing"
+                                        text="coth">
+                                    <styleClass>
+                                        <String fx:value="normal-button"/>
+                                        <String fx:value="math-button"/>
+                                    </styleClass>
+                                </Button>
+                            </children>
+                            <VBox.margin>
+                                <Insets left="5.0"/>
+                            </VBox.margin>
+                        </HBox>
+                    </children>
+                </VBox>
+            </children>
+        </VBox>
+    </content>
 </ScrollPane>

@@ -2,6 +2,7 @@ package main.doanjava2.inputKeyboard;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Objects;
 
 import main.doanjava2.graphList.ControlCode;
 import main.doanjava2.MainController;
@@ -24,7 +25,7 @@ import javafx.util.Duration;
 public class InputKeyboard extends AnchorPane {
 	MainController mnr;
 	boolean isClosed = false;
-
+	public boolean isLightTheme=true;
 	private @FXML Button closeButton;
 
 	public InputKeyboard() {
@@ -198,7 +199,9 @@ public class InputKeyboard extends AnchorPane {
 	private PopOver popover = new PopOver();
 
 	private void initFunction() {
+
 	    functionBtn.setOnAction(event -> {
+
 	        if (popover.isShowing()) {
 	            popover.hide();
 	        } else {
@@ -217,7 +220,7 @@ public class InputKeyboard extends AnchorPane {
 	                // Không cho phép PopOver bị rời đi
 	                popover.setDetachable(false);
 	                popover.setDetached(false);
-
+					setTheme(isLightTheme);
 	                // Hiển thị PopOver
 	                popover.show(functionBtn);
 	            }
@@ -227,7 +230,21 @@ public class InputKeyboard extends AnchorPane {
 	        }
 	    });
 	}
+	public void setTheme(boolean isThemeLight) {
+		String cssPath = isThemeLight ? "/css/LightTheme/InputKeyboard/functionUI.css" : "/css/DarkTheme/InputKeyboard/functionUI.css";
+		String css = Objects.requireNonNull(getClass().getResource(cssPath)).toExternalForm();
 
+		if (popover.getContentNode() instanceof Parent) {
+			Parent content = (Parent) popover.getContentNode();
+			content.getStylesheets().clear();
+			content.getStylesheets().add(css);
+
+			// Force reapply the styles to ensure the changes take effect
+			content.applyCss();
+			content.layout();
+		}
+
+	}
 	// ultilities functions
 	public static ArrayList<Node> getAllChildrenNodes(Parent root) {
 		ArrayList<Node> nodes = new ArrayList<Node>();
