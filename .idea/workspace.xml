@@ -5,18 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7c0c8e8f-6c6a-46f7-8269-c472333fba20" name="Changes" comment="finish welcome-screen">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/css/DarkTheme/InputKeyboard/backspace.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/css/DarkTheme/InputKeyboard/left.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/css/DarkTheme/InputKeyboard/right.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/css/LightTheme/InputKeyboard/backspace.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/css/LightTheme/InputKeyboard/left.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/css/LightTheme/InputKeyboard/right.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/doanjava2/graphList/GraphList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/doanjava2/graphList/GraphList.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/css/DarkTheme/InputKeyboard/button.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/DarkTheme/InputKeyboard/button.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/css/LightTheme/InputKeyboard/button.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/LightTheme/InputKeyboard/button.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/FilePanel/FilePanelUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/FilePanel/FilePanelUI.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/InputKeyboard/InputKeyboardUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/InputKeyboard/InputKeyboardUI.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,17 +59,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.HelloApplication.executor": "Run",
-    "Application.Main.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Merge-branch",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/pc/Desktop/Hoàng Gia Phong-22521084/Hoàng Gia Phong-22521084/DoAnJava2/src/main/resources/css/LightTheme/InputKeyboard",
-    "run.code.analysis.last.selected.profile": "pProject Default"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Merge-branch&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/pc/Desktop/Hoàng Gia Phong-22521084/Hoàng Gia Phong-22521084/DoAnJava2/src/main/resources/css/LightTheme/InputKeyboard&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\pc\Desktop\Hoàng Gia Phong-22521084\Hoàng Gia Phong-22521084\DoAnJava2\src\main\resources\css\LightTheme\InputKeyboard" />

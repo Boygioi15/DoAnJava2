@@ -72,7 +72,7 @@
 
 .keyboard-button{
   -fx-background-image: url('keyboard.png');
-  -fx-background-size: 24px;
+  -fx-background-size: 48px;
   -fx-background-position: center;
   -fx-background-repeat: no-repeat;
 }

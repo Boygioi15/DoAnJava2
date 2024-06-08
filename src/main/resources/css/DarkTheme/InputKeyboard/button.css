@@ -19,7 +19,7 @@
 .important-button {
     -fx-background-color: #1E88E5;
     -fx-font-weight: bold;
-    -fx-text-fill: lightgray;
+    -fx-text-fill: white;
 }
 
 .important-button:hover {
