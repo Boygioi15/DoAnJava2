@@ -172,16 +172,6 @@ public class InputKeyboard extends AnchorPane {
 		mnr.forwardControlRequest(ControlCode.MoveCaretRight);
 	}
 
-	@FXML
-	private void insertAbsButtonPressing(MouseEvent event) {
-		Button button = (Button) event.getSource();
-		String buttonText = button.getText();
-		mnr.forwardInputRequest(buttonText);
-
-		mnr.forwardControlRequest(ControlCode.MoveCaretLeft);
-		mnr.forwardControlRequest(ControlCode.Delete);
-	}
-
 	// control buttons
 	private @FXML Button insert_squarePower;
 	private @FXML Button insert_genericPower;
