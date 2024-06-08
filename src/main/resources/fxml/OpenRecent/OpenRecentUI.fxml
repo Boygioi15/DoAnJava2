@@ -85,7 +85,7 @@
                               </ImageView>
                                       <VBox alignment="CENTER_LEFT" spacing="5.0">
                                           <children>
-                                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Create new" />
+                                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Create new" styleClass="body-text-header" />
                                               <Text fill="#515151" strokeType="OUTSIDE" strokeWidth="0.0" text="Create new, empty graph file" />
                                           </children>
                                       </VBox>
