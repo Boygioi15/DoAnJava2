@@ -62,8 +62,10 @@ public class GraphCanvas extends AnchorPane{
 	private Popup popUp = new Popup();
 	private Pane content = new Pane();
 	Label popUpLabel = new Label();
+	private boolean isMousePressed = false;
 	private void initEvent(){
 		this.setOnMousePressed(ob-> {
+			isMousePressed = true;
 			notifyMousePressed(ob);
 
 			mnr.setSelectedGraph(selectionMatrix.GetNearbyGraphIndex((int) ob.getX(), (int) ob.getY()));
@@ -106,12 +108,17 @@ public class GraphCanvas extends AnchorPane{
 		});
 		this.setOnMouseReleased(ob -> {
 			// Ẩn dialog khi thả chuột
+			isMousePressed = false;
 			popUp.hide();
 			selectedCircle.setVisible(false);
 			outerCircle.setVisible(false);
 		});
 		this.setOnScroll(ob ->{
-			zoomCanvas(ob);
+			if (isMousePressed) {
+				System.out.println("Scroll while mouse is pressed");
+			} else {
+				zoomCanvas(ob);
+			}
 		});
 
 		darkThemeButton.setOnMouseClicked(mouseEvent -> {
