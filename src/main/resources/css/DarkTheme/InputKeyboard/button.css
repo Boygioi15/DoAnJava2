@@ -91,3 +91,21 @@
   -fx-background-position: center;
   -fx-background-repeat: no-repeat;
 }
+.left-button{
+  -fx-background-image: url('left.png');
+  -fx-background-size: 24px;
+  -fx-background-position: center;
+  -fx-background-repeat: no-repeat;
+}
+.right-button{
+  -fx-background-image: url('right.png');
+  -fx-background-size: 24px;
+  -fx-background-position: center;
+  -fx-background-repeat: no-repeat;
+}
+.delete-button{
+  -fx-background-image: url('backspace.png');
+  -fx-background-size: 24px;
+  -fx-background-position: center;
+  -fx-background-repeat: no-repeat;
+}

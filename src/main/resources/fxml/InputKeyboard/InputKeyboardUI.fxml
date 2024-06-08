@@ -282,12 +282,11 @@
 							<styleClass>
 								<String fx:value="function-button" />
 								<String fx:value="normal-button" />
+								<String fx:value="left-button" />
 							</styleClass>
                      <graphic>
                         <ImageView fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../images/left.png" />
-                           </image>
+
                         </ImageView>
                      </graphic>
 						</Button>
@@ -295,15 +294,14 @@
 							<styleClass>
 								<String fx:value="function-button" />
 								<String fx:value="normal-button" />
+								<String fx:value="delete-button" />
 							</styleClass>
 							<GridPane.margin>
 								<Insets top="5.0" />
 							</GridPane.margin>
                      <graphic>
                         <ImageView fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../images/backspace.png" />
-                           </image>
+
                         </ImageView>
                      </graphic>
 						</Button>
@@ -311,12 +309,11 @@
 							<styleClass>
 								<String fx:value="function-button" />
 								<String fx:value="normal-button" />
+								<String fx:value="right-button" />
 							</styleClass>
                      <graphic>
                         <ImageView fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../images/right.png" />
-                           </image>
+
                         </ImageView>
                      </graphic>
 						</Button>
@@ -520,17 +517,23 @@
 								<String fx:value="letter-button" />
 							</styleClass>
 						</Button>
-						<Button mnemonicParsing="false" onMousePressed="#deleteButtonPressing" text="Delete">
+						<Button mnemonicParsing="false" onMousePressed="#deleteButtonPressing" >
 							<HBox.margin>
 								<Insets left="55.0" />
 							</HBox.margin>
 							<styleClass>
 								<String fx:value="normal-button" />
 								<String fx:value="function-button" />
+								<String fx:value="delete-button" />
 							</styleClass>
 							<padding>
 								<Insets left="30.0" right="30.0" />
 							</padding>
+							<graphic>
+								<ImageView fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+
+								</ImageView>
+							</graphic>
 						</Button>
 					</children>
 					<VBox.margin>
@@ -794,17 +797,24 @@
 								<String fx:value="letter-button" />
 							</styleClass>
 						</Button>
-						<Button mnemonicParsing="false" onMousePressed="#deleteButtonPressing" text="Delete">
+						<Button mnemonicParsing="false" onMousePressed="#deleteButtonPressing" >
 							<HBox.margin>
 								<Insets left="55.0" />
 							</HBox.margin>
 							<styleClass>
 								<String fx:value="normal-button" />
 								<String fx:value="function-button" />
+								<String fx:value="delete-button" />
+
 							</styleClass>
 							<padding>
 								<Insets left="30.0" right="30.0" />
 							</padding>
+							<graphic>
+								<ImageView fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+
+								</ImageView>
+							</graphic>
 						</Button>
 					</children>
 					<VBox.margin>
