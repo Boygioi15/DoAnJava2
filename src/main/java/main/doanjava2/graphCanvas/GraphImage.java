@@ -161,6 +161,9 @@ public class GraphImage {
 		}
 	}
 	private void drawGraph() {
+		if(!dataRef.isActive()){
+			return;
+		}
 		if(dataRef.getExpressionString().equals("")) {
 			dataRef.setErrorString("");
 			return;

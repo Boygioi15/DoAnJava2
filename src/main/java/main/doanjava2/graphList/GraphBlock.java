@@ -14,7 +14,9 @@ import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
+import javafx.scene.input.MouseButton;
 import javafx.scene.layout.Region;
+import javafx.scene.paint.Color;
 import main.doanjava2.GraphData;
 import main.doanjava2.LineType;
 import main.doanjava2.MainController;
@@ -135,7 +137,12 @@ public class GraphBlock extends HBox {
 
     private void initEvent() {
         colorAndActive.setOnMouseClicked(Object -> {
-            toggleConfig();
+            if(Object.getButton()== MouseButton.SECONDARY){
+                toggleConfig();
+            }
+            else{
+                model.setActive(!model.isActive());
+            }
         });
         dupicateMenuItem.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -294,8 +301,12 @@ public class GraphBlock extends HBox {
         }else{
             errorPane.setVisible(false);
         }
-
-        colorAndActive.setFill(model.getGraphColor());
+        if(model.isActive()){
+            colorAndActive.setFill(model.getGraphColor());
+        }
+        else{
+            colorAndActive.setFill(Color.TRANSPARENT);
+        }
         opacitySlider.setValue(model.getOpacity());
         widthSlider.setValue(model.getLineWidth());
         typeComboBox.setValue(model.getLineType().toString());
