@@ -52,7 +52,6 @@ public class MainController implements Initializable {
     public File currentFile = null;
     public final BooleanProperty isChanged = new SimpleBooleanProperty(false);
 
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         organizeRef();
