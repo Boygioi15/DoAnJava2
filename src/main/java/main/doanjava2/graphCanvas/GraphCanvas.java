@@ -206,7 +206,7 @@ public class GraphCanvas extends AnchorPane{
 	public void showPopUp(Integer x, Integer y) {
 		// Xóa nội dung cũ và tạo nội dung mới
 		setPopUpText(x,y);
-
+		;
 		// Thiết lập nội dung cho PopOver
 		popUp.getContent().clear();
 		popUp.getContent().add(content);

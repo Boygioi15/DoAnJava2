@@ -1,16 +1,20 @@
 .dialog-pane {
-    -fx-background-color: black;
+    -fx-background-color: white;
 }
 
 .dialog-pane .label {
-    -fx-text-fill: white;
+    -fx-text-fill: black;
+    -fx-font-family : Arial;
+    -fx-font-size: 14;
 }
 
 .dialog-pane .header-panel {
-    -fx-background-color: black;
+    -fx-background-color: white;
 }
 
 .dialog-pane .header-panel .label {
-    -fx-font-style: italic;
-    -fx-font-size: 2em;
+    -fx-font-family : Arial;
+    -fx-font-size: 16;
+    -fx-font-weight: bold;
+    -fx-text-fill: black;
 }

@@ -99,6 +99,16 @@
     -fx-background-radius: 5;
     -fx-background-color: #FDFDFD;
 }
+.hello-block .pin-btn{
+    -fx-background-radius: 5;
+    -fx-background-color: transparent;
+}
+.hello-block .pin-btn:hover{
+    -fx-background-color: #FEFEFE;
+}
+.hello-block .pin-btn:pressed{
+    -fx-background-color: #FFFFFF;
+}
 .hello-block:hover{
     -fx-background-color: #EDEDED;
     -fx-border-color: #1F83D1;

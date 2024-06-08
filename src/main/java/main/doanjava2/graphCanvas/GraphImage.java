@@ -176,6 +176,7 @@ public class GraphImage {
 		if(replacedExpression.isEmpty()){
 			return;
 		}
+		replacedExpression = replacedExpression.replaceAll("π","pi");
 		double plottingSpace = GraphImage_Params.plottingSpaceOnScreen/canvas.getWidth() * settingRef.getBoundaryWidth();
 		double currentX = settingRef.leftBoundary.get();
 		double endX = settingRef.rightBoundary.get()+plottingSpace;
@@ -191,7 +192,7 @@ public class GraphImage {
 		if(!dataRef.isSelected()){
 			gc.setLineWidth(dataRef.getLineWidth());
 		}else{
-			gc.setLineWidth(5);
+			gc.setLineWidth(dataRef.getLineWidth()+1.5);
 		}
 
 		gc.setGlobalAlpha(dataRef.getOpacity());

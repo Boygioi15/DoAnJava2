@@ -31,8 +31,11 @@ public class Main extends Application {
         //set Stage boundaries to visible bounds of the main screen
         newStage.setX(primaryScreenBounds.getMinX());
         newStage.setY(primaryScreenBounds.getMinY());
-        newStage.setWidth(primaryScreenBounds.getWidth());
-        newStage.setHeight(primaryScreenBounds.getHeight());
+        newStage.setWidth(1000);
+        newStage.setHeight(700);
+
+        newStage.setMinWidth(1000);
+        newStage.setMinHeight(700);
         newStage.setScene(newScene);
         newStage.setTitle("Graph drawer");
         newStage.show();
@@ -86,6 +89,7 @@ public class Main extends Application {
         primaryStage.setTitle("Graph drawer");
         primaryStage.show();
 
+        primaryStage.setResizable(false);
         OpenController openController = loader.getController();
         openController.setPrimaryStage(primaryStage); // Inject primaryStage into OpenController
         openController.initManager();

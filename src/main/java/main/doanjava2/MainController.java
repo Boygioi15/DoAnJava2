@@ -393,6 +393,9 @@ public class MainController implements Initializable {
     }
 
     public void duplicateGraphData(GraphData original) {
+        if(graphData.size()>19){
+            return;
+        }
         if (original != null) {
             GraphData temp = original.clone();
             if (temp.getExpressionString().isEmpty()) {

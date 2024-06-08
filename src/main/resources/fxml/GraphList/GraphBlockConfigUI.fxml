@@ -39,7 +39,7 @@
       </HBox>
       <HBox alignment="CENTER_LEFT" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <children>
-            <Slider fx:id="widthSlider" blockIncrement="0.5" max="5.0" minWidth="100.0" prefWidth="100.0" showTickLabels="true" value="1.0" />
+            <Slider fx:id="widthSlider" blockIncrement="0.5" max="4.0" minWidth="100.0" prefWidth="100.0" showTickLabels="true" value="1.0" />
             <Label fx:id="widthLabel" text="1">
                <HBox.margin>
                   <Insets bottom="5.0" />

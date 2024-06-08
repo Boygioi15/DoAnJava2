@@ -166,6 +166,9 @@ public class GraphBlock extends HBox {
 
         expressionTextField.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.ENTER) {
+                if(mnr.graphData.size()>19){
+                    return;
+                }
                 handleTextProperties();
                 expressionTextField.positionCaret(expressionTextField.getText().length());
                 mnr.graphData.add(order.get()+1,new GraphData());
