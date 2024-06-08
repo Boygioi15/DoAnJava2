@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Objects;
 
+import main.doanjava2.GraphData;
 import main.doanjava2.graphList.ControlCode;
 import main.doanjava2.MainController;
 import org.controlsfx.control.PopOver;
@@ -182,7 +183,10 @@ public class InputKeyboard extends AnchorPane {
 		mnr.forwardControlRequest(ControlCode.MoveCaretLeft);
 		mnr.forwardControlRequest(ControlCode.Delete);
 	}
-
+	@FXML
+	private void enter(){
+		mnr.graphData.add(mnr.getSelectedGraph()+1,new GraphData());
+	}
 	// control buttons
 	private @FXML Button insert_squarePower;
 	private @FXML Button insert_genericPower;
