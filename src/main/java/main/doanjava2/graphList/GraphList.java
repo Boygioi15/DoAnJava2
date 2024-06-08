@@ -189,11 +189,17 @@ public class GraphList extends GridPane {
     }
     public void handleControlRequest(ControlCode code) {
     	if(code==ControlCode.MoveCaretLeft) {
+            if(currentlySelectedTextField==null){
+                return;
+            }
     		if(currentlySelectedTextField.getCaretPosition()>0) {
     			currentlySelectedTextField.positionCaret(currentlySelectedTextField.getCaretPosition()-1);
     		}
     	}
     	else if(code==ControlCode.MoveCaretRight) {
+            if(currentlySelectedTextField==null){
+                return;
+            }
     		currentlySelectedTextField.positionCaret(currentlySelectedTextField.getCaretPosition()+1);
     	}
     }

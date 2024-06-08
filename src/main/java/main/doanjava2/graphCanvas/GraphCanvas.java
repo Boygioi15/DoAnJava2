@@ -605,9 +605,21 @@ public class GraphCanvas extends AnchorPane{
 	@FXML
 	private void translateCanvas(MouseEvent e) {
 		//System.out.println("Drag detected!!!");
-		double pX = e.getX()-prevMouseX;
-		double pY = e.getY()-prevMouseY;
-		
+		double pX, pY;
+		if(prevMouseX==null){
+			pX = e.getX();
+		}
+		else{
+			pX = e.getX() - prevMouseX;
+		}
+
+		if(prevMouseY==null){
+			pY = e.getY();
+		}
+		else{
+			pY = e.getY() - prevMouseY;
+		}
+
 		setting.translateForward(pX, pY);
 		background.update();
 		for(GraphImage graphImage : graphImages) {

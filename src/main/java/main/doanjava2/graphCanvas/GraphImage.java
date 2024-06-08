@@ -16,6 +16,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.layout.Region;
 import javafx.scene.paint.Color;
 import main.doanjava2.GraphData;
+import main.doanjava2.LineType;
 import main.doanjava2.MainController;
 
 
@@ -318,13 +319,13 @@ public class GraphImage {
 		}
 		//System.out.println("\n\n");
 	}
-
+	private boolean even = true;
 	private void drawLine(PointInfo a, PointInfo b){
 		if(a.getState().equals(PointState.Outside)&&b.getState().equals(PointState.Outside)){
 			return;
 		}
 		gc.strokeLine(a.getOnScreenX(), a.getOnScreenY(),
-				b.getOnScreenX(), b.getOnScreenY());
+					b.getOnScreenX(), b.getOnScreenY());
 		selectionMatrix.PlotPoint(index,(int)a.getOnScreenX(),(int)a.getOnScreenY());
 		selectionMatrix.PlotPoint(index,(int)b.getOnScreenX(),(int)b.getOnScreenY());
 	}
