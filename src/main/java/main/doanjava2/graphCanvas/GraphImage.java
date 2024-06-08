@@ -205,7 +205,7 @@ public class GraphImage {
 			PointState curState = curPointInfo.getState();
 
 			if(curState.equals(PointState.Dead)){
-				System.out.println("1: " + curPointInfo.errorMessage);
+				//System.out.println("1: " + curPointInfo.errorMessage);
 				dataRef.setErrorString(curPointInfo.errorMessage);
 				return;
 			}

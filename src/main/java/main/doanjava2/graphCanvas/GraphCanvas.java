@@ -83,7 +83,7 @@ public class GraphCanvas extends AnchorPane{
 					showPopUp(point.getKey(), point.getValue());
 				}
 			}
-			System.out.println("Graph: " +selectionMatrix.GetNearbyGraphIndex((int) ob.getX(), (int) ob.getY()));
+			//System.out.println("Graph: " +selectionMatrix.GetNearbyGraphIndex((int) ob.getX(), (int) ob.getY()));
 		});
 		this.setOnMouseDragged(ob -> {
 			if (mnr.getSelectedGraph() != -1) {
@@ -115,7 +115,7 @@ public class GraphCanvas extends AnchorPane{
 		});
 		this.setOnScroll(ob ->{
 			if (isMousePressed) {
-				System.out.println("Scroll while mouse is pressed");
+				//System.out.println("Scroll while mouse is pressed");
 			} else {
 				zoomCanvas(ob);
 			}
@@ -403,13 +403,13 @@ public class GraphCanvas extends AnchorPane{
 		graphImages.add(pos, tempGraphImage);
 		graphImages.get(pos).update();
 		updateViewOrder();
-		System.out.println(graphData.toString()+ " is added at " + pos);
+		//System.out.println(graphData.toString()+ " is added at " + pos);
 	}
 	private void removeGraph(int pos) {
 		graphImages.get(pos).clear();
 		graphImages.remove(pos);
 		updateViewOrder();
-		System.out.println("An element is removed at " + pos);
+		//System.out.println("An element is removed at " + pos);
 	}
 	private void updateIndex(){
 		for(int i = 0;i<graphImages.size();i++){

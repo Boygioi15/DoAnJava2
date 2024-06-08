@@ -22,9 +22,9 @@ public class SaveObject {
 
 	public void printGraphDataSize() {
 		if (graphDatas != null) {
-			System.out.println("Số lượng phần tử trong graphData: " + graphDatas.size());
+		//	System.out.println("Số lượng phần tử trong graphData: " + graphDatas.size());
 		} else {
-			System.out.println("graphData chưa được khởi tạo.");
+		//	System.out.println("graphData chưa được khởi tạo.");
 		}
 	}
 

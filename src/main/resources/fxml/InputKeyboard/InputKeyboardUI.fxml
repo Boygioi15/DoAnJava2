@@ -81,7 +81,7 @@
 						</HBox>
 						<HBox alignment="CENTER" spacing="5.0">
 							<children>
-								<Button mnemonicParsing="false" onMousePressed="#insertAbsButtonPressing" text="|x|">
+								<Button mnemonicParsing="false" onMousePressed="#insertSpecialButtonPressing" text="abs">
 									<styleClass>
 										<String fx:value="normal-button" />
 										<String fx:value="number-button" />

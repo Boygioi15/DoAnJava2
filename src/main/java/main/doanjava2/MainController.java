@@ -456,7 +456,7 @@ public class MainController implements Initializable {
             graphData.get(selection).setSelected(true);
         }
         graphList.updateSelectedGraphBlock(selection);
-        System.out.println("Check selection" + selection);
+        //System.out.println("Check selection" + selection);
     }
 
     public int getSelectedGraph() {

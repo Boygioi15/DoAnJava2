@@ -43,7 +43,7 @@ public class GraphExpression {
         if (key != null) {
             functionMap.put(key, expression);
         } else {
-            System.out.println("Maximum number of functions reached.");
+            //System.out.println("Maximum number of functions reached.");
         }
     }
 
@@ -90,7 +90,7 @@ public class GraphExpression {
         if (functionMap.containsKey(functionName)) {
             functionMap.put(functionName, expression);
         } else {
-            System.out.println("Function " + functionName + " does not exist.");
+            //System.out.println("Function " + functionName + " does not exist.");
         }
     }
 
@@ -149,9 +149,9 @@ public class GraphExpression {
                         //System.out.println("check log:" +extractFunctionText(expression,openParenIndex-1));
                         if(!defaultFunctions.contains(extractFunctionText(expression,openParenIndex-1)))
                         {
-                            System.out.println("openParenIndex: " + openParenIndex);
+                            //System.out.println("openParenIndex: " + openParenIndex);
                             int closeParenIndex = findClosingParenthesis(expression, openParenIndex);
-                            System.out.println("closeParenIndex: " + closeParenIndex);
+                            //System.out.println("closeParenIndex: " + closeParenIndex);
                             if (closeParenIndex != -1) {
                                 String arg = expression.substring(openParenIndex, closeParenIndex);
                                 //System.out.println("arg: " + arg);
