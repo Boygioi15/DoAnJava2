@@ -61,6 +61,9 @@ public class MainController implements Initializable {
         AnchorPane.setTopAnchor(graphList,topNavbar.getHeight());
         AnchorPane.setTopAnchor(graphCanvas,topNavbar.getHeight());
 
+        filePanel.CloseFilePanel();
+        graphCanvas.CloseSettingUI();
+        createNewGraphDataAtEnd();
         mainUIScreen.addEventFilter(MouseEvent.MOUSE_CLICKED, event -> {
             //System.out.println(event.getSource().toString());
             if(!isEventFromNode(event,topNavbar)){

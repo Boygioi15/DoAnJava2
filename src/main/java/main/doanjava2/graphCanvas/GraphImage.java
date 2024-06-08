@@ -2,6 +2,7 @@ package main.doanjava2.graphCanvas;
 
 import java.math.BigDecimal;
 import java.math.MathContext;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -116,7 +117,7 @@ public class GraphImage {
 
 			catch (Expression.ExpressionException e){
 				String message = e.getMessage();
-				if(message.startsWith("Argument to")||message.startsWith("Infinite ")){
+				if(message.startsWith("Argument to")||message.startsWith("Infinite ")||message.startsWith("Illegal ")){
 					state = PointState.Undetermined;
 				}
 				else {
@@ -130,7 +131,7 @@ public class GraphImage {
 					state = PointState.Undetermined;
 					return;
 				}
-				if(message.startsWith("Argument to")){
+				if(message.startsWith("Argument to")||message.startsWith("Infinite ")||message.startsWith("Illegal ")){
 					state = PointState.Undetermined;
 				}
 				else {
@@ -176,32 +177,9 @@ public class GraphImage {
 		double currentX = settingRef.leftBoundary.get();
 		double endX = settingRef.rightBoundary.get()+plottingSpace;
 		double preX = currentX-plottingSpace/2;
-			
+
 		Expression expression = new Expression(replacedExpression);
-		expression.addFunction(expression.new Function("sin", 1) {
-			@Override
-			public BigDecimal eval(List<BigDecimal> parameters) {
-				BigDecimal result = BigDecimalMath.cos(parameters.get(0), MathContext.DECIMAL32);
-				return result;
-			}
-		});	
-		expression.addFunction(expression.new Function("tan", 1) {
-			@Override
-			public BigDecimal eval(List<BigDecimal> parameters) {
-				BigDecimal result = BigDecimalMath.tan(parameters.get(0), MathContext.DECIMAL32);
-				return result;
-			}
-		});
-		expression.addFunction(expression.new Function("log", 1) {
-			@Override
-			public BigDecimal eval(List<BigDecimal> parameters) {
-				if(parameters.get(0).doubleValue()<0.0001) {
-					return new BigDecimal(-1e+9);
-				}
-				BigDecimal result = BigDecimalMath.log(parameters.get(0), MathContext.DECIMAL32);
-				return result;
-			}
-		});
+		prepareExpression(expression);
 		//System.out.println("Result: " + result);  
 	
 		PointInfo prePointInfo = new PointInfo(preX,expression);
@@ -223,6 +201,7 @@ public class GraphImage {
 			PointState curState = curPointInfo.getState();
 
 			if(curState.equals(PointState.Dead)){
+				System.out.println("1: " + curPointInfo.errorMessage);
 				dataRef.setErrorString(curPointInfo.errorMessage);
 				return;
 			}
@@ -255,6 +234,93 @@ public class GraphImage {
 		}
 		dataRef.setErrorString("");
 	}
+	private void prepareExpression(Expression e){
+		e.addFunction(e.new Function("sin", 1) {
+			@Override
+			public BigDecimal eval(List<BigDecimal> parameters) {
+				BigDecimal result = BigDecimalMath.sin(parameters.get(0), MathContext.DECIMAL32);
+				return result;
+			}
+		});
+		e.addFunction(e.new Function("cos", 1) {
+			@Override
+			public BigDecimal eval(List<BigDecimal> parameters) {
+				BigDecimal result = BigDecimalMath.cos(parameters.get(0), MathContext.DECIMAL32);
+				return result;
+			}
+		});
+		e.addFunction(e.new Function("tan", 1) {
+			@Override
+			public BigDecimal eval(List<BigDecimal> parameters) {
+				BigDecimal result = BigDecimalMath.tan(parameters.get(0), MathContext.DECIMAL32);
+				return result;
+			}
+		});
+
+		e.addFunction(e.new Function("ln", 1) {
+			@Override
+			public BigDecimal eval(List<BigDecimal> parameters) {
+				if(parameters.get(0).doubleValue()<0.0001) {
+					return new BigDecimal(-1e+9);
+				}
+				BigDecimal result = BigDecimalMath.log(parameters.get(0), MathContext.DECIMAL32);
+				return result;
+			}
+		});
+		e.addFunction(e.new Function("log10", 1) {
+			@Override
+			public BigDecimal eval(List<BigDecimal> parameters) {
+				if(parameters.get(0).doubleValue()<0.0001) {
+					return new BigDecimal(-1e+9);
+				}
+				BigDecimal result = BigDecimalMath.log10(parameters.get(0), MathContext.DECIMAL32);
+				return result;
+			}
+		});
+		e.addFunction(e.new Function("log2", 1) {
+			@Override
+			public BigDecimal eval(List<BigDecimal> parameters) {
+				if(parameters.get(0).doubleValue()<0.0001) {
+					return new BigDecimal(-1e+9);
+				}
+				BigDecimal result = BigDecimalMath.log2(parameters.get(0), MathContext.DECIMAL32);
+				return result;
+			}
+		});
+		e.addFunction(e.new Function("log", 2) {
+			@Override
+			public BigDecimal eval(List<BigDecimal> parameters) {
+				if(parameters.get(0).doubleValue()<0.0001) {
+					return new BigDecimal(-1e+9);
+				}
+				BigDecimal result = BigDecimalMath.log(parameters.get(0), MathContext.DECIMAL32).divide(BigDecimalMath.log(parameters.get(1),MathContext.DECIMAL32),RoundingMode.DOWN);
+				return result;
+			}
+		});
+		e.addFunction(e.new Function("asin", 1) {
+			@Override
+			public BigDecimal eval(List<BigDecimal> parameters) {
+				BigDecimal result = BigDecimalMath.asin(parameters.get(0), MathContext.DECIMAL32);
+				return result;
+			}
+		});
+		e.addFunction(e.new Function("acos", 1) {
+			@Override
+			public BigDecimal eval(List<BigDecimal> parameters) {
+				BigDecimal result = BigDecimalMath.acos(parameters.get(0), MathContext.DECIMAL32);
+				return result;
+			}
+		});
+		e.addFunction(e.new Function("atan", 1) {
+			@Override
+			public BigDecimal eval(List<BigDecimal> parameters) {
+				BigDecimal result = BigDecimalMath.atan(parameters.get(0), MathContext.DECIMAL32);
+				return result;
+			}
+		});
+
+	}
+
 	private List<PointInfo> getPointList(PointInfo a, PointInfo b, Expression e, int currentRecursion){
 		List<PointInfo> result = new ArrayList<>();
 		//angle

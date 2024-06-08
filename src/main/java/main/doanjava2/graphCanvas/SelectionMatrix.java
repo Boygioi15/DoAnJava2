@@ -18,16 +18,16 @@ public class SelectionMatrix {
         backgroundCanvas = new Canvas();
     }
     public int GetNearbyGraphIndex(int mouseX, int mouseY) {
-
         // Kiểm tra nếu tọa độ chuột nằm trong giới hạn
         if (mouseX < 0 || mouseY < 0 || mouseX >= w || mouseY >= h) {
             return -1;
         }
-
+        for (int layer = 0; layer < selectionMatrix.size(); layer++) {
+            boolean[][] currentLayer = selectionMatrix.get(layer);
+        }
         // Lặp qua từng lớp
         for (int layer = 0; layer < selectionMatrix.size(); layer++) {
             boolean[][] currentLayer = selectionMatrix.get(layer);
-
             // Kiểm tra các điểm xung quanh trong phạm vi đã chỉ định
             for (int dx = -range; dx <= range; dx++) {
                 for (int dy = -range; dy <= range; dy++) {
@@ -92,8 +92,8 @@ public class SelectionMatrix {
         selectionMatrix.set(pos,new boolean[w][h]);
     }
     public void InitNewSize(int w, int h){
-        for(boolean[][] layer : selectionMatrix){
-            layer = new boolean[w][h];
+        for(int i = 0;i<selectionMatrix.size();i++){
+            selectionMatrix.set(i,new boolean[w][h]);
         }
         this.w = w;
         this.h = h;

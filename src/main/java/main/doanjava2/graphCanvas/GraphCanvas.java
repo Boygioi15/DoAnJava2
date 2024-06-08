@@ -514,6 +514,9 @@ public class GraphCanvas extends AnchorPane{
 			settingUI.setVisible(true);
 		}
 	}
+	public void CloseSettingUI(){
+		settingUI.setVisible(false);
+	}
 	@FXML
 	private void updateXBoundary() {
 		try {
