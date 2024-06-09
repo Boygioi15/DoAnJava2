@@ -9,6 +9,10 @@ module main.doanjava2 {
     requires ch.obermuhlner.math.big;
     requires jakarta.xml.bind;
     requires org.apache.commons.io;
+    requires org.glassfish.jaxb.core;
+    requires org.glassfish.jaxb.runtime;
+
+
 
     opens main.doanjava2;
     opens main.doanjava2.topNavBar to javafx.fxml, jakarta.xml.bind;

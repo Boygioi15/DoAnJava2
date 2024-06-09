@@ -65,14 +65,14 @@ public class MainController implements Initializable {
         graphCanvas.CloseSettingUI();
         createNewGraphDataAtEnd();
         mainUIScreen.addEventFilter(MouseEvent.MOUSE_CLICKED, event -> {
-            //System.out.println(event.getSource().toString());
+           // System.out.println(event.getSource().toString());
             if(!isEventFromNode(event,topNavbar)){
                 filePanel.CloseFilePanel();
             }
             //setSelectedGraph(-1);
         });
         mainUIScreen.addEventFilter(MouseEvent.MOUSE_DRAGGED, event -> {
-            //System.out.println(event.getSource().toString());
+           // System.out.println(event.getSource().toString());
             if(!isEventFromNode(event,topNavbar)){
                 filePanel.CloseFilePanel();
             }
