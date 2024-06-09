@@ -145,7 +145,10 @@ public class MainController implements Initializable {
             Marshaller marshaller = context.createMarshaller();
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
+            PopDialog.popSuccessDialog("Reached point 1");
             if (currentFile != null && (!currentFile.exists() || currentFile.isDirectory())) {
+                PopDialog.popSuccessDialog("Current file is !null");
+
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                 alert.setTitle("Unable to locate file");
                 alert.setHeaderText("Unable to locate file\nDo you wish to create a new one?");
@@ -173,6 +176,7 @@ public class MainController implements Initializable {
                 return;
             }
             if (currentFile == null) {
+                PopDialog.popSuccessDialog("Current file is null");
                 //open file chooser
                 FileChooser fileChooser = new FileChooser();
                 fileChooser.setTitle("Save File");
@@ -181,8 +185,10 @@ public class MainController implements Initializable {
                 fileChooser.getExtensionFilters().add(extFilter);
                 File file = fileChooser.showSaveDialog(null);
                 if (file == null) {
+                    PopDialog.popErrorDialog("File: null", "");
                     return;
                 }
+                PopDialog.popErrorDialog("File: ", file.getPath());
                 marshaller.marshal(saveObject, file);
                 currentFile = file;
                 filePanel.saveAsButton.setText("Save a new copy");
@@ -208,6 +214,7 @@ public class MainController implements Initializable {
             Marshaller marshaller = context.createMarshaller();
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
+            PopDialog.popErrorDialog("Reached here","");
             //open file chooser
             FileChooser fileChooser = new FileChooser();
             fileChooser.setTitle("Save File");
@@ -216,6 +223,7 @@ public class MainController implements Initializable {
             fileChooser.getExtensionFilters().add(extFilter);
             File file = fileChooser.showSaveDialog(null);
             if (file == null) {
+                PopDialog.popErrorDialog("File: null", "");
                 return;
             }
             marshaller.marshal(saveObject, file);
@@ -246,6 +254,9 @@ public class MainController implements Initializable {
                 PopDialog.popErrorDialog("Unable to load data", "");
             }
         }
+        else{
+            PopDialog.popErrorDialog("Unable to load data", "");
+        }
     }
 
     public void PrimitiveLoad(File file) throws JAXBException {
@@ -259,6 +270,7 @@ public class MainController implements Initializable {
                 graphData.clear();
                 //System.out.println(graphData.size());
 
+                PopDialog.popSuccessDialog("Cleared");
                 for (GraphData cGraphData : saveObject.getGraphDatas()) {
                     graphData.add(cGraphData);
                 }
@@ -295,13 +307,13 @@ public class MainController implements Initializable {
                     fileMap.put(fileLocation, pinned);
                 }
             } catch (IOException e) {
-                PopDialog.popErrorDialog("Can't read recent files", "");
+                PopDialog.popErrorDialog("Can't read recent files", e.getMessage());
             }
         } else {
             try {
                 file.createNewFile();
             } catch (IOException e) {
-                PopDialog.popErrorDialog("Can't create recent files", "");
+                PopDialog.popErrorDialog("Can't create recent files", e.getMessage());
             }
         }
         return fileMap;
