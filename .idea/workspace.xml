@@ -9,10 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c0c8e8f-6c6a-46f7-8269-c472333fba20" name="Changes" comment="keyboard">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/DoAnJava2_jar.xml" afterDir="false" />
+    <list default="true" id="7c0c8e8f-6c6a-46f7-8269-c472333fba20" name="Changes" comment="dang fix">
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/DoAnJava2_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/DoAnJava2_jar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/doanjava2/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/doanjava2/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recentFiles.txt" beforeDir="false" afterPath="$PROJECT_DIR$/recentFiles.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -32,7 +33,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="backspaceicon" />
+        <entry key="$PROJECT_DIR$" value="Merge-branch" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -65,23 +66,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.HelloApplication.executor": "Run",
-    "Application.Main.executor": "Run",
-    "Application.MainDeploy.executor": "Run",
-    "JAR Application.DoAnJava2.jar.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "Merge-branch",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/JavaFX with Intelllij/openjfx-22.0.1_windows-x64_bin-sdk/javafx-sdk-22.0.1/bin/vcruntime140_1.dll",
-    "project.structure.last.edited": "Artifacts",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "run.code.analysis.last.selected.profile": "pProject Default"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MainDeploy.executor&quot;: &quot;Run&quot;,
+    &quot;JAR Application.DoAnJava2.jar.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Merge-branch2&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/JavaFX with Intelllij/openjfx-22.0.1_windows-x64_bin-sdk/javafx-sdk-22.0.1/bin/vcruntime140_1.dll&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\pc\Desktop\Hoàng Gia Phong-22521084\Hoàng Gia Phong-22521084\DoAnJava2\src\main\resources\css\DarkTheme\InputKeyboard" />
@@ -136,8 +137,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="JAR Application.DoAnJava2.jar" />
-        <item itemvalue="Application.MainDeploy" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.MainDeploy" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main" />
       </list>
@@ -176,7 +177,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716899596345</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="dang fix">
+      <option name="closed" value="true" />
+      <created>1717900152033</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1717900152033</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -194,6 +203,7 @@
     <MESSAGE value="finish" />
     <MESSAGE value="fix remove empty graphData" />
     <MESSAGE value="fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix" />
+    <MESSAGE value="dang fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="dang fix" />
   </component>
 </project>
